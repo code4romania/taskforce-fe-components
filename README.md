@@ -15,12 +15,18 @@ You can also list any pending features and planned improvements for the project 
 ## Built With
 
 ### Programming languages
+JavaScript
 
 ### Platforms
+Web
 
 ### Frontend framework
+ - [ReactJS](https://reactjs.org/)
+ - [Storybook](https://storybook.js.org/)
+ - [Bulma](https://bulma.io/)
 
 ### Package managers
+npm
 
 ### Database technology & provider
 
@@ -30,11 +36,15 @@ Mention all related repos and projects.
 
 ## Deployment
 
-Guide users through getting your code up and running on their own system. In this section you can talk about:
-1. Installation process
-2. Software dependencies
-3. Latest releases
-4. API references
+1. Install dependencies
+```
+npm install
+```
+2. Run storybook
+```
+npm run storybook
+```
+
 
 Describe and show how to build your code and run the tests.
 
