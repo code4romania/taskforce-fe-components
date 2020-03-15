@@ -10,26 +10,11 @@ export const fullWidth = () => (
     <Instruments layout="grid">
       <section>
         <InstrumentsItem
-          color="#FF1616"
-          title="Stiri oficiale si informații la zi"
-          ctaText="Cele mai noi informații oficiale"
-          ctaOnClick={() => alert("Button Clicked")}
+          color="#05D6C7"
+          title="Instalează-ți add-on-ul de depistat știrile false"
         />
         <InstrumentsItem
-          color="#FF1616"
-          title="Stiri oficiale si informații la zi"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
-        />
-        <InstrumentsItem
-          color="#FF1616"
-          title="Stiri oficiale si informații la zi"
-          ctaText="Cele mai noi informații oficiale"
-          ctaOnClick={() => alert("Button Clicked")}
-        />
-      </section>
-      <section>
-        <InstrumentsItem
-          color="#FF1616"
+          color="#05D6C7"
           title="Stiri oficiale si informații la zi"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
           ctaText="Cele mai noi informații oficiale"
@@ -39,14 +24,25 @@ export const fullWidth = () => (
       <section>
         <InstrumentsItem
           color="#FF1616"
-          title="Stiri oficiale si informații la zi"
+          title="Vrei să ajuți. Intră aici"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
+          ctaText="Centrul de sprijin"
+          ctaOnClick={() => alert("Button Clicked")}
+        />
+      </section>
+      <section>
+        <InstrumentsItem
+          color="#F5BCD6"
+          title="Date în timp real"
+          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
+          ctaText="Vezi situația curentă"
+          ctaOnClick={() => alert("Button Clicked")}
         />
         <InstrumentsItem
           color="#FF1616"
-          title="Stiri oficiale si informații la zi"
+          title="Vrei să ajuți. Intră aici"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
-          ctaText="Cele mai noi informații oficiale"
+          ctaText="Centrul de sprijin"
           ctaOnClick={() => alert("Button Clicked")}
         />
       </section>

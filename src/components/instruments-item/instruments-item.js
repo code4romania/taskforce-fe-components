@@ -10,23 +10,27 @@ export const InstrumentsItem = ({
   ctaOnClick,
   ctaClassName
 }) => {
+  const showContent = content != null && ctaText != null;
+
   return (
     <div className="info-card">
       <div className="card-title" style={color && { borderColor: color }}>
         {title}
       </div>
-      <div className="card-content">
-        {content && <p>{content}</p>}
-        {ctaText && (
-          <button
-            className={ctaClassName}
-            style={color && { backgroundColor: color }}
-            onClick={ctaOnClick}
-          >
-            {ctaText}
-          </button>
-        )}
-      </div>
+      {showContent && (
+        <div className="card-content">
+          {content && <p>{content}</p>}
+          {ctaText && (
+            <button
+              className={ctaClassName}
+              style={color && { backgroundColor: color }}
+              onClick={ctaOnClick}
+            >
+              {ctaText}
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };
