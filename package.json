@@ -11,6 +11,7 @@
     "react-dom": ">= 16.8.0 < 2"
   },
   "scripts": {
+    "start": "npm run storybook",
     "build": "npm run clean && rollup -c",
     "prepare": "npm run build",
     "storybook": "start-storybook -p 9009 -s public",
