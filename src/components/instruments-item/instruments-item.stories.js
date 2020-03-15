@@ -6,7 +6,7 @@ export default { title: "InstrumentsItem" };
 
 const showMessage = () => alert("Hello, friend.");
 
-export const basic = () => (
+export const Default = () => (
   <InstrumentsItem
     color="#FF1616"
     title="Stiri oficiale si informații la zi"
