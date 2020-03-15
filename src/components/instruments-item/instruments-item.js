@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./intruments-item.scss";
+import "./instruments-item.scss";
 
 export const InstrumentsItem = ({
   color,
