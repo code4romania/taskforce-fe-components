@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
 
-  .info-card{
-    margin-bottom: 16px;
+  section > *, > * {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
   }
 }
 
