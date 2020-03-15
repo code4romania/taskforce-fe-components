@@ -10,13 +10,14 @@
   },
   "scripts": {
     "build": "npm run clean && webpack",
+    "build:lib": "npm run clean && BABEL_ENV=production babel src -d lib",
     "prepare": "npm run build",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "build-storybook-docs": "build-storybook -s public --docs",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist && rm -rf lib"
   },
   "husky": {
     "hooks": {
@@ -27,6 +28,9 @@
     "presets": [
       "@babel/env",
       "@babel/preset-react"
+    ],
+    "ignore": [
+      "**/*.stories.js"
     ]
   },
   "browserslist": {
@@ -42,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
@@ -66,6 +71,7 @@
   },
   "description": "Component library for code4ro Taskforce",
   "main": "dist/index.js",
+  "module": "lib",
   "repository": "https://github.com/code4romania/taskforce-fe-components.git",
   "author": "",
   "license": "MIT"
