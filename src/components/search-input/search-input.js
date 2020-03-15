@@ -9,7 +9,7 @@ export const SearchInput = ({
   placeholder = "cauta",
   value
 }) => {
-  const [currentValue, setCurrentValue] = useState(0);
+  const [currentValue, setCurrentValue] = useState("");
   return (
     <div className={`__search-input-container ${hasIcon ? "__has_icon" : ""}`}>
       <input
