@@ -7,7 +7,7 @@ export default { title: "Search Input", decorators: [withKnobs] };
 
 export const searchInput = () => <SearchInput></SearchInput>;
 export const icon = () => (
-  <SearchInput hasIcon={boolean("Has search", true)}></SearchInput>
+  <SearchInput hasIcon={boolean("Has search", false)}></SearchInput>
 );
 export const placeholder = () => (
   <SearchInput

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./search-input.scss";
-import { FaSearch } from "react-icons/fa";
+import SearchIcon from "../../icons/search.svg";
+import classNames from "classnames";
 
 export const SearchInput = ({
   hasIcon = true,
@@ -10,21 +11,30 @@ export const SearchInput = ({
   value
 }) => {
   const [currentValue, setCurrentValue] = useState("");
+  useEffect(() => {
+    if (value) {
+      setCurrentValue(value);
+    }
+  }, []);
   return (
-    <div className={`__search-input-container ${hasIcon ? "__has_icon" : ""}`}>
+    <div
+      className={classNames({
+        "__search-input-container": true,
+        "__has-icon": hasIcon
+      })}
+    >
       <input
         placeholder={placeholder}
-        value={value || currentValue || ""}
+        value={currentValue}
         onChange={event => {
           if (onValueChange) {
             onValueChange(event.target.value);
           }
-          if (!value) {
-            setCurrentValue(event.target.value);
-          }
+
+          setCurrentValue(event.target.value);
         }}
       ></input>
-      {hasIcon ? <FaSearch size={30}></FaSearch> : null}
+      {hasIcon ? <img src={SearchIcon}></img> : null}
     </div>
   );
 };
