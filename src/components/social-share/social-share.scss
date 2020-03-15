@@ -1,0 +1,7 @@
+.__social-share-container {
+  display: flex;
+  align-items: center;
+  & > * {
+    padding: 4px !important;
+  }
+}

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
-    "bulma": "^0.8.0"
+    "@storybook/addon-knobs": "^5.3.17",
+    "bulma": "^0.8.0",
+    "react-share": "^4.1.0"
   },
   "peerDependencies": {
     "prop-types": ">= 15.7.2 < 2",
