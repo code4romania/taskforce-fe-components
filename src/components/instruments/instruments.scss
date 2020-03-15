@@ -1,0 +1,16 @@
+.instruments {
+  display: flex;
+  flex-direction: column;
+
+  .info-card{
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 801px) {
+  .instruments.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+  }
+}
