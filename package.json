@@ -4,6 +4,7 @@
   "private": false,
   "dependencies": {
     "bulma": "^0.8.0",
+    "react-icons": "^3.9.0",
     "react-share": "^4.1.0"
   },
   "peerDependencies": {

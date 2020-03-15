@@ -1,0 +1,24 @@
+.__search-input-container {
+  display: flex;
+  width: 100%;
+  &.__has_icon input {
+    padding-right: 42px;
+  }
+
+  input {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #42d2f2;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 16px 8px;
+    outline: none;
+  }
+  svg {
+    margin-left: -36px;
+    margin-top: 10px;
+  }
+}
