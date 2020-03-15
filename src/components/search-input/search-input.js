@@ -17,7 +17,7 @@ export const SearchInput = ({
         value={value || currentValue || ""}
         onChange={event => {
           if (onValueChange) {
-            onValueChange(event);
+            onValueChange(event.target.value);
           }
           if (!value) {
             setCurrentValue(event.currentTarget.value);
