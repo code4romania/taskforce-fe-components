@@ -1,0 +1,10 @@
+.button {
+  font-family: Titillium Web;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 3px;
+
+  &.is-outlined {
+    font-weight: normal;
+  }
+}

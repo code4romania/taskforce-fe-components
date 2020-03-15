@@ -1,22 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./button.scss";
 
 export const Button = ({ children, onClick, type, inverted }) => {
-  const additionalClasses = [];
+  const classNames = ["button"];
 
   if (type) {
-    additionalClasses.push(`is-${type}`);
+    classNames.push(`is-${type}`);
   }
 
   if (inverted) {
-    additionalClasses.push("is-outlined");
+    classNames.push("is-outlined");
   }
 
   return (
-    <button
-      onClick={onClick}
-      className={"button is-primary " + additionalClasses.join(" ")}
-    >
+    <button onClick={onClick} className={classNames.join(" ")}>
       {children}
     </button>
   );
@@ -27,4 +25,9 @@ Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   type: PropTypes.oneOf(["primary", "danger"]),
   inverted: PropTypes.bool
+};
+
+Button.defaultProps = {
+  type: "primary",
+  inverted: false
 };
