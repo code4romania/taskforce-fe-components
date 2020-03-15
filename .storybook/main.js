@@ -4,6 +4,7 @@ module.exports = {
     "@storybook/react",
     "@storybook/preset-scss",
     "@storybook/addon-docs",
-    "@storybook/addon-storysource"
+    "@storybook/addon-storysource",
+    '@storybook/addon-knobs/register'
   ]
 };
