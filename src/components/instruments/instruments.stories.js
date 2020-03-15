@@ -5,6 +5,8 @@ import { InstrumentsItem } from "../instruments-item/instruments-item";
 
 export default { title: "Instruments" };
 
+const showMessage = () => alert("Hello, friend.");
+
 export const fullWidth = () => (
   <div>
     <Instruments layout="grid">
@@ -18,7 +20,7 @@ export const fullWidth = () => (
           title="Stiri oficiale si informații la zi"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
           ctaText="Cele mai noi informații oficiale"
-          ctaOnClick={() => alert("Button Clicked")}
+          ctaOnClick={showMessage}
         />
       </section>
       <section>
@@ -27,7 +29,7 @@ export const fullWidth = () => (
           title="Vrei să ajuți. Intră aici"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
           ctaText="Centrul de sprijin"
-          ctaOnClick={() => alert("Button Clicked")}
+          ctaOnClick={showMessage}
         />
       </section>
       <section>
@@ -36,14 +38,14 @@ export const fullWidth = () => (
           title="Date în timp real"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
           ctaText="Vezi situația curentă"
-          ctaOnClick={() => alert("Button Clicked")}
+          ctaOnClick={showMessage}
         />
         <InstrumentsItem
           color="#FF1616"
           title="Vrei să ajuți. Intră aici"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
           ctaText="Centrul de sprijin"
-          ctaOnClick={() => alert("Button Clicked")}
+          ctaOnClick={showMessage}
         />
       </section>
     </Instruments>
@@ -57,7 +59,7 @@ export const oneColumn = () => (
         color="#FF1616"
         title="Stiri oficiale si informații la zi"
         ctaText="Cele mai noi informații oficiale"
-        ctaOnClick={() => alert("Button Clicked")}
+        ctaOnClick={showMessage}
       />
       <InstrumentsItem
         color="#FF1616"
@@ -68,14 +70,14 @@ export const oneColumn = () => (
         color="#FF1616"
         title="Stiri oficiale si informații la zi"
         ctaText="Cele mai noi informații oficiale"
-        ctaOnClick={() => alert("Button Clicked")}
+        ctaOnClick={showMessage}
       />
       <InstrumentsItem
         color="#FF1616"
         title="Stiri oficiale si informații la zi"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
         ctaText="Cele mai noi informații oficiale"
-        ctaOnClick={() => alert("Button Clicked")}
+        ctaOnClick={showMessage}
       />
     </Instruments>
   </div>
