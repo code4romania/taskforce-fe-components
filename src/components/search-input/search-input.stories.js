@@ -17,8 +17,8 @@ export const placeholder = () => (
 
 export const onValueChanged = () => (
   <SearchInput
-    onValueChange={event => {
-      alert(event.currentTarget.value);
+    onValueChange={value => {
+      alert(value);
     }}
   ></SearchInput>
 );
