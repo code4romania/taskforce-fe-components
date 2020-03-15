@@ -20,7 +20,7 @@ export const SearchInput = ({
             onValueChange(event.target.value);
           }
           if (!value) {
-            setCurrentValue(event.currentTarget.value);
+            setCurrentValue(event.target.value);
           }
         }}
       ></input>
