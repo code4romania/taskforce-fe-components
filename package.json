@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
-    "bulma": "^0.8.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "bulma": "^0.8.0"
+  },
+  "peerDependencies": {
+    "prop-types": ">= 15.7.2 < 2",
+    "react": ">= 16.8.0 < 2",
+    "react-dom": ">= 16.8.0 < 2"
   },
   "scripts": {
-    "build": "npm run clean && webpack",
+    "build": "npm run clean && rollup -c",
     "prepare": "npm run build",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
@@ -42,31 +44,33 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
-    "@babel/preset-react": "^7.8.3",
     "@storybook/addon-docs": "^5.3.17",
     "@storybook/addon-storysource": "^5.3.17",
     "@storybook/preset-scss": "^1.0.2",
     "@storybook/react": "^5.3.17",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
-    "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
     "husky": "^4.2.3",
-    "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "prettier": "^1.19.1",
-    "sass-loader": "^8.0.2",
+    "rollup": "^1.29.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-postcss": "^2.4.1",
     "style-loader": "^1.1.3",
-    "webpack-cli": "^3.3.11"
+    "sass-loader": "^8.0.2"
   },
   "description": "Component library for code4ro Taskforce",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "style": "dist/index.css",
   "repository": "https://github.com/code4romania/taskforce-fe-components.git",
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "files": [
+    "dist"
+  ]
 }
