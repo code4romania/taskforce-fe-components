@@ -8,8 +8,16 @@ import "./partner-logo.scss";
 export const PartnerLogo = () => {
   return (
     <div className="partner-logo">
-      <img src={logoBig} className="partner-logo--big" alt="Partener" />
-      <img src={logoSmall} className="partner-logo--small" alt="Partener" />
+      <img
+        src={logoBig}
+        className="partner-logo--big"
+        alt="Guvernul Romaniei"
+      />
+      <img
+        src={logoSmall}
+        className="partner-logo--small"
+        alt="Guvernul Romaniei"
+      />
     </div>
   );
 };
