@@ -1,4 +1,4 @@
-$instruments-item-default-color: #05d6c7;
+
 $instruments-item-header-bg-color: #f2f2f2;
 $instruments-item-header-content-color: rgba(247, 247, 247, 0.5);
 
@@ -9,7 +9,6 @@ $instruments-item-header-content-color: rgba(247, 247, 247, 0.5);
     font-size: 16px;
     display: flex;
     padding: 20px;
-    border-color: $instruments-item-default-color;
   }
   .card-content {
     background: $instruments-item-header-content-color;
@@ -27,7 +26,6 @@ $instruments-item-header-content-color: rgba(247, 247, 247, 0.5);
       padding: 8px;
       cursor: pointer;
       border-radius: 3px;
-      background: $instruments-item-default-color;
       color: #ffffff;
     }
   }

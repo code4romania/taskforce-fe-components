@@ -19,7 +19,7 @@ export const grid = () => (
         title="Stiri oficiale si informații la zi"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
         ctaText="Cele mai noi informații oficiale"
-        ctaOnClick={showMessage}
+        onClick={showMessage}
       />
     </section>
     <section>
@@ -28,7 +28,7 @@ export const grid = () => (
         title="Vrei să ajuți. Intră aici"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
         ctaText="Centrul de sprijin"
-        ctaOnClick={showMessage}
+        onClick={showMessage}
       />
     </section>
     <section>
@@ -37,14 +37,14 @@ export const grid = () => (
         title="Date în timp real"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
         ctaText="Vezi situația curentă"
-        ctaOnClick={showMessage}
+        onClick={showMessage}
       />
       <InstrumentsItem
         color="#FF1616"
         title="Vrei să ajuți. Intră aici"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
         ctaText="Centrul de sprijin"
-        ctaOnClick={showMessage}
+        onClick={showMessage}
       />
     </section>
   </Instruments>
@@ -61,21 +61,21 @@ export const oneColumn = () => (
       title="Stiri oficiale si informații la zi"
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
       ctaText="Cele mai noi informații oficiale"
-      ctaOnClick={showMessage}
+      onClick={showMessage}
     />
     <InstrumentsItem
       color="#FF1616"
       title="Vrei să ajuți. Intră aici"
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
       ctaText="Centrul de sprijin"
-      ctaOnClick={showMessage}
+      onClick={showMessage}
     />
     <InstrumentsItem
       color="#F5BCD6"
       title="Date în timp real"
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
       ctaText="Vezi situația curentă"
-      ctaOnClick={showMessage}
+      onClick={showMessage}
     />
   </Instruments>
 );

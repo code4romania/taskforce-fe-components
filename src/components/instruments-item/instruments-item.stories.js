@@ -12,7 +12,7 @@ export const Default = () => (
     title="Stiri oficiale si informații la zi"
     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
     ctaText="Cele mai noi informații oficiale"
-    ctaOnClick={showMessage}
+    onClick={showMessage}
   />
 );
 
@@ -33,6 +33,6 @@ export const withoutContent = () => (
     color="#F5BCD6"
     title="Stiri oficiale si informații la zi"
     ctaText="Cele mai noi informații oficiale"
-    ctaOnClick={showMessage}
+    onClick={showMessage}
   />
 );

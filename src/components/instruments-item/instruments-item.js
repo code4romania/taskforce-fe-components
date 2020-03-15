@@ -7,8 +7,8 @@ export const InstrumentsItem = ({
   title,
   content,
   ctaText,
-  ctaOnClick,
-  ctaClassName
+  ctaClassName,
+  onClick
 }) => {
   const showContent = content != null || ctaText != null;
 
@@ -24,7 +24,7 @@ export const InstrumentsItem = ({
             <button
               className={ctaClassName}
               style={color && { backgroundColor: color }}
-              onClick={ctaOnClick}
+              onClick={onClick}
             >
               {ctaText}
             </button>
@@ -40,6 +40,10 @@ InstrumentsItem.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   ctaText: PropTypes.string,
-  ctaOnClick: PropTypes.func,
-  ctaClassName: PropTypes.string
+  ctaClassName: PropTypes.string,
+  onClick: PropTypes.func
+};
+
+InstrumentsItem.defaultProps = {
+  color: "#05d6c7"
 };
