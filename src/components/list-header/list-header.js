@@ -8,5 +8,5 @@ export const ListHeader = ({ title }) => {
 };
 
 ListHeader.propTypes = {
-  title: PropTypes.node.isRequired
+  title: PropTypes.string.isRequired
 };
