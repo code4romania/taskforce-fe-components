@@ -10,7 +10,7 @@ export const InstrumentsItem = ({
   ctaOnClick,
   ctaClassName
 }) => {
-  const showContent = content != null && ctaText != null;
+  const showContent = content != null || ctaText != null;
 
   return (
     <div className="info-card">
