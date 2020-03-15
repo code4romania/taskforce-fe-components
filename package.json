@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
-    "@storybook/addon-knobs": "^5.3.17",
     "bulma": "^0.8.0",
     "react-share": "^4.1.0"
   },
@@ -48,6 +47,7 @@
   },
   "devDependencies": {
     "@storybook/addon-docs": "^5.3.17",
+    "@storybook/addon-knobs": "^5.3.17",
     "@storybook/addon-storysource": "^5.3.17",
     "@storybook/preset-scss": "^1.0.2",
     "@storybook/react": "^5.3.17",
