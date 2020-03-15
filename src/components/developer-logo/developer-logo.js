@@ -7,7 +7,7 @@ import "./developer-logo.scss";
 export const DeveloperLogo = () => {
   return (
     <div className="developer-logo">
-      <img src={logo} alt="Partener" />
+      <img src={logo} alt="Code for Romania" />
     </div>
   );
 };
