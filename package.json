@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
-    "bulma": "^0.8.0"
+    "bulma": "^0.8.0",
+    "react-share": "^4.1.0"
   },
   "peerDependencies": {
     "prop-types": ">= 15.7.2 < 2",
@@ -11,6 +12,7 @@
     "react-dom": ">= 16.8.0 < 2"
   },
   "scripts": {
+    "start": "npm run storybook",
     "build": "npm run clean && rollup -c",
     "prepare": "npm run build",
     "storybook": "start-storybook -p 9009 -s public",
@@ -45,6 +47,7 @@
   },
   "devDependencies": {
     "@storybook/addon-docs": "^5.3.17",
+    "@storybook/addon-knobs": "^5.3.17",
     "@storybook/addon-storysource": "^5.3.17",
     "@storybook/preset-scss": "^1.0.2",
     "@storybook/react": "^5.3.17",
