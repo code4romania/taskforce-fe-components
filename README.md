@@ -15,45 +15,47 @@ You can also list any pending features and planned improvements for the project 
 ## Built With
 
 ### Programming languages
+
 JavaScript
 
 ### Platforms
+
 Web
 
 ### Frontend framework
- - [ReactJS](https://reactjs.org/)
- - [Storybook](https://storybook.js.org/)
- - [Bulma](https://bulma.io/)
+
+- [ReactJS](https://reactjs.org/)
+- [Storybook](https://storybook.js.org/)
+- [Bulma](https://bulma.io/)
 
 ### Package managers
-npm
 
-### Database technology & provider
+npm
 
 ## Repos and projects
 
 Mention all related repos and projects.
 
-## Deployment
+## Development
 
 1. Install dependencies
+
 ```
 npm install
 ```
+
 2. Run storybook
-```
-npm run storybook
-```
 
-
-Describe and show how to build your code and run the tests.
+```
+npm start
+```
 
 ## Feedback
 
-* Request a new feature on GitHub.
-* Vote for popular feature requests.
-* File a bug in GitHub Issues.
-* Email us with other feedback contact@code4.ro
+- Request a new feature on GitHub.
+- Vote for popular feature requests.
+- File a bug in GitHub Issues.
+- Email us with other feedback contact@code4.ro
 
 ## License
 
