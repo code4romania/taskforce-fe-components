@@ -4,15 +4,15 @@ import "./header.scss";
 import GovLogoSVG from "../../icons/gov_logo.svg";
 import C4RLogoSvg from "../../icons/c4r_logo.svg";
 
-export const Header = ({ name, logo, menuItems, profileItems }) => {
+export const Header = ({ name, Logo, MenuItems, ProfileItems }) => {
   return (
     <header className="App-header">
       <div className="top-header">
-        <div className="app-logo">{logo}</div>
+        <div className="app-logo">{Logo}</div>
         <div className="title">{name}</div>
         <nav>
-          {menuItems}
-          <span>{profileItems}</span>
+          {MenuItems}
+          <span>{ProfileItems}</span>
         </nav>
       </div>
       <div className="bottom-header">
@@ -37,7 +37,7 @@ export const Header = ({ name, logo, menuItems, profileItems }) => {
 
 Header.propTypes = {
   name: PropTypes.string.isRequired,
-  logo: PropTypes.element.isRequired,
-  menuItems: PropTypes.array.isRequired,
-  profileItems: PropTypes.array
+  Logo: PropTypes.element.isRequired,
+  MenuItems: PropTypes.array.isRequired,
+  ProfileItems: PropTypes.array
 };
