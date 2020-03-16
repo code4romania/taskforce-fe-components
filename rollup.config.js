@@ -1,6 +1,7 @@
 import babel from "rollup-plugin-babel";
 import postcss from "rollup-plugin-postcss";
 import pkg from "./package.json";
+import svg from 'rollup-plugin-svg';
 
 export default {
   input: "src/index.js",
@@ -19,6 +20,7 @@ export default {
     }
   ],
   plugins: [
+    svg(),
     postcss({
       extract: true,
       minimize: true
