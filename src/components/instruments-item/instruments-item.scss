@@ -2,6 +2,11 @@
 $instruments-item-header-bg-color: #f2f2f2;
 $instruments-item-header-content-color: rgba(247, 247, 247, 0.5);
 
+$info-card-colors: (
+  'red': #FF1616, 
+  'pink': #F5BCD6,
+  'green': #05D6C7);
+
 .info-card {
   .card-title {
     border-left: 16px solid;
@@ -27,6 +32,17 @@ $instruments-item-header-content-color: rgba(247, 247, 247, 0.5);
       cursor: pointer;
       border-radius: 3px;
       color: #ffffff;
+    }
+  }
+
+  @each $color-name, $color-value in $info-card-colors{
+    &.is-#{$color-name} {
+      .card-title{
+        border-color: $color-value;
+      }
+      .card-content button{
+        background-color: $color-value;
+      }
     }
   }
 }

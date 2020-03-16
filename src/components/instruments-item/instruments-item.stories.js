@@ -8,7 +8,7 @@ const showMessage = () => alert("Hello, friend.");
 
 export const Default = () => (
   <InstrumentsItem
-    color="#FF1616"
+    color="red"
     title="Stiri oficiale si informații la zi"
     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
     ctaText="Cele mai noi informații oficiale"
@@ -17,12 +17,12 @@ export const Default = () => (
 );
 
 export const withHeaderOnly = () => (
-  <InstrumentsItem color="#FF1616" title="Stiri oficiale si informații la zi" />
+  <InstrumentsItem color="red" title="Stiri oficiale si informații la zi" />
 );
 
 export const withoutButton = () => (
   <InstrumentsItem
-    color="#FF1616"
+    color="red"
     title="Stiri oficiale si informații la zi"
     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
   />
@@ -30,7 +30,7 @@ export const withoutButton = () => (
 
 export const withoutContent = () => (
   <InstrumentsItem
-    color="#F5BCD6"
+    color="pink"
     title="Stiri oficiale si informații la zi"
     ctaText="Cele mai noi informații oficiale"
     onClick={showMessage}
