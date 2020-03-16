@@ -1,0 +1,51 @@
+.list-item {
+  background-color: whitesmoke;
+  display: flex;
+  width: 100%;
+
+  &:hover,
+  &:active,
+  &--active {
+    cursor: pointer;
+    background-color: #b6cadb;
+  }
+
+  &:hover &,
+  &:active &,
+  &--active & {
+    &__left-side {
+      svg path {
+        fill: #1C1080;
+      }
+    }
+  }
+
+  &__left-side {
+    background-color: #b6cadb;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-width: 46px;
+
+    svg {
+      align-self: center;
+    }
+  }
+
+  &__right-side {
+    display: flex;
+    margin-right: 30px;
+    svg {
+      align-self: center;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    color: #000;
+    display: flex;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 20px 14px;
+  }
+}
