@@ -15,10 +15,9 @@ const Footer = ({ children }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {/* <img src={Code4romania_gray} alt="Code for Romania gray logo"></img> */}
             <Code4RomaniaGrayLogo style={{ height: 40 }} />
           </a>
-          <p>© 2020 Code for Romania.</p>
+          <p>© {new Date().getFullYear()} Code for Romania.</p>
           <p>
             Organizație neguvernamentală independentă, neafiliată politic și
             apolitică.
