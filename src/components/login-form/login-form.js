@@ -7,7 +7,7 @@ import './login-form.scss';
 export const LoginForm = ({ title }) => {
   return (
     <div className="__login-form-container">
-      <h1 className="subtitle is-1">{title}</h1>
+      <h1 className="subtitle is-2">{title}</h1>
       <Input label="Email" type="email" size="medium" />
       <Input label="Password" type="password" size="medium" />
     </div>
