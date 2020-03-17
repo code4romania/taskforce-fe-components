@@ -7,7 +7,7 @@ export const Header = ({ name, Logo, MenuItems, ProfileItems }) => {
     <header className="App-header">
       <div className="top-header">
         <div className="app-logo">{Logo}</div>
-        <div className="title">{name ? name : ""}</div>
+        <div className="title">{ name || ""}</div>
         <nav>
           {MenuItems}
           <span>{ProfileItems}</span>
