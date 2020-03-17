@@ -5,7 +5,7 @@ import logo from "./assets/logo.png";
 
 import "./developer-logo.scss";
 
-export const DeveloperLogo = ({ src = null }) => {
+export const DeveloperLogo = ({ src }) => {
   return (
     <div className="developer-logo">
       <img src={src || logo} alt="Code for Romania" />

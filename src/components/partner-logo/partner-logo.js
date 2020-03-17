@@ -5,7 +5,7 @@ import logo from "./assets/logo.png";
 
 import "./partner-logo.scss";
 
-export const PartnerLogo = ({ src = null }) => {
+export const PartnerLogo = ({ src }) => {
   return (
     <div className="partner-logo">
       <img src={src || logo} className="partner-logo" alt="Guvernul Romaniei" />
