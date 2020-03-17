@@ -1,0 +1,18 @@
+.instruments {
+  display: flex;
+  flex-direction: column;
+
+  section > *, > * {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media (min-width: 801px) {
+  .instruments.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+  }
+}
