@@ -9,6 +9,8 @@ export * from './components/list/list';
 export * from './components/list-item/list-item';
 export * from './components/instruments/instruments';
 export * from './components/instruments-item/instruments-item';
+export * from './components/footer/footer-links';
+export * from './components/footer/footer';
 export * from './components/checkbox/checkbox';
 export * from './components/input/input';
 export * from './components/label/label';
