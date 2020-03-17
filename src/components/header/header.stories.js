@@ -1,12 +1,12 @@
 import React from "react";
 import { Header } from "./header";
-import LogoSvg from "../../icons/logo_small.svg";
+import CMFSvg from "../../icons/cemafac.svg";
 
 export default { title: "Header" };
 
 const Logo = () => (
   <a href="/">
-    <LogoSvg />
+    <CMFSvg />
   </a>
 );
 
@@ -34,5 +34,15 @@ export const withProfileItems = () => (
     Logo={<Logo />}
     MenuItems={<MenuItems />}
     ProfileItems={<ProfileItems />}
+  />
+);
+
+export const withBottomHeader = () => (
+  <Header
+    name="Ce ma fac"
+    Logo={<Logo />}
+    MenuItems={<MenuItems />}
+    ProfileItems={<ProfileItems />}
+    bottomHeader={true}
   />
 );

@@ -1,10 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./header.scss";
-import GovLogoSVG from "../../icons/gov_logo.svg";
-import C4RLogoSvg from "../../icons/c4r_logo.svg";
+import GovroSvg from "../../icons/govro.svg";
+import Code4Svg from "../../icons/code4romania.svg";
 
-export const Header = ({ name, Logo, MenuItems, ProfileItems }) => {
+export const Header = ({
+  name,
+  Logo,
+  MenuItems,
+  ProfileItems,
+  bottomHeader = false
+}) => {
   return (
     <header className="App-header">
       <div className="top-header">
@@ -15,22 +21,28 @@ export const Header = ({ name, Logo, MenuItems, ProfileItems }) => {
           <span>{ProfileItems}</span>
         </nav>
       </div>
-      <div className="bottom-header">
-        <div className="app-credits">
-          <span>Un proiect dezvoltat de</span>
-          <a href="https://code4.ro/" target="_blank" rel="noopener noreferrer">
-            <C4RLogoSvg />
-          </a>
-          <span>În parteneriat cu </span>
-          <a
-            href="https://www.gov.ro/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GovLogoSVG />
-          </a>
+      {bottomHeader ? (
+        <div className="bottom-header">
+          <div className="app-credits">
+            <span>Un proiect dezvoltat de</span>
+            <a
+              href="https://code4.ro/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Code4Svg />
+            </a>
+            <span>În parteneriat cu </span>
+            <a
+              href="https://www.gov.ro/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GovroSvg />
+            </a>
+          </div>
         </div>
-      </div>
+      ) : null}
     </header>
   );
 };
@@ -39,5 +51,6 @@ Header.propTypes = {
   name: PropTypes.string.isRequired,
   Logo: PropTypes.element.isRequired,
   MenuItems: PropTypes.array.isRequired,
-  ProfileItems: PropTypes.array
+  ProfileItems: PropTypes.array,
+  bottomHeader: PropTypes.bool
 };
