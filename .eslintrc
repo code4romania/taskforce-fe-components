@@ -1,8 +1,7 @@
 {
   "parser": "babel-eslint",
   "env": {
-    "browser": true,
-    "amd": true
+    "browser": true
   },
   "plugins": ["react", "prettier"],
   "extends": [

@@ -1,9 +1,8 @@
 import React from "react";
 import { Hero } from "./hero";
-
+import ArrowSvg from "../../icons/arrow-right.svg";
 const title = "Ce pasi ai de urmat";
 const subtitle = "Pentru a te putea ajuta ...";
-const icon = <img src={require("./covid-all.svg")} alt={"foo"} />;
 
 export default { title: "Hero" };
 
@@ -15,6 +14,10 @@ export const withTitleSubtitle = () => (
 
 export const withTitleSubtitleIcon = () => (
   <Hero title={title} subtitle={subtitle}>
-    {icon}
+    <ArrowSvg />
   </Hero>
+);
+
+export const withDefaultIcon = () => (
+  <Hero title={title} subtitle={subtitle} useFallbackIcon={true} />
 );
