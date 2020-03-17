@@ -7,6 +7,7 @@ export const Input = ({
   disabled,
   label,
   type,
+  name,
   size,
   color,
   rounded,
@@ -31,6 +32,7 @@ export const Input = ({
           <input
             className={inputClasses}
             type={type}
+            name={name}
             disabled={disabled}
             defaultValue={defaultValue}
             onChange={onChange}
@@ -39,6 +41,7 @@ export const Input = ({
           <input
             className={inputClasses}
             type={type}
+            name={name}
             disabled={disabled}
             defaultValue={defaultValue}
             placeholder={label}
@@ -52,6 +55,7 @@ export const Input = ({
 
 Input.propTypes = {
   label: PropTypes.string.isRequired,
+  name: PropTypes.string,
   type: PropTypes.oneOf(['text', 'email', 'password', 'tel']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   onChange: PropTypes.func,
