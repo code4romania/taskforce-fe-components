@@ -1,0 +1,22 @@
+.hero-body {
+  .title {
+    font-size: 32px;
+    line-height: 49px;
+    color: #1c1080;
+    display: flex;
+
+    .hero-icon {
+      display: flex;
+      margin: auto {
+        right: 5px;
+        left: 0;
+      }
+    }
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+  }
+}
