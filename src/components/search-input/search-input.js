@@ -15,7 +15,7 @@ export const SearchInput = ({
     if (value) {
       setCurrentValue(value);
     }
-  }, [value]);
+  }, []);
   return (
     <div
       className={classNames({

@@ -25,6 +25,10 @@ const ProfileItems = () => (
 );
 
 export const withMenuItems = () => (
+  <Header Logo={<Logo />} MenuItems={<MenuItems />} />
+);
+
+export const withName = () => (
   <Header name="Ce ma fac" Logo={<Logo />} MenuItems={<MenuItems />} />
 );
 
@@ -34,15 +38,5 @@ export const withProfileItems = () => (
     Logo={<Logo />}
     MenuItems={<MenuItems />}
     ProfileItems={<ProfileItems />}
-  />
-);
-
-export const withBottomHeader = () => (
-  <Header
-    name="Ce ma fac"
-    Logo={<Logo />}
-    MenuItems={<MenuItems />}
-    ProfileItems={<ProfileItems />}
-    bottomHeader={true}
   />
 );
