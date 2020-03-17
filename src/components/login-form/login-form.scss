@@ -1,0 +1,17 @@
+$__login-form-subtitle-color: #bfbfbf;
+$__login-form-input-background-color: #e8e8e8;
+$__login-form-label-color: #004890;
+
+.__login-form-container {
+  .subtitle {
+    color: $__login-form-subtitle-color;
+  }
+  .input {
+    background: $__login-form-input-background-color;
+  }
+  .label {
+    font-weight: normal;
+    font-size: 16px;
+    color: $__login-form-label-color;
+  }
+}

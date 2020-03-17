@@ -1,5 +1,13 @@
 {
   "parser": "babel-eslint",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
   "env": {
     "browser": true
   },
@@ -8,5 +16,29 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended"
-  ]
+  ],
+  "rules": {
+    "react/jsx-no-bind": [
+      "error",
+      {
+        "allowArrowFunctions": true,
+        "allowBind": false,
+        "ignoreRefs": true
+      }
+    ],
+    "prettier/prettier": ["error", { "singleQuote": true }],
+    "react/no-did-update-set-state": "error",
+    "react/no-unknown-property": "error",
+    "react/no-unused-prop-types": "error",
+    "react/react-in-jsx-scope": "error",
+    "jsx-quotes": ["warn", "prefer-double"],
+    "quotes": ["warn", "single"],
+    "indent": ["error", 2],
+    "no-eval": "error",
+    "no-shadow": "error",
+    "no-trailing-spaces": "warn",
+    "no-unused-expressions": "error",
+    "no-var": "error",
+    "max-len": ["error", { "code": 120 }]
+  }
 }

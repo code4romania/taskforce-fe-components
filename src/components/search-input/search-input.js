@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import "./search-input.scss";
-import SearchIcon from "../../icons/search.svg";
-import classNames from "classnames";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import './search-input.scss';
+import SearchIcon from '../../icons/search.svg';
+import classNames from 'classnames';
 
 export const SearchInput = ({
   hasIcon = true,
   onValueChange,
-  placeholder = "cauta",
+  placeholder = 'cauta',
   value
 }) => {
-  const [currentValue, setCurrentValue] = useState("");
+  const [currentValue, setCurrentValue] = useState('');
   useEffect(() => {
     if (value) {
       setCurrentValue(value);
@@ -19,8 +19,8 @@ export const SearchInput = ({
   return (
     <div
       className={classNames({
-        "__search-input-container": true,
-        "__has-icon": hasIcon
+        '__search-input-container': true,
+        '__has-icon': hasIcon
       })}
     >
       <input
