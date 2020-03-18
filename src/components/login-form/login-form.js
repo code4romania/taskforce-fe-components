@@ -46,17 +46,13 @@ export class LoginForm extends React.PureComponent {
             size="medium"
             onChange={this.handleOnChange}
           />
-          <div className="container">
-            <Checkbox
-              name="remember"
-              className="is-pulled-left"
-              onChange={this.handleOnChange}
-            >
-              Remember me
-            </Checkbox>
-            {this.props.rightContent && (
-              <div className="is-pulled-right">{this.props.rightContent}</div>
-            )}
+          <div className="container __login-form-options">
+            <div>
+              <Checkbox name="remember" onChange={this.handleOnChange}>
+                Remember me
+              </Checkbox>
+            </div>
+            {this.props.rightContent && <div>{this.props.rightContent}</div>}
           </div>
         </div>
         <div className="container has-text-centered __login-form-button-container">
