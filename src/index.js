@@ -11,3 +11,4 @@ export * from "./components/instruments/instruments";
 export * from "./components/instruments-item/instruments-item";
 export * from "./components/footer/footer-links";
 export * from "./components/footer/footer";
+export * from "./components/developed-by/developed-by";
