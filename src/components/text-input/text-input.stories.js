@@ -24,7 +24,7 @@ export const LargeInputWithNoDescription = () => {
 };
 
 export const InputWithChangeEvent = () => {
-  const [textValue, setTextValue] = useState(0);
+  const [textValue, setTextValue] = useState();
   const props = {
     onChange: function(el) {
       setTextValue(el.target.value);

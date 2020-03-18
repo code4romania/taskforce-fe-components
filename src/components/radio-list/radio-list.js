@@ -44,37 +44,41 @@ import PropTypes from "prop-types";
 import "./radio-list.scss";
 
 export const RadioList = ({ label, description, options, onChange, type }) => {
-  const classNames = ["radio-list"];
+  const classNames = ["field", "radio-list"];
   if (type === "horizontal") {
     classNames.push("horizontal");
   }
+  if (type === "vertical") {
+    classNames.push("vertical");
+  }
   return (
-    <ul className={classNames.join(" ")}>
-      <section>
-        {label}
-        {description && <p> {description}</p>}
-      </section>
-      {options &&
-        options.map(option => {
-          return (
-            <li key={`li_${option.value}_${option.key}`}>
-              <label key={`label_${option.value}_${option.key}`}>
+    <div className={classNames.join(" ")}>
+      <label className="label">{label}</label>
+      <h2 className="subtitle is-2">{description}</h2>
+      <div className="control">
+        {options &&
+          options.map(option => {
+            return (
+              <label
+                className="radio"
+                key={`label_${option.value}_${option.key}`}
+              >
                 <input
+                  key={`input_${option.value}_${option.key}`}
+                  type="radio"
+                  name={label}
                   onChange={args => {
                     onChange && onChange(args.currentTarget.value);
                   }}
-                  key={`key_${option.value}_${option.key}`}
-                  type="radio"
-                  name={label}
                   value={option.value}
                   checked={option.checked}
                 />
                 {option.value}
               </label>
-            </li>
-          );
-        })}
-    </ul>
+            );
+          })}
+      </div>
+    </div>
   );
 };
 

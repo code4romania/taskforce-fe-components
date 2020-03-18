@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
 $family-sans-serif: "Titillium Web", sans-serif;
 
 $primary: #1C1080;
@@ -9,3 +11,4 @@ $danger: #FF1616;
 @import "~bulma/sass/layout/section.sass";
 @import "~bulma/sass/layout/hero.sass";
 @import "~bulma/sass/grid/columns.sass";
+@import "~bulma/sass/form/_all.sass";

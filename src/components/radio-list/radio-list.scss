@@ -1,36 +1,19 @@
-ul.radio-list {
-  font-family: Titillium Web;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 21px;
-  color: #000000;
-
-  section {
-    font-weight: bold;
-
-    p {
-      font-weight: normal;
-      font-size: 12px;
-      line-height: 18px;
-    }
+.radio-list {
+  input {
+    margin: 0 10px;
   }
-
-  li {
-    input,
-    label {
-      margin: 0 10px;
-    }
-
-    input:first-child,
-    label:first-child {
-      margin-left: 0;
-    }
+  input:first-child {
+    margin-left: 0;
   }
 }
-
-ul.horizontal {
-  li {
-    display: inline-block;
+.vertical {
+  .control {
+    label.radio {
+      display: block;
+      margin: 0;
+      input{
+        margin-left: 0;
+      }
+    }
   }
 }
