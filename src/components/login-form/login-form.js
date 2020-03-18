@@ -10,11 +10,9 @@ export class LoginForm extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {};
-    this.handleOnChange = this.handleOnChange.bind(this);
-    this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
-  handleOnChange(e) {
+  handleOnChange = e => {
     const target = e.target;
     const name = target.name;
     const value = target.type === "checkbox" ? target.checked : target.value;
@@ -22,12 +20,12 @@ export class LoginForm extends React.PureComponent {
       ...state,
       [name]: value
     }));
-  }
-  handleOnSubmit() {
+  };
+  handleOnSubmit = () => {
     if (this.props.onSubmit) {
       this.props.onSubmit(this.state);
     }
-  }
+  };
 
   render() {
     return (
