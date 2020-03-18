@@ -1,0 +1,105 @@
+.tabs {
+  ul {
+    border-bottom: none;
+  }
+
+  &:not(:last-child){
+    margin-bottom: 0;
+  }
+}
+
+.tl-tab {
+  font-size: 18px;
+  padding: 4px 10px;
+  color: #989898;
+
+  &.active {
+    color: #1c1080;
+  }
+}
+
+.tli-dropdown-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 35px;
+
+  .vis-text {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+    margin-bottom: 7px;
+  }
+
+  .action-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .dropdown-trigger > button {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 21px;
+    color: #878787;
+    width: 256px;
+  }
+
+  .dropdown-content {
+    width: 256px;
+  }
+}
+
+.complete-form-button {
+  background: #ffbd59;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 15px;
+  line-height: 23px;
+  text-align: center;
+  border: none;
+  padding: 4px 10px;
+  font-weight: bold;
+}
+
+.tab-page {
+  border: 1px solid #b7b7b7;
+  padding: 22px 26px 20px 13px;
+}
+
+.tli-container {
+  margin-bottom: 23px;
+}
+
+.tli-date {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #6a6a6a;
+}
+
+.tli-text-wrapper {
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  .tli-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 18px;
+    width: 100%;
+    color: #1c1080;
+
+    div {
+      padding: 5px;
+    }
+  }
+  .tli-icon {
+    width: 45px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
