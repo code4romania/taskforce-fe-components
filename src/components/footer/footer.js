@@ -4,7 +4,7 @@ import "./../../styles.scss";
 import Code4RomaniaGrayLogo from "../../../images/code4romania-gray.svg";
 import "./footer.scss";
 
-const Footer = ({ children }) => {
+export const Footer = ({ children }) => {
   return (
     <footer className="App-footer">
       <div className="footer-content">
@@ -31,5 +31,3 @@ const Footer = ({ children }) => {
 Footer.propTypes = {
   children: PropTypes.node.isRequired
 };
-
-export default Footer;
