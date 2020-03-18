@@ -15,12 +15,13 @@ export const TextInput = ({ label, description, props }) => {
 };
 
 TextInput.propTypes = {
-  label: PropTypes.node.isRequired,
-  description: PropTypes.node.isRequired,
-  props: PropTypes.node.isRequired
+  label: PropTypes.node.isOptional,
+  description: PropTypes.node.isOptional,
+  props: PropTypes.node.isOptional
 };
 
-// TextInput.defaultProps = {
-//     type: "primary",
-//     inverted: false
-// };
+TextInput.defaultProps = {
+  label: "",
+  description: "",
+  props: {}
+};
