@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "./header";
-import LogoSvg from "../../icons/logo_small.svg";
+import LogoSvg from "../../icons/cemafac.svg";
 
 export default { title: "Header" };
 
@@ -25,6 +25,10 @@ const ProfileItems = () => (
 );
 
 export const withMenuItems = () => (
+  <Header Logo={<Logo />} MenuItems={<MenuItems />} />
+);
+
+export const withName = () => (
   <Header name="Ce ma fac" Logo={<Logo />} MenuItems={<MenuItems />} />
 );
 
