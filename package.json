@@ -1,5 +1,5 @@
 {
-  "name": "@code4ro_taskforce/taskforce-fe-components",
+  "name": "@code4ro/taskforce-fe-components",
   "version": "0.1.2",
   "private": false,
   "dependencies": {
