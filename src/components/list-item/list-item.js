@@ -8,15 +8,15 @@ import "./list-item.styles.scss";
 export const ListItem = ({ title, active, hasNext, onClick }) => {
   return (
     <div
-      className={classNames("list-item", { "list-item--active": active })}
+      className={classNames("__list-item", { "__list-item--active": active })}
       onClick={onClick}
     >
-      <div className="list-item__left-side">
+      <div className="__list-item__left-side">
         <Tick />
       </div>
-      <div className="list-item__content">{title}</div>
+      <div className="__list-item__content">{title}</div>
       {hasNext && (
-        <div className="list-item__right-side">
+        <div className="__list-item__right-side">
           <ArrowRight />
         </div>
       )}
