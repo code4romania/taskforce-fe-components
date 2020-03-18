@@ -1,11 +1,11 @@
-import React from 'react';
-import './../../styles.scss';
-import { Button } from './button';
+import React from "react";
+import "./../../styles.scss";
+import { Button } from "./button";
 
-export default { title: 'Button' };
+export default { title: "Button" };
 
 function sayMyName() {
-  alert('Hello Friend');
+  alert("Hello Friend");
 }
 
 export const primary = () => {

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Header } from './header';
-import LogoSvg from '../../icons/cemafac.svg';
+import React from "react";
+import { Header } from "./header";
+import LogoSvg from "../../icons/cemafac.svg";
 
-export default { title: 'Header' };
+export default { title: "Header" };
 
 const Logo = () => (
   <a href="/">

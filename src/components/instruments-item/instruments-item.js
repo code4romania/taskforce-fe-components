@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './instruments-item.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import "./instruments-item.scss";
 
 export const InstrumentsItem = ({
   color,
@@ -30,7 +30,7 @@ export const InstrumentsItem = ({
 };
 
 InstrumentsItem.propTypes = {
-  color: PropTypes.oneOf(['red', 'pink', 'green']),
+  color: PropTypes.oneOf(["red", "pink", "green"]),
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   ctaText: PropTypes.string,
@@ -39,5 +39,5 @@ InstrumentsItem.propTypes = {
 };
 
 InstrumentsItem.defaultProps = {
-  color: 'green'
+  color: "green"
 };

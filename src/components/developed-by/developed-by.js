@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import { PartnerLogo } from '../partner-logo/partner-logo';
-import { DeveloperLogo } from '../developer-logo/developer-logo';
+import { PartnerLogo } from "../partner-logo/partner-logo";
+import { DeveloperLogo } from "../developer-logo/developer-logo";
 
-import './developed-by.scss';
+import "./developed-by.scss";
 
 export const DevelopedBy = () => {
   return (

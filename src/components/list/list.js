@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './list.styles.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import "./list.styles.scss";
 
 export const List = ({ columns, children }) => {
   return <div className={`list-wrapper list-grid-${columns}`}>{children}</div>;

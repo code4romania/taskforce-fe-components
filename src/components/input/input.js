@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import '../../styles.scss';
-import { Label } from '../label/label';
+import React from "react";
+import PropTypes from "prop-types";
+import "../../styles.scss";
+import { Label } from "../label/label";
 
 export const Input = ({
   disabled,
@@ -16,18 +16,18 @@ export const Input = ({
   defaultValue,
   onChange
 }) => {
-  const inputClassNames = ['input'];
-  const controlClassNames = ['control'];
+  const inputClassNames = ["input"];
+  const controlClassNames = ["control"];
   if (size) inputClassNames.push(`is-${size}`);
   if (color) inputClassNames.push(`is-${color}`);
-  if (rounded) inputClassNames.push('is-rounded');
-  if (loading) controlClassNames.push('is-loading');
-  const inputClasses = inputClassNames.join(' ');
+  if (rounded) inputClassNames.push("is-rounded");
+  if (loading) controlClassNames.push("is-loading");
+  const inputClasses = inputClassNames.join(" ");
 
   return (
     <div className="field">
       {!usePlaceholder && <Label text={label} />}
-      <div className={controlClassNames.join(' ')}>
+      <div className={controlClassNames.join(" ")}>
         {!usePlaceholder ? (
           <input
             className={inputClasses}
@@ -44,7 +44,7 @@ export const Input = ({
             name={name}
             disabled={disabled}
             defaultValue={defaultValue}
-            placeholder={usePlaceholder ? label : ''}
+            placeholder={usePlaceholder ? label : ""}
             onChange={onChange}
           />
         )}
@@ -56,20 +56,20 @@ export const Input = ({
 Input.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string,
-  type: PropTypes.oneOf(['text', 'email', 'password', 'tel']),
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  type: PropTypes.oneOf(["text", "email", "password", "tel"]),
+  size: PropTypes.oneOf(["small", "medium", "large"]),
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
   rounded: PropTypes.bool,
   defaultValue: PropTypes.string,
   usePlaceholder: PropTypes.bool,
-  color: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger'])
+  color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"])
 };
 
 Input.defaultProps = {
-  label: 'Input',
-  type: 'text',
+  label: "Input",
+  type: "text",
   disabled: false,
   loading: false,
   rounded: false,

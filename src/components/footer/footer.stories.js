@@ -1,9 +1,9 @@
-import React from 'react';
-import './../../styles.scss';
-import Footer from './footer';
-import { FooterLinkHeader, FooterLinks, FooterLinkItem } from './footer-links';
+import React from "react";
+import "./../../styles.scss";
+import Footer from "./footer";
+import { FooterLinkHeader, FooterLinks, FooterLinkItem } from "./footer-links";
 
-export default { title: 'Footer' };
+export default { title: "Footer" };
 
 export const Default = () => (
   <Footer>
@@ -21,7 +21,7 @@ export const Default = () => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          {' '}
+          {" "}
           Codul de Conduită
         </a>
       </FooterLinkItem>
@@ -31,7 +31,7 @@ export const Default = () => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          {' '}
+          {" "}
           Code for Romania
         </a>
       </FooterLinkItem>

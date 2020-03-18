@@ -1,8 +1,8 @@
-import React from 'react';
-import { IncubatedBy } from './incubated-by';
+import React from "react";
+import { IncubatedBy } from "./incubated-by";
 
-import './../../styles.scss';
+import "./../../styles.scss";
 
-export default { title: 'Incubated By' };
+export default { title: "Incubated By" };
 
 export const normal = () => <IncubatedBy />;

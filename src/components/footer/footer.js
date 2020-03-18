@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './../../styles.scss';
-import Code4RomaniaGrayLogo from '../../../images/code4romania-gray.svg';
-import './footer.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import "./../../styles.scss";
+import Code4RomaniaGrayLogo from "../../../images/code4romania-gray.svg";
+import "./footer.scss";
 
 const Footer = ({ children }) => {
   return (

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import { Logo } from '../logo/logo';
+import { Logo } from "../logo/logo";
 
-import './incubated-by.scss';
+import "./incubated-by.scss";
 
 export const IncubatedBy = () => {
   return (

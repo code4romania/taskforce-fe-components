@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './../../styles.scss';
-import './footer.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import "./../../styles.scss";
+import "./footer.scss";
 
 export const FooterLinks = ({ children }) => {
   return <ul className="useful-links">{children}</ul>;

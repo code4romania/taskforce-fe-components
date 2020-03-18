@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import logo from './assets/logo.png';
+import logo from "./assets/logo.png";
 
-import './logo.scss';
+import "./logo.scss";
 
 export const Logo = () => {
   return (

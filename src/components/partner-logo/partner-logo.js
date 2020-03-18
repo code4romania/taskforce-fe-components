@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import logo from './assets/logo.png';
+import logo from "./assets/logo.png";
 
-import './partner-logo.scss';
+import "./partner-logo.scss";
 
 export const PartnerLogo = ({ src }) => {
   return (

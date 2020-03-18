@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -7,8 +7,8 @@ import {
   TwitterShareButton,
   LinkedinIcon,
   TwitterIcon
-} from 'react-share';
-import './social-share.scss';
+} from "react-share";
+import "./social-share.scss";
 
 export const SocialsShare = ({ currentPage }) => {
   return (

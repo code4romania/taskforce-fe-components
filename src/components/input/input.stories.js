@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Input } from './input';
+import React, { useState } from "react";
+import { Input } from "./input";
 
-export default { title: 'Input' };
+export default { title: "Input" };
 
 const style = { width: 500 };
 

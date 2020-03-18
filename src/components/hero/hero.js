@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CovidSvg from '../../icons/covid-all.svg';
-import './hero.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import CovidSvg from "../../icons/covid-all.svg";
+import "./hero.scss";
 
 export const Hero = ({
   title,
@@ -17,7 +17,7 @@ export const Hero = ({
           {children && <span className="hero-icon">{children}</span>}
           {!children && useFallbackIcon && (
             <span className="hero-icon">
-              <CovidSvg style={{ height: '33px', width: '27px' }} />
+              <CovidSvg style={{ height: "33px", width: "27px" }} />
             </span>
           )}
           {title}

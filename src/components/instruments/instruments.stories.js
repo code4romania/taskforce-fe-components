@@ -1,11 +1,11 @@
-import React from 'react';
-import './../../styles.scss';
-import { Instruments } from './instruments';
-import { InstrumentsItem } from '../instruments-item/instruments-item';
+import React from "react";
+import "./../../styles.scss";
+import { Instruments } from "./instruments";
+import { InstrumentsItem } from "../instruments-item/instruments-item";
 
-export default { title: 'Instruments' };
+export default { title: "Instruments" };
 
-const showMessage = () => alert('Hello, friend.');
+const showMessage = () => alert("Hello, friend.");
 
 export const grid = () => (
   <Instruments layout="grid">

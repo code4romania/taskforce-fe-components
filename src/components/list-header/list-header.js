@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import './list-header.scss';
+import "./list-header.scss";
 
 export const ListHeader = ({ title }) => {
   return <div className="list-header">{title}</div>;

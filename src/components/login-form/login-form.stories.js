@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import '../../styles.scss';
-import { LoginForm } from './login-form';
+import React, { useState } from "react";
+import "../../styles.scss";
+import { LoginForm } from "./login-form";
 
-export default { title: 'Login Form' };
+export default { title: "Login Form" };
 
 export const usage = () => {
   const [loginData, setState] = useState({});

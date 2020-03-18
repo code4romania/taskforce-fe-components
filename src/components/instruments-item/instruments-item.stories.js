@@ -1,10 +1,10 @@
-import React from 'react';
-import './../../styles.scss';
-import { InstrumentsItem } from './instruments-item';
+import React from "react";
+import "./../../styles.scss";
+import { InstrumentsItem } from "./instruments-item";
 
-export default { title: 'InstrumentsItem' };
+export default { title: "InstrumentsItem" };
 
-const showMessage = () => alert('Hello, friend.');
+const showMessage = () => alert("Hello, friend.");
 
 export const Default = () => (
   <InstrumentsItem

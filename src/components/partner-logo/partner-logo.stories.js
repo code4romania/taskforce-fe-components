@@ -1,8 +1,8 @@
-import React from 'react';
-import './../../styles.scss';
-import { PartnerLogo } from './partner-logo';
+import React from "react";
+import "./../../styles.scss";
+import { PartnerLogo } from "./partner-logo";
 
-export default { title: 'Partner Logo' };
+export default { title: "Partner Logo" };
 
 export const Default = () => <PartnerLogo />;
 export const WithSrc = () => (

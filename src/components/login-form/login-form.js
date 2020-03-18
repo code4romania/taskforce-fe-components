@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Input } from '../input/input';
-import { Checkbox } from '../checkbox/checkbox';
-import { Button } from '../button/button';
-import '../../styles.scss';
-import './login-form.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import { Input } from "../input/input";
+import { Checkbox } from "../checkbox/checkbox";
+import { Button } from "../button/button";
+import "../../styles.scss";
+import "./login-form.scss";
 
 export class LoginForm extends React.PureComponent {
   constructor(props) {
@@ -17,7 +17,7 @@ export class LoginForm extends React.PureComponent {
   handleOnChange(e) {
     const target = e.target;
     const name = target.name;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     this.setState(state => ({
       ...state,
       [name]: value
@@ -78,5 +78,5 @@ LoginForm.propTypes = {
 };
 
 LoginForm.defaultProps = {
-  title: 'LOGIN'
+  title: "LOGIN"
 };
