@@ -15,21 +15,24 @@
   }
 }
 
+.App-footer {
+  background-color: #00478f;
+}
+
 .footer-content {
-  background-color: #1c1080;
-  min-height: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 100px;
-  flex-flow: row wrap;
-  min-height: 270px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2.5rem 1.5rem;
+
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 6rem 1.25rem;
 }
 
 .useful-links {
   font-weight: 600;
   line-height: 21px;
-  padding: 0px;
   list-style: none;
 
   li.footer-links-header {
@@ -55,5 +58,16 @@
 
   p {
     margin: 10px 0px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.25rem;
+  }
+
+  .code4-branding {
+    text-align: left;
   }
 }

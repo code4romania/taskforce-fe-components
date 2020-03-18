@@ -7,7 +7,7 @@ import "./footer.scss";
 export const Footer = ({ children }) => {
   return (
     <footer className="App-footer">
-      <div className="footer-content">
+      <div className="container footer-content">
         {children}
         <div className="code4-branding">
           <a

@@ -8,7 +8,7 @@ export default { title: "Footer" };
 export const Default = () => (
   <Footer>
     <FooterLinks>
-      <FooterLinkHeader>Linkuri utile</FooterLinkHeader>
+      <FooterLinkHeader>Link-uri utile</FooterLinkHeader>
       <FooterLinkItem>
         <a href="/termeni-si-conditii"> Termeni și condiții</a>
       </FooterLinkItem>
