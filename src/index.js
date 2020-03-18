@@ -3,6 +3,7 @@ import "./styles.scss";
 export * from "./components/button/button";
 export * from "./components/developed-by/developed-by";
 export * from "./components/developer-logo/developer-logo";
+export * from "./components/footer/footer-links";
 export * from "./components/footer/footer";
 export * from "./components/header/header";
 export * from "./components/hero/hero";
