@@ -5,11 +5,11 @@ import Tick from "../../icons/tick.svg";
 import ArrowRight from "../../icons/arrow-right.svg";
 import "./list-item.styles.scss";
 
-export const ListItem = ({ title, active, hasNext, onClick }) => {
+export const ListItem = ({ title, active, hasNext, value, onClick }) => {
   return (
     <div
       className={classNames("__list-item", { "__list-item--active": active })}
-      onClick={onClick}
+      onClick={e => onClick(value || e)}
     >
       <div className="__list-item__left-side">
         <Tick />
@@ -31,6 +31,7 @@ ListItem.defaultProps = {
 
 ListItem.propTypes = {
   title: PropTypes.string.isRequired,
+  value: PropTypes.object,
   active: PropTypes.bool,
   hasNext: PropTypes.bool,
   onClick: PropTypes.func
