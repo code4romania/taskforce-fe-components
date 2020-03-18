@@ -28,26 +28,15 @@ export const Input = ({
     <div className="field">
       {!usePlaceholder && <Label text={label} />}
       <div className={controlClassNames.join(" ")}>
-        {!usePlaceholder ? (
-          <input
-            className={inputClasses}
-            type={type}
-            name={name}
-            disabled={disabled}
-            defaultValue={defaultValue}
-            onChange={onChange}
-          />
-        ) : (
-          <input
-            className={inputClasses}
-            type={type}
-            name={name}
-            disabled={disabled}
-            defaultValue={defaultValue}
-            placeholder={usePlaceholder ? label : ""}
-            onChange={onChange}
-          />
-        )}
+        <input
+          className={inputClasses}
+          type={type}
+          name={name}
+          disabled={disabled}
+          defaultValue={defaultValue}
+          placeholder={usePlaceholder ? label : ""}
+          onChange={onChange}
+        />
       </div>
     </div>
   );
