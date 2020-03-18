@@ -44,7 +44,7 @@ export const Input = ({
             name={name}
             disabled={disabled}
             defaultValue={defaultValue}
-            placeholder={usePlaceholder ? label : ""}
+            placeholder={usePlaceholder ? label : ''}
             onChange={onChange}
           />
         )}
