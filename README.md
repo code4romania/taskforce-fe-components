@@ -10,8 +10,6 @@ A set of reausable components between taskforce react apps.
 
 This project is built by amazing volunteers and you can be one of them! Here's a list of ways in [which you can contribute to this project](.github/CONTRIBUTING.md).
 
-You can also list any pending features and planned improvements for the project here.
-
 ## Built With
 
 ### Programming languages
