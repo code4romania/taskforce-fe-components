@@ -2,7 +2,7 @@
 
 [![GitHub contributors](https://img.shields.io/github/contributors/code4romania/taskforce-fe-components.svg?style=for-the-badge)](https://github.com/code4romania/taskforce-fe-components/graphs/contributors) [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/taskforce-fe-components.svg?style=for-the-badge)](https://github.com/code4romania/taskforce-fe-components/commits/master) [![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)
 
-A set of reausable components between taskforce react apps.
+A set of reusable components between taskforce react apps.
 
 [Contributing](#contributing) | [Built with](#built-with) | [Repos and projects](#repos-and-projects) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
 
