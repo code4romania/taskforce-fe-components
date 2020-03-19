@@ -5,7 +5,10 @@
   align-items: center;
   justify-content: center;
 
-  .app-logo, .title {
+  padding: 1rem;
+
+  .app-logo,
+  .title {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -50,7 +53,7 @@
   justify-content: center;
 }
 
-@media (min-width:480px) {
+@media (min-width: 480px) {
   .top-header {
     display: grid;
     grid-template-rows: 100%;
