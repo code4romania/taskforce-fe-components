@@ -1,23 +1,21 @@
 .__search-input-container {
-  display: flex;
-  width: 100%;
-  &.__has-icon input {
-    padding-right: 42px;
-  }
 
   input {
-    width: 100%;
-    background: #ffffff;
     border: 1px solid #42d2f2;
-    box-sizing: border-box;
     border-radius: 5px;
     font-style: italic;
     font-size: 16px;
-    line-height: 16px;
     padding: 16px 8px;
     outline: none;
+
+    &:focus {
+      border: 1px solid #42d2f2;
+    }
   }
-  img {
-    margin-left: -36px;
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 }
