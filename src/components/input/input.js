@@ -14,10 +14,14 @@ export const Input = ({
   usePlaceholder,
   loading,
   defaultValue,
+  children,
+  hasAddons,
   onChange
 }) => {
   const inputClassNames = ["input"];
+  const fieldClassNames = ["field"];
   const controlClassNames = ["control"];
+  if (hasAddons) fieldClassNames.push("has-addons");
   if (size) inputClassNames.push(`is-${size}`);
   if (color) inputClassNames.push(`is-${color}`);
   if (rounded) inputClassNames.push("is-rounded");
@@ -25,7 +29,7 @@ export const Input = ({
   const inputClasses = inputClassNames.join(" ");
 
   return (
-    <div className="field">
+    <div className={fieldClassNames.join(" ")}>
       {!usePlaceholder && <Label text={label} />}
       <div className={controlClassNames.join(" ")}>
         <input
@@ -38,6 +42,7 @@ export const Input = ({
           onChange={onChange}
         />
       </div>
+      {children}
     </div>
   );
 };
@@ -49,10 +54,12 @@ Input.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"]),
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
+  hasAddons: PropTypes.bool,
   loading: PropTypes.bool,
   rounded: PropTypes.bool,
   defaultValue: PropTypes.string,
   usePlaceholder: PropTypes.bool,
+  children: PropTypes.node,
   color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"])
 };
 
