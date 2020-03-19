@@ -6,7 +6,7 @@ import "./incubated-by.scss";
 
 export const IncubatedBy = () => {
   return (
-    <div className="container incubated-by">
+    <div className="incubated-by">
       <p className="caption">proiect incubat în programul</p>
       <div className="logo">
         <Logo />
