@@ -79,33 +79,16 @@ export const WithMoreColumns = () => (
     <FooterLinks>
       <FooterLinkHeader>Link-uri utile</FooterLinkHeader>
       <FooterLinkItem>
-        <a href="/termeni-si-conditii"> Termeni și condiții</a>
+        <a href="/date-la-zi">Date la zi</a>
       </FooterLinkItem>
       <FooterLinkItem>
-        <a href="/politica-confidentialitate"> Politică de confidențialitate</a>
+        <a href="/stiri-oficiale">Stiri oficiale</a>
       </FooterLinkItem>
       <FooterLinkItem>
-        <a
-          href="https://code4.ro/ro/codul-de-conduita/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {" "}
-          Codul de Conduită
-        </a>
+        <a href="/stam-acasa">Stam acasa</a>
       </FooterLinkItem>
       <FooterLinkItem>
-        <a
-          href="https://code4.ro/ro/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {" "}
-          Code for Romania
-        </a>
-      </FooterLinkItem>
-      <FooterLinkItem>
-        <a href="mailto:contact@code4.ro"> Contact</a>
+        <a href="/diaspora-hub">Diaspora Hub</a>
       </FooterLinkItem>
     </FooterLinks>
   </Footer>
