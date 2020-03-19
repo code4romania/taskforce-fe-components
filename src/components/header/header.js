@@ -19,7 +19,7 @@ export const Header = ({ name, Logo, MenuItems, ProfileItems }) => {
 
 Header.propTypes = {
   name: PropTypes.string,
-  Logo: PropTypes.element.isRequired,
-  MenuItems: PropTypes.element.isRequired,
-  ProfileItems: PropTypes.element
+  Logo: PropTypes.node.isRequired,
+  MenuItems: PropTypes.node.isRequired,
+  ProfileItems: PropTypes.node
 };
