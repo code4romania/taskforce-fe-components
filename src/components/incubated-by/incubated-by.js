@@ -6,10 +6,12 @@ import "./incubated-by.scss";
 
 export const IncubatedBy = () => {
   return (
-    <div className="container incubated-by">
-      <p className="caption">proiect incubat în programul</p>
-      <div className="logo">
-        <Logo />
+    <div className="incubated-by-wrapper">
+      <div className="incubated-by container">
+        <p className="caption">proiect incubat în programul</p>
+        <div className="logo">
+          <Logo />
+        </div>
       </div>
     </div>
   );

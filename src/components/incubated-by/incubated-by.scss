@@ -1,13 +1,16 @@
 @import "~bulma/sass/utilities/_all.sass";
 
+.incubated-by-wrapper {
+  border-top: 1px solid #5e80ff;
+  width:100%;
+}
+
 .incubated-by {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  border-top: 1px solid #5e80ff;
   min-height:60px;
-  padding: 0 100px;
 
   .caption,
   .logo {
