@@ -7,20 +7,22 @@ import "./developed-by.scss";
 
 export const DevelopedBy = () => {
   return (
-    <div className="developed-by">
-      <div className="developer">
-        <p className="caption">Un proiect dezvoltat de</p>
-        <div className="captioned-logo">
-          <DeveloperLogo />
+    <div className="container developed-by">
+      <span>
+        <div className="developer">
+          <p className="caption">Un proiect dezvoltat de</p>
+          <div className="captioned-logo">
+            <DeveloperLogo />
+          </div>
         </div>
-      </div>
 
-      <div className="partner">
-        <p className="caption">In parteneriat cu</p>
-        <div className="captioned-logo">
-          <PartnerLogo />
+        <div className="partner">
+          <p className="caption">In parteneriat cu</p>
+          <div className="captioned-logo">
+            <PartnerLogo />
+          </div>
         </div>
-      </div>
+      </span>
     </div>
   );
 };
