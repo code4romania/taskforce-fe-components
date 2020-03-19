@@ -16,7 +16,7 @@ export const Checkbox = ({
       name={name}
       disabled={disabled}
       onChange={onChange}
-      defaultValue={defaultValue}
+      checked={defaultValue}
     />
     <span className="__checkbox-custom" />
     {children}

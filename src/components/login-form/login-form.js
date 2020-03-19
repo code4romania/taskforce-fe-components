@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Input } from "../input/input";
 import { Checkbox } from "../checkbox/checkbox";
@@ -6,71 +6,94 @@ import { Button } from "../button/button";
 import "../../styles.scss";
 import "./login-form.scss";
 
-export class LoginForm extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+export const LoginForm = ({
+  title,
+  header,
+  initialState,
+  onSubmit,
+  rightContent
+}) => {
+  const [login, setState] = useState(initialState);
 
-  handleOnChange = e => {
+  const handleOnChange = e => {
     const target = e.target;
     const name = target.name;
     const value = target.type === "checkbox" ? target.checked : target.value;
-    this.setState(state => ({
-      ...state,
+    setState(prevLogin => ({
+      ...prevLogin,
       [name]: value
     }));
   };
-  handleOnSubmit = () => {
-    if (this.props.onSubmit) {
-      this.props.onSubmit(this.state);
+
+  const handleOnSubmit = () => {
+    if (onSubmit) {
+      onSubmit(login);
     }
   };
 
-  render() {
-    return (
-      <div className="container __login-form-container">
-        <h1 className="subtitle is-2">{this.props.title}</h1>
-        <div className="container">
-          <Input
-            name="email"
-            label="Email"
-            type="email"
-            size="medium"
-            onChange={this.handleOnChange}
-          />
-          <Input
-            name="password"
-            label="Password"
-            type="password"
-            size="medium"
-            onChange={this.handleOnChange}
-          />
-          <div className="container __login-form-options">
-            <div>
-              <Checkbox name="remember" onChange={this.handleOnChange}>
-                Remember me
-              </Checkbox>
-            </div>
-            {this.props.rightContent && <div>{this.props.rightContent}</div>}
+  return (
+    <div className="container __login-form-container">
+      {header ? (
+        <div className="container is-2">{header}</div>
+      ) : (
+        <h1 className="subtitle is-2">{title}</h1>
+      )}
+      <div className="container">
+        <Input
+          name="email"
+          label="Email"
+          type="email"
+          defaultValue={login.email}
+          size="medium"
+          onChange={handleOnChange}
+        />
+        <Input
+          name="password"
+          label="Password"
+          type="password"
+          defaultValue={login.password}
+          size="medium"
+          onChange={handleOnChange}
+        />
+        <div className="container __login-form-options">
+          <div>
+            <Checkbox
+              name="remember"
+              defaultValue={login.remember}
+              onChange={handleOnChange}
+            >
+              Remember me
+            </Checkbox>
           </div>
-        </div>
-        <div className="container has-text-centered __login-form-button-container">
-          <Button size="medium" onClick={this.handleOnSubmit}>
-            Login
-          </Button>
+          {rightContent && <div>{rightContent}</div>}
         </div>
       </div>
-    );
-  }
-}
+      <div className="container has-text-centered __login-form-button-container">
+        <Button size="medium" onClick={handleOnSubmit}>
+          Login
+        </Button>
+      </div>
+    </div>
+  );
+};
 
 LoginForm.propTypes = {
   title: PropTypes.string.isRequired,
   rightContent: PropTypes.node,
-  onSubmit: PropTypes.func
+  header: PropTypes.node,
+  onSubmit: PropTypes.func,
+  initialState: PropTypes.shape({
+    email: PropTypes.string,
+    password: PropTypes.string,
+    remember: PropTypes.bool
+  })
 };
 
 LoginForm.defaultProps = {
-  title: "LOGIN"
+  title: "LOGIN",
+  initialState: {
+    email: "",
+    password: "",
+    remember: false
+  }
 };
