@@ -34,9 +34,9 @@ export const LoginForm = ({
   return (
     <div className="container __login-form-container">
       {header ? (
-        <div className="container is-2">{header}</div>
+        <div className="container">{header}</div>
       ) : (
-        <h1 className="subtitle is-2">{title}</h1>
+        <h1 className="subtitle is-size-2">{title}</h1>
       )}
       <div className="container">
         <Input
