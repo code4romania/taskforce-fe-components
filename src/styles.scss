@@ -1,12 +1,11 @@
-$family-sans-serif: "Titillium Web", sans-serif;
+@import './variables.scss';
+@import '~bulma/sass/utilities/_all.sass';
+@import '~bulma/sass/base/_all.sass';
+@import '~bulma/sass/form/_all.sass';
 
-$primary: #1c1080;
-$danger: #ff1616;
-
-@import "~bulma/sass/utilities/_all.sass";
-@import "~bulma/sass/base/_all.sass";
-@import "~bulma/sass/elements/button.sass";
+@import '~bulma/sass/elements/button.sass';
+@import '~bulma/sass/elements/title.sass';
+@import '~bulma/sass/layout/section.sass';
 @import "~bulma/sass/elements/container.sass";
-@import "~bulma/sass/layout/section.sass";
 @import "~bulma/sass/layout/hero.sass";
 @import "~bulma/sass/grid/columns.sass";

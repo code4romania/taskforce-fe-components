@@ -2,11 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./button.scss";
 
-export const Button = ({ children, onClick, type, inverted }) => {
+export const Button = ({ children, onClick, type, size, inverted }) => {
   const classNames = ["button"];
 
   if (type) {
     classNames.push(`is-${type}`);
+  }
+
+  if (size) {
+    classNames.push(`is-${size}`);
   }
 
   if (inverted) {
@@ -24,6 +28,7 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired,
   type: PropTypes.oneOf(["primary", "danger"]),
+  size: PropTypes.oneOf(["small", "medium", "large"]),
   inverted: PropTypes.bool
 };
 

@@ -18,7 +18,7 @@ export const primary = () => {
 
 export const inverted = () => {
   return (
-    <Button inverted="true" onClick={sayMyName}>
+    <Button inverted={true} onClick={sayMyName}>
       Hello Friend
     </Button>
   );
