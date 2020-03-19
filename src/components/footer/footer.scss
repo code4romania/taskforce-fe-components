@@ -29,13 +29,14 @@
   padding: 6rem 1.25rem;
 }
 
-.footer-content > * {
-  &:not(:last-child) {
-    margin-right: 2rem;
-  }
+.footer-lists {
+  display: flex;
 }
 
 .useful-links {
+  margin-right: 30px;
+  min-width: 250px;
+
   font-weight: 600;
   line-height: 21px;
   list-style: none;
@@ -73,11 +74,13 @@
     padding: 3rem 1.25rem;
   }
 
-  .footer-content > * {
-    &:not(:last-child) {
-      margin-right: 0;
-      margin-bottom: 2rem;
-    }
+  .footer-lists {
+    flex-direction: column;
+  }
+
+  .useful-links {
+    margin-right: 0;
+    margin-bottom: 30px;
   }
 
   .code4-branding {
