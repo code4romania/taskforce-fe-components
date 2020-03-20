@@ -1,0 +1,13 @@
+.__accordion-header {
+  font-size: 1.25em;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.__accordion-header--expanded {
+  border-radius: 4px 4px 0 0;
+
+  .__accordion-arrow {
+    transform: scaleY(-1);
+  }
+}
