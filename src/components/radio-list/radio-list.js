@@ -1,48 +1,14 @@
-// import React from "react";
-// import PropTypes from "prop-types";
-// import "./radio-list.scss";
-
-// export class RadioList extends React.PureComponent {
-//   constructor(props) {
-//     super(props);
-//     this.state = {};
-//   }
-//   onChange_Input = x => {
-//     this.props.onChange && this.props.onChange(x.currentTarget.value);
-//   };
-
-//   render() {
-//     return (
-//       <div className="radio-list">
-//         <p>
-//           {this.props.label}
-//           {this.props.description && <p> {this.props.description}</p>}
-//         </p>
-//         {this.props.options &&
-//           this.props.options.map(option => {
-//             return (
-//               <label key={`label_${option.value}_${option.key}`}>
-//                 <input
-//                   onChange={() =this.onChange_Input}
-//                   key={`key_${option.value}_${option.key}`}
-//                   type="radio"
-//                   name={this.props.label}
-//                   value={option.value}
-//                   checked={option.checked}
-//                 />
-//                 {option.value}
-//               </label>
-//             );
-//           })}
-//       </div>
-//     );
-//   }
-// }
-
 import React from "react";
 import PropTypes from "prop-types";
 import "./radio-list.scss";
 
+/**
+ * RadioList component - input radio list
+ * @param {string} label
+ * @param {string} description
+ * @param {[{ key: string, value: string, checked?:boolean }]} options List of select options with key, value and selected properties
+ * @param {'vertical'|'horizontal'} type List orientation: 'vertical', 'horizontal'
+ */
 export const RadioList = ({ label, description, options, onChange, type }) => {
   const classNames = ["field", "radio-list"];
   if (type === "horizontal") {
@@ -87,7 +53,13 @@ RadioList.propTypes = {
   description: PropTypes.node.isRequired,
   type: PropTypes.oneOf(["vertical", "horizontal"]),
   props: PropTypes.node.IsOptional,
-  options: PropTypes.node.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      checked: PropTypes.bool
+    })
+  ),
   onChange: PropTypes.func
 };
 

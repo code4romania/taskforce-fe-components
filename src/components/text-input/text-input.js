@@ -2,8 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./text-input.scss";
 
+/**
+ * TextInput reusable component - generates input with label and description
+ * @param {string} label
+ * @param {string} description
+ * @param {object} inputProps Contains HTML input attributes: type, value, name, id, etc. https://www.w3schools.com/tags/tag_input.asp
+ */
 export const TextInput = ({ label, description, inputProps }) => {
   const classNames = ["input"];
+
   if (inputProps) {
     if (!inputProps["type"]) {
       inputProps["type"] = "text";

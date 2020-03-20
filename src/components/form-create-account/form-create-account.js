@@ -6,64 +6,29 @@ import { Select } from "../select/select";
 import { RadioList } from "../radio-list/radio-list";
 import { PasswordWithConfirm } from "../password-with-confirm/password-with-confirm";
 
+/**
+ *
+ * @param {*} ageOptions
+ * @param {*} genderOptions
+ * @param {*} illnesesOptions
+ * @param {*} lastPeriodInformationOptions
+ */
 export const FormCreateAccount = ({
   ageOptions,
   genderOptions,
   illnesesOptions,
   lastPeriodInformationOptions,
-  objectChanged
+  objectChanged,
+  countriesList,
+  citiesList
 }) => {
   const [fullObject, setFullObject] = useState({});
+  const [cities, setCities] = useState([]);
 
-  // const ageOptions = [
-  //   { key: "10", value: "10" },
-  //   { key: "20", value: "20" },
-  //   { key: "30", value: "30" }
-  // ];
-
-  // const genderOptions = [
-  //   { key: "M", value: "Masculin" },
-  //   { key: "F", value: "Feminin" },
-  //   { key: "O", value: "Altul" }
-  // ];
-  // const illnesesOptions = [
-  //   { key: "M", value: "Masculin" },
-  //   { key: "F", value: "Feminin" },
-  //   { key: "O", value: "Altul" }
-  // ];
-
-  // const optiuniUltimaPerioada = [
-  //   { key: "Auto izolare", value: "Auto izolare" },
-  //   { key: "Carantină la domiciliu", value: "Carantină la domiciliu" },
-  //   { key: "Carantină specializată", value: "Carantină specializată" },
-  //   { key: "Niciuna", value: "Niciuna" }
-  // ];
-
-  const nameChanged = function(args) {
-    let changedObj = { ...fullObject, name: args.target.value };
-    objectChanged && objectChanged(changedObj);
-    setFullObject(changedObj);
-  };
-
-  const emailChanged = function(args) {
-    let changedObj = { ...fullObject, email: args.target.value };
-    objectChanged && objectChanged(changedObj);
-    setFullObject(changedObj);
-  };
-
-  const genderOnChange = function(args) {
-    let changedObj = { ...fullObject, gender: args.target.value };
-    objectChanged && objectChanged(changedObj);
-    setFullObject(changedObj);
-  };
-
-  const varstaOnChange = function(args) {
-    let changedObj = { ...fullObject, varsta: args.target.value };
-    objectChanged && objectChanged(changedObj);
-    setFullObject(changedObj);
-  };
-  const existingConditions_OnChange = function(args) {
-    let changedObj = { ...fullObject, existingConditions: args.target.value };
+  const input_OnChange = args => {
+    let value =
+      args.target.type === "checkbox" ? args.target.checked : args.target.value;
+    let changedObj = { ...fullObject, [args.target.name]: value };
     objectChanged && objectChanged(changedObj);
     setFullObject(changedObj);
   };
@@ -74,16 +39,18 @@ export const FormCreateAccount = ({
     setFullObject(changedObj);
   };
 
-  const agreement_onChange = args => {
-    let changedObj = { ...fullObject, agreement: args.target.checked };
-    objectChanged && objectChanged(changedObj);
-    setFullObject(changedObj);
-  };
-
   const password_OnChange = args => {
     let changedObj = { ...fullObject, passwordInfo: args };
     objectChanged && objectChanged(changedObj);
     setFullObject(changedObj);
+  };
+  const country_OnChange = args => {
+    let changedObj = { ...fullObject, country: args.target.value };
+    objectChanged && objectChanged(changedObj);
+    setFullObject(changedObj);
+    setCities(
+      citiesList.filter(city => city.countryCode === args.target.value)
+    );
   };
 
   return (
@@ -93,7 +60,9 @@ export const FormCreateAccount = ({
           <TextInput
             label={"Nume și prenume"}
             inputProps={{
-              onChange: nameChanged,
+              name: "fullName",
+              id: "fullName",
+              onChange: input_OnChange,
               required: true
             }}
           />
@@ -104,7 +73,9 @@ export const FormCreateAccount = ({
           <TextInput
             label={"Adresa de email"}
             inputProps={{
-              onChange: emailChanged,
+              name: "emailAddress",
+              id: "emailAddress",
+              onChange: input_OnChange,
               type: "email",
               required: "true"
             }}
@@ -118,8 +89,10 @@ export const FormCreateAccount = ({
         <div className="column is-2">
           <Select
             label={"Varsta"}
-            props={{
-              onChange: varstaOnChange
+            selectProps={{
+              name: "ageRange",
+              id: "ageRange",
+              onChange: input_OnChange
             }}
             options={ageOptions}
           />
@@ -127,8 +100,10 @@ export const FormCreateAccount = ({
         <div className="column is-2">
           <Select
             label={"Gen"}
-            props={{
-              onChange: genderOnChange
+            selectProps={{
+              name: "gender",
+              id: "gender",
+              onChange: input_OnChange
             }}
             options={genderOptions}
           />
@@ -139,8 +114,10 @@ export const FormCreateAccount = ({
           <Select
             label="Ai condiții de sănătate preexistente?"
             description="Spune-ne dacă suferi de anumite boli cronice, diabet, hipertensiune etc. "
-            props={{
-              onChange: existingConditions_OnChange
+            selectProps={{
+              name: "existingHealthConditions",
+              id: "existingHealthConditions",
+              onChange: input_OnChange
             }}
             options={illnesesOptions}
           />
@@ -155,11 +132,40 @@ export const FormCreateAccount = ({
           />
         </div>
       </div>
-
+      <div className="columns">
+        <div className="column is-half">
+          <Select
+            label="Alegeți țara în care vă aflați"
+            selectProps={{
+              name: "country",
+              id: "country",
+              onChange: country_OnChange
+            }}
+            options={countriesList}
+          />
+        </div>
+        <div className="column is-half">
+          <Select
+            label="Alegeți orașul în care vă aflați"
+            selectProps={{
+              name: "city",
+              id: "city",
+              onChange: input_OnChange
+            }}
+            options={cities}
+          />
+        </div>
+      </div>
       <div className="columns">
         <div className="column">
           <label className="checkbox">
-            <input type="checkbox" required onChange={agreement_onChange} />
+            <input
+              type="checkbox"
+              required
+              name="acceptConditions"
+              id="acceptConditions"
+              onChange={input_OnChange}
+            />
             &nbsp;&nbsp;&nbsp; Prin această bifă îți exprimi acordul ca datele
             furnizate de tine prin acest formular să fie procesate exclusiv in
             scopul de a te pune în legătură cu un specialist care să te ajute cu
@@ -177,32 +183,86 @@ export const FormCreateAccount = ({
 
 FormCreateAccount.propTypes = {
   objectChanged: PropTypes.func,
-  ageOptions: PropTypes.node.required,
-  genderOptions: PropTypes.node.required,
-  illnesesOptions: PropTypes.node.required,
-  lastPeriodInformationOptions: PropTypes.node.required
+  ageOptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      selected: PropTypes.bool
+    })
+  ),
+  genderOptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      selected: PropTypes.bool
+    })
+  ),
+  illnesesOptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      selected: PropTypes.bool
+    })
+  ),
+  lastPeriodInformationOptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      checked: PropTypes.bool
+    })
+  ),
+
+  countriesList: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      checked: PropTypes.bool
+    })
+  ),
+  citiesList: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      checked: PropTypes.bool,
+      countryCode: PropTypes.string.isRequired
+    })
+  )
 };
 
 FormCreateAccount.defaultProps = {
   ageOptions: [
-    { key: "10", value: "10" },
-    { key: "20", value: "20" },
-    { key: "30", value: "30" }
+    { text: "10", value: "10" },
+    { text: "20", value: "20" },
+    { text: "30", value: "30" }
   ],
   genderOptions: [
-    { key: "M", value: "Masculin" },
-    { key: "F", value: "Feminin" },
-    { key: "O", value: "Altul" }
+    { value: "M", text: "Masculin" },
+    { value: "F", text: "Feminin" },
+    { value: "O", text: "Altul" }
   ],
   illnesesOptions: [
-    { key: "Boli Cronice", value: "Boli Cronice" },
-    { key: "Diabet", value: "Diabet" },
-    { key: "Hipertensiune", value: "Hipertensiune" }
+    { value: "Boli Cronice", text: "Boli Cronice" },
+    { value: "Diabet", text: "Diabet" },
+    { value: "Hipertensiune", text: "Hipertensiune" }
   ],
   lastPeriodInformationOptions: [
-    { key: "Auto izolare", value: "Auto izolare" },
-    { key: "Carantină la domiciliu", value: "Carantină la domiciliu" },
-    { key: "Carantină specializată", value: "Carantină specializată" },
-    { key: "Niciuna", value: "Niciuna" }
+    { value: "Auto izolare", text: "Auto izolare" },
+    { value: "Carantină la domiciliu", text: "Carantină la domiciliu" },
+    { value: "Carantină specializată", text: "Carantină specializată" },
+    { value: "Niciuna", text: "Niciuna" }
+  ],
+  countriesList: [
+    { value: "", text: "" },
+    { value: "RO", text: "Romania" },
+    { value: "BG", text: "Bulgaria" }
+  ],
+  citiesList: [
+    { value: "Bucuresti", text: "Bucuresti", countryCode: "RO" },
+    { value: "Otopeni", text: "Otopeni", countryCode: "RO" },
+    { value: "Miercurea Ciuc", text: "Miercurea Ciuc", countryCode: "RO" },
+    { value: "Cluj", text: "Cluj", countryCode: "RO" },
+    { value: "Sofia", text: "Sofia", countryCode: "BG" },
+    { value: "Ruse", text: "Ruse", countryCode: "BG" },
+    { value: "Haskovo", text: "Haskovo", countryCode: "BG" }
   ]
 };

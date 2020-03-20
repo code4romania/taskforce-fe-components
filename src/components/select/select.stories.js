@@ -6,9 +6,9 @@ export default { title: "Select" };
 
 export const SelectWithChangeEvent = () => {
   let options = [
-    { key: "Key1", value: "Option 1" },
-    { key: "Key2", value: "Option 2" },
-    { key: "Key3", value: "Option 3" }
+    { text: "Option 1", value: "value1" },
+    { text: "Option 2", value: "value2" },
+    { text: "Option 3", value: "value3" }
   ];
   const [textValue, setTextValue] = useState("Option 1");
   const props = {
@@ -21,7 +21,7 @@ export const SelectWithChangeEvent = () => {
     <div style={{ width: 300 }}>
       <Select
         label={"Select with onChange event"}
-        props={props}
+        selectProps={props}
         options={options}
       />
       {textValue && `Selected: ${textValue}`}
@@ -31,16 +31,16 @@ export const SelectWithChangeEvent = () => {
 
 export const DependentSelects = () => {
   let options = [
-    { key: "Key1", value: "Value 1" },
-    { key: "Key2", value: "Value 2" },
-    { key: "Key3", value: "Value 3" }
+    { text: "Option 1", value: "value1" },
+    { text: "Option 2", value: "value2" },
+    { text: "Option 3", value: "value3" }
   ];
   const generateOptions = seed => {
     let options = [];
     for (let index = 0; index < 3; index++) {
       options.push({
-        key: index,
-        value: `child option ${index} (${seed})`
+        value: index,
+        text: `child option ${index} (${seed})`
       });
     }
     return options;
@@ -58,7 +58,7 @@ export const DependentSelects = () => {
       <Select
         label={"Master select"}
         description={"These are the master options"}
-        props={props}
+        selectProps={props}
         options={options}
       />
       <Select
