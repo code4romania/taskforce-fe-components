@@ -33,7 +33,7 @@ export const InputWithChangeEvent = () => {
 
   return (
     <div style={{ width: 300 }}>
-      <TextInput label={"Input with onChange event"} props={props} />
+      <TextInput label={"Input with onChange event"} inputProps={props} />
       {textValue && `Value: ${textValue}`}
     </div>
   );
