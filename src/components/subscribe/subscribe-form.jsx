@@ -4,13 +4,24 @@ import { Input } from "../input/input";
 import { Hero } from "../hero/hero";
 import { Button } from "../button/button";
 import "./subscribe-form.scss";
+import { validateEmail } from "./email-validatior.service";
 
-export const SubscribeForm = ({ onSubmitted }) => {
+export const SubscribeForm = ({
+  onSubmitted,
+  sending,
+  success,
+  errorMessage
+}) => {
   const [inputValue, setInputValue] = useState();
+  const [isValid, setIsValid] = useState();
 
-  const submit = () =>
-    inputValue &&
-    inputValue.indexOf("@") > -1 &&
+  const handleInputChange = ({ target }) => {
+    setIsValid(validateEmail(target.value));
+    setInputValue(target.value);
+  };
+
+  const handleSubmit = () =>
+    isValid &&
     onSubmitted({
       email: inputValue
     });
@@ -23,22 +34,39 @@ export const SubscribeForm = ({ onSubmitted }) => {
         useFallbackIcon={true}
       />
       <Input
-        type="text"
+        type="email"
         hasAddons={true}
         label="Introdu aici adresa de e-mail"
         usePlaceholder={true}
-        onChange={e => setInputValue(e.target.value)}
+        color={isValid === false ? "danger" : void 0}
+        disabled={sending || success}
+        loading={sending}
+        onChange={handleInputChange}
       >
         <div className="control">
-          <Button type="primary" onClick={submit}>
+          <Button
+            type="primary"
+            onClick={handleSubmit}
+            disabled={sending || success || isValid === false}
+          >
             Abonează-mă
           </Button>
         </div>
       </Input>
+      {success && <p className="help is-primary">Abonare reușită!</p>}
+      {errorMessage && <p className="help is-danger">{errorMessage}</p>}
     </div>
   );
 };
 
 SubscribeForm.propTypes = {
-  onSubmitted: PropTypes.func
+  onSubmitted: PropTypes.func,
+  sending: PropTypes.bool,
+  success: PropTypes.bool,
+  errorMessage: PropTypes.string
+};
+
+SubscribeForm.defaultProps = {
+  onSubmitted: ({ email }) => console.log(email),
+  sending: false
 };

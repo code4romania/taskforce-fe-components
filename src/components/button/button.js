@@ -2,7 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./button.scss";
 
-export const Button = ({ children, onClick, type, size, inverted }) => {
+export const Button = ({
+  children,
+  onClick,
+  type,
+  size,
+  inverted,
+  disabled
+}) => {
   const classNames = ["button"];
 
   if (type) {
@@ -18,7 +25,11 @@ export const Button = ({ children, onClick, type, size, inverted }) => {
   }
 
   return (
-    <button onClick={onClick} className={classNames.join(" ")}>
+    <button
+      onClick={onClick}
+      className={classNames.join(" ")}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
@@ -29,10 +40,12 @@ Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   type: PropTypes.oneOf(["primary", "danger"]),
   size: PropTypes.oneOf(["small", "medium", "large"]),
-  inverted: PropTypes.bool
+  inverted: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 Button.defaultProps = {
   type: "primary",
-  inverted: false
+  inverted: false,
+  disabled: false
 };
