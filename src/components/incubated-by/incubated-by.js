@@ -8,14 +8,12 @@ export const IncubatedBy = () => {
     <div className="incubated-by-wrapper">
       <div className="incubated-by container">
         <p className="caption">proiect incubat în programul</p>
-        <div className="logo">
-          <Logo
-            src={TaskforceLogo}
-            imgClass={"rem2"}
-            alt={"Code for Romania Task Force"}
-            url="https://code4.ro"
-          />
-        </div>
+        <Logo
+          src={TaskforceLogo}
+          imgClass={"rem2"}
+          alt={"Code for Romania Task Force"}
+          url="https://code4.ro"
+        />
       </div>
     </div>
   );

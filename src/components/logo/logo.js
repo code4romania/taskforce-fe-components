@@ -6,7 +6,7 @@ export const Logo = ({ src, url, alt, imgClass }) => {
   return (
     <div className="logo">
       {url ? (
-        <a href={url}>
+        <a href={url} target="_blank" rel="noopener noreferrer">
           <img src={src} className={imgClass} alt={alt} />
         </a>
       ) : (
