@@ -4,7 +4,7 @@
 
 A set of reusable components between taskforce react apps.
 
-[Contributing](#contributing) | [Built with](#built-with) | [Repos and projects](#repos-and-projects) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
+[Contributing](#contributing) | [Built with](#built-with) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
 
 ## Contributing
 
@@ -29,10 +29,6 @@ Web
 ### Package managers
 
 npm
-
-## Repos and projects
-
-Mention all related repos and projects.
 
 ## Development
 

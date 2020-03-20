@@ -1,35 +1,21 @@
 @import "~bulma/sass/utilities/_all.sass";
 
+.incubated-by-wrapper {
+  border-top: 1px solid #5e80ff;
+  width:100%;
+  padding: 5px 0;
+}
+
 .incubated-by {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  border-top: 1px solid #5e80ff;
   min-height:60px;
-  padding: 0 100px;
-
-  .caption,
-  .logo {
-    vertical-align: middle;
-    display: inline-block;
-  }
-
-  .logo {
-    margin-left: 10px;
-    @include mobile {
-      margin-left: 6px;
-    }
-  }
 
   .caption {
     font-size: 14px;
     line-height: 21px;
     color: #000;
-
-    @include mobile {
-      font-size: 10px;
-      line-height: 12px;
-    }
   }
 }
