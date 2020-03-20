@@ -45,7 +45,6 @@ export const SubscribeForm = ({
       >
         <div className="control">
           <Button
-            type="primary"
             onClick={handleSubmit}
             disabled={sending || success || isValid === false}
           >
@@ -53,7 +52,7 @@ export const SubscribeForm = ({
           </Button>
         </div>
       </Input>
-      {success && <p className="help is-primary">Abonare reușită!</p>}
+      {success && <p className="help success">Abonare reușită!</p>}
       {errorMessage && <p className="help is-danger">{errorMessage}</p>}
     </div>
   );

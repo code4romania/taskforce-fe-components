@@ -20,7 +20,7 @@ export const Input = ({
 }) => {
   const inputClassNames = ["input"];
   const fieldClassNames = ["field"];
-  const controlClassNames = ["control"];
+  const controlClassNames = ["control is-expanded"];
   if (hasAddons) fieldClassNames.push("has-addons");
   if (size) inputClassNames.push(`is-${size}`);
   if (color) inputClassNames.push(`is-${color}`);

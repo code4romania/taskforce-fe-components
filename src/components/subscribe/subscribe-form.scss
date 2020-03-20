@@ -1,11 +1,17 @@
+$subscribeColor: #27ae60;
+
 .subscribe-form {
   background-color: rgba(5, 214, 199, 0.2);
   padding: 36px;
-  .input {
-    width: 340px;
-  }
   .button {
     height: 100%;
+    background-color: $subscribeColor;
+  }
+  .button:disabled {
+    background-color: $subscribeColor;
+  }
+  p.success {
+    color: $subscribeColor;
   }
   .hero-body {
     padding: 0 0 12px 0;
