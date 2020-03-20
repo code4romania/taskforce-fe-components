@@ -6,10 +6,14 @@ import ArrowRight from "../../icons/arrow-right.svg";
 import "./list-item.styles.scss";
 
 export const ListItem = ({ title, active, hasNext, value, onClick }) => {
+  const onClickCb = () => {
+    if (onClick) onClick(value);
+  };
+
   return (
     <div
       className={classNames("__list-item", { "__list-item--active": active })}
-      onClick={e => onClick(value || e)}
+      onClick={onClickCb}
     >
       <div className="__list-item__left-side">
         <Tick />

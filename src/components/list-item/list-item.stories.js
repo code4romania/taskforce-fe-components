@@ -45,14 +45,3 @@ export const onClickWithValue = () => {
     </div>
   );
 };
-
-export const onClickWithWithoutValue = () => {
-  const [data, setData] = useState({});
-
-  return (
-    <div style={{ minWidth: 300, maxWidth: 800 }}>
-      <pre style={{ whiteSpace: "pre-wrap" }}>{JSON.stringify(data)}</pre>
-      <ListItem title={"Simptome și tratament"} onClick={setData} />
-    </div>
-  );
-};
