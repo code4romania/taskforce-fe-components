@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { withKnobs } from "@storybook/addon-knobs";
 import { SubscribeForm } from "./subscribe-form";
 import { MailchimpSubscribe } from "./mailchimp-subscribe";
 import PropTypes from "prop-types";
+import { Input } from "../input/input";
 
 export default { title: "Subscribe form", decorators: [withKnobs] };
-
-const chimpUrl =
-  "https://gmail.us19.list-manage.com/subscribe/post?u=b2f5e42c92412f13cc23d2631&amp;id=6643c553da";
 
 const Wrapper = ({ children }) => (
   <div className="columns">
@@ -43,8 +41,18 @@ export const subscribeSuccess = () => (
   </Wrapper>
 );
 
-export const mailchimpSubscribe = () => (
-  <Wrapper>
-    <MailchimpSubscribe url={chimpUrl} />
-  </Wrapper>
-);
+export const mailchimpSubscribe = () => {
+  const [chimpUrl, setChimpUrl] = useState();
+  return (
+    <Wrapper>
+      <label className="label">Mailchimp URL:</label>
+      <Input
+        type="text"
+        label="Introdu un url de mailchimp valid"
+        usePlaceholder={true}
+        onChange={({ target }) => setChimpUrl(target.value)}
+      ></Input>
+      <MailchimpSubscribe url={chimpUrl || ""} />
+    </Wrapper>
+  );
+};

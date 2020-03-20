@@ -1,4 +1,5 @@
 $subscribeColor: #27ae60;
+$subscribeColorHover: #249252;
 
 .subscribe-form {
   background-color: rgba(5, 214, 199, 0.2);
@@ -9,6 +10,9 @@ $subscribeColor: #27ae60;
   }
   .button:disabled {
     background-color: $subscribeColor;
+  }
+  .button:hover {
+    background-color: $subscribeColorHover;
   }
   p.success {
     color: $subscribeColor;
