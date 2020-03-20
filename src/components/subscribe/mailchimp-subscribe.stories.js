@@ -5,7 +5,7 @@ import { MailchimpSubscribe } from "./mailchimp-subscribe";
 import PropTypes from "prop-types";
 import { Input } from "../input/input";
 
-export default { title: "Subscribe form", decorators: [withKnobs] };
+export default { title: "Newsletter form", decorators: [withKnobs] };
 
 const Wrapper = ({ children }) => (
   <div className="columns">
