@@ -6,7 +6,6 @@ export * from "./components/input/input";
 export * from "./components/label/label";
 
 export * from "./components/developed-by/developed-by";
-export * from "./components/developer-logo/developer-logo";
 
 export * from "./components/footer/footer-links";
 export * from "./components/footer/footer";
@@ -27,7 +26,6 @@ export * from "./components/list-header/list-header";
 export * from "./components/list-item/list-item";
 
 export * from "./components/logo/logo";
-export * from "./components/partner-logo/partner-logo";
 
 export * from "./components/search-input/search-input";
 export * from "./components/social-share/social-share";

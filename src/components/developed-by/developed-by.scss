@@ -5,31 +5,16 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  height: 69px;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
 
   > span {
     display: flex;
     border-bottom: 1px solid #e5e5e5;
 
-    > div {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-    }
-  }
-
-  .developed-by-logo {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-
-    img.rem2 {
-      height: 2rem;
-    }
-    img.rem3 {
-      height: 3rem;
-    }
-  }
+> div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+}
 }
