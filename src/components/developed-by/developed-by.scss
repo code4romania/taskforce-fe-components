@@ -4,45 +4,32 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  height: 69px;
   align-items: center;
+  height: 69px;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 
-  span {
-    padding: 10px;
-    border-bottom: 1px solid #E5E5E5;
-  }
+  > span {
+    display: flex;
+    border-bottom: 1px solid #e5e5e5;
 
-  .developer,
-  .partner {
-    display: inline-block;
-    margin-left: 12px;
-
-    @include mobile {
-      margin-left: 6px;
+    > div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
     }
   }
 
-  .caption,
-  .captioned-logo {
-    vertical-align: middle;
-    display: inline-block;
-  }
+  .developed-by-logo {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 
-  .captioned-logo {
-    margin-left: 10px;
-    @include mobile {
-      margin-left: 6px;
+    img.rem2 {
+      height: 2rem;
     }
-  }
-
-  .caption {
-    font-size: 14px;
-    line-height: 16px;
-    color: #000;
-
-    @include mobile {
-      font-size: 10px;
-      line-height: 12px;
+    img.rem3 {
+      height: 3rem;
     }
   }
 }
