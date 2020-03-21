@@ -7,11 +7,7 @@ export const Banner = ({ color, title, link }) => {
     <div className={`banner-wrapper is-${color}`}>
       <div className="banner">
         <div className="title">
-          <a
-            href="${link}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={link} target="_blank" rel="noopener noreferrer">
             {title || ""}
           </a>
         </div>
@@ -27,5 +23,5 @@ Banner.propTypes = {
 };
 
 Banner.defaultProps = {
-  color: 'yellow'
+  color: "yellow"
 };
