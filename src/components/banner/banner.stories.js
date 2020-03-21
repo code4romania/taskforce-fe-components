@@ -5,10 +5,14 @@ import "./../../styles.scss";
 
 export default { title: "Banner" };
 
+export const defaultColor = () => (
+  <Banner title="15 RECOMANDĂRI privind conduita socială responsabilă în prevenirea răspândirii coronavirus. " link="https://code4.ro" />
+);
+
 export const green = () => (
-  <Banner Color="green"  Title="15 RECOMANDĂRI privind conduita socială responsabilă în prevenirea răspândirii coronavirus. " Link="https://code4.ro" />
+  <Banner color="green"  title="15 RECOMANDĂRI privind conduita socială responsabilă în prevenirea răspândirii coronavirus. " link="https://code4.ro" />
 );
 
 export const yellow = () => (
-  <Banner Color="yellow"  Title="15 RECOMANDĂRI privind conduita socială responsabilă în prevenirea răspândirii coronavirus. " Link="https://code4.ro" />
+  <Banner color="yellow"  title="15 RECOMANDĂRI privind conduita socială responsabilă în prevenirea răspândirii coronavirus. " link="https://code4.ro" />
 );
