@@ -1,0 +1,42 @@
+$subscribeColor: #27ae60;
+$subscribeColorHover: #249252;
+
+.__subscribe-form {
+  background-color: rgba(5, 214, 199, 0.2);
+  padding: 36px;
+  .button {
+    height: 100%;
+    background-color: $subscribeColor;
+  }
+  .button:disabled {
+    background-color: $subscribeColor;
+  }
+  .button:hover {
+    background-color: $subscribeColorHover;
+  }
+  p.__success {
+    color: $subscribeColor;
+  }
+  .hero-body {
+    padding: 0 0 12px 0;
+  }
+}
+
+.__compact {
+  .hero .hero-body {
+    .title {
+      font-size: 18px;
+    }
+    .subtitle {
+      font-size: 14px;
+    }
+  }
+  .field {
+    .input {
+      font-size: 14px;
+    }
+  }
+  .button {
+    width: 100%;
+  }
+}
