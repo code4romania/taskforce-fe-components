@@ -7,8 +7,8 @@ export const Button = ({
   onClick,
   type,
   size,
-  inverted,
-  disabled
+  disabled,
+  inverted
 }) => {
   const classNames = ["button"];
 
@@ -26,9 +26,9 @@ export const Button = ({
 
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={classNames.join(" ")}
-      disabled={disabled}
     >
       {children}
     </button>
@@ -40,12 +40,12 @@ Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   type: PropTypes.oneOf(["primary", "danger"]),
   size: PropTypes.oneOf(["small", "medium", "large"]),
-  inverted: PropTypes.bool,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  inverted: PropTypes.bool
 };
 
 Button.defaultProps = {
   type: "primary",
-  inverted: false,
-  disabled: false
+  disabled: false,
+  inverted: false
 };

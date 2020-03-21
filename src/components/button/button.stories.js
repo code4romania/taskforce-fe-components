@@ -24,6 +24,22 @@ export const inverted = () => {
   );
 };
 
+export const disabled = () => {
+  return (
+    <Button disabled={true} onClick={sayMyName}>
+      Hello Friend
+    </Button>
+  );
+};
+
+export const disabledAndInverted = () => {
+  return (
+    <Button disabled={true} inverted={true} onClick={sayMyName}>
+      Hello Friend
+    </Button>
+  );
+};
+
 export const danger = () => {
   return (
     <Button type="danger" onClick={sayMyName}>
