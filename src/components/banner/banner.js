@@ -8,10 +8,11 @@ export const Banner = ({ color, title, link }) => {
       <div className="banner">
         <div className="title">
           <a
-            href="${link}"
+            href={link}
             target="_blank"
             rel="noopener noreferrer"
           >
+
             {title || ""}
           </a>
         </div>
