@@ -21,10 +21,17 @@
     span {
       display: flex;
     }
+
+    a {
+      padding: 0.25rem 0.75rem;
+    }
+
+    a:hover {
+      background: #fafafa;
+    }
   }
 
   a {
-    font-size: 14px;
     line-height: 21px;
     display: flex;
     align-items: center;
