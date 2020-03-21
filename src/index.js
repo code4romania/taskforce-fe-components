@@ -32,3 +32,6 @@ export * from "./components/logo/logo";
 
 export * from "./components/search-input/search-input";
 export * from "./components/social-share/social-share";
+
+export * from "./components/subscribe/mailchimp-subscribe";
+export * from "./components/subscribe/subscribe-form";
