@@ -36,6 +36,12 @@ export const mailchimpSubscribe = () => {
   );
 };
 
+export const mailchimpSubscribeCompact = () => (
+  <Wrapper classes="column is-one-fifth">
+    <MailchimpSubscribe url="" compact={true} />
+  </Wrapper>
+);
+
 export const subscribe = () => (
   <Wrapper>
     <SubscribeForm onSubmit={logOnSubmit} />
