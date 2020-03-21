@@ -1,21 +1,49 @@
-@import "~bulma/sass/utilities/_all.sass";
-
 .developed-by {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
 
-  > span {
-    display: flex;
+  > div {
     border-bottom: 1px solid #e5e5e5;
-    padding: 0.75em 0;
+    min-height: 75px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 
-> div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+    &:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    a {
+      display: flex;
+    }
+
+    img {
+      height: 2.5rem;
+    }
+  }
 }
-}
+
+@media (max-width: 1023px) {
+  .developed-by {
+    flex-direction: column;
+
+    > div {
+      justify-content: space-between;
+      flex-direction: row;
+      min-height: 55px;
+      width: 100%;
+
+      &:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .logo {
+        flex-shrink: 0;
+        padding: 0;
+      }
+    }
+  }
 }
