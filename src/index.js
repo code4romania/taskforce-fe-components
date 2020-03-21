@@ -1,5 +1,6 @@
 import "./styles.scss";
 
+export * from "./components/accordion/accordion";
 export * from "./components/button/button";
 export * from "./components/checkbox/checkbox";
 export * from "./components/input/input";
