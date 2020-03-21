@@ -12,7 +12,7 @@ export const DevelopedBy = ({ showSecondLine }) => {
       <div className="container developed-by">
         <span>
           <div>
-            <div className="caption">Un proiect in parteneriat cu </div>
+            <div className="caption">Un proiect în parteneriat cu </div>
             <Logo
               src={partnerLogo}
               url={"https://www.gov.ro"}
@@ -35,7 +35,7 @@ export const DevelopedBy = ({ showSecondLine }) => {
         <div className="container developed-by">
           <span>
             <div>
-              <div className="caption">Continut avizat de</div>
+              <div className="caption">Conținut avizat de</div>
               <Logo
                 src={dsuLogo}
                 url={"http://www.dsu.mai.gov.ro/"}
