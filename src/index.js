@@ -17,6 +17,8 @@ export * from "./components/hero/hero";
 
 export * from "./components/incubated-by/incubated-by";
 
+export * from "./components/banner/banner";
+
 export * from "./components/instruments/instruments";
 export * from "./components/instruments-item/instruments-item";
 
