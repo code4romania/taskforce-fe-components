@@ -12,30 +12,32 @@ import { Wording } from "./constants";
 
 export const SubscribeForm = ({
   compact,
-  sending,
+  loading,
   success,
   errorMessage,
-  onSubmitted
+  onSubmit
 }) => {
   const [inputValue, setInputValue] = useState();
   const [isValid, setIsValid] = useState();
 
-  const handleInputChange = ({ target }) => {
-    setIsValid(validateEmail(target.value));
-    setInputValue(target.value);
+  const handleInputChange = ({ target: { value } }) => {
+    setInputValue(value);
   };
 
-  const handleSubmit = () =>
-    isValid &&
-    onSubmitted({
-      email: inputValue
-    });
+  const handleSubmit = () => {
+    const validationResult = validateEmail(inputValue);
+    setIsValid(validationResult);
+    const canSubmit = validationResult && typeof onSubmit === "function";
+
+    if (canSubmit) {
+      onSubmit({
+        email: inputValue
+      });
+    }
+  };
 
   const SubscribeButton = () => (
-    <Button
-      onClick={handleSubmit}
-      disabled={sending || success || isValid === false}
-    >
+    <Button onClick={handleSubmit} disabled={loading || success}>
       {Wording.BUTTON}
     </Button>
   );
@@ -56,8 +58,8 @@ export const SubscribeForm = ({
         label={Wording.PLACEHOLDER}
         usePlaceholder={true}
         color={isValid === false ? "danger" : void 0}
-        disabled={sending || success}
-        loading={sending}
+        disabled={loading || success}
+        loading={loading}
         onChange={handleInputChange}
       >
         {!compact && (
@@ -75,14 +77,13 @@ export const SubscribeForm = ({
 
 SubscribeForm.propTypes = {
   compact: PropTypes.bool,
-  sending: PropTypes.bool,
+  loading: PropTypes.bool,
   success: PropTypes.bool,
   errorMessage: PropTypes.string,
-  onSubmitted: PropTypes.func
+  onSubmit: PropTypes.func
 };
 
 SubscribeForm.defaultProps = {
-  onSubmitted: ({ email }) => console.log(email),
   compact: false,
-  sending: false
+  loading: false
 };

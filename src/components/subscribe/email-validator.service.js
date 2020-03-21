@@ -1,5 +1,3 @@
-const emailRegex = new RegExp(
-  "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+).([a-zA-Z]{2,5})$"
-);
+const emailRegex = new RegExp("[^@]+@[^.]+..+");
 
 export const validateEmail = emailValue => emailRegex.test(emailValue);

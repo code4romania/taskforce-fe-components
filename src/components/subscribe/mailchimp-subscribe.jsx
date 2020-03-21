@@ -4,25 +4,26 @@ import { SubscribeForm } from "./subscribe-form";
 import { sendSubscriptionRequest } from "./mailchimp.service";
 
 export const MailchimpSubscribe = ({ url }) => {
-  const [isSending, setIsSending] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState();
   const [errorMessage, setErrorMessage] = useState();
 
   const subscribe = async ({ email }) => {
-    setIsSending(true);
+    setIsLoading(true);
     try {
       await sendSubscriptionRequest(url, email);
-      setIsSending(false);
       setIsSuccess(true);
     } catch (errorMsg) {
       setErrorMessage(errorMsg);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <SubscribeForm
-      onSubmitted={formData => subscribe(formData)}
-      sending={isSending}
+      onSubmit={formData => subscribe(formData)}
+      loading={isLoading}
       success={isSuccess}
       errorMessage={errorMessage}
     />

@@ -18,8 +18,10 @@ Wrapper.propTypes = {
   classes: PropTypes.string
 };
 
+const logOnSubmit = ({ email }) => console.log(email);
+
 export const mailchimpSubscribe = () => {
-  const [chimpUrl, setChimpUrl] = useState();
+  const [chimpUrl, setChimpUrl] = useState("");
   return (
     <Wrapper>
       <label className="label">Mailchimp URL:</label>
@@ -27,16 +29,16 @@ export const mailchimpSubscribe = () => {
         type="text"
         label="Introdu un url de mailchimp valid"
         usePlaceholder={true}
-        onChange={({ target }) => setChimpUrl(target.value)}
+        onChange={({ target: { value } }) => setChimpUrl(value)}
       ></Input>
-      <MailchimpSubscribe url={chimpUrl || ""} />
+      <MailchimpSubscribe url={chimpUrl} />
     </Wrapper>
   );
 };
 
 export const subscribe = () => (
   <Wrapper>
-    <SubscribeForm />
+    <SubscribeForm onSubmit={logOnSubmit} />
   </Wrapper>
 );
 
