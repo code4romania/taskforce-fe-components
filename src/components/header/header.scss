@@ -19,20 +19,26 @@
     justify-content: center;
 
     span {
-      margin-left: 20px;
       display: flex;
+    }
+
+    a {
+      padding: 0.25rem 0.75rem;
+    }
+
+    a:hover {
+      background: #fafafa;
     }
   }
 
   a {
-    font-size: 14px;
     line-height: 21px;
     display: flex;
     align-items: center;
     text-align: center;
     color: #000000;
     text-decoration: none;
-    margin: 0px 5px;
+    margin: 0px 10px;
   }
 }
 
@@ -65,7 +71,6 @@
       justify-content: flex-end;
       padding: 10px;
       span {
-        margin-left: 50px;
         display: flex;
       }
     }

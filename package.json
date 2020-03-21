@@ -1,6 +1,6 @@
 {
   "name": "@code4ro/taskforce-fe-components",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "private": false,
   "dependencies": {
     "bulma": "^0.8.0",
@@ -9,8 +9,8 @@
   },
   "peerDependencies": {
     "prop-types": ">= 15.7.2 < 2",
-    "react": ">= 16.8.0 < 2",
-    "react-dom": ">= 16.8.0 < 2"
+    "react": ">= 16.13.0 < 2",
+    "react-dom": ">= 16.13.0 < 2"
   },
   "scripts": {
     "start": "npm run storybook",
