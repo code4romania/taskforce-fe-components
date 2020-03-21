@@ -1,7 +1,7 @@
 $subscribeColor: #27ae60;
 $subscribeColorHover: #249252;
 
-.subscribe-form {
+.__subscribe-form {
   background-color: rgba(5, 214, 199, 0.2);
   padding: 36px;
   .button {
@@ -14,10 +14,29 @@ $subscribeColorHover: #249252;
   .button:hover {
     background-color: $subscribeColorHover;
   }
-  p.success {
+  p.__success {
     color: $subscribeColor;
   }
   .hero-body {
     padding: 0 0 12px 0;
+  }
+}
+
+.__compact {
+  .hero .hero-body {
+    .title {
+      font-size: 18px;
+    }
+    .subtitle {
+      font-size: 14px;
+    }
+  }
+  .field {
+    .input {
+      font-size: 14px;
+    }
+  }
+  .button {
+    width: 100%;
   }
 }

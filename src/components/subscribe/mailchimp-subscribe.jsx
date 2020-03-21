@@ -7,6 +7,7 @@ export const MailchimpSubscribe = ({ url }) => {
   const [isSending, setIsSending] = useState();
   const [isSuccess, setIsSuccess] = useState();
   const [errorMessage, setErrorMessage] = useState();
+
   const subscribe = async ({ email }) => {
     setIsSending(true);
     try {

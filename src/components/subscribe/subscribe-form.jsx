@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Input } from "../input/input";
+
 import { Hero } from "../hero/hero";
+import { Input } from "../input/input";
 import { Button } from "../button/button";
+
 import "./subscribe-form.scss";
-import { validateEmail } from "./email-validatior.service";
+
+import { validateEmail } from "./email-validator.service";
+import { Wording } from "./constants";
 
 export const SubscribeForm = ({
-  onSubmitted,
+  compact,
   sending,
   success,
-  errorMessage
+  errorMessage,
+  onSubmitted
 }) => {
   const [inputValue, setInputValue] = useState();
   const [isValid, setIsValid] = useState();
@@ -26,46 +31,58 @@ export const SubscribeForm = ({
       email: inputValue
     });
 
+  const SubscribeButton = () => (
+    <Button
+      onClick={handleSubmit}
+      disabled={sending || success || isValid === false}
+    >
+      {Wording.BUTTON}
+    </Button>
+  );
+
+  const classNames = ["__subscribe-form", "container"];
+  if (compact) classNames.push("__compact");
+
   return (
-    <div className="subscribe-form container">
+    <div className={classNames.join(" ")}>
       <Hero
-        title="Rămâi informat"
-        subtitle="Abonează-te la newsletter și îți trimitem zilnic ultimele informații!"
+        title={Wording.TITLE}
+        subtitle={Wording.SUB_TITLE}
         useFallbackIcon={true}
       />
       <Input
         type="email"
-        hasAddons={true}
-        label="Introdu aici adresa de e-mail"
+        hasAddons={!compact}
+        label={Wording.PLACEHOLDER}
         usePlaceholder={true}
         color={isValid === false ? "danger" : void 0}
         disabled={sending || success}
         loading={sending}
         onChange={handleInputChange}
       >
-        <div className="control">
-          <Button
-            onClick={handleSubmit}
-            disabled={sending || success || isValid === false}
-          >
-            Abonează-mă
-          </Button>
-        </div>
+        {!compact && (
+          <div className="control">
+            <SubscribeButton />
+          </div>
+        )}
       </Input>
-      {success && <p className="help success">Abonare reușită!</p>}
+      {compact && <SubscribeButton />}
+      {success && <p className="help __success">{Wording.SUCCESS}</p>}
       {errorMessage && <p className="help is-danger">{errorMessage}</p>}
     </div>
   );
 };
 
 SubscribeForm.propTypes = {
-  onSubmitted: PropTypes.func,
+  compact: PropTypes.bool,
   sending: PropTypes.bool,
   success: PropTypes.bool,
-  errorMessage: PropTypes.string
+  errorMessage: PropTypes.string,
+  onSubmitted: PropTypes.func
 };
 
 SubscribeForm.defaultProps = {
   onSubmitted: ({ email }) => console.log(email),
+  compact: false,
   sending: false
 };

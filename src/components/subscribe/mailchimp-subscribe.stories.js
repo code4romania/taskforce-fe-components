@@ -7,14 +7,31 @@ import { Input } from "../input/input";
 
 export default { title: "Newsletter form", decorators: [withKnobs] };
 
-const Wrapper = ({ children }) => (
+const Wrapper = ({ children, classes }) => (
   <div className="columns">
-    <div className="column is-one-third">{children}</div>
+    <div className={classes || "column is-one-third"}>{children}</div>
   </div>
 );
 
 Wrapper.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  classes: PropTypes.string
+};
+
+export const mailchimpSubscribe = () => {
+  const [chimpUrl, setChimpUrl] = useState();
+  return (
+    <Wrapper>
+      <label className="label">Mailchimp URL:</label>
+      <Input
+        type="text"
+        label="Introdu un url de mailchimp valid"
+        usePlaceholder={true}
+        onChange={({ target }) => setChimpUrl(target.value)}
+      ></Input>
+      <MailchimpSubscribe url={chimpUrl || ""} />
+    </Wrapper>
+  );
 };
 
 export const subscribe = () => (
@@ -41,18 +58,14 @@ export const subscribeSuccess = () => (
   </Wrapper>
 );
 
-export const mailchimpSubscribe = () => {
-  const [chimpUrl, setChimpUrl] = useState();
-  return (
-    <Wrapper>
-      <label className="label">Mailchimp URL:</label>
-      <Input
-        type="text"
-        label="Introdu un url de mailchimp valid"
-        usePlaceholder={true}
-        onChange={({ target }) => setChimpUrl(target.value)}
-      ></Input>
-      <MailchimpSubscribe url={chimpUrl || ""} />
-    </Wrapper>
-  );
-};
+export const subscribeCompact = () => (
+  <Wrapper classes="column is-one-fifth">
+    <SubscribeForm compact={true} />
+  </Wrapper>
+);
+
+export const subscribeCompactSuccess = () => (
+  <Wrapper classes="column is-one-fifth">
+    <SubscribeForm compact={true} success={true} />
+  </Wrapper>
+);
