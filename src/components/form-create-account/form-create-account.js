@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import "./form-create-account.scss";
-import { TextInput } from "../text-input/text-input";
+import { FormInput } from "../form-input/form-input";
 import { Select } from "../select/select";
 import { RadioList } from "../radio-list/radio-list";
 import { PasswordWithConfirm } from "../password-with-confirm/password-with-confirm";
+import formCreateAccountPropTypes from "./form-create-account.propTypes";
+import formCreateAccountDefaultValues from "./form-create-account.defaultProps";
 
 /**
  *
@@ -20,7 +20,8 @@ export const FormCreateAccount = ({
   lastPeriodInformationOptions,
   objectChanged,
   countriesList,
-  citiesList
+  citiesList,
+  dataProcessingApprovalText
 }) => {
   const [fullObject, setFullObject] = useState({});
   const [cities, setCities] = useState([]);
@@ -57,7 +58,7 @@ export const FormCreateAccount = ({
     <div>
       <div className="columns">
         <div className="column">
-          <TextInput
+          <FormInput
             label={"Nume și prenume"}
             inputProps={{
               name: "fullName",
@@ -70,7 +71,7 @@ export const FormCreateAccount = ({
       </div>
       <div className="columns">
         <div className="column is-half">
-          <TextInput
+          <FormInput
             label={"Adresa de email"}
             inputProps={{
               name: "emailAddress",
@@ -166,14 +167,9 @@ export const FormCreateAccount = ({
               id="acceptConditions"
               onChange={input_OnChange}
             />
-            &nbsp;&nbsp;&nbsp; Prin această bifă îți exprimi acordul ca datele
-            furnizate de tine prin acest formular să fie procesate exclusiv in
-            scopul de a te pune în legătură cu un specialist care să te ajute cu
-            problema pentru care cauți soluție.{" "}
-            <a href="#" onClick="return false;">
-              Aici puteți găsi regulamentul nostru cu privire la prelucrarea
-              datelor cu caracter personal.
-            </a>
+            <span
+              dangerouslySetInnerHTML={{ __html: dataProcessingApprovalText }}
+            ></span>
           </label>
         </div>
       </div>
@@ -181,88 +177,6 @@ export const FormCreateAccount = ({
   );
 };
 
-FormCreateAccount.propTypes = {
-  objectChanged: PropTypes.func,
-  ageOptions: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      selected: PropTypes.bool
-    })
-  ),
-  genderOptions: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      selected: PropTypes.bool
-    })
-  ),
-  illnesesOptions: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      selected: PropTypes.bool
-    })
-  ),
-  lastPeriodInformationOptions: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      checked: PropTypes.bool
-    })
-  ),
+FormCreateAccount.propTypes = formCreateAccountPropTypes;
 
-  countriesList: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      checked: PropTypes.bool
-    })
-  ),
-  citiesList: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      checked: PropTypes.bool,
-      countryCode: PropTypes.string.isRequired
-    })
-  )
-};
-
-FormCreateAccount.defaultProps = {
-  ageOptions: [
-    { text: "10", value: "10" },
-    { text: "20", value: "20" },
-    { text: "30", value: "30" }
-  ],
-  genderOptions: [
-    { value: "M", text: "Masculin" },
-    { value: "F", text: "Feminin" },
-    { value: "O", text: "Altul" }
-  ],
-  illnesesOptions: [
-    { value: "Boli Cronice", text: "Boli Cronice" },
-    { value: "Diabet", text: "Diabet" },
-    { value: "Hipertensiune", text: "Hipertensiune" }
-  ],
-  lastPeriodInformationOptions: [
-    { value: "Auto izolare", text: "Auto izolare" },
-    { value: "Carantină la domiciliu", text: "Carantină la domiciliu" },
-    { value: "Carantină specializată", text: "Carantină specializată" },
-    { value: "Niciuna", text: "Niciuna" }
-  ],
-  countriesList: [
-    { value: "", text: "" },
-    { value: "RO", text: "Romania" },
-    { value: "BG", text: "Bulgaria" }
-  ],
-  citiesList: [
-    { value: "Bucuresti", text: "Bucuresti", countryCode: "RO" },
-    { value: "Otopeni", text: "Otopeni", countryCode: "RO" },
-    { value: "Miercurea Ciuc", text: "Miercurea Ciuc", countryCode: "RO" },
-    { value: "Cluj", text: "Cluj", countryCode: "RO" },
-    { value: "Sofia", text: "Sofia", countryCode: "BG" },
-    { value: "Ruse", text: "Ruse", countryCode: "BG" },
-    { value: "Haskovo", text: "Haskovo", countryCode: "BG" }
-  ]
-};
+FormCreateAccount.defaultProps = formCreateAccountDefaultValues;

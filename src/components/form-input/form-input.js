@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./text-input.scss";
 
 /**
  * TextInput reusable component - generates input with label and description
@@ -8,26 +7,18 @@ import "./text-input.scss";
  * @param {string} description
  * @param {object} inputProps Contains HTML input attributes: type, value, name, id, etc. https://www.w3schools.com/tags/tag_input.asp
  */
-export const TextInput = ({ label, description, inputProps }) => {
-  const classNames = ["input"];
-
-  if (inputProps) {
-    if (!inputProps["type"]) {
-      inputProps["type"] = "text";
-    }
-
-    if (inputProps["class"]) {
-      classNames.push(inputProps["class"]);
-      delete inputProps["class"];
-    }
-  }
+export const FormInput = ({ label, description, inputProps }) => {
+  inputProps = inputProps || {};
+  inputProps["className"] = inputProps["className"] || "";
+  inputProps["className"] += " input";
+  inputProps["type"] = inputProps["type"] || "text";
 
   return (
     <div className="field">
       <label className="label">{label}</label>
       <h2 className="subtitle is-2">{description}</h2>
       <div className="control">
-        <input className={classNames.join(" ")} {...inputProps} />
+        <input {...inputProps} />
       </div>
       {inputProps &&
         inputProps.errorMessages &&
@@ -40,13 +31,13 @@ export const TextInput = ({ label, description, inputProps }) => {
   );
 };
 
-TextInput.propTypes = {
+FormInput.propTypes = {
   label: PropTypes.node.isOptional,
   description: PropTypes.node.isOptional,
   inputProps: PropTypes.node.isOptional
 };
 
-TextInput.defaultProps = {
+FormInput.defaultProps = {
   label: "",
   description: "",
   inputPorps: {}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { TextInput } from "../text-input/text-input";
+import { FormInput } from "../form-input/form-input";
 
 export const PasswordWithConfirm = ({ onChange }) => {
   const [passwordInfo, setPasswordInfo] = useState({
@@ -68,31 +68,28 @@ export const PasswordWithConfirm = ({ onChange }) => {
       isValid: changedInfo.password.isValid && changedInfo.password2.isValid
     });
   };
-  //class: passwordInfo.password2.isValid ? "is-success" : "is-danger",
-  //class: passwordInfo.password.isValid ? "is-success" : "is-danger",
+
   return (
     <div className="columns">
       <div className="column is-half">
-        <TextInput
+        <FormInput
           label={"Seteaza parola"}
           inputProps={{
             onKeyUp: password_onChange,
             minLength: 9,
             errorMessages: passwordInfo.password.errorMessages,
-
             type: "password",
             required: true
           }}
         />
       </div>
       <div className="column is-half">
-        <TextInput
+        <FormInput
           label={"Confirmă parola"}
           inputProps={{
             onKeyUp: validatePassword_onChange,
             minLength: 9,
             errorMessages: passwordInfo.password2.errorMessages,
-
             type: "password",
             required: true
           }}
