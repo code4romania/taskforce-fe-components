@@ -21,21 +21,24 @@
     span {
       display: flex;
     }
+
+    a {
+      padding: 0.25rem 0.75rem;
+    }
+
+    a:hover {
+      background: #fafafa;
+    }
   }
 
   a {
     line-height: 21px;
-    padding: 0.25rem 0.75rem;
     display: flex;
     align-items: center;
     text-align: center;
     color: #000000;
     text-decoration: none;
     margin: 0px 10px;
-  }
-
-  a:hover {
-    background: #fafafa;
   }
 }
 
