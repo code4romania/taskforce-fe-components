@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { SubscribeForm } from "./subscribe-form";
 import { sendSubscriptionRequest } from "./mailchimp.service";
 
-export const MailchimpSubscribe = ({ url }) => {
+export const MailchimpSubscribe = ({ url, compact }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState();
   const [errorMessage, setErrorMessage] = useState();
@@ -26,10 +26,12 @@ export const MailchimpSubscribe = ({ url }) => {
       loading={isLoading}
       success={isSuccess}
       errorMessage={errorMessage}
+      compact={compact}
     />
   );
 };
 
 MailchimpSubscribe.propTypes = {
-  url: PropTypes.string.isRequired
+  url: PropTypes.string.isRequired,
+  compact: PropTypes.bool
 };
