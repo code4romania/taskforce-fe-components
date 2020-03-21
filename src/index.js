@@ -17,6 +17,8 @@ export * from "./components/hero/hero";
 
 export * from "./components/incubated-by/incubated-by";
 
+export * from "./components/banner/banner";
+
 export * from "./components/instruments/instruments";
 export * from "./components/instruments-item/instruments-item";
 
@@ -30,3 +32,6 @@ export * from "./components/logo/logo";
 
 export * from "./components/search-input/search-input";
 export * from "./components/social-share/social-share";
+
+export * from "./components/subscribe/mailchimp-subscribe";
+export * from "./components/subscribe/subscribe-form";
