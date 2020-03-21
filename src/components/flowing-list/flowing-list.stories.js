@@ -9,7 +9,7 @@ export const flowingList = () => (
   <div>
     <FlowingList>
       <ListItem title={"Simptome și tratament"} />
-      <ListItem title={"Completeaza formularul de evaluare"} />
+      <ListItem title={"Simptome și tratament"} />
       <ListItem title={"Simptome și tratament"} />
       <ListItem title={"Simptome și tratament"} />
       <ListItem title={"Simptome și tratament"} />
