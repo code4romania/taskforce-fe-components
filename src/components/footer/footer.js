@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./../../styles.scss";
-import Code4RomaniaGrayLogo from "../../../images/code4romania-gray.svg";
+import Code4RomaniaGrayLogo from "../../images/code4romania-gray.svg";
 import "./footer.scss";
 
 export const Footer = ({ children }) => {
