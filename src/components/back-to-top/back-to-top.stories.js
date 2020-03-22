@@ -9,6 +9,6 @@ export const withPositioning = () => <BackToTop bottom={230} right={150} />;
 
 export const withShowUnder = () => <BackToTop showUnder={150} />;
 
-export const withArrorResizing = () => (
+export const withArrowResizing = () => (
   <BackToTop circleHeight={100} circleWidth={100} />
 );
