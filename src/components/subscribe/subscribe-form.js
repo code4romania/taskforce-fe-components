@@ -1,47 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import { Hero } from "../hero/hero";
 import { Input } from "../input/input";
-import { Button } from "../button/button";
 
 import "./subscribe-form.scss";
 
-import { validateEmail } from "./email-validator.service";
 import { Wording } from "./constants";
+import { Button } from "../button/button";
 
-export const SubscribeForm = ({
-  compact,
-  loading,
-  success,
-  errorMessage,
-  onSubmit
-}) => {
-  const [inputValue, setInputValue] = useState();
-  const [isValid, setIsValid] = useState();
-
-  const handleInputChange = ({ target: { value } }) => {
-    setInputValue(value);
-  };
-
-  const handleSubmit = () => {
-    const validationResult = validateEmail(inputValue);
-    setIsValid(validationResult);
-    const canSubmit = validationResult && typeof onSubmit === "function";
-
-    if (canSubmit) {
-      onSubmit({
-        email: inputValue
-      });
-    }
-  };
-
+export const SubscribeForm = ({ compact }) => {
   const SubscribeButton = () => (
-    <Button onClick={handleSubmit} disabled={loading || success}>
+    <Button onClick={() => void 0} inputType="submit">
       {Wording.BUTTON}
     </Button>
   );
-
   const classNames = ["__subscribe-form", "container"];
   if (compact) classNames.push("__compact");
 
@@ -56,11 +29,8 @@ export const SubscribeForm = ({
         type="email"
         hasAddons={!compact}
         label={Wording.PLACEHOLDER}
+        name={Wording.MAILCHIMP_INPUT_NAME}
         usePlaceholder={true}
-        color={isValid === false ? "danger" : void 0}
-        disabled={loading || success}
-        loading={loading}
-        onChange={handleInputChange}
       >
         {!compact && (
           <div className="control">
@@ -69,21 +39,14 @@ export const SubscribeForm = ({
         )}
       </Input>
       {compact && <SubscribeButton />}
-      {success && <p className="help __success">{Wording.SUCCESS}</p>}
-      {errorMessage && <p className="help is-danger">{errorMessage}</p>}
     </div>
   );
 };
 
 SubscribeForm.propTypes = {
-  compact: PropTypes.bool,
-  loading: PropTypes.bool,
-  success: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  onSubmit: PropTypes.func
+  compact: PropTypes.bool
 };
 
 SubscribeForm.defaultProps = {
-  compact: false,
-  loading: false
+  compact: false
 };
