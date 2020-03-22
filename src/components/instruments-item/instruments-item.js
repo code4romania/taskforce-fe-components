@@ -7,8 +7,7 @@ export const InstrumentsItem = ({
   title,
   content,
   ctaText,
-  ctaClassName,
-  onClick
+  ctaLink
 }) => {
   const showContent = content != null || ctaText != null;
 
@@ -19,9 +18,14 @@ export const InstrumentsItem = ({
         <div className="card-content">
           {content && <p>{content}</p>}
           {ctaText && (
-            <button className={ctaClassName} onClick={onClick}>
+            <a
+              className="card-button"
+              href={ctaLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {ctaText}
-            </button>
+            </a>
           )}
         </div>
       )}
@@ -34,8 +38,7 @@ InstrumentsItem.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   ctaText: PropTypes.string,
-  ctaClassName: PropTypes.string,
-  onClick: PropTypes.func
+  ctaLink: PropTypes.string
 };
 
 InstrumentsItem.defaultProps = {

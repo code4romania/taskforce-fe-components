@@ -4,11 +4,17 @@
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 
-  img {
+  span {
+    line-height: 0;
+  }
+
+  img,
+  svg {
     height: 3rem;
   }
 
-  img.smaller {
+  .smaller img,
+  .smaller svg {
     height: 2rem;
   }
 }

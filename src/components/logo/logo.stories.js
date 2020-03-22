@@ -1,13 +1,23 @@
 import React from "react";
 import { Logo } from "./logo";
-import Code4Logo from "./assets/logo.png";
+import Code4Logo from "../../images/code4romania-color.svg";
 
 import "./../../styles.scss";
 
 export default { title: "Logo" };
 
-export const regular = () => <Logo src={Code4Logo} alt={"Taskforce"} />;
-export const withUrl = () => <Logo src={Code4Logo} url="https://code4.ro" />;
+export const regular = () => (
+  <Logo>
+    <Code4Logo />
+  </Logo>
+);
+export const withUrl = () => (
+  <Logo url="https://code4.ro">
+    <Code4Logo />
+  </Logo>
+);
 export const withClass = () => (
-  <Logo src={Code4Logo} url="https://code4.ro" imgClass="smaller" />
+  <Logo url="https://code4.ro" imgClass="smaller">
+    <Code4Logo />
+  </Logo>
 );
