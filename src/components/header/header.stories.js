@@ -12,8 +12,9 @@ const Logo = () => (
 
 const MenuItems = () => (
   <>
-    <a href="/a">MenuItem 1</a>
-    <a href="/b">MenuItem 2</a>
+    <a href="/a">Despre</a>
+    <a href="/b">Ecosistemul Covid-19</a>
+    <a href="/b">Sprijina proiectul</a>
   </>
 );
 
