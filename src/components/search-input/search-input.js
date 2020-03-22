@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./search-input.scss";
-import SearchIcon from "../../icons/search.svg";
+import SearchIcon from "../../images/icons/search.svg";
 
 export const SearchInput = ({
   hasIcon = true,

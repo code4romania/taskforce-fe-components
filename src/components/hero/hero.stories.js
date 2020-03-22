@@ -1,6 +1,6 @@
 import React from "react";
 import { Hero } from "./hero";
-import ArrowSvg from "../../icons/arrow-right.svg";
+import ArrowSvg from "../../images/icons/arrow-right.svg";
 const title = "Ce pasi ai de urmat";
 const subtitle = "Pentru a te putea ajuta ...";
 

@@ -4,15 +4,15 @@ import "./header.scss";
 
 export const Header = ({ name, Logo, MenuItems, ProfileItems }) => {
   return (
-    <header className="App-header">
-      <div className="container top-header">
-        <div className="app-logo">{Logo}</div>
-        <div className="title">{name || ""}</div>
-        <nav>
-          {MenuItems}
-          <span>{ProfileItems}</span>
-        </nav>
+    <header className="App-header container">
+      <div className="App-header__logo">
+        {Logo}
+        {name ? <span className="App-header__title">{name}</span> : ""}
       </div>
+      <nav>
+        {MenuItems}
+        {ProfileItems}
+      </nav>
     </header>
   );
 };
