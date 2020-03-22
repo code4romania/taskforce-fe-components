@@ -1,10 +1,11 @@
 @import "~bulma/sass/utilities/_all.sass";
 
 $info-card-colors: (
-  'red': #FF1616,
-  'pink': #F5BCD6,
-  'green': #05D6C7,
-  'yellow': #FFDE59);
+  "red": #ff1616,
+  "pink": #f5bcd6,
+  "green": #05d6c7,
+  "yellow": #ffde59
+);
 
 .banner-wrapper {
   width: 100%;
@@ -15,10 +16,10 @@ $info-card-colors: (
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height:50px;
+  min-height: 50px;
 }
 
-.title {
+.banner-wrapper .title {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -28,13 +29,12 @@ $info-card-colors: (
     font-weight: 400;
     color: #000;
     text-decoration: underline;
-
   }
 }
 
-@each $color-name, $color-value in $info-card-colors{
+@each $color-name, $color-value in $info-card-colors {
   &.is-#{$color-name} {
-    .banner{
+    .banner {
       background-color: $color-value;
     }
   }
