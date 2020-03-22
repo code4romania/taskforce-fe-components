@@ -1,6 +1,7 @@
 .instruments {
   display: flex;
   flex-direction: column;
+  margin-top: 1.6rem;
 
   section > *, > * {
     &:not(:last-child) {
@@ -10,7 +11,7 @@
 }
 
 @media (min-width: 801px) {
-  .instruments.grid {
+  .instruments.__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 10px;

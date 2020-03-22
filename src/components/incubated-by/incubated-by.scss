@@ -18,4 +18,19 @@
     line-height: 21px;
     color: #000;
   }
+
+  a {
+    display: flex;
+  }
+
+  img {
+    height: 2.3rem;
+    margin-left: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .incubated-by {
+    justify-content: space-between;
+  }
 }

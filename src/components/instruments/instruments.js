@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./instruments.scss";
 
 export const Instruments = ({ layout, children }) => {
-  return <div className={`instruments ${layout}`}>{children}</div>;
+  return <div className={`instruments __${layout}`}>{children}</div>;
 };
 
 Instruments.propTypes = {

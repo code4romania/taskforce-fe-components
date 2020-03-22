@@ -22,7 +22,7 @@ export const Hero = ({
           )}
           {title}
         </div>
-        <div className="subtitle">{subtitle}</div>
+        {subtitle && <div className="subtitle">{subtitle}</div>}
       </div>
     </section>
   );
