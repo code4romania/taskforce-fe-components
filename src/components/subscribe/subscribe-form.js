@@ -11,7 +11,7 @@ import { Button } from "../button/button";
 
 export const SubscribeForm = ({ compact }) => {
   const SubscribeButton = () => (
-    <Button onClick={() => void 0} inputType="submit">
+    <Button inputType="submit">
       {Wording.BUTTON}
     </Button>
   );
