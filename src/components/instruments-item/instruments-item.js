@@ -18,7 +18,12 @@ export const InstrumentsItem = ({
         <div className="card-content">
           {content && <p>{content}</p>}
           {ctaText && (
-            <a className="card-button" href={ctaLink}>
+            <a
+              className="card-button"
+              href={ctaLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {ctaText}
             </a>
           )}
