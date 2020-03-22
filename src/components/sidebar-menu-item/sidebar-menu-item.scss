@@ -6,8 +6,11 @@
   padding: 5px 10px;
 }
 
+.__sidebar-menu-item:hover,
+.__sidebar-menu-item:active,
 .__sidebar-menu-item.active {
   background: #b6cadb;
+  cursor: pointer;
 }
 
 .__sidebar-menu-item.isTitle {
