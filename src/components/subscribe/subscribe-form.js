@@ -11,7 +11,9 @@ import { Button } from "../button/button";
 
 export const SubscribeForm = ({ compact }) => {
   const SubscribeButton = () => (
-    <Button inputType="submit">{Wording.BUTTON}</Button>
+    <Button inputType="submit" onClick={() => void 0}>
+      {Wording.BUTTON}
+    </Button>
   );
   const classNames = ["__subscribe-form", "container"];
   if (compact) classNames.push("__compact");

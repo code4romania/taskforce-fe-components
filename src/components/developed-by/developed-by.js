@@ -11,7 +11,7 @@ export const DevelopedBy = ({ showSecondLine }) => {
     <>
       <div className="container developed-by">
         <div>
-          <div classNamne="caption">Un proiect în parteneriat cu </div>
+          <div className="caption">Un proiect în parteneriat cu </div>
           <Logo url={"https://www.gov.ro"}>
             <img src={partnerLogo} alt="Guvernul Romaniei" />
           </Logo>
