@@ -34,8 +34,8 @@ export const FormCreateAccount = ({
     setFullObject(changedObj);
   };
 
-  const optiuniUltimaPerioada_OnChange = args => {
-    let changedObj = { ...fullObject, ultimaPerioada: args };
+  const lastPeriodOptions_OnChange = args => {
+    let changedObj = { ...fullObject, lastPeriodStatus: args };
     objectChanged && objectChanged(changedObj);
     setFullObject(changedObj);
   };
@@ -128,7 +128,7 @@ export const FormCreateAccount = ({
         <div className="column">
           <RadioList
             label="În ultima perioada ai fost in:"
-            onChange={optiuniUltimaPerioada_OnChange}
+            onChange={lastPeriodOptions_OnChange}
             options={lastPeriodInformationOptions}
           />
         </div>
