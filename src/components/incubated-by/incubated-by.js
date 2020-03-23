@@ -7,7 +7,7 @@ export const IncubatedBy = () => {
   return (
     <div className="incubated-by-wrapper">
       <div className="incubated-by container">
-        <p className="caption">proiect incubat în programul</p>
+        <p className="caption">proiect dezvoltat în programul</p>
         <Logo url="https://code4.ro">
           <TaskforceLogo width="102" />
         </Logo>
