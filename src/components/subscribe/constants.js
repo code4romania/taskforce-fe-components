@@ -4,5 +4,6 @@ export const Wording = {
     "Abonează-te la newsletter și îți trimitem zilnic ultimele informații!",
   PLACEHOLDER: "Introdu aici adresa de e-mail",
   BUTTON: "Abonează-mă",
-  SUCCESS: "Abonare reușită!"
+  SUCCESS: "Abonare reușită!",
+  MAILCHIMP_INPUT_NAME: "EMAIL"
 };

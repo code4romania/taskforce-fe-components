@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import ArrowDown from "../../icons/arrow-down.svg";
+import ArrowDown from "../../images/icons/arrow-down.svg";
 import "./accordion.scss";
 
 export const Accordion = ({ title, content }) => {

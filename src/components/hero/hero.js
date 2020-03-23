@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CovidSvg from "../../icons/covid-all.svg";
+import CovidSvg from "../../images/covid-all.svg";
 import "./hero.scss";
 
 export const Hero = ({
@@ -10,9 +10,9 @@ export const Hero = ({
   useFallbackIcon = false
 }) => {
   return (
-    <section className="hero">
+    <header className="hero">
       <div className="hero-body">
-        <div className="title">
+        <h2 className="title">
           {Boolean(!children)}
           {children && <span className="hero-icon">{children}</span>}
           {!children && useFallbackIcon && (
@@ -21,10 +21,10 @@ export const Hero = ({
             </span>
           )}
           {title}
-        </div>
-        {subtitle && <div className="subtitle">{subtitle}</div>}
+        </h2>
+        {subtitle && <p className="subtitle">{subtitle}</p>}
       </div>
-    </section>
+    </header>
   );
 };
 

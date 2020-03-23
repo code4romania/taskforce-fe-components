@@ -2,23 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./logo.scss";
 
-export const Logo = ({ src, url, alt, imgClass }) => {
+export const Logo = ({ children, url, imgClass }) => {
   return (
     <div className="logo">
       {url ? (
         <a href={url} target="_blank" rel="noopener noreferrer">
-          <img src={src} className={imgClass} alt={alt} />
+          <span className={imgClass}>{children}</span>
         </a>
       ) : (
-        <img src={src} className={imgClass} alt={alt} />
+        <span className={imgClass}>{children}</span>
       )}
     </div>
   );
 };
 
 Logo.propTypes = {
-  src: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   url: PropTypes.string,
-  alt: PropTypes.string,
   imgClass: PropTypes.string
 };
