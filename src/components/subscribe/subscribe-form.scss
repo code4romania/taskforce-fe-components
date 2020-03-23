@@ -1,9 +1,8 @@
-$subscribeColor: #27ae60;
-$subscribeColorHover: #249252;
+$subscribeColor: #28af60;
 
 .__subscribe-form {
   background-color: rgba(5, 214, 199, 0.2);
-  padding: 36px;
+  padding: 2rem;
   .button {
     height: 100%;
     background-color: $subscribeColor;
@@ -12,30 +11,21 @@ $subscribeColorHover: #249252;
     background-color: $subscribeColor;
   }
   .button:hover {
-    background-color: $subscribeColorHover;
+    background-color: $subscribeColor;
+    opacity: 0.75;
   }
   p.__success {
     color: $subscribeColor;
   }
-  .hero-body {
-    padding: 0 0 12px 0;
+  .hero {
+    margin: 0;
+    .subtitle {
+      padding-bottom: 1rem;
+    }
   }
 }
 
 .__compact {
-  .hero .hero-body {
-    .title {
-      font-size: 18px;
-    }
-    .subtitle {
-      font-size: 14px;
-    }
-  }
-  .field {
-    .input {
-      font-size: 14px;
-    }
-  }
   .button {
     width: 100%;
   }

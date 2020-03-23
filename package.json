@@ -4,7 +4,6 @@
   "private": false,
   "dependencies": {
     "bulma": "^0.8.0",
-    "jsonp": "^0.2.1",
     "react-share": "^4.1.0"
   },
   "peerDependencies": {
