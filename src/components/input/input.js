@@ -16,6 +16,7 @@ export const Input = ({
   defaultValue,
   children,
   hasAddons,
+  required,
   onChange
 }) => {
   const inputClassNames = ["input"];
@@ -40,6 +41,7 @@ export const Input = ({
           defaultValue={defaultValue}
           placeholder={usePlaceholder ? label : ""}
           onChange={onChange}
+          required={required}
         />
       </div>
       {children}
@@ -57,6 +59,7 @@ Input.propTypes = {
   hasAddons: PropTypes.bool,
   loading: PropTypes.bool,
   rounded: PropTypes.bool,
+  required: PropTypes.bool,
   defaultValue: PropTypes.string,
   usePlaceholder: PropTypes.bool,
   children: PropTypes.node,
@@ -69,5 +72,6 @@ Input.defaultProps = {
   disabled: false,
   loading: false,
   rounded: false,
-  usePlaceholder: false
+  usePlaceholder: false,
+  required: false
 };
