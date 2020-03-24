@@ -31,6 +31,7 @@ export const SubscribeForm = ({ compact }) => {
         label={Wording.PLACEHOLDER}
         name={Wording.MAILCHIMP_INPUT_NAME}
         usePlaceholder={true}
+        required={true}
       >
         {!compact && (
           <div className="control">
