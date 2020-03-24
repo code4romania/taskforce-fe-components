@@ -5,10 +5,8 @@ export default { title: "Back To Top" };
 
 export const Default = () => <BackToTop />;
 
-export const withPositioning = () => <BackToTop bottom={230} right={150} />;
+// export const withPositioning = () => <BackToTop bottom={230} right={150} />;
 
-export const withShowUnder = () => <BackToTop showUnder={150} />;
+// export const withShowUnder = () => <BackToTop showUnder={150} />;
 
-export const withArrowResizing = () => (
-  <BackToTop circleHeight={100} circleWidth={100} />
-);
+export const withSizes = () => <BackToTop width={100} height={100} />;

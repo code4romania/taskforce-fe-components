@@ -1,32 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ScrollToTop from "react-scroll-up";
-import { FiArrowUpCircle } from "react-icons/fi";
+import ArrowUp from "../../images/icons/circle-up.svg";
+import "./back-to-top.scss";
 
-const BackToTop = ({ bottom, right, circleWidth, circleHeight, showUnder }) => {
+const BackToTop = ({ width, height }) => {
   return (
-    <ScrollToTop showUnder={showUnder} style={{ bottom: bottom, right: right }}>
-      <FiArrowUpCircle
-        style={{ width: `${circleWidth}px`, height: `${circleHeight}px` }}
-      />
-    </ScrollToTop>
+    <div
+      className="back-to-top"
+      onClick={window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      })}
+    >
+      <ArrowUp width={width} height={height} />
+    </div>
   );
 };
 
 export default BackToTop;
 
 BackToTop.propTypes = {
-  bottom: PropTypes.number,
-  right: PropTypes.number,
-  circleWidth: PropTypes.number,
-  circleHeight: PropTypes.number,
-  showUnder: PropTypes.number
+  width: PropTypes.number,
+  height: PropTypes.number
 };
 
 BackToTop.defaultProps = {
-  bottom: 50,
-  right: 30,
-  circleWidth: 50,
-  circleHeight: 50,
-  showUnder: 100
+  width: 40,
+  height: 40
 };
