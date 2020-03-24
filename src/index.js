@@ -9,4 +9,6 @@ export * from "./components/list/list";
 export * from "./components/list-item/list-item";
 export * from "./components/instruments/instruments";
 export * from "./components/instruments-item/instruments-item";
-export * from "./components/text-input/text-input";
+export * from "./components/select/select";
+export * from "./components/radio-list/radio-list";
+export * from "./components/form-create-account/form-create-account";

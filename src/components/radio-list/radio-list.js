@@ -20,7 +20,7 @@ export const RadioList = ({ label, description, options, onChange, type }) => {
   return (
     <div className={classNames.join(" ")}>
       <label className="label">{label}</label>
-      <h2 className="subtitle is-2">{description}</h2>
+      <p className="subtitle is-2">{description}</p>
       <div className="control">
         {options &&
           options.map(option => {
@@ -30,6 +30,7 @@ export const RadioList = ({ label, description, options, onChange, type }) => {
                 key={`label_${option.value}_${option.key}`}
               >
                 <input
+                  disabled={option.disabled === true}
                   key={`input_${option.value}_${option.key}`}
                   type="radio"
                   name={label}
@@ -57,7 +58,8 @@ RadioList.propTypes = {
     PropTypes.shape({
       key: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
-      checked: PropTypes.bool
+      checked: PropTypes.bool,
+      disabled: PropTypes.bool
     })
   ),
   onChange: PropTypes.func

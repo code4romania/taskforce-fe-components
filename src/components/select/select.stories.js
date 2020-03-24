@@ -6,8 +6,8 @@ export default { title: "Select" };
 
 export const SelectWithChangeEvent = () => {
   let options = [
-    { text: "Option 1", value: "value1" },
-    { text: "Option 2", value: "value2" },
+    { text: "Option 1", value: "value1", disabled: true },
+    { text: "Option 2", value: "value2", selected: true },
     { text: "Option 3", value: "value3" }
   ];
   const [textValue, setTextValue] = useState("Option 1");

@@ -35,7 +35,8 @@ const formCreateAccountDefaultValues = {
     { value: "Haskovo", text: "Haskovo", countryCode: "BG" }
   ],
   dataProcessingApprovalText:
-    '&nbsp;&nbsp;&nbsp; Prin această bifă îți exprimi acordul ca datele furnizate de tine prin acest formular să fie procesate exclusiv in scopul de a te pune în legătură cu un specialist care să te ajute cu problema pentru care cauți soluție. <a href="#" onClick="return false;"> Aici puteți găsi regulamentul nostru cu privire la prelucrarea datelor cu caracter personal.</a>'
+    '&nbsp;&nbsp;&nbsp; Prin această bifă îți exprimi acordul ca datele furnizate de tine prin acest formular să fie procesate exclusiv in scopul de a te pune în legătură cu un specialist care să te ajute cu problema pentru care cauți soluție. <a href="#" onClick="return false;"> Aici puteți găsi regulamentul nostru cu privire la prelucrarea datelor cu caracter personal.</a>',
+  passwordMinLength: 9
 };
 
 export default formCreateAccountDefaultValues;

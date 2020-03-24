@@ -12,7 +12,7 @@ export const Select = ({ label, description, options, selectProps }) => {
   return (
     <div className="field">
       <label className="label">{label}</label>
-      <h2 className="subtitle is-2">{description}</h2>
+      <p className="subtitle is-2">{description}</p>
       <div className="control">
         <div className="select">
           <select {...selectProps}>
@@ -22,7 +22,8 @@ export const Select = ({ label, description, options, selectProps }) => {
                   <option
                     key={`key_${option.value}_${index}`}
                     value={option.value}
-                    selected={option.selected}
+                    selected={option.selected === true}
+                    disabled={option.disabled === true}
                   >
                     {option.text}
                   </option>

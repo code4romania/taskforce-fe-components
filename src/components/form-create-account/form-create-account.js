@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { FormInput } from "../form-input/form-input";
 import { Select } from "../select/select";
 import { RadioList } from "../radio-list/radio-list";
-import { PasswordWithConfirm } from "../password-with-confirm/password-with-confirm";
+import languageResouces from "./form-create-account.resources";
 import formCreateAccountPropTypes from "./form-create-account.propTypes";
 import formCreateAccountDefaultValues from "./form-create-account.defaultProps";
 
@@ -21,12 +20,13 @@ export const FormCreateAccount = ({
   objectChanged,
   countriesList,
   citiesList,
-  dataProcessingApprovalText
+  dataProcessingApprovalText,
+  passwordMinLength
 }) => {
   const [fullObject, setFullObject] = useState({});
   const [cities, setCities] = useState([]);
 
-  const input_OnChange = args => {
+  const formControl_OnChange = args => {
     let value =
       args.target.type === "checkbox" ? args.target.checked : args.target.value;
     let changedObj = { ...fullObject, [args.target.name]: value };
@@ -40,11 +40,6 @@ export const FormCreateAccount = ({
     setFullObject(changedObj);
   };
 
-  const password_OnChange = args => {
-    let changedObj = { ...fullObject, passwordInfo: args };
-    objectChanged && objectChanged(changedObj);
-    setFullObject(changedObj);
-  };
   const country_OnChange = args => {
     let changedObj = { ...fullObject, country: args.target.value };
     objectChanged && objectChanged(changedObj);
@@ -58,53 +53,107 @@ export const FormCreateAccount = ({
     <div>
       <div className="columns">
         <div className="column">
-          <FormInput
-            label={"Nume și prenume"}
-            inputProps={{
-              name: "fullName",
-              id: "fullName",
-              onChange: input_OnChange,
-              required: true
-            }}
-          />
+          <div className="field">
+            <label className="label">{languageResouces.field_name_label}</label>
+            <div className="control">
+              <input
+                type="text"
+                className="input"
+                name="fullName"
+                id="name"
+                onChange={formControl_OnChange}
+                required="true"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div className="columns">
         <div className="column is-half">
-          <FormInput
-            label={"Adresa de email"}
-            inputProps={{
-              name: "emailAddress",
-              id: "emailAddress",
-              onChange: input_OnChange,
-              type: "email",
-              required: "true"
-            }}
-          />
+          <div className="field">
+            <label className="label">
+              {languageResouces.field_emailAddress_label}
+            </label>
+            <div className="control">
+              <input
+                type="email"
+                className="input"
+                name="emailAddress"
+                id="emailAddress"
+                onChange={formControl_OnChange}
+                required="true"
+                placeholder="email@address.com"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
-      <PasswordWithConfirm onChange={password_OnChange} />
+      <div className="columns">
+        <div className="column is-half">
+          <div className="field">
+            <label className="label">
+              {languageResouces.field_password_label}
+            </label>
+            <div className="control">
+              <input
+                type="password"
+                minLength={passwordMinLength}
+                className="input"
+                name="password"
+                id="password"
+                onChange={formControl_OnChange}
+                required="true"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="column is-half">
+          <div className="field">
+            <label className="label">
+              {languageResouces.field_password2_label}
+            </label>
+            <div className="control">
+              <input
+                type="password"
+                minLength={passwordMinLength}
+                className="input"
+                name="password2"
+                id="password2"
+                onChange={formControl_OnChange}
+                required="true"
+              />
+            </div>
+            {fullObject.password &&
+              fullObject.password2 &&
+              fullObject.password !== fullObject.password2 && (
+                <p className="help is-danger">
+                  {languageResouces.field_password2_doesNotMatch}
+                </p>
+              )}
+          </div>
+        </div>
+      </div>
 
       <div className="columns">
         <div className="column is-2">
           <Select
-            label={"Varsta"}
+            label={languageResouces.field_age_label}
             selectProps={{
               name: "ageRange",
               id: "ageRange",
-              onChange: input_OnChange
+              onChange: formControl_OnChange
             }}
             options={ageOptions}
           />
         </div>
         <div className="column is-2">
           <Select
-            label={"Gen"}
+            label={languageResouces.field_gender_label}
             selectProps={{
               name: "gender",
               id: "gender",
-              onChange: input_OnChange
+              onChange: formControl_OnChange
             }}
             options={genderOptions}
           />
@@ -113,12 +162,14 @@ export const FormCreateAccount = ({
       <div className="columns">
         <div className="column">
           <Select
-            label="Ai condiții de sănătate preexistente?"
-            description="Spune-ne dacă suferi de anumite boli cronice, diabet, hipertensiune etc. "
+            label={languageResouces.field_existingHealthConditions_label}
+            description={
+              languageResouces.field_existingHealthConditions_description
+            }
             selectProps={{
               name: "existingHealthConditions",
               id: "existingHealthConditions",
-              onChange: input_OnChange
+              onChange: formControl_OnChange
             }}
             options={illnesesOptions}
           />
@@ -127,7 +178,7 @@ export const FormCreateAccount = ({
       <div className="columns">
         <div className="column">
           <RadioList
-            label="În ultima perioada ai fost in:"
+            label={languageResouces.field_lastPeriodInformation_label}
             onChange={lastPeriodOptions_OnChange}
             options={lastPeriodInformationOptions}
           />
@@ -136,7 +187,7 @@ export const FormCreateAccount = ({
       <div className="columns">
         <div className="column is-half">
           <Select
-            label="Alegeți țara în care vă aflați"
+            label={languageResouces.field_country_label}
             selectProps={{
               name: "country",
               id: "country",
@@ -147,11 +198,11 @@ export const FormCreateAccount = ({
         </div>
         <div className="column is-half">
           <Select
-            label="Alegeți orașul în care vă aflați"
+            label={languageResouces.field_city_label}
             selectProps={{
               name: "city",
               id: "city",
-              onChange: input_OnChange
+              onChange: formControl_OnChange
             }}
             options={cities}
           />
@@ -165,7 +216,7 @@ export const FormCreateAccount = ({
               required
               name="acceptConditions"
               id="acceptConditions"
-              onChange={input_OnChange}
+              onChange={formControl_OnChange}
             />
             <span
               dangerouslySetInnerHTML={{ __html: dataProcessingApprovalText }}

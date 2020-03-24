@@ -46,7 +46,8 @@ const formCreateAccountPropTypes = {
       checked: PropTypes.bool,
       countryCode: PropTypes.string.isRequired
     })
-  )
+  ),
+  passwordMinLength: PropTypes.number
 };
 
 export default formCreateAccountPropTypes;
