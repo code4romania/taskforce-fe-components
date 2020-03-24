@@ -6,7 +6,14 @@ import { Input } from "../input/input";
 
 export default { title: "Newsletter form", decorators: [withKnobs] };
 
-const Wrapper = ({ compact, classes }) => {
+const customSubscribeWording = {
+  title: "Custom title",
+  subTitle: "My totally awesome custom subtitle",
+  placeholder: "Custom placeholder",
+  button: "Do custom thingy"
+};
+
+const Wrapper = ({ compact, classes, customWording }) => {
   const [chimpUrl, setChimpUrl] = useState("");
   return (
     <div className="columns">
@@ -18,7 +25,11 @@ const Wrapper = ({ compact, classes }) => {
           usePlaceholder={true}
           onChange={({ target: { value } }) => setChimpUrl(value)}
         ></Input>
-        <MailchimpSubscribe url={chimpUrl} compact={compact} />
+        <MailchimpSubscribe
+          url={chimpUrl}
+          compact={compact}
+          wording={customWording ? customSubscribeWording : void 0}
+        />
       </div>
     </div>
   );
@@ -26,7 +37,8 @@ const Wrapper = ({ compact, classes }) => {
 
 Wrapper.propTypes = {
   compact: PropTypes.bool,
-  classes: PropTypes.string
+  classes: PropTypes.string,
+  customWording: PropTypes.bool
 };
 
 export const mailchimpSubscribe = () => {
@@ -36,3 +48,7 @@ export const mailchimpSubscribe = () => {
 export const mailchimpSubscribeCompact = () => (
   <Wrapper classes="column is-one-fifth" compact={true}></Wrapper>
 );
+
+export const mailchimpSubscribeCustomized = () => {
+  return <Wrapper customWording={true}></Wrapper>;
+};
