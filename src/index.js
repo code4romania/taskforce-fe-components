@@ -42,3 +42,4 @@ export * from "./components/subscribe/subscribe-form";
 export * from "./components/sidebar-menu/sidebar-menu";
 export * from "./components/sidebar-menu-item/sidebar-menu-item";
 
+export * from "./components/back-to-top/back-to-top";
