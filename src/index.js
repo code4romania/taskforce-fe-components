@@ -11,4 +11,3 @@ export * from "./components/instruments/instruments";
 export * from "./components/instruments-item/instruments-item";
 export * from "./components/select/select";
 export * from "./components/radio-list/radio-list";
-export * from "./components/form-create-account/form-create-account";
