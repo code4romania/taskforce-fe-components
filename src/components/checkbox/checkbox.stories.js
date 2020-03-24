@@ -14,7 +14,10 @@ export const usage = () => {
       <Label
         text={`Checkbox is ${state.rememberMe ? "checked" : "unchecked"}`}
       />
-      <Checkbox onChange={e => setState({ rememberMe: e.target.checked })}>
+      <Checkbox
+        onChange={e => setState({ rememberMe: e.target.checked })}
+        defaultValue={state.rememberMe}
+      >
         Remember Me
       </Checkbox>
     </React.Fragment>
