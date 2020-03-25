@@ -4,6 +4,9 @@
   padding: 1.4rem 0;
   align-items: center;
 
+  .App-header__menu-icon {
+    display: none;
+  }
   .App-header__logo {
     display: flex;
     align-items: center;
@@ -20,7 +23,6 @@
   .App-header__title {
     font-size: 1.4rem;
     font-weight: 900;
-    margin-left: 40px;
   }
 
   a {
@@ -44,13 +46,32 @@
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 640px) {
   .App-header {
-    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .App-header__nav--hidden {
+      display: none;
+    }
+
+    .App-header__menu-icon {
+      display: block;
+      margin-right: 8px;
+
+      text-align: right;
+      user-select: none;
+    }
+
+    .App-header__logo {
+      flex: 0 0 75%;
+    }
 
     nav {
-      margin: 20px 0 0;
-      text-align: center;
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      text-align: right;
     }
   }
 }
