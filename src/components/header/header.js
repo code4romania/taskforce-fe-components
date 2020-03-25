@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './header.scss';
-import useResizer from '../../utils/hooks/useResizer';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import "./header.scss";
+import useResizer from "../../utils/hooks/useResizer";
 
-import Hamburger from '../../images/icons/hamburger.svg';
-import HamburgerOpen from '../../images/icons/hamburger-open.svg';
+import Hamburger from "../../images/icons/hamburger.svg";
+import HamburgerOpen from "../../images/icons/hamburger-open.svg";
 
 export const Header = ({ name, Logo, MenuItems, ProfileItems }) => {
   const [hamburgerOpened, hamburgerOnClick] = useState(false);
