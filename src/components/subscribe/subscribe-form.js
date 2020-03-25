@@ -6,13 +6,13 @@ import { Input } from "../input/input";
 
 import "./subscribe-form.scss";
 
-import { Wording } from "./constants";
 import { Button } from "../button/button";
+import { wordingPropTypes } from "./wording-prop-types";
 
-export const SubscribeForm = ({ compact }) => {
+export const SubscribeForm = ({ compact, wording, mailChimpInputName }) => {
   const SubscribeButton = () => (
     <Button inputType="submit" onClick={() => void 0}>
-      {Wording.BUTTON}
+      {wording.button}
     </Button>
   );
   const classNames = ["__subscribe-form", "container"];
@@ -21,15 +21,15 @@ export const SubscribeForm = ({ compact }) => {
   return (
     <div className={classNames.join(" ")}>
       <Hero
-        title={Wording.TITLE}
-        subtitle={Wording.SUB_TITLE}
+        title={wording.title}
+        subtitle={wording.subTitle}
         useFallbackIcon={true}
       />
       <Input
         type="email"
         hasAddons={!compact}
-        label={Wording.PLACEHOLDER}
-        name={Wording.MAILCHIMP_INPUT_NAME}
+        label={wording.placeholder}
+        name={mailChimpInputName}
         usePlaceholder={true}
         required={true}
       >
@@ -45,9 +45,12 @@ export const SubscribeForm = ({ compact }) => {
 };
 
 SubscribeForm.propTypes = {
-  compact: PropTypes.bool
+  wording: PropTypes.shape(wordingPropTypes).isRequired,
+  compact: PropTypes.bool,
+  mailChimpInputName: PropTypes.string
 };
 
 SubscribeForm.defaultProps = {
-  compact: false
+  compact: false,
+  mailChimpInputName: "EMAIL"
 };
