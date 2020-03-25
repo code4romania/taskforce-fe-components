@@ -22,6 +22,9 @@ export * from "./components/banner/banner";
 export * from "./components/instruments/instruments";
 export * from "./components/instruments-item/instruments-item";
 
+export * from "./components/select/select";
+export * from "./components/radio-list/radio-list";
+
 export * from "./components/login-form/login-form";
 
 export * from "./components/list/list";
@@ -38,3 +41,4 @@ export * from "./components/subscribe/subscribe-form";
 
 export * from "./components/sidebar-menu/sidebar-menu";
 export * from "./components/sidebar-menu-item/sidebar-menu-item";
+

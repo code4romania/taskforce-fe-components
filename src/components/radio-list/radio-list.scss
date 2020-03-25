@@ -1,0 +1,19 @@
+.radio-list {
+  input {
+    margin: 0 10px;
+  }
+  input:first-child {
+    margin-left: 0;
+  }
+}
+.vertical {
+  .control {
+    label.radio {
+      display: block;
+      margin: 0;
+      input{
+        margin-left: 0;
+      }
+    }
+  }
+}
