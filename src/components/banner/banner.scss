@@ -1,10 +1,10 @@
-@import "~bulma/sass/utilities/_all.sass";
+@import '~bulma/sass/utilities/_all.sass';
 
 $info-card-colors: (
-  "red": #ff1616,
-  "pink": #f5bcd6,
-  "green": #05d6c7,
-  "yellow": #ffde59
+  'red': #ff1616,
+  'pink': #f5bcd6,
+  'green': #05d6c7,
+  'yellow': #ffde59
 );
 
 .banner-wrapper {
@@ -24,11 +24,17 @@ $info-card-colors: (
   display: flex;
   justify-content: center;
 
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   a {
     font-size: 1rem;
     font-weight: 400;
     color: #000;
     text-decoration: underline;
+    text-align: center;
+    line-height: 1.5;
   }
 }
 

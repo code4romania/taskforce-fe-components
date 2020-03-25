@@ -20,7 +20,6 @@
   .App-header__title {
     font-size: 1.4rem;
     font-weight: 900;
-    margin-left: 40px;
   }
 
   a {
@@ -34,6 +33,10 @@
     text-align: right;
     white-space: nowrap;
 
+    svg {
+      display: none;
+    }
+
     a {
       padding: 0.25rem 0.75rem;
     }
@@ -44,13 +47,30 @@
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 640px) {
   .App-header {
-    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .App-header__hamburger {
+      flex: 0 0 25%;
+      text-align: right;
+      user-select: none;
+    }
+
+    .App-header__logo {
+      flex: 0 0 75%;
+    }
+
+    svg {
+      margin-right: 8px;
+    }
 
     nav {
-      margin: 20px 0 0;
-      text-align: center;
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      text-align: right;
     }
   }
 }
