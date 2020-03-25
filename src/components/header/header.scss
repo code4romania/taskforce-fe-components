@@ -4,6 +4,9 @@
   padding: 1.4rem 0;
   align-items: center;
 
+  .App-header__hamburger {
+    display: none;
+  }
   .App-header__logo {
     display: flex;
     align-items: center;
@@ -52,8 +55,12 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
+    .App-header__nav--hidden {
+      display: none;
+    }
+
     .App-header__hamburger {
-      flex: 0 0 25%;
+      display: block;
       text-align: right;
       user-select: none;
     }
