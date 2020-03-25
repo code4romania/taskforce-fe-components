@@ -4,7 +4,7 @@
   padding: 1.4rem 0;
   align-items: center;
 
-  .App-header__hamburger {
+  .App-header__menu-icon {
     display: none;
   }
   .App-header__logo {
@@ -36,10 +36,6 @@
     text-align: right;
     white-space: nowrap;
 
-    svg {
-      display: none;
-    }
-
     a {
       padding: 0.25rem 0.75rem;
     }
@@ -59,18 +55,16 @@
       display: none;
     }
 
-    .App-header__hamburger {
+    .App-header__menu-icon {
       display: block;
+      margin-right: 8px;
+
       text-align: right;
       user-select: none;
     }
 
     .App-header__logo {
       flex: 0 0 75%;
-    }
-
-    svg {
-      margin-right: 8px;
     }
 
     nav {
