@@ -32,7 +32,7 @@ export const twoColumnList = () => (
 );
 
 export const threeColumnList = () => (
-  <div style={{ width: "705px" }}>
+  <div style={{ width: "740px" }}>
     <List columns={3}>
       <ListItem title={"Simptome și tratament"} />
       <ListItem title={"Simptome și tratament"} />

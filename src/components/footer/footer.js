@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./../../styles.scss";
-import Code4RomaniaGrayLogo from "../../../images/code4romania-gray.svg";
+import Code4RomaniaGrayLogo from "../../images/code4romania-gray.svg";
 import "./footer.scss";
 
-const Footer = ({ children }) => {
+export const Footer = ({ children }) => {
   return (
     <footer className="App-footer">
-      <div className="footer-content">
-        {children}
+      <div className="container footer-content">
+        <div className="footer-lists">{children}</div>
         <div className="code4-branding">
           <a
             href="https://code4.ro/ro/"
@@ -31,5 +31,3 @@ const Footer = ({ children }) => {
 Footer.propTypes = {
   children: PropTypes.node.isRequired
 };
-
-export default Footer;

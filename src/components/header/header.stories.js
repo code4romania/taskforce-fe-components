@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "./header";
-import LogoSvg from "../../icons/logo_small.svg";
+import LogoSvg from "../../images/cemafac.svg";
 
 export default { title: "Header" };
 
@@ -12,8 +12,9 @@ const Logo = () => (
 
 const MenuItems = () => (
   <>
-    <a href="/a">MenuItem 1</a>
-    <a href="/b">MenuItem 2</a>
+    <a href="/a">Despre</a>
+    <a href="/b">Ecosistemul Covid-19</a>
+    <a href="/b">Sprijina proiectul</a>
   </>
 );
 
@@ -25,6 +26,10 @@ const ProfileItems = () => (
 );
 
 export const withMenuItems = () => (
+  <Header Logo={<Logo />} MenuItems={<MenuItems />} />
+);
+
+export const withName = () => (
   <Header name="Ce ma fac" Logo={<Logo />} MenuItems={<MenuItems />} />
 );
 

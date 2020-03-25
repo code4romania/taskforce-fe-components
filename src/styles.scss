@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
-
-$family-sans-serif: "Titillium Web", sans-serif;
-
-$primary: #1C1080;
-$danger: #FF1616;
+@import "./_variables.scss";
 
 @import "~bulma/sass/utilities/_all.sass";
 @import "~bulma/sass/base/_all.sass";
+@import "~bulma/sass/form/_all.sass";
+
+@import "~bulma/sass/components/message.sass";
 @import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/elements/title.sass";
 @import "~bulma/sass/layout/section.sass";
+@import "~bulma/sass/elements/content.sass";
+@import "~bulma/sass/elements/container.sass";
 @import "~bulma/sass/layout/hero.sass";
 @import "~bulma/sass/grid/columns.sass";
-@import "~bulma/sass/form/_all.sass";
+

@@ -1,86 +1,56 @@
-.top-header {
-  display: grid;
-  grid-template-columns: 100%;
+.App-header {
+  display: flex;
   border-bottom: 1px solid #e0e0e0;
+  padding: 1.4rem 0;
   align-items: center;
-  justify-content: center;
 
-  .app-logo {
-    width: 100%;
+  .App-header__logo {
     display: flex;
-    justify-content: center;
+    align-items: center;
   }
 
-  nav {
-    display: flex;
-    justify-content: center;
+  .App-header__logo svg {
+    width: 145px;
+  }
 
-    span {
-      margin-left: 20px;
-      display: flex;
-    }
+  .App-header__logo a {
+    line-height: 0;
+  }
+
+  .App-header__title {
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin-left: 40px;
   }
 
   a {
-    font-size: 14px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #000000;
+    color: #000;
     text-decoration: none;
-    margin: 0px 5px;
+    margin: 0px 10px;
+  }
+
+  nav {
+    flex: 1;
+    text-align: right;
+    white-space: nowrap;
+
+    a {
+      padding: 0.25rem 0.75rem;
+    }
+
+    a:hover {
+      background: #fafafa;
+    }
   }
 }
 
-.app-credits {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #e0e0e0;
+@media (max-width: 920px) {
+  .App-header {
+    flex-direction: column;
 
-  span {
-    padding: 0 10px;
-  }
-}
-
-.bottom-header {
-  display: flex;
-  justify-content: center;
-}
-
-@media (min-width:480px) {
-  .top-header {
-    display: grid;
-    grid-template-rows: 100%;
-    grid-template-columns: 212px 150px calc(100% - 362px);
-    border-bottom: 1px solid #e0e0e0;
-    align-items: center;
     nav {
-      display: flex;
-      justify-content: flex-end;
-      padding: 10px;
-      span {
-        margin-left: 50px;
-        display: flex;
-      }
+      margin: 20px 0 0;
+      text-align: center;
     }
-  }
-  .app-credits {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 40px;
-    padding: 10px 0;
-    border-bottom: 1px solid #e0e0e0;
-
-    span {
-      padding: 0 10px;
-    }
-  }
-  .bottom-header {
-    display: flex;
-    justify-content: flex-end;
   }
 }

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0px 100px;
+  padding: 0 100px;
   border-top: 1px solid #5e80ff;
 
   a {
@@ -15,21 +15,30 @@
   }
 }
 
+.App-footer {
+  background-color: #00478f;
+}
+
 .footer-content {
-  background-color: #1c1080;
-  min-height: 320px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0px 100px;
-  flex-flow: row wrap;
-  min-height: 270px;
+
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 6rem 0;
+}
+
+.footer-lists {
+  display: flex;
 }
 
 .useful-links {
+  margin-right: 30px;
+  min-width: 250px;
+
   font-weight: 600;
   line-height: 21px;
-  padding: 0px;
   list-style: none;
 
   li.footer-links-header {
@@ -48,12 +57,34 @@
 .code4-branding {
   color: #fff;
   text-align: right;
+  align-self: flex-end;
 
   img {
     height: 40px;
   }
 
   p {
-    margin: 10px 0px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-content {
+    flex-direction: column;
+    padding: 3rem 1.25rem;
+  }
+
+  .footer-lists {
+    flex-direction: column;
+  }
+
+  .useful-links {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .code4-branding {
+    text-align: left;
+    align-self: flex-start;
   }
 }

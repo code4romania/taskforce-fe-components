@@ -18,7 +18,23 @@ export const primary = () => {
 
 export const inverted = () => {
   return (
-    <Button inverted="true" onClick={sayMyName}>
+    <Button inverted={true} onClick={sayMyName}>
+      Hello Friend
+    </Button>
+  );
+};
+
+export const disabled = () => {
+  return (
+    <Button disabled={true} onClick={sayMyName}>
+      Hello Friend
+    </Button>
+  );
+};
+
+export const disabledAndInverted = () => {
+  return (
+    <Button disabled={true} inverted={true} onClick={sayMyName}>
       Hello Friend
     </Button>
   );

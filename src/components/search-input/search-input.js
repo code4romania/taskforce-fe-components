@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./search-input.scss";
-import SearchIcon from "../../icons/search.svg";
-import classNames from "classnames";
+import SearchIcon from "../../images/icons/search.svg";
 
 export const SearchInput = ({
   hasIcon = true,
@@ -16,14 +15,11 @@ export const SearchInput = ({
       setCurrentValue(value);
     }
   }, []);
+
   return (
-    <div
-      className={classNames({
-        "__search-input-container": true,
-        "__has-icon": hasIcon
-      })}
-    >
+    <p className="control has-icons-right __search-input-container ">
       <input
+        className={"input"}
         placeholder={placeholder}
         value={currentValue}
         onChange={event => {
@@ -33,9 +29,11 @@ export const SearchInput = ({
 
           setCurrentValue(event.target.value);
         }}
-      ></input>
-      {hasIcon ? <img src={SearchIcon}></img> : null}
-    </div>
+      />
+      <span className="icon is-small is-right">
+        {hasIcon && <SearchIcon />}
+      </span>
+    </p>
   );
 };
 

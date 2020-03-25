@@ -1,0 +1,48 @@
+$__login-form-subtitle-color: #bfbfbf;
+$__login-form-input-background-color: #e8e8e8;
+$__login-form-label-color: #004890;
+
+.__login-form-container {
+  .subtitle {
+    color: $__login-form-subtitle-color;
+  }
+  .input {
+    background: $__login-form-input-background-color;
+  }
+  .label {
+    font-weight: normal;
+    font-size: 16px;
+    color: $__login-form-label-color;
+  }
+  .__login-form-options {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    div:nth-child(1) {
+      justify-self: start;
+    }
+    div:nth-child(2) {
+      justify-self: end;
+    }
+  }
+
+  .__login-form-button-container {
+    padding-top: 57px;
+    .button {
+      width: 171px;
+    }
+  }
+}
+
+@media screen and(max-width: 300px) {
+  .__login-form-container {
+    .__login-form-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      div:nth-child(1),
+      div:nth-child(2) {
+        margin: 10px;
+        justify-self: center;
+      }
+    }
+  }
+}

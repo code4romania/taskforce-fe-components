@@ -1,11 +1,12 @@
-
 $instruments-item-header-bg-color: #f2f2f2;
 $instruments-item-header-content-color: rgba(247, 247, 247, 0.5);
 
 $info-card-colors: (
-  'red': #FF1616, 
-  'pink': #F5BCD6,
-  'green': #05D6C7);
+  "red": #ff1616,
+  "pink": #f5bcd6,
+  "green": #05d6c7,
+  "yellow": #ffde59
+);
 
 .info-card {
   .card-title {
@@ -20,27 +21,27 @@ $info-card-colors: (
     font-size: 14px;
     display: flex;
     flex-direction: column;
-    padding: 0px 16px 16px 16px;
+    padding: 0px 16px 16px;
     p {
       margin-top: 16px;
     }
-    button {
+    .card-button {
       margin-top: 16px;
-      outline: none;
-      border: none;
       padding: 8px;
-      cursor: pointer;
       border-radius: 3px;
-      color: #ffffff;
+      font-weight: bold;
+      color: #000;
+      font-size: 1rem;
+      text-align: center;
     }
   }
 
-  @each $color-name, $color-value in $info-card-colors{
+  @each $color-name, $color-value in $info-card-colors {
     &.is-#{$color-name} {
-      .card-title{
+      .card-title {
         border-color: $color-value;
       }
-      .card-content button{
+      .card-content .card-button {
         background-color: $color-value;
       }
     }
