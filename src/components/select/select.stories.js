@@ -52,7 +52,6 @@ export const DependentSelects = () => {
       setChildOptions(generateOptions(el.target.value));
     }
   };
-  // setChildOptions(generateOptions("Value 1"));
   return (
     <div style={{ width: 300 }}>
       <Select
