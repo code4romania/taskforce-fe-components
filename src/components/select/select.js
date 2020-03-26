@@ -5,8 +5,10 @@ import PropTypes from "prop-types";
  *
  * @param {string} label
  * @param {string} description
- * @param {[{ text: string, value: string, selected?:boolean }]} options List of select options with key, value and selected properties
- * @param {object} selectProps Contains HTML input attributes: type, value, name, id, etc. https://www.w3schools.com/tags/tag_select.asp
+ * @param {[{ text: string, value: string, selected?:boolean }]}
+ * options List of select options with key, value and selected properties
+ * @param {object} selectProps Contains HTML input attributes:
+ * type, value, name, id, etc. https://www.w3schools.com/tags/tag_select.asp
  */
 export const Select = ({ label, description, options, selectProps }) => {
   return (
