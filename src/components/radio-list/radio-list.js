@@ -6,7 +6,8 @@ import "./radio-list.scss";
  * RadioList component - input radio list
  * @param {string} label
  * @param {string} description
- * @param {[{ key: string, value: string, checked?:boolean }]} options List of select options with key, value and selected properties
+ * @param {[{ key: string, value: string, checked?:boolean }]}
+ * options List of select options with key, value and selected properties
  * @param {'vertical'|'horizontal'} type List orientation: 'vertical', 'horizontal'
  */
 export const RadioList = ({ label, description, options, onChange, type }) => {
@@ -34,9 +35,9 @@ export const RadioList = ({ label, description, options, onChange, type }) => {
                   key={`input_${option.value}_${option.key}`}
                   type="radio"
                   name={label}
-                  onChange={args => {
-                    onChange && onChange(args.currentTarget.value);
-                  }}
+                  onChange={args =>
+                    onChange && onChange(args.currentTarget.value)
+                  }
                   value={option.value}
                   checked={option.checked}
                 />
@@ -53,7 +54,6 @@ RadioList.propTypes = {
   label: PropTypes.node.isRequired,
   description: PropTypes.node.isRequired,
   type: PropTypes.oneOf(["vertical", "horizontal"]),
-  props: PropTypes.node.IsOptional,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string.isRequired,
@@ -68,6 +68,5 @@ RadioList.propTypes = {
 RadioList.defaultProps = {
   label: "",
   description: "",
-  props: {},
   options: []
 };

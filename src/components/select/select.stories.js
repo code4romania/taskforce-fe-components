@@ -36,14 +36,14 @@ export const DependentSelects = () => {
     { text: "Option 3", value: "value3" }
   ];
   const generateOptions = seed => {
-    let options = [];
+    let generatedOptions = [];
     for (let index = 0; index < 3; index++) {
-      options.push({
+      generatedOptions.push({
         value: index,
         text: `child option ${index} (${seed})`
       });
     }
-    return options;
+    return generatedOptions;
   };
   const [childOptions, setChildOptions] = useState(generateOptions("Value 1"));
 
