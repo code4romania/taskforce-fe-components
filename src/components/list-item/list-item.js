@@ -13,17 +13,13 @@ export const ListItem = ({
   onClick,
   nonOption
 }) => {
-  const onClickCb = () => {
-    if (onClick) onClick(value);
-  };
-
   return (
     <div
       className={classNames("__list-item", {
         "__list-item--active": active && !nonOption,
         "__list-item--non-option": nonOption
       })}
-      onClick={onClickCb}
+      onClick={() => onClick && onClick(value)}
     >
       <div className="__list-item__left-side">{!nonOption && <Tick />}</div>
       <div className="__list-item__content">{title}</div>
