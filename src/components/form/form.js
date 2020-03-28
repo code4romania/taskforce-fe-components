@@ -36,16 +36,21 @@ function Form({ data, evaluateForm, onFinishingForm }) {
 
   const createFormWithAnswers = () => {
     const answersById = _.mapObject(formAsMap, (question, id) => {
+      //a bit a of hack to get rid of the final entry - needs restructuring of the data model
+      if (question.type === "FINAL") {
+        return {};
+      }
+
       return {
         id: question.questionId,
         questionText: question.questionText,
-        answer: formState[id]
+        answer: String(formState[id])
       };
     });
     return {
       formId: data.formId,
       timestamp: Date.now(),
-      answers: _.values(answersById)
+      answers: Object.values(answersById).filter(answer => answer.id)
     };
   };
 
