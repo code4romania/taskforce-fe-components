@@ -9,7 +9,7 @@ import _ from "underscore";
 
 const FIRST_NODE = 1;
 
-function Form({ data, evaluateForm }) {
+function Form({ data, evaluateForm, onFinishingForm }) {
   // TODO: at some point, allow for answers to some questions to affect the visibility of other questions
   const [formState, setFormState] = useState({});
   const [currentNode, setCurrentNode] = useState(FIRST_NODE);
@@ -38,6 +38,17 @@ function Form({ data, evaluateForm }) {
 
   const formAsMap = toMap(data.form);
 
+  const createFormWithAnswers = () => {
+    const answersById = _.mapObject(formAsMap, (question, id) => {
+      return {
+        id: question.questionId,
+        questionText: question.questionText,
+        answer: formState[id]
+      };
+    });
+    return { answers: _.values(answersById) };
+  };
+
   const questionView = () => {
     const currentQuestion = formAsMap[currentNode];
     // TODO: add components for other question types
@@ -61,6 +72,7 @@ function Form({ data, evaluateForm }) {
         );
       }
       case "FINAL": {
+        onFinishingForm(createFormWithAnswers());
         return (
           <Results
             option={evaluateForm(formState, currentQuestion.options)}
@@ -162,7 +174,8 @@ Form.propTypes = {
       })
     )
   }),
-  evaluateForm: PropTypes.func
+  evaluateForm: PropTypes.func,
+  onFinishingForm: PropTypes.func
 };
 
 export default Form;

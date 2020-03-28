@@ -14,9 +14,17 @@ let evaluate = function(formData, options) {
   }
 };
 export const withCeMaFacData = () => (
-  <Form data={ceMaFacData} evaluateForm={evaluate} />
+  <Form
+    data={ceMaFacData}
+    evaluateForm={evaluate}
+    onFinishingForm={results => console.log(results)}
+  />
 );
 
 export const withSimpleDecision = () => (
-  <Form data={decisionTree} evaluateForm={evaluate} />
+  <Form
+    data={decisionTree}
+    evaluateForm={evaluate}
+    onFinishingForm={results => console.log(results)}
+  />
 );
