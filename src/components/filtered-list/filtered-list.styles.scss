@@ -1,0 +1,18 @@
+.__filtered-list {
+  border: 1px solid black;
+  padding: 15px 25px 15px 15px;
+  display: flex;
+  flex-direction: column;
+
+  .__filtered-list-item {
+    margin-bottom: 20px;
+  }
+
+  .filter-section {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex: 1;
+  }
+}
