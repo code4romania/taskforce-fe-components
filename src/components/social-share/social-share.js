@@ -13,7 +13,7 @@ import "./social-share.scss";
 export const SocialsShare = ({ currentPage }) => {
   return (
     <div className="__social-share-container">
-      <span>Share on</span>
+      <span>Distribuie pe</span>
 
       <FacebookShareButton url={currentPage}>
         <FacebookIcon round={true} size={30}></FacebookIcon>
