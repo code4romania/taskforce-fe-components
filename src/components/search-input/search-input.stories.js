@@ -26,3 +26,19 @@ export const onValueChanged = () => (
 export const value = () => (
   <SearchInput value={text("Value", "Code4Romania")}></SearchInput>
 );
+
+export const onClick = () => (
+  <SearchInput
+    onClick={searchValue => {
+      alert("Search value: " + searchValue);
+    }}
+  ></SearchInput>
+);
+
+export const onEnter = () => (
+  <SearchInput
+    onEnter={searchValue => {
+      alert("Search value: " + searchValue);
+    }}
+  ></SearchInput>
+);
