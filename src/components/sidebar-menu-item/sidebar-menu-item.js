@@ -11,8 +11,8 @@ export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
 
   return (
     <li
-      className={`__sidebar-menu-item ${active && "active"} ${isTitle &&
-        "isTitle"}`}
+      className={`__sidebar-menu-item ${active ? "active" : ""} 
+      ${isTitle ? "isTitle" : ""}`}
       onClick={onClickCb}
     >
       {children}
