@@ -1,6 +1,6 @@
 {
   "name": "@code4ro/taskforce-fe-components",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": false,
   "dependencies": {
     "bulma": "^0.8.0",
