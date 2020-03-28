@@ -13,6 +13,7 @@ function Form({ data, evaluateForm }) {
   // TODO: at some point, allow for answers to some questions to affect the visibility of other questions
   const [formState, setFormState] = useState({});
   const [currentNode, setCurrentNode] = useState(FIRST_NODE);
+  const [historyOfSteps, setHistoryOfSteps] = useState([]);
   const init = () => {
     setCurrentNode(data.firstNodeId);
     setFormState({});
@@ -91,11 +92,15 @@ function Form({ data, evaluateForm }) {
         getNextQuestionForOptionValue(currentElement.options, optionValue) ||
         defaultNext;
 
+      historyOfSteps.push(currentNode);
+      setHistoryOfSteps(historyOfSteps);
       setCurrentNode(nextNode);
     }
   };
   const goToPreviousQuestion = () => {
-    setCurrentNode(currentNode - 1);
+    const newNode = historyOfSteps.pop();
+    setHistoryOfSteps(historyOfSteps);
+    setCurrentNode(newNode);
   };
 
   const areThereQuestionsLeft = () => {
