@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import SingleChoice from "./singleChoice";
 import MultipleChoice from "./multipleChoice";
@@ -10,18 +10,15 @@ import _ from "underscore";
 const FIRST_NODE = 1;
 
 function Form({ data, evaluateForm, onFinishingForm }) {
-  // TODO: at some point, allow for answers to some questions to affect the visibility of other questions
   const [formState, setFormState] = useState({});
-  const [currentNode, setCurrentNode] = useState(FIRST_NODE);
+  const [currentNode, setCurrentNode] = useState(data.firstNodeId);
   const [historyOfSteps, setHistoryOfSteps] = useState([]);
-  const init = () => {
+
+  const resetForm = () => {
     setCurrentNode(data.firstNodeId);
     setFormState({});
+    setHistoryOfSteps([]);
   };
-
-  useEffect(() => {
-    init();
-  }, [data.form]);
 
   const answerCurrentQuestion = answer => {
     setFormState({
@@ -32,8 +29,7 @@ function Form({ data, evaluateForm, onFinishingForm }) {
 
   const toMap = form => {
     const groupedById = _.groupBy(form, question => question.questionId);
-    const map = _.mapObject(groupedById, listOfQuestions => listOfQuestions[0]);
-    return map;
+    return _.mapObject(groupedById, listOfQuestions => listOfQuestions[0]);
   };
 
   const formAsMap = toMap(data.form);
@@ -139,7 +135,7 @@ function Form({ data, evaluateForm, onFinishingForm }) {
         </div>
         <div className="level-right">
           {data.form && (
-            <Button inverted={true} onClick={init}>
+            <Button inverted={true} onClick={resetForm}>
               Reîncepe testul
             </Button>
           )}
