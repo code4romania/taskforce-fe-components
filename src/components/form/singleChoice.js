@@ -38,7 +38,7 @@ SingleChoice.propTypes = {
   question: PropTypes.shape({
     questionId: PropTypes.number.isRequired,
     questionText: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(["FINAL", "SINGLE_CHOICE", "MULTIPLE_CHOICE"]),
+    type: PropTypes.oneOf(["FINAL", "SINGLE_CHOICE"]),
     options: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string.isRequired,

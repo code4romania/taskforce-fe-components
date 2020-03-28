@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import SingleChoice from "./singleChoice";
-import MultipleChoice from "./multipleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
 import Results from "./results";
@@ -56,15 +55,6 @@ function Form({ data, evaluateForm, onFinishingForm }) {
       case "SINGLE_CHOICE": {
         return (
           <SingleChoice
-            question={currentQuestion}
-            currentResponse={formState[currentQuestion.questionId]}
-            onAnswer={answerCurrentQuestion}
-          />
-        );
-      }
-      case "MULTIPLE_CHOICE": {
-        return (
-          <MultipleChoice
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
@@ -173,7 +163,7 @@ Form.propTypes = {
       PropTypes.shape({
         questionId: PropTypes.number.isRequired,
         questionText: PropTypes.string.isRequired,
-        type: PropTypes.oneOf(["FINAL", "SINGLE_CHOICE", "MULTIPLE_CHOICE"]),
+        type: PropTypes.oneOf(["FINAL", "SINGLE_CHOICE"]),
         options: PropTypes.arrayOf(
           PropTypes.shape({
             label: PropTypes.string.isRequired,
