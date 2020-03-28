@@ -20,12 +20,18 @@ export const Accordion = ({ title, content, logo }) => {
           <ArrowDown />
         </div>
       </div>
-      {showContent && <div className="message-body">{logo && <img className="__accordion-logo" src={logo} />}{content}</div>}
+      {showContent && (
+        <div className="message-body">
+          {logo && <img className="__accordion-logo" src={logo} />}
+          {content}
+        </div>
+      )}
     </div>
   );
 };
 
 Accordion.propTypes = {
   title: PropTypes.string.isRequired,
+  logo: PropTypes.string,
   content: PropTypes.node.isRequired
 };
