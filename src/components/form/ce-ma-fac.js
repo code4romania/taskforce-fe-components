@@ -48,7 +48,16 @@ export default {
     },
     {
       questionId: 4,
-      type: "FINAL"
+      type: "FINAL",
+      questionText: "Ce trebuie sa faci?",
+      options: [
+        {
+          label: "Esti bine! Stai acasa!"
+        },
+        {
+          label: "Suna medicul de familie! Dar stai acasa!"
+        }
+      ]
     }
   ]
 };

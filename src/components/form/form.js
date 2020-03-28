@@ -4,8 +4,9 @@ import SingleChoice from "./singleChoice";
 import MultipleChoice from "./multipleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
+import Results from "./results";
 
-function Form({ data }) {
+function Form({ data, evaluateForm }) {
   // TODO: at some point, allow for answers to some questions to affect the visibility of other questions
   const [formState, setFormState] = useState({});
   const [currentNode, setCurrentNode] = useState(0);
@@ -16,7 +17,7 @@ function Form({ data }) {
 
   useEffect(() => {
     init();
-  }, [data.form]); // eslint-disable-line
+  }, [data.form]);
 
   const answerCurrentQuestion = answer => {
     setFormState({
@@ -48,7 +49,12 @@ function Form({ data }) {
         );
       }
       case "FINAL": {
-        return <div>Finalizat</div>;
+        return (
+          <Results
+            option={evaluateForm(formState, currentQuestion.options)}
+            question={currentQuestion}
+          />
+        );
       }
       default:
         return null;
@@ -118,7 +124,8 @@ Form.propTypes = {
         )
       })
     )
-  })
+  }),
+  evaluateForm: PropTypes.func
 };
 
 export default Form;
