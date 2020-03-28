@@ -42,7 +42,7 @@ export const TestResults = ({ personalData = {}, results = [] }) => {
       {
         data: yAxisData,
         type: "bar",
-        barWidth: "5",
+        barWidth: "10",
         markLine: {
           lineStyle: { width: 0.5, color: "#8CA0B3", style: "dashed" },
           data: [{ name: "hightemp", yAxis: 37 }],
