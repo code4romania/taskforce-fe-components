@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ReactEcharts from "echarts-for-react";
 import CaretSvg from "../../images/icons/caret-down.svg";
 import "./test-results.styles.scss";
-import { Label } from "../..";
+import { Label } from "../label/label";
 import format from "date-fns/format";
 import fromUnixTime from "date-fns/fromUnixTime";
 
