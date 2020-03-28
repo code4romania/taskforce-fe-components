@@ -69,7 +69,19 @@
     position: relative;
   }
 
-  & input {
+  & .input {
     border: none;
+
+    font-size: 12px;
+    line-height: 18px;
+
+    padding: 0 1.8em 0 0;
+  }
+
+  & .input + .icon {
+    width: 1.8em;
+    height: 1.8em;
+
+    margin-right: .5em;
   }
 }

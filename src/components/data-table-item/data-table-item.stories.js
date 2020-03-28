@@ -11,28 +11,31 @@ const extraStyles = {
 export const withDefaultAlignment = () => {
   return (
     <DataTableItem
-      content={"With Default Alignment"}
       extraStyles={extraStyles}
-    />
+    >
+      {"With Default Alignment"}
+    </DataTableItem>
   );
 };
 
 export const withRightAlignment = () => {
   return (
     <DataTableItem
-      content={"With Right Alignment"}
       extraStyles={extraStyles}
       align="right"
-    />
+    >
+      {"With Right Alignment"}
+    </DataTableItem>
   );
 };
 
 export const withCenterAlignment = () => {
   return (
     <DataTableItem
-      content={"Centered Content"}
       extraStyles={extraStyles}
       align="center"
-    />
+    >
+      {"Centered Content"}
+    </DataTableItem>
   );
 };

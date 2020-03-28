@@ -19,8 +19,6 @@ export class HeaderFilter extends React.Component {
   }
 }
 
-HeaderFilter.defaultProps = {};
-
 HeaderFilter.propTypes = {
   name: PropTypes.string,
   onFilterIconClick: PropTypes.func
