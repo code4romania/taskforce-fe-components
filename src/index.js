@@ -30,6 +30,7 @@ export * from "./components/login-form/login-form";
 export * from "./components/list/list";
 export * from "./components/list-header/list-header";
 export * from "./components/list-item/list-item";
+export * from "./components/search-result-list-item/search-result-list-item";
 
 export * from "./components/logo/logo";
 
