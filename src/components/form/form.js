@@ -5,6 +5,7 @@ import "./form.scss";
 import { Button } from "../button/button";
 import Results from "./results";
 import _ from "underscore";
+import FreeText from "./freeText";
 
 const FIRST_NODE = 1;
 
@@ -61,6 +62,14 @@ function Form({ data, evaluateForm, onFinishingForm }) {
           />
         );
       }
+      case "FREE_TEXT": {
+        return (
+          <FreeText
+            question={currentQuestion}
+            onAnswer={answerCurrentQuestion}
+          />
+        );
+      }
       case "FINAL": {
         onFinishingForm(createFormWithAnswers());
         return (
@@ -75,9 +84,12 @@ function Form({ data, evaluateForm, onFinishingForm }) {
     }
   };
 
-  const getNextQuestionForOptionValue = (options, optionValue) => {
+  const getNextQuestionForOptionValue = (question, optionValue) => {
+    if (question.type === "FREE_TEXT") {
+      return;
+    }
     const selectedOption = _.find(
-      options,
+      question.options,
       option => option.value === optionValue
     );
     return selectedOption.nextQuestionId;
@@ -91,7 +103,7 @@ function Form({ data, evaluateForm, onFinishingForm }) {
       const defaultNext = currentNode + 1;
 
       const nextNode =
-        getNextQuestionForOptionValue(currentElement.options, optionValue) ||
+        getNextQuestionForOptionValue(currentElement, optionValue) ||
         defaultNext;
 
       historyOfSteps.push(currentNode);
@@ -164,7 +176,7 @@ Form.propTypes = {
       PropTypes.shape({
         questionId: PropTypes.number.isRequired,
         questionText: PropTypes.string.isRequired,
-        type: PropTypes.oneOf(["FINAL", "SINGLE_CHOICE"]),
+        type: PropTypes.oneOf(["FINAL", "SINGLE_CHOICE", "FREE_TEXT"]),
         options: PropTypes.arrayOf(
           PropTypes.shape({
             label: PropTypes.string.isRequired,
