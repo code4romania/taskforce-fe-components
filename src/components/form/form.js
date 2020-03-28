@@ -119,6 +119,10 @@ function Form({ data, evaluateForm, onFinishingForm }) {
     return formAsMap[currentNode].type !== "FINAL";
   };
 
+  const isWaitingForChoice = () => {
+    return formState[currentNode] === undefined;
+  };
+
   return (
     <div>
       {questionView()}
@@ -133,7 +137,12 @@ function Form({ data, evaluateForm, onFinishingForm }) {
           )}
           {areThereQuestionsLeft() && (
             <div className="level-item">
-              <Button onClick={goToNextQuestion}>Inainte</Button>
+              <Button
+                onClick={goToNextQuestion}
+                disabled={isWaitingForChoice()}
+              >
+                Inainte
+              </Button>
             </div>
           )}
         </div>
