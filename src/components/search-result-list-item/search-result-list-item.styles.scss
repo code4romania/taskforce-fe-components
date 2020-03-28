@@ -21,8 +21,11 @@
     line-height: 1.2;
   }
 
-  .searchResult__moreLink a {
+  .searchResult__moreLink {
     margin-top: 15px;
+  }
+
+  .searchResult__moreLink a {
     text-decoration: underline;
   }
 }
