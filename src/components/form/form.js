@@ -4,7 +4,7 @@ import SingleChoice from "./singleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
 import Results from "./results";
-import _ from "underscore";
+import { groupBy, mapObject } from "underscore";
 import FreeText from "./freeText";
 
 const FIRST_NODE = 1;
@@ -28,14 +28,14 @@ function Form({ data, evaluateForm, onFinishingForm }) {
   };
 
   const toMap = form => {
-    const groupedById = _.groupBy(form, question => question.questionId);
-    return _.mapObject(groupedById, listOfQuestions => listOfQuestions[0]);
+    const groupedById = groupBy(form, question => question.questionId);
+    return mapObject(groupedById, listOfQuestions => listOfQuestions[0]);
   };
 
   const formAsMap = toMap(data.form);
 
   const createFormWithAnswers = () => {
-    const answersById = _.mapObject(formAsMap, (question, id) => {
+    const answersById = mapObject(formAsMap, (question, id) => {
       //a bit a of hack to get rid of the final entry - needs restructuring of the data model
       if (question.type === "FINAL") {
         return {};
@@ -93,8 +93,7 @@ function Form({ data, evaluateForm, onFinishingForm }) {
     if (question.type === "FREE_TEXT") {
       return;
     }
-    const selectedOption = _.find(
-      question.options,
+    const selectedOption = question.options.find(
       option => option.value === optionValue
     );
     return selectedOption.nextQuestionId;
