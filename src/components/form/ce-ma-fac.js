@@ -53,10 +53,12 @@ export default {
       questionText: "Ce trebuie sa faci?",
       options: [
         {
-          label: "Esti bine! Stai acasa!"
+          label: "Esti bine! Stai acasa!",
+          value: 0
         },
         {
-          label: "Suna medicul de familie! Dar stai acasa!"
+          label: "Suna medicul de familie! Dar stai acasa!",
+          value: 1
         }
       ]
     }
