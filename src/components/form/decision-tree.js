@@ -3,7 +3,7 @@ export default {
   form: [
     {
       questionId: 1,
-      questionText: "Ai peste 60 de ani?",
+      questionText: "Ai prezentat simptome?",
       type: "SINGLE_CHOICE",
       options: [
         {
@@ -12,21 +12,22 @@ export default {
         },
         {
           label: "Nu",
-          value: 0
+          value: 0,
+          nextQuestionId: 4
         }
       ]
     },
     {
       questionId: 2,
-      questionText: "Care este sexul tău?",
+      questionText: "Ce temperatura ai avut?",
       type: "SINGLE_CHOICE",
       options: [
         {
-          label: "Masculin",
+          label: "37",
           value: 1
         },
         {
-          label: "Feminin",
+          label: "38",
           value: 2
         }
       ]
@@ -48,6 +49,21 @@ export default {
     },
     {
       questionId: 4,
+      questionText: "Care este sexul tău?",
+      type: "SINGLE_CHOICE",
+      options: [
+        {
+          label: "Masculin",
+          value: 1
+        },
+        {
+          label: "Feminin",
+          value: 2
+        }
+      ]
+    },
+    {
+      questionId: 5,
       type: "FINAL",
       questionText: "Ce trebuie sa faci?",
       options: [

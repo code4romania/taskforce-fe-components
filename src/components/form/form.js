@@ -5,11 +5,14 @@ import MultipleChoice from "./multipleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
 import Results from "./results";
+import _ from "underscore";
+
+const FIRST_NODE = 1;
 
 function Form({ data, evaluateForm }) {
   // TODO: at some point, allow for answers to some questions to affect the visibility of other questions
   const [formState, setFormState] = useState({});
-  const [currentNode, setCurrentNode] = useState(0);
+  const [currentNode, setCurrentNode] = useState(FIRST_NODE);
   const init = () => {
     setCurrentNode(data.firstNodeId);
     setFormState({});
@@ -26,8 +29,16 @@ function Form({ data, evaluateForm }) {
     });
   };
 
+  const toMap = form => {
+    const groupedById = _.groupBy(form, question => question.questionId);
+    const map = _.mapObject(groupedById, listOfQuestions => listOfQuestions[0]);
+    return map;
+  };
+
+  const formAsMap = toMap(data.form);
+
   const questionView = () => {
-    const currentQuestion = data.form[currentNode];
+    const currentQuestion = formAsMap[currentNode];
     // TODO: add components for other question types
     switch (currentQuestion.type) {
       case "SINGLE_CHOICE": {
@@ -61,14 +72,34 @@ function Form({ data, evaluateForm }) {
     }
   };
 
+  const getNextQuestionForOptionValue = (options, optionValue) => {
+    const selectedOption = _.find(
+      options,
+      option => option.value === optionValue
+    );
+    return selectedOption.nextQuestionId;
+  };
   const goToNextQuestion = () => {
     // TODO use the disabled prop once the Button component implements it
-    if (formState[data.form[currentNode].questionId] !== undefined) {
-      setCurrentNode(currentNode + 1);
+
+    const currentElement = formAsMap[currentNode];
+    if (formState[currentElement.questionId] !== undefined) {
+      const optionValue = formState[currentElement.questionId];
+      const defaultNext = currentNode + 1;
+
+      const nextNode =
+        getNextQuestionForOptionValue(currentElement.options, optionValue) ||
+        defaultNext;
+
+      setCurrentNode(nextNode);
     }
   };
   const goToPreviousQuestion = () => {
     setCurrentNode(currentNode - 1);
+  };
+
+  const areThereQuestionsLeft = () => {
+    return formAsMap[currentNode].type !== "FINAL";
   };
 
   return (
@@ -76,14 +107,14 @@ function Form({ data, evaluateForm }) {
       {questionView()}
       <div className="level action-buttons">
         <div className="level-left">
-          {currentNode > 0 && (
+          {currentNode > FIRST_NODE && (
             <div className="level-item">
               <Button inverted={true} onClick={goToPreviousQuestion}>
                 Inapoi
               </Button>
             </div>
           )}
-          {currentNode < data.form.length - 1 && (
+          {areThereQuestionsLeft() && (
             <div className="level-item">
               <Button onClick={goToNextQuestion}>Inainte</Button>
             </div>
@@ -119,7 +150,8 @@ Form.propTypes = {
         options: PropTypes.arrayOf(
           PropTypes.shape({
             label: PropTypes.string.isRequired,
-            value: PropTypes.number.isRequired
+            value: PropTypes.number.isRequired,
+            nextQuestionId: PropTypes.number
           })
         )
       })
