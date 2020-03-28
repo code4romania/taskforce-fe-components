@@ -18,7 +18,7 @@ const results = [
   {
     id: "134",
     date: "1585409321",
-    temperature: 38.6,
+    temperature: 36.6,
     soreThroat: true,
     cough: true,
     shortnessBreath: true
@@ -26,7 +26,7 @@ const results = [
   {
     id: "136",
     date: "1585409421",
-    temperature: 38.6,
+    temperature: 36,
     soreThroat: true,
     cough: true,
     shortnessBreath: true

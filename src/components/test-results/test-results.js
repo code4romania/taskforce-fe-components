@@ -13,16 +13,30 @@ export const TestResults = ({ personalData = {}, results = [] }) => {
   );
   const yAxisData = results.map(item => ({
     value: item.temperature,
-    itemStyle: { color: item.value > 37 ? "blue" : "red" }
+    itemStyle: { color: item.temperature > 37 ? "red" : "blue" }
   }));
+
+  console.log(yAxisData);
 
   const option = {
     xAxis: {
       type: "category",
-      data: xAxisData
+      data: xAxisData,
+      axisLine: { show: false, lineStyle: { color: "#fff" } },
+      axisLabel: {
+        textStyle: { color: "#000" }
+      },
+      splitLine: {
+        show: false
+      }
     },
     yAxis: {
-      type: "value"
+      type: "value",
+      axisLine: { show: true, lineStyle: { color: "#B0BEC5" } },
+      axisLabel: { show: false },
+      splitLine: {
+        show: false
+      }
     },
     series: [
       {
@@ -31,7 +45,7 @@ export const TestResults = ({ personalData = {}, results = [] }) => {
         barWidth: "5",
         markLine: {
           lineStyle: { width: 0.5, color: "#8CA0B3", style: "dashed" },
-          data: [{ name: "febra", yAxis: 37 }]
+          data: [{ name: "hightemp", yAxis: 37 }]
         }
       }
     ]
