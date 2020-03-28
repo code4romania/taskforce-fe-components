@@ -45,7 +45,8 @@ export const TestResults = ({ personalData = {}, results = [] }) => {
         barWidth: "5",
         markLine: {
           lineStyle: { width: 0.5, color: "#8CA0B3", style: "dashed" },
-          data: [{ name: "hightemp", yAxis: 37 }]
+          data: [{ name: "hightemp", yAxis: 37 }],
+          symbol: ["none", "none"]
         }
       }
     ]
