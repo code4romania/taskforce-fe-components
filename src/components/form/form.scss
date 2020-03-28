@@ -1,13 +1,11 @@
+@import "~bulma/sass/utilities/initial-variables.sass";
+@import "~bulma/sass/utilities/derived-variables.sass";
+@import "~bulma/sass/utilities/mixins.sass";
+@import "~bulma/sass/components/level.sass";
+
 .action-buttons {
   padding: 10px 0;
   display: flex;
-}
-
-.no-hover {
-  &:hover {
-    cursor: initial !important;
-    background-color: whitesmoke !important;
-  }
 }
 
 @media (max-width: 768px) {

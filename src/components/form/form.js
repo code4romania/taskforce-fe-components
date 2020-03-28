@@ -99,8 +99,6 @@ function Form({ data, evaluateForm, onFinishingForm }) {
     return selectedOption.nextQuestionId;
   };
   const goToNextQuestion = () => {
-    // TODO use the disabled prop once the Button component implements it
-
     const currentElement = formAsMap[currentNode];
     if (formState[currentElement.questionId] !== undefined) {
       const optionValue = formState[currentElement.questionId];
