@@ -45,6 +45,7 @@ export const other = () => (
     <Input label="With Placeholder" usePlaceholder={true} />
     <Input label="With Default Value" defaultValue="Some default Value" />
     <Input label="With Loading State" loading={true} />
+    <Input label="With Secondary Label" secondaryLabel="Secondary Label" />
   </div>
 );
 

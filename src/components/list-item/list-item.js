@@ -1,19 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import Tick from "../../icons/tick.svg";
-import ArrowRight from "../../icons/arrow-right.svg";
+import Tick from "../../images/icons/tick.svg";
+import ArrowRight from "../../images/icons/arrow-right.svg";
 import "./list-item.styles.scss";
 
-export const ListItem = ({ title, active, hasNext, value, onClick }) => {
+export const ListItem = ({
+  title,
+  active,
+  hasNext,
+  value,
+  onClick,
+  nonOption
+}) => {
   return (
     <div
-      className={classNames("__list-item", { "__list-item--active": active })}
-      onClick={e => onClick(value || e)}
+      className={classNames("__list-item", {
+        "__list-item--active": active && !nonOption,
+        "__list-item--non-option": nonOption
+      })}
+      onClick={() => onClick && onClick(value)}
     >
-      <div className="__list-item__left-side">
-        <Tick />
-      </div>
+      <div className="__list-item__left-side">{!nonOption && <Tick />}</div>
       <div className="__list-item__content">{title}</div>
       {hasNext && (
         <div className="__list-item__right-side">
@@ -26,6 +34,7 @@ export const ListItem = ({ title, active, hasNext, value, onClick }) => {
 
 ListItem.defaultProps = {
   active: false,
+  nonOption: false,
   hasNext: false
 };
 
@@ -34,5 +43,6 @@ ListItem.propTypes = {
   value: PropTypes.object,
   active: PropTypes.bool,
   hasNext: PropTypes.bool,
+  nonOption: PropTypes.bool,
   onClick: PropTypes.func
 };

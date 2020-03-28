@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./header.scss";
 
+import Hamburger from "../../images/icons/hamburger.svg";
+import HamburgerOpen from "../../images/icons/hamburger-open.svg";
+
 export const Header = ({ name, Logo, MenuItems, ProfileItems }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const HamburgerIcon = isOpen ? HamburgerOpen : Hamburger;
+
   return (
-    <header className="App-header">
-      <div className="container top-header">
-        <div className="app-logo">{Logo}</div>
-        <div className="title">{name || ""}</div>
-        <nav>
-          {MenuItems}
-          <span>{ProfileItems}</span>
-        </nav>
+    <header className="App-header container">
+      <div className="App-header__logo">
+        {Logo}
+        {name && <span className="App-header__title">{name}</span>}
       </div>
+      <div className="App-header__menu-icon">
+        <HamburgerIcon onClick={() => setIsOpen(!isOpen)} />
+      </div>
+      <nav className={!isOpen ? "App-header__nav--hidden" : ""}>
+        {MenuItems}
+        {ProfileItems}
+      </nav>
     </header>
   );
 };

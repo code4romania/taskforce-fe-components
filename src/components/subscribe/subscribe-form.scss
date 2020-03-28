@@ -1,0 +1,32 @@
+$subscribeColor: #28af60;
+
+.__subscribe-form {
+  background-color: rgba(5, 214, 199, 0.2);
+  padding: 2rem;
+  .button {
+    height: 100%;
+    background-color: $subscribeColor;
+  }
+  .button:disabled {
+    background-color: $subscribeColor;
+  }
+  .button:hover {
+    background-color: $subscribeColor;
+    opacity: 0.75;
+  }
+  p.__success {
+    color: $subscribeColor;
+  }
+  .hero {
+    margin: 0;
+    .subtitle {
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+.__compact {
+  .button {
+    width: 100%;
+  }
+}

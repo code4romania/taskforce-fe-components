@@ -17,5 +17,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    pointer-events: initial !important;
   }
 }

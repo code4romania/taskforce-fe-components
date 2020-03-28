@@ -1,0 +1,31 @@
+.searchResult {
+  background: #f2f2f2;
+  border-left: 46px solid #c2d0de;
+  padding: 20px 25px;
+
+  &.cyan {
+    border-color: #c3ece9;
+  }
+  &.blue {
+    border-color: #a6c6f0;
+  }
+
+  .searchResult__date {
+    text-transform: uppercase;
+  }
+
+  .searchResult__title {
+    font-size: 1.3rem;
+    color: #000;
+    margin: 0.8rem 0;
+    line-height: 1.2;
+  }
+
+  .searchResult__moreLink {
+    margin-top: 15px;
+  }
+
+  .searchResult__moreLink a {
+    text-decoration: underline;
+  }
+}
