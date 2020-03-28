@@ -53,6 +53,7 @@ Cea mai sigură metodă de evitare a infecției este să evitați expunerea la v
   return (
     <Accordion
       title={accordionData.title}
+      logo="//code4.ro/images/logo-full.svg"
       content={
         <div
           className="content"
