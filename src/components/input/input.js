@@ -6,6 +6,7 @@ import { Label } from "../label/label";
 export const Input = ({
   disabled,
   label,
+  secondaryLabel,
   type,
   name,
   size,
@@ -32,6 +33,7 @@ export const Input = ({
   return (
     <div className={fieldClassNames.join(" ")}>
       {!usePlaceholder && <Label text={label} />}
+      {secondaryLabel && <Label text={secondaryLabel} isSecondary={true} />}
       <div className={controlClassNames.join(" ")}>
         <input
           className={inputClasses}
@@ -51,6 +53,7 @@ export const Input = ({
 
 Input.propTypes = {
   label: PropTypes.string.isRequired,
+  secondaryLabel: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.oneOf(["text", "email", "password", "tel"]),
   size: PropTypes.oneOf(["small", "medium", "large"]),
