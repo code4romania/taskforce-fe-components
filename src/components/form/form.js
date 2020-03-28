@@ -128,6 +128,7 @@ function Form({ data, evaluateForm, onFinishingForm }) {
           {areThereQuestionsLeft() && (
             <div className="level-item">
               <Button
+                className="forward"
                 onClick={goToNextQuestion}
                 disabled={isWaitingForChoice()}
               >

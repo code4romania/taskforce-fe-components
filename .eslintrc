@@ -7,9 +7,10 @@
   },
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest/globals": true
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "jest"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -36,6 +37,11 @@
     "no-trailing-spaces": "warn",
     "no-unused-expressions": "error",
     "no-var": "error",
-    "max-len": ["error", { "code": 120 }]
+    "max-len": ["error", { "code": 120 }],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
   }
 }
