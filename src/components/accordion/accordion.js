@@ -4,7 +4,7 @@ import classNames from "classnames";
 import ArrowDown from "../../images/icons/arrow-down.svg";
 import "./accordion.scss";
 
-export const Accordion = ({ title, children }) => {
+export const Accordion = ({ title, content, children }) => {
   const [showContent, setShowContent] = useState(false);
 
   return (
@@ -22,7 +22,7 @@ export const Accordion = ({ title, children }) => {
       </div>
       {showContent && (
         <div className="message-body">
-          <div className="content">{children}</div>
+          <div className="content">{children || content}</div>
         </div>
       )}
     </div>
@@ -34,5 +34,9 @@ Accordion.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ]).isRequired
+  ]).isRequired,
+  content: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
 };
