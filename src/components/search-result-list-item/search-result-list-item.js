@@ -5,7 +5,7 @@ import "./search-result-list-item.styles.scss";
 export const SearchResultListItem = ({
   date,
   title,
-  readMoretext,
+  readMoreText,
   readMoreLink,
   children,
   color
@@ -18,9 +18,9 @@ export const SearchResultListItem = ({
       <h2 className="searchResult__title">{title}</h2>
       {children}
 
-      {readMoretext && (
+      {readMoreText && (
         <div className="has-text-right searchResult__moreLink">
-          <a href={readMoreLink}>{readMoretext}</a>
+          <a href={readMoreLink}>{readMoreText}</a>
         </div>
       )}
     </div>
@@ -31,7 +31,7 @@ SearchResultListItem.propTypes = {
   date: PropTypes.string,
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  readMoretext: PropTypes.string,
+  readMoreText: PropTypes.string,
   readMoreLink: PropTypes.string,
   color: PropTypes.oneOf(["cyan", "blue"])
 };

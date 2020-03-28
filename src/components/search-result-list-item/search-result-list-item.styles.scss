@@ -18,9 +18,10 @@
     font-size: 1.3rem;
     color: #000;
     margin: 0.8rem 0;
+    line-height: 1.2;
   }
 
-  .searchResult__moreLink {
+  .searchResult__moreLink a {
     margin-top: 15px;
     text-decoration: underline;
   }

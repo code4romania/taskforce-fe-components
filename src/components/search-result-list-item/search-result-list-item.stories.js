@@ -18,9 +18,9 @@ export const SimpleSearchResultListItem = () => {
     <SearchResultListItem
       color={select(label, options, defaultValue)}
       date="12 martie 2020 12:45"
-      title="Apel de la Guvernul României. Ce trebuie să facă cetățenii când primesc mesaje pe 
-      Facebook și WhatsApp despre coronavirus"
-      readMoretext="Citeste mai mult"
+      title="Apel de la Guvernul României. Ce trebuie să facă cetățenii
+       când primesc mesaje pe Facebook și WhatsApp despre coronavirus"
+      readMoreText="Citeste mai mult"
       readMoreLink="/"
     >
       <p>
