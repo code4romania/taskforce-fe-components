@@ -30,7 +30,7 @@
     "react/react-in-jsx-scope": "error",
     "jsx-quotes": ["warn", "prefer-double"],
     "quotes": ["warn", "double"],
-    "indent": ["error", 2],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "no-eval": "error",
     "no-shadow": "error",
     "no-trailing-spaces": "warn",
