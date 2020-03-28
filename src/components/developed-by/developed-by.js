@@ -38,16 +38,13 @@ export const DevelopedBy = ({
   );
 
   const renderPartners = () => {
-    if (showPartners === undefined) {
-      return renderPartnersList(defaultPartners);
-    }
     if (showPartners && partnerLogos && partnerLogos.length > 0) {
       return renderPartnersList(partnerLogos);
+    } else if (showPartners) {
+      return renderPartnersList(defaultPartners);
     }
     return null;
   };
-
-  const withPartners = showPartners || showPartners === undefined;
 
   const renderSecondLine = () => {
     if (showSecondLine) {
@@ -71,7 +68,7 @@ export const DevelopedBy = ({
         {renderPartners()}
 
         <div className="caption">
-          {withPartners ? developedByStr : projDevelopedByStr}
+          {showPartners ? developedByStr : projDevelopedByStr}
         </div>
 
         <Logo url={"https://code4.ro"} imgClass={"smaller"}>
@@ -90,4 +87,8 @@ DevelopedBy.propTypes = {
   partnerLogos: PropTypes.arrayOf(PropTypes.node),
   secondLineCaption: PropTypes.string,
   secondLineLogos: PropTypes.arrayOf(PropTypes.node)
+};
+
+DevelopedBy.defaultProps = {
+  showPartners: true
 };
