@@ -44,3 +44,10 @@ export * from "./components/sidebar-menu/sidebar-menu";
 export * from "./components/sidebar-menu-item/sidebar-menu-item";
 
 export * from "./components/back-to-top/back-to-top";
+
+export * from "./components/data-table/data-table";
+export * from "./components/data-table-item/data-table-item";
+export * from "./components/data-table-row/data-table-row";
+
+export * from "./components/filter-modal/filter-modal";
+export * from "./components/header-filter/header-filter";

@@ -1,0 +1,18 @@
+.data-table {
+
+  display: table;
+  width: 100%;
+
+  &__container {
+    width: 100%;
+    min-width: 500px;
+    overflow-x: auto;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .data-table {
+    width: fit-content;
+  }
+}

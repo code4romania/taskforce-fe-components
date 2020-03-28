@@ -1,0 +1,18 @@
+.data-table-row {
+  display: table-row;
+
+  & > .data-table-item {
+    border-top: none;
+    border-right: none;
+
+    &:first-child {
+      border-left: none;
+    }
+  }
+
+  &:last-child {
+    & > .data-table-item {
+      border-bottom: none;
+    }
+  }
+}
