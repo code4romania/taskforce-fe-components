@@ -43,9 +43,10 @@ export class FilteredList extends React.Component {
           {this.props.children}
         </section>
         <section className="list-section">
-          {config.listItems.map((li, index) => (
-            <FilteredListItem listItem={li} key={index}></FilteredListItem>
-          ))}
+          {config.listItems &&
+            config.listItems.map((li, index) => (
+              <FilteredListItem listItem={li} key={index} />
+            ))}
         </section>
       </div>
     );
