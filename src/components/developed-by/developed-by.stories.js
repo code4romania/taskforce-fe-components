@@ -13,13 +13,13 @@ export const twoLines = () => <DevelopedBy showSecondLine />;
 export const oneLineNoPartners = () => <DevelopedBy showPartners={false} />;
 
 const customPartnerLogos = [
-  <Logo url={"https://girlswhocode.com/"} key="github">
+  <Logo url={"https://girlswhocode.com/"} key="github_1">
     <img
       src="http://www.bigdreammovement.com/wp-content/uploads/girls-who-code.png"
       alt="Custom Partner"
     />
   </Logo>,
-  <Logo url={"https://github.com"} key="github">
+  <Logo url={"https://github.com"} key="github_2">
     <img
       src="https://tctechcrunch2011.files.wordpress.com/2013/01/github-logo.png"
       alt="Custom Partner"
@@ -28,13 +28,13 @@ const customPartnerLogos = [
 ];
 
 const customSecondLineLogos = [
-  <Logo url={"https://codeforall.org/"} key="github">
+  <Logo url={"https://codeforall.org/"} key="github_3">
     <img
       src="https://epf.org.pl/en/wp-content/uploads/sites/3/2015/11/code_for_all_logo.png"
       alt="Custom Partner"
     />
   </Logo>,
-  <Logo url={"https://girlswhocode.com/"} key="github">
+  <Logo url={"https://girlswhocode.com/"} key="github_4">
     <img
       src="http://www.bigdreammovement.com/wp-content/uploads/girls-who-code.png"
       alt="Custom Partner"

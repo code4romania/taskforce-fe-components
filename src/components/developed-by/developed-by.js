@@ -33,7 +33,7 @@ export const DevelopedBy = ({
   const renderPartnersList = partners => (
     <div>
       <div className="caption">{partnersStr}</div>
-      {partners}
+      <div className="logo-wrapper">{partners}</div>
     </div>
   );
 
@@ -54,7 +54,9 @@ export const DevelopedBy = ({
             <div className="caption">
               {secondLineCaption || defaultSecondLineCaption}
             </div>
-            {secondLineLogos || defaultSecondLineLogos}
+            <div className="logo-wrapper">
+              {secondLineLogos || defaultSecondLineLogos}
+            </div>
           </div>
         </div>
       );
