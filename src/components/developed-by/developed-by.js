@@ -67,13 +67,15 @@ export const DevelopedBy = ({
       <div className="container developed-by">
         {renderPartners()}
 
-        <div className="caption">
-          {showPartners ? developedByStr : projDevelopedByStr}
-        </div>
+        <div>
+          <div className="caption">
+            {showPartners ? developedByStr : projDevelopedByStr}
+          </div>
 
-        <Logo url={"https://code4.ro"} imgClass={"smaller"}>
-          <DeveloperLogo width="110" />
-        </Logo>
+          <Logo url={"https://code4.ro"} imgClass={"smaller"}>
+            <DeveloperLogo width="110" />
+          </Logo>
+        </div>
       </div>
 
       {renderSecondLine()}
