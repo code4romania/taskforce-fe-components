@@ -31,3 +31,5 @@ export * from "./components/partner-logo/partner-logo";
 
 export * from "./components/search-input/search-input";
 export * from "./components/social-share/social-share";
+
+export * from "./components/test-results/test-results";
