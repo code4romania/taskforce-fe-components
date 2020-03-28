@@ -1,0 +1,35 @@
+
+.__filtered-list-item-container {
+  .label {
+    margin-bottom: 4px;
+    margin-left: 4px;
+  }
+}
+
+.__filtered-list-item {
+  background-color: white;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+
+
+
+  .content-section {
+    padding: 10px;
+    flex: 1;
+  }
+
+  .row {
+    margin-bottom: 4px;
+  }
+
+  .icon-section {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
