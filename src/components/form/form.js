@@ -42,7 +42,11 @@ function Form({ data, evaluateForm, onFinishingForm }) {
         answer: formState[id]
       };
     });
-    return { answers: _.values(answersById) };
+    return {
+      formId: data.formId,
+      timestamp: Date.now(),
+      answers: _.values(answersById)
+    };
   };
 
   const questionView = () => {
@@ -155,6 +159,7 @@ Form.propTypes = {
       })
     ),
     firstNodeId: PropTypes.number.isRequired,
+    formId: PropTypes.number,
     form: PropTypes.arrayOf(
       PropTypes.shape({
         questionId: PropTypes.number.isRequired,
