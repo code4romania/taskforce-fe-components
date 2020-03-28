@@ -16,8 +16,6 @@ export const TestResults = ({ personalData = {}, results = [] }) => {
     itemStyle: { color: item.temperature > 37 ? "red" : "blue" }
   }));
 
-  console.log(yAxisData);
-
   const option = {
     xAxis: {
       type: "category",
