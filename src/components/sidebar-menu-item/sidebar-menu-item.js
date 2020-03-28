@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./sidebar-menu-item.scss";
+import classNames from "classnames";
 
 export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
   const onClickCb = () => {
@@ -11,8 +12,10 @@ export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
 
   return (
     <li
-      className={`__sidebar-menu-item ${active && "active"} ${isTitle &&
-        "isTitle"}`}
+      className={classNames("__sidebar-menu-item", {
+        isTitle,
+        active
+      })}
       onClick={onClickCb}
     >
       {children}
