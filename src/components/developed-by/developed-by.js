@@ -6,38 +6,88 @@ import dsuLogo from "./assets/dsu.png";
 import "./developed-by.scss";
 import { Logo } from "../logo/logo";
 
-export const DevelopedBy = ({ showSecondLine }) => {
+export const DevelopedBy = ({
+  showSecondLine,
+  showPartners,
+  partnerLogos,
+  secondLineCaption,
+  secondLineLogos
+}) => {
+  const partnersStr = "Un proiect în parteneriat cu ";
+  const developedByStr = "dezvoltat de ";
+  const projDevelopedByStr = "Un proiect dezvoltat de ";
+
+  const defaultPartners = [
+    <Logo url={"https://www.gov.ro"} key="gov">
+      <img src={partnerLogo} alt="Guvernul Romaniei" />
+    </Logo>
+  ];
+
+  const defaultSecondLineCaption = "Conținut avizat de";
+  const defaultSecondLineLogos = [
+    <Logo url={"http://www.dsu.mai.gov.ro/"} key="DSU">
+      <img src={dsuLogo} alt="Directia pentru Situatii de Urgenta" />
+    </Logo>
+  ];
+
+  const renderPartnersList = partners => (
+    <div>
+      <div className="caption">{partnersStr}</div>
+      {partners}
+    </div>
+  );
+
+  const renderPartners = () => {
+    if (showPartners === undefined) {
+      return renderPartnersList(defaultPartners);
+    }
+    if (showPartners && partnerLogos && partnerLogos.length > 0) {
+      return renderPartnersList(partnerLogos);
+    }
+    return null;
+  };
+
+  const withPartners = showPartners || showPartners === undefined;
+
+  const renderSecondLine = () => {
+    if (showSecondLine) {
+      return (
+        <div className="container developed-by">
+          <div>
+            <div className="caption">
+              {secondLineCaption || defaultSecondLineCaption}
+            </div>
+            {secondLineLogos || defaultSecondLineLogos}
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
       <div className="container developed-by">
-        <div>
-          <div className="caption">Un proiect în parteneriat cu </div>
-          <Logo url={"https://www.gov.ro"}>
-            <img src={partnerLogo} alt="Guvernul Romaniei" />
-          </Logo>
+        {renderPartners()}
+
+        <div className="caption">
+          {withPartners ? developedByStr : projDevelopedByStr}
         </div>
 
-        <div>
-          <div className="caption"> dezvoltat de </div>
-          <Logo url={"https://code4.ro"} imgClass={"smaller"}>
-            <DeveloperLogo width="110" />
-          </Logo>
-        </div>
+        <Logo url={"https://code4.ro"} imgClass={"smaller"}>
+          <DeveloperLogo width="110" />
+        </Logo>
       </div>
-      {showSecondLine && (
-        <div className="container developed-by">
-          <div>
-            <div className="caption">Conținut avizat de</div>
-            <Logo url={"http://www.dsu.mai.gov.ro/"}>
-              <img src={dsuLogo} alt="Directia pentru Situatii de Urgenta" />
-            </Logo>
-          </div>
-        </div>
-      )}
+
+      {renderSecondLine()}
     </>
   );
 };
 
 DevelopedBy.propTypes = {
-  showSecondLine: PropTypes.bool
+  showSecondLine: PropTypes.bool,
+  showPartners: PropTypes.bool,
+  partnerLogos: PropTypes.arrayOf(PropTypes.node),
+  secondLineCaption: PropTypes.string,
+  secondLineLogos: PropTypes.arrayOf(PropTypes.node)
 };
