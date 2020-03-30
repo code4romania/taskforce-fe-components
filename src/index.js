@@ -40,6 +40,8 @@ export * from "./components/social-share/social-share";
 export * from "./components/subscribe/mailchimp-subscribe";
 export * from "./components/subscribe/subscribe-form";
 
+export * from "./components/form/form";
+
 export * from "./components/sidebar-menu/sidebar-menu";
 export * from "./components/sidebar-menu-item/sidebar-menu-item";
 
