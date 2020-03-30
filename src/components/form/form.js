@@ -9,7 +9,7 @@ import FreeText from "./freeText";
 
 const FIRST_NODE = 1;
 
-function Form({ data, evaluateForm, onFinishingForm }) {
+export const Form = ({ data, evaluateForm, onFinishingForm }) => {
   const [formState, setFormState] = useState({});
   const [currentNode, setCurrentNode] = useState(data.firstNodeId);
   const [historyOfSteps, setHistoryOfSteps] = useState([]);
@@ -161,7 +161,7 @@ function Form({ data, evaluateForm, onFinishingForm }) {
       </div>
     </div>
   );
-}
+};
 
 Form.propTypes = {
   data: PropTypes.shape({
@@ -192,5 +192,3 @@ Form.propTypes = {
   evaluateForm: PropTypes.func,
   onFinishingForm: PropTypes.func
 };
-
-export default Form;

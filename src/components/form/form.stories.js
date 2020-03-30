@@ -3,7 +3,7 @@ import React from "react";
 import ceMaFacData from "./ce-ma-fac";
 import decisionTree from "./decision-tree";
 import simpleTextInput from "./simpleInput";
-import Form from "./form";
+import { Form } from "./form";
 
 export default { title: "Form" };
 
