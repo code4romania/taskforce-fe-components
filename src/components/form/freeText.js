@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ListHeader, Input } from "../..";
+
+import { ListHeader } from "../list-header/list-header";
+import { Input } from "../input/input";
 
 function FreeText({ question, onAnswer }) {
   const onChange = event => {

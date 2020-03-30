@@ -1,8 +1,8 @@
 import React from "react";
 import { mount } from "enzyme";
+import { ListHeader } from "../list-header/list-header";
 import Form from "./form";
 import Results from "./results";
-import { ListHeader } from "../..";
 import SingleChoice from "./singleChoice";
 import FreeText from "./freeText";
 
