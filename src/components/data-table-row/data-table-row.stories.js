@@ -8,11 +8,11 @@ export default { title: "Data Table Row" };
 export const usage = () => {
   return (
     <DataTableRow>
-      <DataTableItem content={"Brasov"} />
-      <DataTableItem content={"65"} />
-      <DataTableItem content={"Diabet"} />
-      <DataTableItem content={"38.5"} />
-      <DataTableItem content={"Da"} />
+      <DataTableItem>Brasov</DataTableItem>
+      <DataTableItem>65</DataTableItem>
+      <DataTableItem>Diabet</DataTableItem>
+      <DataTableItem>38.5</DataTableItem>
+      <DataTableItem>Da</DataTableItem>
     </DataTableRow>
   );
 };

@@ -13,5 +13,3 @@ export const DataTable = ({ children }) => {
 DataTable.propTypes = {
   children: PropTypes.node.isRequired
 };
-
-DataTable.defaultProps = {};
