@@ -4,7 +4,6 @@ import "./filter-modal.scss";
 
 import { SearchInput } from "../search-input/search-input";
 
-import ChevronDownIcon from "../../images/icons/chevron-down.svg";
 import ChevronUpIcon from "../../images/icons/chevron-up.svg";
 
 export const FilterModal = ({ placeholder, values, isOpen, selectValue }) => {
@@ -41,10 +40,12 @@ export const FilterModal = ({ placeholder, values, isOpen, selectValue }) => {
         <div className="filter-modal__scrollable-wrapper">
           <WithScrollDiv className="filter-modal__list">
             {(hasReachedTop, hasReachedBottom) => (
-              <React.Fragment>
+              <>
                 {values
                   .filter(
-                    value => !selectedValue || value.includes(selectedValue)
+                    value =>
+                      !selectedValue ||
+                      value.toLowerCase().includes(selectedValue.toLowerCase())
                   )
                   .map(value => (
                     <div
@@ -55,15 +56,17 @@ export const FilterModal = ({ placeholder, values, isOpen, selectValue }) => {
                       {value}
                     </div>
                   ))}
-                <div className="filter-modal__scrollarea">
+                <div className="filter-modal__scrollbar">
                   <span className="icon">
                     {!hasReachedTop && <ChevronUpIcon />}
                   </span>
                   <span className="icon">
-                    {!hasReachedBottom && <ChevronDownIcon />}
+                    {!hasReachedBottom && (
+                      <ChevronUpIcon className="filter-modal__scrollbar--down" />
+                    )}
                   </span>
                 </div>
-              </React.Fragment>
+              </>
             )}
           </WithScrollDiv>
         </div>
@@ -92,7 +95,7 @@ const WithScrollHandler = WrappedComponent => {
     const [hasReachedBottom, setHasReachedBottom] = useState(false);
 
     const onScrollHandler = event => {
-      let updatedContentHeight = contentHeight ? contentHeight : 0;
+      let updatedContentHeight = contentHeight || 0;
 
       if (!updatedContentHeight) {
         event.target.children.forEach(child => {
