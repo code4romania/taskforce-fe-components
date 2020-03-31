@@ -2,6 +2,10 @@ export default {
   title: "One question form",
   formId: 1,
   firstNodeId: 1,
+  intro: {
+    title: "Welcome",
+    description: "Please answer next questions"
+  },
   form: [
     {
       questionId: 1,

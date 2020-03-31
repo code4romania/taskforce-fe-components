@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import SingleChoice from "./singleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
-import Results from "./results";
+import StaticText from "./staticText";
 import { groupBy, mapObject } from "underscore";
 import FreeText from "./freeText";
 
@@ -13,6 +13,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
   const [formState, setFormState] = useState({});
   const [currentNode, setCurrentNode] = useState(data.firstNodeId);
   const [historyOfSteps, setHistoryOfSteps] = useState([]);
+  const [started, setStarted] = useState(false);
 
   const resetForm = () => {
     setCurrentNode(data.firstNodeId);
@@ -78,9 +79,9 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       case "FINAL": {
         onFinishingForm(createFormWithAnswers());
         return (
-          <Results
-            option={evaluateForm(formState, currentQuestion.options)}
-            question={currentQuestion}
+          <StaticText
+            title={currentQuestion.questionText}
+            description={evaluateForm(formState, currentQuestion.options).label}
           />
         );
       }
@@ -127,40 +128,79 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     return formState[currentNode] === undefined;
   };
 
-  return (
-    <div>
-      {questionView()}
-      <div className="level action-buttons">
-        <div className="level-left">
-          {currentNode > FIRST_NODE && (
-            <div className="level-item">
-              <Button inverted={true} onClick={goToPreviousQuestion}>
-                Inapoi
-              </Button>
-            </div>
-          )}
-          {areThereQuestionsLeft() && (
-            <div className="level-item">
-              <Button
-                className="forward"
-                onClick={goToNextQuestion}
-                disabled={isWaitingForChoice()}
-              >
-                Inainte
-              </Button>
-            </div>
-          )}
-        </div>
-        <div className="level-right">
-          {data.form && (
-            <Button inverted={true} onClick={resetForm}>
-              Reîncepe testul
-            </Button>
-          )}
+  const goBackButton = () => {
+    return (
+      <div className="level-item">
+        <Button inverted={true} onClick={goToPreviousQuestion}>
+          Inapoi
+        </Button>
+      </div>
+    );
+  };
+  const goForwardButton = () => {
+    return (
+      <div className="level-item">
+        <Button
+          className="forward"
+          onClick={goToNextQuestion}
+          disabled={isWaitingForChoice()}
+        >
+          Inainte
+        </Button>
+      </div>
+    );
+  };
+  const restartButton = () => {
+    return (
+      <Button inverted={true} onClick={resetForm}>
+        Reîncepe testul
+      </Button>
+    );
+  };
+  const showQuestion = () => {
+    return (
+      <div>
+        {questionView()}
+        <div className="level action-buttons">
+          <div className="level-left">
+            {currentNode > FIRST_NODE && goBackButton()}
+            {areThereQuestionsLeft() && goForwardButton()}
+          </div>
+          <div className="level-right">{data.form && restartButton()}</div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
+
+  const startForm = () => setStarted(true);
+
+  const showIntro = () => {
+    return (
+      <div>
+        <StaticText
+          title={data.intro.title}
+          description={data.intro.description}
+        />
+        <div className="level action-buttons">
+          <div className="level-left">
+            <Button inverted={true} onClick={startForm} className={"start"}>
+              Incepe testul
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const isIntro = () => {
+    return !!(data.intro && !started);
+  };
+
+  if (isIntro()) {
+    return showIntro();
+  } else {
+    return showQuestion();
+  }
 };
 
 Form.propTypes = {
@@ -174,6 +214,10 @@ Form.propTypes = {
     ),
     firstNodeId: PropTypes.number.isRequired,
     formId: PropTypes.number,
+    intro: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired
+    }),
     form: PropTypes.arrayOf(
       PropTypes.shape({
         questionId: PropTypes.number.isRequired,
