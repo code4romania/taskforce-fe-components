@@ -1,6 +1,10 @@
 export default {
   formId: 1,
   firstNodeId: 1,
+  intro: {
+    title: "Welcome",
+    description: "Please answer next questions"
+  },
   form: [
     {
       questionId: 1,
@@ -65,6 +69,12 @@ export default {
     },
     {
       questionId: 5,
+      questionText: "Care este numele tau?",
+      type: "FREE_TEXT",
+      options: []
+    },
+    {
+      questionId: 6,
       type: "FINAL",
       questionText: "Ce trebuie sa faci?",
       options: [

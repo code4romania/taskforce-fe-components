@@ -1,8 +1,7 @@
 import React from "react";
 
-import ceMaFacData from "./ce-ma-fac";
-import decisionTree from "./decision-tree";
-import simpleTextInput from "./simpleInput";
+import ceMaFacData from "./ceMaFac";
+import decisionTree from "./decisionTree";
 import { Form } from "./form";
 
 export default { title: "Form" };
@@ -22,17 +21,9 @@ export const withCeMaFacData = () => (
   />
 );
 
-export const withSimpleDecision = () => (
+export const withDecisionAndIntro = () => (
   <Form
     data={decisionTree}
-    evaluateForm={evaluate}
-    onFinishingForm={results => console.log(results)}
-  />
-);
-
-export const withInputText = () => (
-  <Form
-    data={simpleTextInput}
     evaluateForm={evaluate}
     onFinishingForm={results => console.log(results)}
   />
