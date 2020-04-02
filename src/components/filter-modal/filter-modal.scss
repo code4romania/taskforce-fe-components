@@ -43,21 +43,6 @@ $filter-modal-colors: (
     height: 100%;
     max-height: 100px;
     overflow-y: auto;
-    margin-right: -25px;
-  }
-
-  &__scrollbar {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-
-    &--down {
-      transform: rotate(180deg);
-    }
   }
 
   &__scrollable-wrapper {
