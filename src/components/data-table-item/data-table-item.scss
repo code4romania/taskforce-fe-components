@@ -1,0 +1,27 @@
+@import "../../variables";
+
+.data-table-item {
+  font-size: 14px;
+  line-height: 18px;
+  font-family: $family-sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  padding: 7px 21px;
+  display: table-cell;
+  border: 1px solid #F2F2F2;
+  min-width: 120px;
+  width: 100%;
+
+  &--right {
+    text-align: right;
+  }
+
+  &--left {
+    text-align: left;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+}

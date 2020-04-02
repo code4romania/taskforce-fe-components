@@ -37,6 +37,9 @@ export * from "./components/logo/logo";
 export * from "./components/search-input/search-input";
 export * from "./components/social-share/social-share";
 
+export * from "./components/completed-form-table/completed-form-table";
+export * from "./components/temperature-chart/temperature-chart";
+export * from "./components/personal-data-table/personal-data-table";
 export * from "./components/subscribe/mailchimp-subscribe";
 export * from "./components/subscribe/subscribe-form";
 
@@ -46,3 +49,10 @@ export * from "./components/sidebar-menu/sidebar-menu";
 export * from "./components/sidebar-menu-item/sidebar-menu-item";
 
 export * from "./components/back-to-top/back-to-top";
+
+export * from "./components/data-table/data-table";
+export * from "./components/data-table-item/data-table-item";
+export * from "./components/data-table-row/data-table-row";
+
+export * from "./components/filter-modal/filter-modal";
+export * from "./components/header-filter/header-filter";

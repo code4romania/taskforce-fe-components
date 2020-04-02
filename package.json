@@ -1,9 +1,12 @@
 {
   "name": "@code4ro/taskforce-fe-components",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": false,
   "dependencies": {
     "bulma": "^0.8.0",
+    "date-fns": "^2.11.1",
+    "echarts": "^4.7.0",
+    "echarts-for-react": "^2.0.15-beta.1",
     "react-share": "^4.1.0",
     "underscore": "^1.9.2"
   },

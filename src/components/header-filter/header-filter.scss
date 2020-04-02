@@ -1,0 +1,32 @@
+@import "../../variables";
+
+$header-filter-colors: (
+  "red": #EB5757,
+  "light-grey": #E5E5E5
+);
+
+.header-filter {
+  position: relative;
+  background: $color-white;
+  border: 1px solid map-get($header-filter-colors, "light-grey");
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 3px 18px 6px 10px;
+  width: 100%;
+
+  &__name {
+    color: map-get($header-filter-colors, "red");
+    font-family: $family-sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    font-style: normal;
+    font-weight: bold;
+    margin-right: auto;
+  }
+
+  &__icon {
+    cursor: pointer;
+  }
+}
