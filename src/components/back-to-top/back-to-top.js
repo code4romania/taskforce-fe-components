@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ArrowUp from "../../images/icons/circle-up.svg";
 import "./back-to-top.scss";
 
-const BackToTop = ({ width, height }) => {
+export const BackToTop = ({ width, height }) => {
   return (
     <div
       className="back-to-top"
@@ -19,7 +19,6 @@ const BackToTop = ({ width, height }) => {
     </div>
   );
 };
-export default BackToTop;
 
 BackToTop.propTypes = {
   width: PropTypes.number,
