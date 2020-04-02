@@ -1,18 +1,8 @@
 import React from "react";
 import "../../styles.scss";
-import { TestResults } from "./test-results";
+import { CompletedFormTable } from "./completed-form-table";
 
-export default { title: "Test Results" };
-
-const personalData = {
-  age: 23,
-  gender: 21,
-  name: "Andreea Popa",
-  smoking: true,
-  comorbidities: ["diabet", "hipertensiune"],
-  inIsolation: true,
-  othersInHousehold: true
-};
+export default { title: "Completed Forms" };
 
 const results = [
   {
@@ -49,6 +39,15 @@ const results = [
   }
 ];
 
-export const base = () => (
-  <TestResults personalData={personalData} results={results} />
+const headers = [
+  "Data/ora",
+  "Peste 37 grade",
+  "Durere in gat si/sau dificultate in a inghiti?",
+  "Tuse intensa",
+  "Dificultate in a respira",
+  ""
+];
+
+export const completedForms = () => (
+  <CompletedFormTable headers={headers} dataRows={results} />
 );
