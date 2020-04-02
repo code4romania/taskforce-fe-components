@@ -37,6 +37,9 @@ export * from "./components/logo/logo";
 export * from "./components/search-input/search-input";
 export * from "./components/social-share/social-share";
 
+export * from "./components/completed-form-table/completed-form-table";
+export * from "./components/temperature-chart/temperature-chart";
+export * from "./components/personal-data-table/personal-data-table";
 export * from "./components/subscribe/mailchimp-subscribe";
 export * from "./components/subscribe/subscribe-form";
 
