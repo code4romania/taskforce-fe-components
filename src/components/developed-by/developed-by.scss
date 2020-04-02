@@ -12,6 +12,10 @@
     align-items: center;
     justify-content: space-around;
 
+    .logo-wrapper {
+      display: flex;
+    }
+
     &:not(:first-child) {
       padding-left: 1rem;
     }

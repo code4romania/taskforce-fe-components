@@ -1,13 +1,35 @@
-.__accordion-header {
-  font-size: 1.25em;
-  cursor: pointer;
-  border-radius: 4px;
-}
+.message {
+  &.__accordion {
+    background: transparent;
+  }
 
-.__accordion-header--expanded {
-  border-radius: 4px 4px 0 0;
+  .__accordion-header {
+    font-size: 1.13em;
+    cursor: pointer;
+    border-radius: 0;
+    background-color: #f2f2f2;
+    color: black;
+    border-left: 46px solid rgba(0, 72, 144, 0.2);
+    padding: 1.37rem;
+  }
 
-  .__accordion-arrow {
-    transform: scaleY(-1);
+  .__accordion-title {
+    margin-right: 31px;
+  }
+
+  .__accordion-header--expanded {
+    .__accordion-arrow {
+      transform: scaleY(-1);
+    }
+  }
+
+  .message-body {
+    padding: 1.12rem;
+
+    img {
+      display: block;
+      margin: 0 auto 33px;
+      max-width: 235px;
+    }
   }
 }

@@ -43,6 +43,8 @@ export * from "./components/personal-data-table/personal-data-table";
 export * from "./components/subscribe/mailchimp-subscribe";
 export * from "./components/subscribe/subscribe-form";
 
+export * from "./components/form/form";
+
 export * from "./components/sidebar-menu/sidebar-menu";
 export * from "./components/sidebar-menu-item/sidebar-menu-item";
 

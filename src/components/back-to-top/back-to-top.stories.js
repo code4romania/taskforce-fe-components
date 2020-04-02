@@ -1,5 +1,5 @@
 import React from "react";
-import BackToTop from "./back-to-top";
+import { BackToTop } from "./back-to-top";
 
 export default { title: "Back To Top" };
 export const Default = () => <BackToTop />;
