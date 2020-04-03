@@ -88,7 +88,7 @@ export default {
         },
         {
           type: "OTHER",
-          label: "Other",
+          label: "Altele",
           value: 2
         }
       ]

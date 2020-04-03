@@ -45,13 +45,15 @@ function MultipleChoice({ question, onAnswer, currentResponse = [] }) {
         existingValue = currentResponse[size - 1];
       }
       return (
-        <Input
-          key={`answer_${question.questionId}_${option.value}`}
-          usePlaceholder={true}
-          onChange={onInputForOther}
-          defaultValue={existingValue}
-          label={""}
-        />
+        <div className={"__list-item"}>
+          <Input
+            key={`answer_${question.questionId}_${option.value}`}
+            usePlaceholder={false}
+            onChange={onInputForOther}
+            defaultValue={existingValue}
+            label={option.label}
+          />
+        </div>
       );
     }
 
