@@ -75,6 +75,25 @@ export default {
     },
     {
       questionId: 6,
+      questionText: "Ce simptome ai?",
+      type: "MULTIPLE_CHOICE",
+      options: [
+        {
+          label: "Tuse",
+          value: 0
+        },
+        {
+          label: "Febra",
+          value: 1
+        },
+        {
+          label: "Dureri de cap",
+          value: 2
+        }
+      ]
+    },
+    {
+      questionId: 7,
       type: "FINAL",
       questionText: "Ce trebuie sa faci?",
       options: [

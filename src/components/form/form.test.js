@@ -5,6 +5,7 @@ import { ListItem } from "../list-item/list-item";
 import { Form } from "./form";
 import SingleChoice from "./singleChoice";
 import FreeText from "./freeText";
+import MultipleChoice from "./multipleChoice";
 
 const clickOnNext = form => {
   const forwardButton = form.find(".forward");
@@ -17,8 +18,13 @@ const writeInFreeText = (form, text) => {
 };
 
 const clickOnSingleChoice = (form, choice) => {
-  const yesAnswer = form.find(SingleChoice).find({ title: choice });
-  yesAnswer.simulate("click");
+  const answer = form.find(SingleChoice).find({ title: choice });
+  answer.simulate("click");
+};
+
+const clickOnMultipleChoice = (form, choice) => {
+  const answer = form.find(MultipleChoice).find({ title: choice });
+  answer.simulate("click");
 };
 
 function startForm(form) {
@@ -60,6 +66,25 @@ describe("Form", () => {
         },
         {
           questionId: 2,
+          questionText: "Ce simptome ai?",
+          type: "MULTIPLE_CHOICE",
+          options: [
+            {
+              label: "Tuse",
+              value: 0
+            },
+            {
+              label: "Febra",
+              value: 1
+            },
+            {
+              label: "Dureri de cap",
+              value: 2
+            }
+          ]
+        },
+        {
+          questionId: 3,
           questionText: "Done!",
           type: "FINAL",
           options: [
@@ -86,6 +111,10 @@ describe("Form", () => {
     clickOnSingleChoice(form, "Da");
     clickOnNext(form);
 
+    clickOnMultipleChoice(form, "Febra");
+    clickOnMultipleChoice(form, "Tuse");
+    clickOnNext(form);
+
     expectHeaderText(form, "Done!");
 
     const actualAnswers = mockFinishingForm.mock.calls[0][0].answers;
@@ -94,6 +123,11 @@ describe("Form", () => {
         id: 1,
         questionText: "Ai peste 60 de ani?",
         answer: "1"
+      },
+      {
+        id: 2,
+        questionText: "Ce simptome ai?",
+        answer: "1,0"
       }
     ]);
   });

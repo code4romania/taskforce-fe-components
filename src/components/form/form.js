@@ -6,6 +6,7 @@ import { Button } from "../button/button";
 import StaticText from "./staticText";
 import { groupBy, mapObject } from "underscore";
 import FreeText from "./freeText";
+import MultipleChoice from "./multipleChoice";
 
 const FIRST_NODE = 1;
 
@@ -68,6 +69,15 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
           />
         );
       }
+      case "MULTIPLE_CHOICE": {
+        return (
+          <MultipleChoice
+            question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
+            onAnswer={answerCurrentQuestion}
+          />
+        );
+      }
       case "FREE_TEXT": {
         return (
           <FreeText
@@ -91,7 +101,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
   };
 
   const getNextQuestionForOptionValue = (question, optionValue) => {
-    if (question.type === "FREE_TEXT") {
+    if (question.type === "FREE_TEXT" || question.type === "MULTIPLE_CHOICE") {
       return;
     }
     const selectedOption = question.options.find(
@@ -222,7 +232,12 @@ Form.propTypes = {
       PropTypes.shape({
         questionId: PropTypes.number.isRequired,
         questionText: PropTypes.string.isRequired,
-        type: PropTypes.oneOf(["FINAL", "SINGLE_CHOICE", "FREE_TEXT"]),
+        type: PropTypes.oneOf([
+          "FINAL",
+          "SINGLE_CHOICE",
+          "MULTIPLE_CHOICE",
+          "FREE_TEXT"
+        ]),
         options: PropTypes.arrayOf(
           PropTypes.shape({
             label: PropTypes.string.isRequired,
