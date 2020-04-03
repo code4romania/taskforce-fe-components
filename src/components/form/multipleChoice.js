@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { ListHeader } from "../list-header/list-header";
 import { List } from "../list/list";
 import { ListItem } from "../list-item/list-item";
+import { Input } from "../..";
 
 function MultipleChoice({ question, onAnswer, currentResponse = [] }) {
   const [answers, setAnswers] = useState([]);
@@ -24,20 +25,50 @@ function MultipleChoice({ question, onAnswer, currentResponse = [] }) {
     });
   };
 
+  const onInputForOther = event => {
+    let newValueForAnswers = [...answers];
+    if (event.target.value !== "") {
+      newValueForAnswers = [...answers, event.target.value];
+    }
+
+    onAnswer({
+      questionId: question.questionId,
+      value: newValueForAnswers
+    });
+  };
+
+  const choiceFor = option => {
+    if (option.type === "OTHER") {
+      const size = currentResponse.length;
+      let existingValue = "";
+      if (size > 0 && isNaN(currentResponse[size - 1])) {
+        existingValue = currentResponse[size - 1];
+      }
+      return (
+        <Input
+          key={`answer_${question.questionId}_${option.value}`}
+          usePlaceholder={true}
+          onChange={onInputForOther}
+          defaultValue={existingValue}
+          label={""}
+        />
+      );
+    }
+
+    return (
+      <ListItem
+        key={`answer_${question.questionId}_${option.value}`}
+        title={option.label}
+        active={isSelected(option)}
+        onClick={() => handleClick(option)}
+      />
+    );
+  };
   return (
     <div>
       <ListHeader title={question.questionText} />
       <div>
-        <List>
-          {question.options.map(option => (
-            <ListItem
-              key={`answer_${question.questionId}_${option.value}`}
-              title={option.label}
-              active={isSelected(option)}
-              onClick={() => handleClick(option)}
-            />
-          ))}
-        </List>
+        <List>{question.options.map(option => choiceFor(option))}</List>
       </div>
     </div>
   );

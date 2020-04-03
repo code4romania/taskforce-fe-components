@@ -87,7 +87,8 @@ export default {
           value: 1
         },
         {
-          label: "Dureri de cap",
+          type: "OTHER",
+          label: "Other",
           value: 2
         }
       ]
