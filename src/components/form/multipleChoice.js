@@ -4,6 +4,7 @@ import { ListHeader } from "../list-header/list-header";
 import { List } from "../list/list";
 import { ListItem } from "../list-item/list-item";
 import { Input } from "../input/input";
+import "./multipleChoice.scss";
 
 function MultipleChoice({ question, onAnswer, currentResponse = [] }) {
   const [answers, setAnswers] = useState([]);
@@ -45,7 +46,7 @@ function MultipleChoice({ question, onAnswer, currentResponse = [] }) {
         existingValue = currentResponse[size - 1];
       }
       return (
-        <div className={"__list-item"}>
+        <div className={"__list-item other"}>
           <Input
             key={`answer_${question.questionId}_${option.value}`}
             usePlaceholder={false}
