@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { ListHeader } from "../list-header/list-header";
 import { List } from "../list/list";
 import { ListItem } from "../list-item/list-item";
-import { Input } from "../..";
+import { Input } from "../input/input";
 
 function MultipleChoice({ question, onAnswer, currentResponse = [] }) {
   const [answers, setAnswers] = useState([]);
