@@ -18,7 +18,10 @@ export const Input = ({
   children,
   hasAddons,
   required,
-  onChange
+  onChange,
+  min,
+  max,
+  step
 }) => {
   const inputClassNames = ["input"];
   const fieldClassNames = ["field"];
@@ -41,9 +44,12 @@ export const Input = ({
           name={name}
           disabled={disabled}
           defaultValue={defaultValue}
-          placeholder={usePlaceholder ? label : ""}
+          placeholder={usePlaceholder && label}
           onChange={onChange}
           required={required}
+          min={type === "number" && min}
+          max={type === "number" && max}
+          step={type === "number" && step}
         />
       </div>
       {children}
@@ -55,7 +61,7 @@ Input.propTypes = {
   label: PropTypes.string.isRequired,
   secondaryLabel: PropTypes.string,
   name: PropTypes.string,
-  type: PropTypes.oneOf(["text", "email", "password", "tel"]),
+  type: PropTypes.oneOf(["text", "email", "password", "tel", "number"]),
   size: PropTypes.oneOf(["small", "medium", "large"]),
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
@@ -66,7 +72,10 @@ Input.propTypes = {
   defaultValue: PropTypes.string,
   usePlaceholder: PropTypes.bool,
   children: PropTypes.node,
-  color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"])
+  color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"]),
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number
 };
 
 Input.defaultProps = {

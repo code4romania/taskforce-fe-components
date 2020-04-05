@@ -6,12 +6,25 @@ export default { title: "Input" };
 const style = { width: 500 };
 
 export const types = () => (
-  <div style={style}>
+  <form
+    style={style}
+    onSubmit={e => {
+      e.preventDefault();
+    }}
+  >
     <Input type="text" label="Text" />
     <Input type="email" label="Email" />
     <Input type="tel" label="Telephone" />
     <Input type="password" label="Password" />
-  </div>
+    <Input type="number" label="Free-range number" />
+    <Input type="number" min="1" max="3" label="Restricted number" />
+    <Input type="number" min="0" max="10" step="2" label="Number with step" />
+
+    <input type="submit" value="Validate inputs" />
+    {/* Please see
+    https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation#Constraint_validation_process
+    on how to trigger native form validation from JS */}
+  </form>
 );
 
 export const sizes = () => (

@@ -27,4 +27,7 @@ storybook-static
 dist
 .env
 
-/.idea
+# editors
+.idea
+.vscode
+.atom
