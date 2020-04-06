@@ -87,7 +87,6 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         );
       }
       case "FINAL": {
-        onFinishingForm(createFormWithAnswers());
         return (
           <StaticText
             title={currentQuestion.questionText}
@@ -121,6 +120,11 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
 
       historyOfSteps.push(currentNode);
       setHistoryOfSteps(historyOfSteps);
+
+      if (formAsMap[nextNode].type === "FINAL") {
+        onFinishingForm(createFormWithAnswers());
+      }
+
       setCurrentNode(nextNode);
     }
   };
