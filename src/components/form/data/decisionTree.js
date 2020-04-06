@@ -1,3 +1,4 @@
+import { CustomQuestion } from "../customQuestion";
 export default {
   formId: 1,
   firstNodeId: 1,
@@ -24,6 +25,12 @@ export default {
     },
     {
       questionId: 2,
+      questionText: "De cand ai inceput sa ai simptome?",
+      type: "CUSTOM",
+      children: CustomQuestion
+    },
+    {
+      questionId: 3,
       questionText: "Ce temperatura ai avut?",
       type: "SINGLE_CHOICE",
       options: [
@@ -38,7 +45,7 @@ export default {
       ]
     },
     {
-      questionId: 3,
+      questionId: 4,
       questionText: "Ești fumător/fumătoare? (inclusiv țigări electronice)",
       type: "SINGLE_CHOICE",
       options: [
@@ -53,7 +60,7 @@ export default {
       ]
     },
     {
-      questionId: 4,
+      questionId: 5,
       questionText: "Care este sexul tău?",
       type: "SINGLE_CHOICE",
       options: [
@@ -68,13 +75,13 @@ export default {
       ]
     },
     {
-      questionId: 5,
+      questionId: 6,
       questionText: "Care este numele tau?",
       type: "FREE_TEXT",
       options: []
     },
     {
-      questionId: 6,
+      questionId: 7,
       questionText: "Ce simptome ai?",
       type: "MULTIPLE_CHOICE",
       options: [
@@ -94,7 +101,7 @@ export default {
       ]
     },
     {
-      questionId: 7,
+      questionId: 8,
       type: "FINAL",
       questionText: "Ce trebuie sa faci?",
       options: [
