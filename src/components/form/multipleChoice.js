@@ -46,9 +46,11 @@ function MultipleChoice({ question, onAnswer, currentResponse = [] }) {
         existingValue = currentResponse[size - 1];
       }
       return (
-        <div className={"__list-item other"}>
+        <div
+          className={"__list-item other"}
+          key={`answer_${question.questionId}_${option.value}`}
+        >
           <Input
-            key={`answer_${question.questionId}_${option.value}`}
             usePlaceholder={false}
             onChange={onInputForOther}
             defaultValue={existingValue}
