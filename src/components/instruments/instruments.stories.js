@@ -15,6 +15,10 @@ export const grid = () => (
         title="Instalează-ți add-on-ul de depistat știrile false"
       />
       <InstrumentsItem
+        color="blue"
+        title="Instalează-ți add-on-ul de depistat știrile false"
+      />
+      <InstrumentsItem
         color="green"
         title="Stiri oficiale si informații la zi"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
@@ -40,7 +44,7 @@ export const grid = () => (
         onClick={showMessage}
       />
       <InstrumentsItem
-        color="yellow"
+        color="orange"
         title="Vrei să ajuți. Intră aici"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit, duis pretium."
         ctaText="Centrul de sprijin"
