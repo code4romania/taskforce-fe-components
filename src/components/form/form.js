@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { groupBy, mapObject } from "underscore";
 import SingleChoice from "./singleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
 import StaticText from "./staticText";
-import { groupBy, mapObject } from "underscore";
 import FreeText from "./freeText";
 import MultipleChoice from "./multipleChoice";
 
@@ -60,6 +60,15 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     const currentQuestion = formAsMap[currentNode];
     // TODO: add components for other question types
     switch (currentQuestion.type) {
+      case "CUSTOM": {
+        return (
+          <currentQuestion.children
+            question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
+            onAnswer={answerCurrentQuestion}
+          ></currentQuestion.children>
+        );
+      }
       case "SINGLE_CHOICE": {
         return (
           <SingleChoice
@@ -82,6 +91,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         return (
           <FreeText
             question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
           />
         );
@@ -100,7 +110,11 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
   };
 
   const getNextQuestionForOptionValue = (question, optionValue) => {
-    if (question.type === "FREE_TEXT" || question.type === "MULTIPLE_CHOICE") {
+    if (
+      question.type === "FREE_TEXT" ||
+      question.type === "MULTIPLE_CHOICE" ||
+      question.type === "CUSTOM"
+    ) {
       return;
     }
     const selectedOption = question.options.find(

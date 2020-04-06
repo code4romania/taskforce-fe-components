@@ -1,7 +1,7 @@
 import React from "react";
 
-import ceMaFacData from "./ceMaFac";
-import decisionTree from "./decisionTree";
+import ceMaFacData from "./data/ceMaFac";
+import decisionTree from "./data/decisionTree";
 import { Form } from "./form";
 
 export default { title: "Form" };
