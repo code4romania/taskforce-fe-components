@@ -64,6 +64,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         return (
           <currentQuestion.children
             question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
           ></currentQuestion.children>
         );
@@ -90,6 +91,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         return (
           <FreeText
             question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
           />
         );

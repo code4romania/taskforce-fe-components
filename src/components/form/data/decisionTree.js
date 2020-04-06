@@ -1,4 +1,4 @@
-import { CustomQuestion } from "../customQuestion";
+import { CustomQuestion } from "./customQuestion";
 export default {
   formId: 1,
   firstNodeId: 1,

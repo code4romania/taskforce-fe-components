@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { ListHeader } from "../list-header/list-header";
 import { Input } from "../input/input";
 
-function FreeText({ question, onAnswer }) {
+function FreeText({ question, onAnswer, currentResponse }) {
   const onChange = event => {
     const answer = {
       questionId: question.questionId,
@@ -16,7 +16,12 @@ function FreeText({ question, onAnswer }) {
   return (
     <div>
       <ListHeader title={question.questionText} />
-      <Input usePlaceholder={true} onChange={onChange} label={""} />
+      <Input
+        usePlaceholder={true}
+        onChange={onChange}
+        label={""}
+        defaultValue={currentResponse}
+      />
     </div>
   );
 }
@@ -33,7 +38,8 @@ FreeText.propTypes = {
       })
     )
   }),
-  onAnswer: PropTypes.func
+  onAnswer: PropTypes.func,
+  currentResponse: PropTypes.number
 };
 
 export default FreeText;
