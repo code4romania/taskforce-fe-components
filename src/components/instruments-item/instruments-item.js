@@ -34,7 +34,7 @@ export const InstrumentsItem = ({
 };
 
 InstrumentsItem.propTypes = {
-  color: PropTypes.oneOf(["red", "pink", "green", "yellow"]),
+  color: PropTypes.oneOf(["red", "pink", "green", "yellow", "orange", "blue"]),
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   ctaText: PropTypes.string,
