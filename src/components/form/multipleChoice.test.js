@@ -37,7 +37,7 @@ describe("Multiple choice", () => {
 
     expect(onAnswerMock).toHaveBeenCalledWith({
       questionId: 1,
-      value: [0, 2]
+      value: { "0": true, "2": true }
     });
   });
 
@@ -52,6 +52,28 @@ describe("Multiple choice", () => {
           value: 0
         },
         {
+          label: "Febra",
+          value: 1
+        },
+        {
+          type: "OTHER",
+          label: "Altceva",
+          value: 2
+        }
+      ]
+    };
+
+    const questionWithMultipleFreeText = {
+      questionId: 1,
+      questionText: "Ce simptome ai?",
+      type: "MULTIPLE_CHOICE",
+      options: [
+        {
+          label: "Tuse",
+          value: 0
+        },
+        {
+          type: "OTHER",
           label: "Febra",
           value: 1
         },
@@ -80,7 +102,7 @@ describe("Multiple choice", () => {
 
       expect(onAnswerMock).toHaveBeenLastCalledWith({
         questionId: 1,
-        value: [0, "Stranutat"]
+        value: { "0": true, "2": "Stranutat" }
       });
     });
 
@@ -104,7 +126,33 @@ describe("Multiple choice", () => {
 
       expect(onAnswerMock).toHaveBeenLastCalledWith({
         questionId: 1,
-        value: ["Curge nasul"]
+        value: { "2": "Curge nasul" }
+      });
+    });
+
+    it("handles multiple free text entries", () => {
+      const onAnswerMock = jest.fn();
+      const multipleChoice = mount(
+        <MultipleChoice
+          question={questionWithMultipleFreeText}
+          onAnswer={onAnswerMock}
+          currentResponse={undefined}
+        />
+      );
+
+      multipleChoice
+        .find({ label: "Febra" })
+        .find("input")
+        .simulate("change", { target: { value: "Stranutat" } });
+
+      multipleChoice
+        .find({ label: "Altceva" })
+        .find("input")
+        .simulate("change", { target: { value: "Curge nasul" } });
+
+      expect(onAnswerMock).toHaveBeenLastCalledWith({
+        questionId: 1,
+        value: { "1": "Stranutat", "2": "Curge nasul" }
       });
     });
 
@@ -130,20 +178,23 @@ describe("Multiple choice", () => {
 
       expect(onAnswerMock).toHaveBeenLastCalledWith({
         questionId: 1,
-        value: [0]
+        value: { "0": true }
       });
     });
 
     it("handles setting current response", () => {
       const multipleChoice = mount(
         <MultipleChoice
-          question={question}
+          question={questionWithMultipleFreeText}
           onAnswer={() => {}}
-          currentResponse={["curge nasul"]}
+          currentResponse={{ "2": "curge nasul" }}
         />
       );
 
-      const defaultValue = multipleChoice.find("input").props()["defaultValue"];
+      const defaultValue = multipleChoice
+        .find({ label: "Altceva" })
+        .find("input")
+        .props()["defaultValue"];
 
       expect(defaultValue).toEqual("curge nasul");
     });

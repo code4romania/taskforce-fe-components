@@ -46,7 +46,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       return {
         id: question.questionId,
         questionText: question.questionText,
-        answer: String(formState[id])
+        answer: formState[id]
       };
     });
     return {

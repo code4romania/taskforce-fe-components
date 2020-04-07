@@ -90,6 +90,7 @@ export default {
           value: 0
         },
         {
+          type: "OTHER",
           label: "Febra",
           value: 1
         },
