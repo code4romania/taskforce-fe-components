@@ -7,9 +7,9 @@ import { Input } from "../input/input";
 import "./multipleChoice.scss";
 
 function MultipleChoice({ question, onAnswer, currentResponse = {} }) {
-  const [answers, setAnswers] = useState({});
+  const [answers, setAnswers] = useState(currentResponse);
   const isSelected = option => {
-    return currentResponse[option.value];
+    return answers[option.value];
   };
 
   const handleClick = option => {
@@ -41,7 +41,7 @@ function MultipleChoice({ question, onAnswer, currentResponse = {} }) {
 
   const choiceFor = option => {
     if (option.type === "OTHER") {
-      const value = currentResponse[option.value];
+      const value = answers[option.value];
       return (
         <div
           className={"__list-item other"}

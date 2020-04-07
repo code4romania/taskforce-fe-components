@@ -183,20 +183,37 @@ describe("Multiple choice", () => {
     });
 
     it("handles setting current response", () => {
+      const onAnswerMock = jest.fn();
       const multipleChoice = mount(
         <MultipleChoice
           question={questionWithMultipleFreeText}
-          onAnswer={() => {}}
-          currentResponse={{ "2": "curge nasul" }}
+          onAnswer={onAnswerMock}
+          currentResponse={{ "1": "38", "2": "curge nasul" }}
         />
       );
 
-      const defaultValue = multipleChoice
+      const firstFreeText = multipleChoice
+        .find({ label: "Febra" })
+        .find("input")
+        .props()["defaultValue"];
+
+      const secondFreeText = multipleChoice
         .find({ label: "Altceva" })
         .find("input")
         .props()["defaultValue"];
 
-      expect(defaultValue).toEqual("curge nasul");
+      multipleChoice
+        .find({ label: "Altceva" })
+        .find("input")
+        .simulate("change", { target: { value: "Stranutat" } });
+
+      expect(firstFreeText).toEqual("38");
+      expect(secondFreeText).toEqual("curge nasul");
+
+      expect(onAnswerMock).toHaveBeenLastCalledWith({
+        questionId: 1,
+        value: { "1": "38", "2": "Stranutat" }
+      });
     });
   });
 });
