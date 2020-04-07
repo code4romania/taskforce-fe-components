@@ -99,7 +99,7 @@ describe("Form", () => {
       {
         id: 1,
         questionText: "Ai peste 60 de ani?",
-        answer: 1
+        answer: "1"
       }
     ]);
   });
@@ -211,8 +211,11 @@ describe("Form", () => {
     );
 
     clickOnMultipleChoice(form, "Tuse");
-    clickOnNext(form);
 
+    const altcevaInput = form.find({ label: "Altceva" }).find("input");
+    altcevaInput.simulate("change", { target: { value: "tuse" } });
+
+    clickOnNext(form);
     expectHeaderText(form, "Done!");
 
     const actualAnswers = mockFinishingForm.mock.calls[0][0].answers;
@@ -220,7 +223,7 @@ describe("Form", () => {
       {
         id: 1,
         questionText: "Ce simptome ai?",
-        answer: { 0: true }
+        answer: { 0: true, 2: "tuse" }
       }
     ]);
   });
