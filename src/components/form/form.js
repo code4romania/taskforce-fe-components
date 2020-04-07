@@ -254,7 +254,8 @@ Form.propTypes = {
           "FINAL",
           "SINGLE_CHOICE",
           "MULTIPLE_CHOICE",
-          "FREE_TEXT"
+          "FREE_TEXT",
+          "CUSTOM"
         ]),
         options: PropTypes.arrayOf(
           PropTypes.shape({
