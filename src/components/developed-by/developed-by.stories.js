@@ -3,6 +3,8 @@ import "./../../styles.scss";
 import { DevelopedBy } from "./developed-by";
 import { withKnobs } from "@storybook/addon-knobs";
 import { Logo } from "../..";
+import partnerLogo from "./assets/partener.png";
+import dsuLogo from "./assets/dsu.png";
 
 export default { title: "Developed By", decorators: [withKnobs] };
 
@@ -13,17 +15,11 @@ export const twoLines = () => <DevelopedBy showSecondLine />;
 export const oneLineNoPartners = () => <DevelopedBy showPartners={false} />;
 
 const customPartnerLogos = [
-  <Logo url={"https://girlswhocode.com/"} key="github_1">
-    <img
-      src="http://www.bigdreammovement.com/wp-content/uploads/girls-who-code.png"
-      alt="Custom Partner"
-    />
+  <Logo url="https://www.gov.ro" key="gov">
+    <img src={partnerLogo} alt="Guvernul României" />
   </Logo>,
-  <Logo url={"https://github.com"} key="github_2">
-    <img
-      src="https://tctechcrunch2011.files.wordpress.com/2013/01/github-logo.png"
-      alt="Custom Partner"
-    />
+  <Logo url="http://www.dsu.mai.gov.ro" key="dsu">
+    <img src={dsuLogo} alt="Departamentul pentru Situații de Urgență" />
   </Logo>
 ];
 
