@@ -6,45 +6,42 @@ import { ListItem } from "../list-item/list-item";
 import { Input } from "../input/input";
 import "./multipleChoice.scss";
 
-function MultipleChoice({ question, onAnswer, currentResponse = [] }) {
-  const [answers, setAnswers] = useState([]);
+function MultipleChoice({ question, onAnswer, currentResponse = {} }) {
+  const [answers, setAnswers] = useState(currentResponse);
   const isSelected = option => {
-    return currentResponse.includes(option.value);
+    return answers[option.value];
   };
 
   const handleClick = option => {
-    let newAnswers;
-    if (answers.includes(option.value)) {
-      newAnswers = answers.filter(item => item !== option.value);
+    if (answers[option.value]) {
+      delete answers[option.value];
     } else {
-      newAnswers = [...answers, option.value];
+      answers[option.value] = true;
     }
-    setAnswers(newAnswers);
+    setAnswers(answers);
     onAnswer({
       questionId: question.questionId,
-      value: newAnswers
+      value: answers
     });
   };
 
-  const onInputForOther = event => {
-    let newValueForAnswers = [...answers];
-    if (event.target.value !== "") {
-      newValueForAnswers = [...answers, event.target.value];
+  const onInputForOther = (optionId, optionValue) => {
+    answers[optionId] = optionValue;
+
+    if (optionValue === "") {
+      delete answers[optionId];
     }
 
+    setAnswers(answers);
     onAnswer({
       questionId: question.questionId,
-      value: newValueForAnswers
+      value: answers
     });
   };
 
   const choiceFor = option => {
     if (option.type === "OTHER") {
-      const size = currentResponse.length;
-      let existingValue = "";
-      if (size > 0 && isNaN(currentResponse[size - 1])) {
-        existingValue = currentResponse[size - 1];
-      }
+      const value = answers[option.value];
       return (
         <div
           className={"__list-item other"}
@@ -52,8 +49,10 @@ function MultipleChoice({ question, onAnswer, currentResponse = [] }) {
         >
           <Input
             usePlaceholder={false}
-            onChange={onInputForOther}
-            defaultValue={existingValue}
+            onChange={event => {
+              onInputForOther(String(option.value), event.target.value);
+            }}
+            defaultValue={value ? value : ""}
             label={option.label}
           />
         </div>
@@ -96,6 +95,6 @@ MultipleChoice.propTypes = {
     )
   }),
   onAnswer: PropTypes.func,
-  currentResponse: PropTypes.arrayOf(PropTypes.number)
+  currentResponse: PropTypes.object
 };
 export default MultipleChoice;

@@ -39,7 +39,7 @@ FreeText.propTypes = {
     )
   }),
   onAnswer: PropTypes.func,
-  currentResponse: PropTypes.number
+  currentResponse: PropTypes.string
 };
 
 export default FreeText;

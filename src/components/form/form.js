@@ -43,10 +43,16 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         return {};
       }
 
+      let answer = formState[id];
+
+      if (question.type === "SINGLE_CHOICE") {
+        answer = String(answer);
+      }
+
       return {
         id: question.questionId,
         questionText: question.questionText,
-        answer: String(formState[id])
+        answer: answer
       };
     });
     return {

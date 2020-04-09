@@ -5,6 +5,7 @@ import { ListItem } from "../list-item/list-item";
 import { Form } from "./form";
 import SingleChoice from "./singleChoice";
 import FreeText from "./freeText";
+import MultipleChoice from "./multipleChoice";
 
 const clickOnNext = form => {
   const forwardButton = form.find(".forward");
@@ -18,6 +19,11 @@ const writeInFreeText = (form, text) => {
 
 const clickOnSingleChoice = (form, choice) => {
   const answer = form.find(SingleChoice).find({ title: choice });
+  answer.simulate("click");
+};
+
+const clickOnMultipleChoice = (form, choice) => {
+  const answer = form.find(MultipleChoice).find({ title: choice });
   answer.simulate("click");
 };
 
@@ -147,6 +153,77 @@ describe("Form", () => {
         id: 1,
         questionText: "Care este numele tau?",
         answer: "Jane Doe"
+      }
+    ]);
+  });
+
+  it("Finalised the form with correct output when using a multiple choice", () => {
+    const multiChoiceForm = {
+      title: "Multiple choice form",
+      formId: 1,
+      firstNodeId: 1,
+      form: [
+        {
+          questionId: 1,
+          questionText: "Ce simptome ai?",
+          type: "MULTIPLE_CHOICE",
+          options: [
+            {
+              label: "Tuse",
+              value: 0
+            },
+            {
+              type: "OTHER",
+              label: "Febra",
+              value: 1
+            },
+            {
+              type: "OTHER",
+              label: "Altceva",
+              value: 2
+            }
+          ]
+        },
+        {
+          questionId: 2,
+          questionText: "Done!",
+          type: "FINAL",
+          options: [
+            outcome,
+            {
+              label: "Stay at home",
+              value: 1
+            }
+          ]
+        }
+      ]
+    };
+
+    const mockFinishingForm = jest.fn();
+    const form = mount(
+      <Form
+        data={multiChoiceForm}
+        evaluateForm={() => {
+          return outcome;
+        }}
+        onFinishingForm={mockFinishingForm}
+      />
+    );
+
+    clickOnMultipleChoice(form, "Tuse");
+
+    const altcevaInput = form.find({ label: "Altceva" }).find("input");
+    altcevaInput.simulate("change", { target: { value: "tuse" } });
+
+    clickOnNext(form);
+    expectHeaderText(form, "Done!");
+
+    const actualAnswers = mockFinishingForm.mock.calls[0][0].answers;
+    expect(actualAnswers).toEqual([
+      {
+        id: 1,
+        questionText: "Ce simptome ai?",
+        answer: { 0: true, 2: "tuse" }
       }
     ]);
   });
