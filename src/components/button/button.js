@@ -9,7 +9,7 @@ export const Button = ({
   size,
   disabled,
   inverted,
-  inputType
+  type
 }) => {
   const classNames = ["button"];
 
@@ -27,7 +27,7 @@ export const Button = ({
 
   return (
     <button
-      type={inputType}
+      type={type}
       disabled={disabled}
       onClick={onClick}
       className={classNames.join(" ")}
@@ -44,12 +44,12 @@ Button.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"]),
   disabled: PropTypes.bool,
   inverted: PropTypes.bool,
-  inputType: PropTypes.oneOf(["button", "submit", "reset"])
+  type: PropTypes.oneOf(["button", "submit", "reset"])
 };
 
 Button.defaultProps = {
   color: "primary",
   disabled: false,
   inverted: false,
-  inputType: "button"
+  type: "button"
 };
