@@ -10,7 +10,7 @@ function sayMyName() {
 
 export const primary = () => {
   return (
-    <Button type="primary" onClick={sayMyName}>
+    <Button color="primary" onClick={sayMyName}>
       Hello Friend
     </Button>
   );
@@ -42,7 +42,7 @@ export const disabledAndInverted = () => {
 
 export const danger = () => {
   return (
-    <Button type="danger" onClick={sayMyName}>
+    <Button color="danger" onClick={sayMyName}>
       Hello Friend
     </Button>
   );
