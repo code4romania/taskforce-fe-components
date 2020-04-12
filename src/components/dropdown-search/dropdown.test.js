@@ -12,7 +12,7 @@ const selectOptionFromDropdown = (dropdownSearch, optionToSelect) => {
 };
 
 const findDropdownSearchTitle = dropdown => {
-  return dropdown.find(".header-filter");
+  return dropdown.find(".dropdown-search-filter");
 };
 
 const findDropdownOption = (dropdownSearch, optionToFind) => {

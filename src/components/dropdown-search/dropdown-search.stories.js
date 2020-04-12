@@ -1,5 +1,5 @@
-import { DropdownSearch } from "./dropdown-search";
 import React from "react";
+import { DropdownSearch } from "./dropdown-search";
 
 export default { title: "Dropdown Search" };
 
@@ -29,6 +29,16 @@ export const DropdownSearchWithAlert = () => {
       onSelect={selected => {
         alert(selected);
       }}
+    />
+  );
+};
+
+export const DropdownWithSearchPlaceholder = () => {
+  return (
+    <DropdownSearch
+      title={"Judet"}
+      values={values}
+      searchPlaceholder={"Type to search in the list below"}
     />
   );
 };

@@ -5,7 +5,7 @@ $dropdown-search-colors: (
   "black": #000000
 );
 
-.header-filter {
+.dropdown-search-filter {
   position: relative;
   background: $color-white;
   border: 1px solid map-get($dropdown-search-colors, "light-grey");

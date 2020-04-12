@@ -9,7 +9,8 @@ export const DropdownSearch = ({
   values,
   onSelect,
   isAlwaysOpen,
-  showSearchInput = true
+  showSearchInput = true,
+  searchPlaceholder
 }) => {
   const [showDropdownOptions, setShowDropdownOptions] = useState(false);
   const [dropdownTitle, setDropdownTitle] = useState(title);
@@ -44,9 +45,9 @@ export const DropdownSearch = ({
 
   return (
     <div>
-      <div className="header-filter" onClick={toggleDropdownOptions}>
-        <div className="header-filter__name">{dropdownTitle}</div>
-        <span className="icon is-small is-right header-filter__icon">
+      <div className="dropdown-search-filter" onClick={toggleDropdownOptions}>
+        <div className="dropdown-search-filter__name">{dropdownTitle}</div>
+        <span className="icon is-small is-right dropdown-search-filter__icon">
           <ArrowDown />
         </span>
       </div>
@@ -54,7 +55,11 @@ export const DropdownSearch = ({
         <div className={"dropdown-search-options"}>
           {showSearchInput && (
             <>
-              <SearchInput value={searchInput} onValueChange={filterValues} />
+              <SearchInput
+                value={searchInput}
+                onValueChange={filterValues}
+                placeholder={searchPlaceholder}
+              />
               <hr />
             </>
           )}
@@ -87,7 +92,8 @@ DropdownSearch.defaults = {
   values: [],
   onSelect: () => {},
   isAlwaysOpen: false,
-  showSearchInput: true
+  showSearchInput: true,
+  searchPlaceholder: ""
 };
 
 DropdownSearch.propTypes = {
@@ -95,5 +101,6 @@ DropdownSearch.propTypes = {
   values: PropTypes.array.isRequired,
   onSelect: PropTypes.func,
   isAlwaysOpen: PropTypes.bool,
-  showSearchInput: PropTypes.bool
+  showSearchInput: PropTypes.bool,
+  searchPlaceholder: PropTypes.string
 };
