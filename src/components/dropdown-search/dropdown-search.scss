@@ -1,0 +1,65 @@
+@import "../../variables";
+
+$dropdown-search-colors: (
+  "light-grey": #E5E5E5,
+  "black": #000000
+);
+
+.header-filter {
+  position: relative;
+  background: $color-white;
+  border: 1px solid map-get($dropdown-search-colors, "light-grey");
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  padding: 3px 18px 6px 10px;
+  width: 100%;
+
+  &__name {
+    color: $color-black;
+    font-family: $family-sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    font-style: italic;
+    font-weight: normal;
+    margin-right: auto;
+  }
+
+  &__icon {
+    cursor: pointer;
+  }
+}
+
+.dropdown-search-options {
+  width: 100%;
+  background: $color-white;
+  font-family: $family-sans-serif;
+  padding: 9px 11px 2px;
+  border: 1px solid map-get($dropdown-search-colors, "light-grey");
+
+  &__value {
+    padding: 2px;
+  }
+
+  &__value:hover {
+    background: map-get($dropdown-search-colors, "light-grey");
+  }
+
+  & hr {
+    margin: .5rem 0;
+  }
+
+  &__list {
+    height: 100%;
+    max-height: 130px;
+    overflow-y: auto;
+  }
+
+  &__scrollable-wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+}
