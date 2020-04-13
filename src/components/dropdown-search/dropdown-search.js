@@ -9,19 +9,19 @@ export const DropdownSearch = ({
   options,
   onSelect,
   isAlwaysOpen,
-  showSearchInput = true,
+  showSearchInput,
   searchPlaceholder
 }) => {
   const [showDropdownOptions, setShowDropdownOptions] = useState(false);
   const [dropdownTitle, setDropdownTitle] = useState(title);
-  const [dropdownOptions, setDropDownOptions] = useState(options);
+  const [dropdownOptions, setDropdownOptions] = useState(options);
   const [searchInput, setSearchInput] = useState("");
 
   const selectDropdownOption = option => {
     setDropdownTitle(option.label);
     setShowDropdownOptions(!showDropdownOptions);
     setSearchInput("");
-    setDropDownOptions(options);
+    setDropdownOptions(options);
     onSelect(option);
   };
 
@@ -40,7 +40,7 @@ export const DropdownSearch = ({
 
   const filterValues = searchText => {
     setSearchInput(searchText);
-    setDropDownOptions(filterCaseInsensitiveElementsContaining(searchText));
+    setDropdownOptions(filterCaseInsensitiveElementsContaining(searchText));
   };
 
   return (
@@ -68,7 +68,7 @@ export const DropdownSearch = ({
               {dropdownOptions.map(option => {
                 return (
                   <div
-                    className={"dropdown-search-options__value"}
+                    className="dropdown-search-options__value"
                     key={option.value}
                     id={option.value}
                     onClick={() => {
@@ -87,9 +87,9 @@ export const DropdownSearch = ({
   );
 };
 
-DropdownSearch.defaults = {
+DropdownSearch.defaultProps = {
   title: "",
-  values: [],
+  options: [],
   onSelect: () => {},
   isAlwaysOpen: false,
   showSearchInput: true,
