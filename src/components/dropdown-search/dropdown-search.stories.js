@@ -3,31 +3,42 @@ import { DropdownSearch } from "./dropdown-search";
 
 export default { title: "Dropdown Search" };
 
-const values = [
-  "Alba",
-  "Arad",
-  "Bucuresti",
-  "Giurgiu",
-  "Ialomita",
-  "Ilfov",
-  "Constanta"
+const title = "Judet";
+
+const options = [
+  { value: 1, label: "Alba" },
+  { value: 2, label: "Arad" },
+  { value: 3, label: "Bucuresti" },
+  { value: 4, label: "Giurgiu" },
+  { value: 5, label: "Ialomita" },
+  { value: 6, label: "Ilfov" },
+  { value: 7, label: "Constanta" }
 ];
 
 export const DropdownSearchClosed = () => {
-  return <DropdownSearch title={"Judet"} values={values} onSelect={() => {}} />;
+  return (
+    <DropdownSearch title={"Judet"} options={options} onSelect={() => {}} />
+  );
 };
 
 export const DropdownSearchAlwaysOpen = () => {
-  return <DropdownSearch title={"Judet"} values={values} isAlwaysOpen={true} />;
+  return (
+    <DropdownSearch
+      title={title}
+      options={options}
+      onSelect={() => {}}
+      isAlwaysOpen={true}
+    />
+  );
 };
 
 export const DropdownSearchWithAlert = () => {
   return (
     <DropdownSearch
-      title={"Judet"}
-      values={values}
+      title={title}
+      options={options}
       onSelect={selected => {
-        alert(selected);
+        alert(JSON.stringify(selected));
       }}
     />
   );
@@ -36,8 +47,9 @@ export const DropdownSearchWithAlert = () => {
 export const DropdownWithSearchPlaceholder = () => {
   return (
     <DropdownSearch
-      title={"Judet"}
-      values={values}
+      title={title}
+      options={options}
+      onSelect={() => {}}
       searchPlaceholder={"Type to search in the list below"}
     />
   );
@@ -45,6 +57,11 @@ export const DropdownWithSearchPlaceholder = () => {
 
 export const DropdownWithoutSearchInput = () => {
   return (
-    <DropdownSearch title={"Judet"} values={values} showSearchInput={false} />
+    <DropdownSearch
+      title={title}
+      options={options}
+      onSelect={() => {}}
+      showSearchInput={false}
+    />
   );
 };

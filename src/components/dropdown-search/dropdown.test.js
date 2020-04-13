@@ -16,7 +16,9 @@ const findDropdownSearchTitle = dropdown => {
 };
 
 const findDropdownOption = (dropdownSearch, optionToFind) => {
-  return dropdownSearch.find("div").find({ id: optionToFind });
+  return dropdownSearch.find(
+    ".dropdown-search-options__value[children='" + optionToFind + "']"
+  );
 };
 
 const findSearchInput = dropdown => {
@@ -31,26 +33,30 @@ const typeTextInSearchInput = (dropdownSearch, input) => {
 
 describe("Dropdown Search", () => {
   const title = "Judet";
-  const values = ["Alba", "Bucuresti"];
+  const options = [
+    { value: 1, label: "Alba" },
+    { value: 2, label: "Bucuresti" }
+  ];
 
   it("should call onSelect when an item in the dropdown has been selected", () => {
     const setSelected = jest.fn();
     const optionToSelect = "Bucuresti";
 
     const dropdownSearch = mount(
-      <DropdownSearch title={title} values={values} onSelect={setSelected} />
+      <DropdownSearch title={title} options={options} onSelect={setSelected} />
     );
     clickOnDropdownSearchTitle(dropdownSearch, title);
     selectOptionFromDropdown(dropdownSearch, optionToSelect);
 
     expect(setSelected).toHaveBeenCalledTimes(1);
+    expect(setSelected).toHaveBeenCalledWith({ value: 2, label: "Bucuresti" });
   });
 
   it("should find element when the dropdown is open", () => {
     const dropdownSearch = mount(
       <DropdownSearch
         title={title}
-        values={values}
+        options={options}
         onSelect={() => {}}
         isAlwaysOpen={true}
       />
@@ -62,7 +68,7 @@ describe("Dropdown Search", () => {
     const dropdownSearch = mount(
       <DropdownSearch
         title={title}
-        values={values}
+        options={options}
         onSelect={() => {}}
         isAlwaysOpen={false}
       />
@@ -76,7 +82,7 @@ describe("Dropdown Search", () => {
     const dropdownSearch = mount(
       <DropdownSearch
         title={title}
-        values={values}
+        options={options}
         onSelect={() => {}}
         isAlwaysOpen={false}
       />
@@ -96,7 +102,7 @@ describe("Dropdown Search", () => {
   describe("the searchInput behaviour", () => {
     it("should not find search input when the dropdown is not open", () => {
       const dropdownSearch = mount(
-        <DropdownSearch title={title} values={values} onSelect={() => {}} />
+        <DropdownSearch title={title} options={options} onSelect={() => {}} />
       );
 
       expect(findSearchInput(dropdownSearch)).toHaveLength(0);
@@ -106,7 +112,7 @@ describe("Dropdown Search", () => {
       const dropdownSearch = mount(
         <DropdownSearch
           title={title}
-          values={values}
+          options={options}
           onSelect={() => {}}
           showSearchInput={false}
         />
@@ -121,7 +127,7 @@ describe("Dropdown Search", () => {
       const dropdownSearch = mount(
         <DropdownSearch
           title={title}
-          values={values}
+          options={options}
           onSelect={() => {}}
           isAlwaysOpen={false}
         />
@@ -138,7 +144,7 @@ describe("Dropdown Search", () => {
       const dropdownSearch = mount(
         <DropdownSearch
           title={title}
-          values={values}
+          options={options}
           onSelect={() => {}}
           isAlwaysOpen={false}
         />

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./dropdown-search.scss";
 import ArrowDown from "../../images/icons/arrow-down.svg";
-import { SearchInput } from "../..";
+import { SearchInput } from "../search-input/search-input";
 
 export const DropdownSearch = ({
   title,
-  values,
+  options,
   onSelect,
   isAlwaysOpen,
   showSearchInput = true,
@@ -14,14 +14,14 @@ export const DropdownSearch = ({
 }) => {
   const [showDropdownOptions, setShowDropdownOptions] = useState(false);
   const [dropdownTitle, setDropdownTitle] = useState(title);
-  const [dropdownOptions, setDropDownOptions] = useState(values);
+  const [dropdownOptions, setDropDownOptions] = useState(options);
   const [searchInput, setSearchInput] = useState("");
 
   const selectDropdownOption = option => {
-    setDropdownTitle(option);
+    setDropdownTitle(option.label);
     setShowDropdownOptions(!showDropdownOptions);
     setSearchInput("");
-    setDropDownOptions(values);
+    setDropDownOptions(options);
     onSelect(option);
   };
 
@@ -31,10 +31,10 @@ export const DropdownSearch = ({
 
   const filterCaseInsensitiveElementsContaining = text => {
     if (text && text.trim() === "") {
-      return values;
+      return options;
     }
-    return values.filter(element =>
-      element.toLowerCase().includes(text.toLowerCase())
+    return options.filter(element =>
+      element.label.toLowerCase().includes(text.toLowerCase())
     );
   };
 
@@ -65,17 +65,17 @@ export const DropdownSearch = ({
           )}
           <div className="dropdown-search-options__scrollable-wrapper">
             <div className="dropdown-search-options__list">
-              {dropdownOptions.map((option, index) => {
+              {dropdownOptions.map(option => {
                 return (
                   <div
                     className={"dropdown-search-options__value"}
-                    key={index}
-                    id={option}
+                    key={option.value}
+                    id={option.value}
                     onClick={() => {
                       selectDropdownOption(option);
                     }}
                   >
-                    {option}
+                    {option.label}
                   </div>
                 );
               })}
@@ -98,8 +98,13 @@ DropdownSearch.defaults = {
 
 DropdownSearch.propTypes = {
   title: PropTypes.string.isRequired,
-  values: PropTypes.array.isRequired,
-  onSelect: PropTypes.func,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      label: PropTypes.string
+    })
+  ).isRequired,
+  onSelect: PropTypes.func.isRequired,
   isAlwaysOpen: PropTypes.bool,
   showSearchInput: PropTypes.bool,
   searchPlaceholder: PropTypes.string
