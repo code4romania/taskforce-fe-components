@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { DropdownSearch } from "./dropdown-search";
 
 export default { title: "Dropdown Search" };
@@ -63,5 +63,41 @@ export const DropdownWithoutSearchInput = () => {
       onSelect={() => {}}
       showSearchInput={false}
     />
+  );
+};
+
+const countiesWithCities = {
+  Alba: ["Somewhere in Alba", "Somewhere else in Alba"],
+  Prahova: ["Somewhere in Prahova", "Somewhere else in Prahova"],
+  Tulcea: ["Somewhere in Tulcea", "Somewhere else in Tulcea"]
+};
+
+export const DropdownsDependingOnEachOther = () => {
+  const [selectedCounty, setSelectedCounty] = useState(null);
+
+  const counties = Object.keys(countiesWithCities).map(county => ({
+    label: county,
+    value: county
+  }));
+
+  const citiesIn = county =>
+    county
+      ? countiesWithCities[county].map(city => ({ label: city, value: city }))
+      : [];
+  return (
+    <div>
+      <DropdownSearch
+        title={"Counties"}
+        options={counties}
+        onSelect={option => setSelectedCounty(option.value)}
+        showSearchInput={true}
+      />
+      <DropdownSearch
+        title={"Cities"}
+        options={citiesIn(selectedCounty)}
+        onSelect={() => {}}
+        showSearchInput={true}
+      />
+    </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./dropdown-search.scss";
 import ArrowDown from "../../images/icons/arrow-down.svg";
@@ -16,6 +16,10 @@ export const DropdownSearch = ({
   const [dropdownTitle, setDropdownTitle] = useState(title);
   const [dropdownOptions, setDropdownOptions] = useState(options);
   const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    setDropdownOptions(options);
+  }, [options]);
 
   const selectDropdownOption = option => {
     setDropdownTitle(option.label);
