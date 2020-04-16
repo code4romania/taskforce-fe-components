@@ -5,7 +5,7 @@ import SingleChoice from "./singleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
 import StaticText from "./staticText";
-import FreeText from "./freeText";
+import InputQuestion from "./inputQuestion";
 import MultipleChoice from "./multipleChoice";
 import { DatePicker } from "./datePicker";
 
@@ -73,7 +73,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
-          ></DatePicker>
+          />
         );
       }
       case "CUSTOM": {
@@ -82,7 +82,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
-          ></currentQuestion.children>
+          />
         );
       }
       case "SINGLE_CHOICE": {
@@ -103,9 +103,9 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
           />
         );
       }
-      case "FREE_TEXT": {
+      case "INPUT": {
         return (
-          <FreeText
+          <InputQuestion
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
@@ -127,7 +127,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
 
   const getNextQuestionForOptionValue = (question, optionValue) => {
     if (
-      question.type === "FREE_TEXT" ||
+      question.type === "INPUT" ||
       question.type === "MULTIPLE_CHOICE" ||
       question.type === "DATE_PICKER" ||
       question.type === "CUSTOM"
@@ -271,7 +271,7 @@ Form.propTypes = {
           "FINAL",
           "SINGLE_CHOICE",
           "MULTIPLE_CHOICE",
-          "FREE_TEXT",
+          "INPUT",
           "DATE_PICKER",
           "CUSTOM"
         ]),

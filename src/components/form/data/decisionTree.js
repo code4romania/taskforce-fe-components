@@ -75,7 +75,7 @@ export default {
     {
       questionId: 6,
       questionText: "Care este numele tau?",
-      type: "FREE_TEXT",
+      type: "INPUT",
       options: []
     },
     {
