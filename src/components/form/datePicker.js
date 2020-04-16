@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ListHeader } from "../../list-header/list-header";
+import { ListHeader } from "../list-header/list-header";
 
-export const CustomQuestion = ({ question, onAnswer, currentResponse }) => {
+export const DatePicker = ({ question, onAnswer, currentResponse }) => {
   const onChange = event => {
     const answer = {
       questionId: question.questionId,
@@ -20,7 +20,7 @@ export const CustomQuestion = ({ question, onAnswer, currentResponse }) => {
   );
 };
 
-CustomQuestion.propTypes = {
+DatePicker.propTypes = {
   question: PropTypes.shape({
     questionId: PropTypes.number.isRequired,
     questionText: PropTypes.string.isRequired

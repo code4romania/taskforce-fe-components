@@ -7,6 +7,7 @@ import { Button } from "../button/button";
 import StaticText from "./staticText";
 import FreeText from "./freeText";
 import MultipleChoice from "./multipleChoice";
+import { DatePicker } from "./datePicker";
 
 const FIRST_NODE = 1;
 
@@ -66,6 +67,15 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     const currentQuestion = formAsMap[currentNode];
     // TODO: add components for other question types
     switch (currentQuestion.type) {
+      case "DATE_PICKER": {
+        return (
+          <DatePicker
+            question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
+            onAnswer={answerCurrentQuestion}
+          ></DatePicker>
+        );
+      }
       case "CUSTOM": {
         return (
           <currentQuestion.children
@@ -119,6 +129,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     if (
       question.type === "FREE_TEXT" ||
       question.type === "MULTIPLE_CHOICE" ||
+      question.type === "DATE_PICKER" ||
       question.type === "CUSTOM"
     ) {
       return;
@@ -261,6 +272,7 @@ Form.propTypes = {
           "SINGLE_CHOICE",
           "MULTIPLE_CHOICE",
           "FREE_TEXT",
+          "DATE_PICKER",
           "CUSTOM"
         ]),
         options: PropTypes.arrayOf(
