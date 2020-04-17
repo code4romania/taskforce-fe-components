@@ -85,7 +85,7 @@ MultipleChoice.propTypes = {
       "FINAL",
       "SINGLE_CHOICE",
       "MULTIPLE_CHOICE",
-      "FREE_TEXT"
+      "INPUT"
     ]),
     options: PropTypes.arrayOf(
       PropTypes.shape({

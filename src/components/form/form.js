@@ -5,8 +5,9 @@ import SingleChoice from "./singleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
 import StaticText from "./staticText";
-import FreeText from "./freeText";
+import InputQuestion from "./inputQuestion";
 import MultipleChoice from "./multipleChoice";
+import { DatePicker } from "./datePicker";
 
 const FIRST_NODE = 1;
 
@@ -66,13 +67,22 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     const currentQuestion = formAsMap[currentNode];
     // TODO: add components for other question types
     switch (currentQuestion.type) {
+      case "DATE_PICKER": {
+        return (
+          <DatePicker
+            question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
+            onAnswer={answerCurrentQuestion}
+          />
+        );
+      }
       case "CUSTOM": {
         return (
           <currentQuestion.children
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
-          ></currentQuestion.children>
+          />
         );
       }
       case "SINGLE_CHOICE": {
@@ -93,9 +103,9 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
           />
         );
       }
-      case "FREE_TEXT": {
+      case "INPUT": {
         return (
-          <FreeText
+          <InputQuestion
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
@@ -117,8 +127,9 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
 
   const getNextQuestionForOptionValue = (question, optionValue) => {
     if (
-      question.type === "FREE_TEXT" ||
+      question.type === "INPUT" ||
       question.type === "MULTIPLE_CHOICE" ||
+      question.type === "DATE_PICKER" ||
       question.type === "CUSTOM"
     ) {
       return;
@@ -260,7 +271,8 @@ Form.propTypes = {
           "FINAL",
           "SINGLE_CHOICE",
           "MULTIPLE_CHOICE",
-          "FREE_TEXT",
+          "INPUT",
+          "DATE_PICKER",
           "CUSTOM"
         ]),
         options: PropTypes.arrayOf(

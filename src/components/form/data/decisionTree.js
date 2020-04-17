@@ -1,4 +1,3 @@
-import { CustomQuestion } from "./customQuestion";
 export default {
   formId: 1,
   firstNodeId: 1,
@@ -26,8 +25,7 @@ export default {
     {
       questionId: 2,
       questionText: "De cand ai inceput sa ai simptome?",
-      type: "CUSTOM",
-      children: CustomQuestion
+      type: "DATE_PICKER"
     },
     {
       questionId: 3,
@@ -77,7 +75,7 @@ export default {
     {
       questionId: 6,
       questionText: "Care este numele tau?",
-      type: "FREE_TEXT",
+      type: "INPUT",
       options: []
     },
     {

@@ -4,7 +4,7 @@ import { ListHeader } from "../list-header/list-header";
 import { ListItem } from "../list-item/list-item";
 import { Form } from "./form";
 import SingleChoice from "./singleChoice";
-import FreeText from "./freeText";
+import InputQuestion from "./inputQuestion";
 import MultipleChoice from "./multipleChoice";
 
 const clickOnNext = form => {
@@ -13,7 +13,7 @@ const clickOnNext = form => {
 };
 
 const writeInFreeText = (form, text) => {
-  const inputText = form.find(FreeText).find("input");
+  const inputText = form.find(InputQuestion).find("input");
   inputText.simulate("change", { target: { value: text } });
 };
 
@@ -113,7 +113,7 @@ describe("Form", () => {
         {
           questionId: 1,
           questionText: "Care este numele tau?",
-          type: "FREE_TEXT",
+          type: "INPUT",
           options: []
         },
         {
@@ -241,7 +241,7 @@ describe("Form", () => {
         {
           questionId: 1,
           questionText: "Care este numele tau?",
-          type: "FREE_TEXT",
+          type: "INPUT",
           options: []
         },
         {
