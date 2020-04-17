@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { DropdownSearch } from "./dropdown-search";
 import { mount } from "enzyme";
 
@@ -97,6 +97,28 @@ describe("Dropdown Search", () => {
 
     const optionsFound = findDropdownOption(dropdownSearch, optionToSelect);
     expect(optionsFound).toHaveLength(0);
+  });
+
+  it("should update the options when new options are passed in from props", () => {
+    const TestContainer = () => {
+      const [currentOptions, setOptions] = useState([]);
+
+      return (
+        <div>
+          <DropdownSearch
+            title={title}
+            options={currentOptions}
+            onSelect={() => {}}
+            isAlwaysOpen={true}
+          />
+          <button onClick={() => setOptions(options)}>Change</button>
+        </div>
+      );
+    };
+    const dropdownSearch = mount(<TestContainer />);
+    expect(findDropdownOption(dropdownSearch, "Alba")).toHaveLength(0);
+    dropdownSearch.find("button").simulate("click");
+    expect(findDropdownOption(dropdownSearch, "Alba")).toHaveLength(1);
   });
 
   describe("the searchInput behaviour", () => {
