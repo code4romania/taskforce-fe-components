@@ -50,8 +50,15 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         answer = String(answer);
       }
 
-      if (question.type === "DATE_PICKER") {
-        answer = answer.toLocaleDateString("en-GB");
+      if (
+        question.type === "DATE_PICKER" ||
+        question.type === "DATE_TIME_PICKER"
+      ) {
+        //little hack as seen here
+        // https://stackoverflow.com/questions/10830357/javascript-toisostring-ignores-timezone-offset
+        // to get around the fact that toISOString always returns on UTC
+        const tzoffset = answer.getTimezoneOffset() * 60000; //offset in milliseconds
+        answer = new Date(answer - tzoffset).toISOString().slice(0, -1);
       }
 
       return {
@@ -74,6 +81,17 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       case "DATE_PICKER": {
         return (
           <DatePicker
+            withTime={false}
+            question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
+            onAnswer={answerCurrentQuestion}
+          />
+        );
+      }
+      case "DATE_TIME_PICKER": {
+        return (
+          <DatePicker
+            withTime={true}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
@@ -130,12 +148,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
   };
 
   const getNextQuestionForOptionValue = (question, optionValue) => {
-    if (
-      question.type === "INPUT" ||
-      question.type === "MULTIPLE_CHOICE" ||
-      question.type === "DATE_PICKER" ||
-      question.type === "CUSTOM"
-    ) {
+    if (question.type !== "SINGLE_CHOICE") {
       return;
     }
     const selectedOption = question.options.find(
@@ -143,6 +156,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     );
     return selectedOption.nextQuestionId;
   };
+
   const goToNextQuestion = () => {
     const currentElement = formAsMap[currentNode];
     if (formState[currentElement.questionId] !== undefined) {
