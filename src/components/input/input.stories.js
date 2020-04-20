@@ -19,8 +19,8 @@ export const types = () => (
       label="Telephone"
       minLength="10"
       maxLength="13"
-      pattern="00[0-9]*"
-      title="00xxxxxxxxxx - digits only"
+      pattern="(?:00|07)[0-9]*"
+      title="07xxxxxxxx sau 00xxxxxxxxxx - doar cifre"
     />
     <Input type="password" label="Password" />
     <Input type="number" label="Free-range number" />
