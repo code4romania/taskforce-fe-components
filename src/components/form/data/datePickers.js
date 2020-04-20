@@ -1,6 +1,7 @@
 export default {
   formId: 1,
   firstNodeId: 1,
+  title: "Date pickers example",
   form: [
     {
       questionId: 1,

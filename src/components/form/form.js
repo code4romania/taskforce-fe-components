@@ -81,6 +81,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       case "DATE_PICKER": {
         return (
           <DatePicker
+            key={currentQuestion.questionId}
             withTime={false}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
@@ -91,6 +92,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       case "DATE_TIME_PICKER": {
         return (
           <DatePicker
+            key={currentQuestion.questionId}
             withTime={true}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
@@ -101,6 +103,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       case "CUSTOM": {
         return (
           <currentQuestion.children
+            key={currentQuestion.questionId}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
@@ -110,6 +113,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       case "SINGLE_CHOICE": {
         return (
           <SingleChoice
+            key={currentQuestion.questionId}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
@@ -119,6 +123,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       case "MULTIPLE_CHOICE": {
         return (
           <MultipleChoice
+            key={currentQuestion.questionId}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
@@ -128,6 +133,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       case "INPUT": {
         return (
           <InputQuestion
+            key={currentQuestion.questionId}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
@@ -291,6 +297,7 @@ Form.propTypes = {
           "MULTIPLE_CHOICE",
           "INPUT",
           "DATE_PICKER",
+          "DATE_TIME_PICKER",
           "CUSTOM"
         ]),
         options: PropTypes.arrayOf(

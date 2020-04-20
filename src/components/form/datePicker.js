@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import PropTypes from "prop-types";
 import { ListHeader } from "../list-header/list-header";
 import ReactDatePicker from "react-datepicker";
@@ -14,6 +14,10 @@ export const DatePicker = ({
   onAnswer,
   currentResponse
 }) => {
+  const [startDate, setStartDate] = useState(
+    currentResponse ? currentResponse : null
+  );
+
   const onChange = date => {
     setStartDate(date);
     const answer = {
@@ -22,18 +26,6 @@ export const DatePicker = ({
     };
     onAnswer(answer);
   };
-
-  const getDate = () => {
-    const date = new Date();
-    date.setSeconds(0, 0);
-    if (!withTime) {
-      date.setHours(0, 0);
-    }
-    return date;
-  };
-  const [startDate, setStartDate] = useState(
-    currentResponse ? currentResponse : getDate()
-  );
 
   const getDatePicker = () => {
     if (withTime) {
@@ -56,6 +48,7 @@ const DateOnlyPicker = ({ startDate, onChange }) => {
   return (
     <ReactDatePicker
       customInput={<CustomInput />}
+      placeholderText={"Introdu data"}
       selected={startDate}
       onChange={onChange}
       locale={ro}
@@ -69,6 +62,7 @@ const DateTimePicker = ({ startDate, onChange }) => {
   return (
     <ReactDatePicker
       customInput={<CustomInput />}
+      placeholderText={"Introdu data si ora"}
       selected={startDate}
       onChange={onChange}
       locale={ro}
@@ -81,11 +75,21 @@ const DateTimePicker = ({ startDate, onChange }) => {
   );
 };
 
-// eslint-disable-next-line react/prop-types
-const CustomInput = ({ value, onClick }) => (
-  <div className={"field"}>
-    <input className="input is-medium" onClick={onClick} value={value} />
-  </div>
+// eslint-disable-next-line react/display-name
+const CustomInput = forwardRef(
+  // eslint-disable-next-line react/prop-types
+  ({ value, onClick, placeholder, onChange }, ref) => {
+    return (
+      <input
+        ref={ref}
+        className="input is-medium"
+        onClick={onClick}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
+    );
+  }
 );
 
 DatePicker.propTypes = {
@@ -95,5 +99,5 @@ DatePicker.propTypes = {
     questionText: PropTypes.string.isRequired
   }),
   onAnswer: PropTypes.func,
-  currentResponse: PropTypes.number
+  currentResponse: PropTypes.object
 };
