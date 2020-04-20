@@ -50,6 +50,10 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         answer = String(answer);
       }
 
+      if (question.type === "DATE_PICKER") {
+        answer = answer.toLocaleDateString("en-GB");
+      }
+
       return {
         id: question.questionId,
         questionText: question.questionText,

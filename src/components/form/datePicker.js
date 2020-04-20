@@ -1,21 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { ListHeader } from "../list-header/list-header";
+import ReactDatePicker from "react-datepicker";
+
+import ro from "date-fns/locale/ro";
+
+import "react-datepicker/dist/react-datepicker.css";
+import "./datePicker.css";
 
 export const DatePicker = ({ question, onAnswer, currentResponse }) => {
-  const onChange = event => {
+  const onChange = date => {
+    setStartDate(date);
     const answer = {
       questionId: question.questionId,
-      value: event.target.value
+      value: date
     };
     onAnswer(answer);
   };
 
+  const [startDate, setStartDate] = useState(
+    currentResponse ? currentResponse : new Date()
+  );
+
+  // eslint-disable-next-line react/prop-types
+  const CustomInput = ({ value, onClick }) => (
+    <div className={"field"}>
+      <input className="input is-medium" onClick={onClick} value={value} />
+    </div>
+  );
+
   return (
-    <div>
+    <div className={"date-picker"}>
       <ListHeader title={question.questionText} />
-      <p>Here is a custom component: </p>
-      <input onChange={onChange} value={currentResponse} type="date" />
+      <ReactDatePicker
+        customInput={<CustomInput />}
+        selected={startDate}
+        onChange={onChange}
+        locale={ro}
+        dateFormat={"d MMMM yyyy"}
+      />
     </div>
   );
 };
