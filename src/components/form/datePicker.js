@@ -104,11 +104,11 @@ DatePicker.propTypes = {
 };
 
 DateTimePicker.propTypes = {
-  startDate: PropTypes.object.isRequired,
+  startDate: PropTypes.object,
   onChange: PropTypes.func.isRequired
 };
 
 DateOnlyPicker.propTypes = {
-  startDate: PropTypes.object.isRequired,
+  startDate: PropTypes.object,
   onChange: PropTypes.func.isRequired
 };

@@ -7,6 +7,12 @@ import SingleChoice from "./singleChoice";
 import InputQuestion from "./inputQuestion";
 import MultipleChoice from "./multipleChoice";
 
+jest.mock("react-datepicker", () => ({ onChange }) => (
+  <div id="picker" onChange={({ target: { value } }) => onChange(value)}>
+    something
+  </div>
+));
+
 const clickOnNext = form => {
   const forwardButton = form.find(".forward");
   forwardButton.simulate("click");
@@ -224,6 +230,69 @@ describe("Form", () => {
         id: 1,
         questionText: "Ce simptome ai?",
         answer: { 0: true, 2: "tuse" }
+      }
+    ]);
+  });
+
+  it("Finalised the form with correct output when using date picker", () => {
+    const formWithDatePickers = {
+      formId: 1,
+      firstNodeId: 1,
+      title: "Date pickers example",
+      form: [
+        {
+          questionId: 1,
+          questionText: "De la ce data ai inceput sa ai simptome?",
+          type: "DATE_PICKER"
+        },
+        {
+          questionId: 2,
+          questionText: "La ce data si ora ai iesit afara?",
+          type: "DATE_TIME_PICKER"
+        },
+        {
+          questionId: 3,
+          type: "FINAL",
+          questionText: "Done!",
+          options: [outcome]
+        }
+      ]
+    };
+
+    const mockFinishingForm = jest.fn();
+    const form = mount(
+      <Form
+        data={formWithDatePickers}
+        evaluateForm={() => {
+          return outcome;
+        }}
+        onFinishingForm={mockFinishingForm}
+      />
+    );
+
+    form
+      .find("#picker")
+      .simulate("change", { target: { value: new Date(2020, 4, 20) } });
+    clickOnNext(form);
+
+    form
+      .find("#picker")
+      .simulate("change", { target: { value: new Date(2020, 4, 20, 11, 10) } });
+    clickOnNext(form);
+
+    expectHeaderText(form, "Done!");
+
+    const actualAnswers = mockFinishingForm.mock.calls[0][0].answers;
+    expect(actualAnswers).toEqual([
+      {
+        id: 1,
+        questionText: "De la ce data ai inceput sa ai simptome?",
+        answer: "2020-05-20T00:00:00.000"
+      },
+      {
+        id: 2,
+        questionText: "La ce data si ora ai iesit afara?",
+        answer: "2020-05-20T11:10:00.000"
       }
     ]);
   });
