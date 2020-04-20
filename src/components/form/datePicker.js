@@ -43,7 +43,6 @@ export const DatePicker = ({
   );
 };
 
-// eslint-disable-next-line react/prop-types
 const DateOnlyPicker = ({ startDate, onChange }) => {
   return (
     <ReactDatePicker
@@ -57,7 +56,6 @@ const DateOnlyPicker = ({ startDate, onChange }) => {
   );
 };
 
-// eslint-disable-next-line react/prop-types
 const DateTimePicker = ({ startDate, onChange }) => {
   return (
     <ReactDatePicker
@@ -74,6 +72,9 @@ const DateTimePicker = ({ startDate, onChange }) => {
     />
   );
 };
+
+// this fixes browser warning about passing ref to a functional component
+// the cause of the warning is that the react-datepicker is passing a ref to the custom input
 
 // eslint-disable-next-line react/display-name
 const CustomInput = forwardRef(
@@ -100,4 +101,14 @@ DatePicker.propTypes = {
   }),
   onAnswer: PropTypes.func,
   currentResponse: PropTypes.object
+};
+
+DateTimePicker.propTypes = {
+  startDate: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired
+};
+
+DateOnlyPicker.propTypes = {
+  startDate: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired
 };
