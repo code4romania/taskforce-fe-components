@@ -287,12 +287,12 @@ describe("Form", () => {
       {
         id: 1,
         questionText: "De la ce data ai inceput sa ai simptome?",
-        answer: "2020-05-20T00:00:00.000"
+        answer: "2020-05-20T00:00"
       },
       {
         id: 2,
         questionText: "La ce data si ora ai iesit afara?",
-        answer: "2020-05-20T11:10:00.000"
+        answer: "2020-05-20T11:10"
       }
     ]);
   });

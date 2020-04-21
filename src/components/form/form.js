@@ -8,6 +8,7 @@ import StaticText from "./staticText";
 import InputQuestion from "./inputQuestion";
 import MultipleChoice from "./multipleChoice";
 import { DatePicker } from "./datePicker";
+import format from "date-fns/format";
 
 const FIRST_NODE = 1;
 
@@ -44,21 +45,20 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         return {};
       }
 
-      let answer = formState[id];
+      const rawAnswer = formState[id];
 
+      let answer = rawAnswer;
       if (question.type === "SINGLE_CHOICE") {
-        answer = String(answer);
+        answer = String(rawAnswer);
       }
 
       if (
         question.type === "DATE_PICKER" ||
         question.type === "DATE_TIME_PICKER"
       ) {
-        //little hack as seen here
-        // https://stackoverflow.com/questions/10830357/javascript-toisostring-ignores-timezone-offset
-        // to get around the fact that toISOString always returns on UTC
-        const tzoffset = answer.getTimezoneOffset() * 60000; //offset in milliseconds
-        answer = new Date(answer - tzoffset).toISOString().slice(0, -1);
+        answer = rawAnswer
+          ? format(rawAnswer, "yyyy-MM-dd'T'HH:mm")
+          : rawAnswer;
       }
 
       return {
