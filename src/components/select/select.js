@@ -5,26 +5,32 @@ import PropTypes from "prop-types";
  *
  * @param {string} label
  * @param {string} description
- * @param {[{ text: string, value: string, selected?:boolean }]}
- * options List of select options with key, value and selected properties
+ * @param {[{ text: string, value: string | number, disabled?: boolean }]} options
+ * List of select options with key, value and disabled properties
  * @param {object} selectProps Contains HTML input attributes:
  * type, value, name, id, etc. https://www.w3schools.com/tags/tag_select.asp
+ * @param {string | number} defaultValue
  */
-export const Select = ({ label, description, options, selectProps }) => {
+export const Select = ({
+  label,
+  description,
+  options,
+  selectProps,
+  defaultValue
+}) => {
   return (
     <div className="field">
       <label className="label">{label}</label>
       <p className="subtitle is-2">{description}</p>
       <div className="control">
         <div className="select">
-          <select {...selectProps}>
+          <select ref={selectEl} {...selectProps} defaultValue={defaultValue}>
             {options &&
               options.map((option, index) => {
                 return (
                   <option
                     key={`key_${option.value}_${index}`}
                     value={option.value}
-                    selected={option.selected === true}
                     disabled={option.disabled === true}
                   >
                     {option.text}
@@ -41,12 +47,13 @@ export const Select = ({ label, description, options, selectProps }) => {
 Select.propTypes = {
   label: PropTypes.node.isRequired,
   description: PropTypes.node.isRequired,
-  selectProps: PropTypes.node.IsOptional,
+  selectProps: PropTypes.object,
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   options: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
       value: PropTypes.string,
-      selected: PropTypes.bool
+      disabled: PropTypes.bool
     })
   )
 };
@@ -55,5 +62,6 @@ Select.defaultProps = {
   label: "",
   description: "",
   selectProps: {},
+  defaultValue: null,
   options: []
 };

@@ -7,10 +7,10 @@ export default { title: "Select" };
 export const SelectWithChangeEvent = () => {
   let options = [
     { text: "Option 1", value: "value1", disabled: true },
-    { text: "Option 2", value: "value2", selected: true },
+    { text: "Option 2", value: "value2" },
     { text: "Option 3", value: "value3" }
   ];
-  const [textValue, setTextValue] = useState("Option 1");
+  const [textValue, setTextValue] = useState("Option 3");
   const props = {
     onChange: function(el) {
       setTextValue(el.target.value);
@@ -22,6 +22,7 @@ export const SelectWithChangeEvent = () => {
       <Select
         label={"Select with onChange event"}
         selectProps={props}
+        defaultValue={options[2].value}
         options={options}
       />
       {textValue && `Selected: ${textValue}`}
