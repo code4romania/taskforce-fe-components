@@ -168,8 +168,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     if (formState[currentElement.questionId] !== undefined) {
       const optionValue = formState[currentElement.questionId];
       const defaultNext = currentElement.nextQuestionId
-        ? currentElement.nextQuestionId
-        : currentNode + 1;
+        || currentNode + 1;
 
       const nextNode =
         getNextQuestionForOptionValue(currentElement, optionValue) ||
