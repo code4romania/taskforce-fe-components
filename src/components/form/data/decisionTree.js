@@ -80,6 +80,7 @@ export default {
     },
     {
       questionId: 7,
+      nextQuestionId: 100,
       questionText: "Ce simptome ai?",
       type: "MULTIPLE_CHOICE",
       options: [
@@ -100,7 +101,7 @@ export default {
       ]
     },
     {
-      questionId: 8,
+      questionId: 100,
       type: "FINAL",
       questionText: "Ce trebuie sa faci?",
       options: [

@@ -46,6 +46,13 @@ const expectHeaderText = (form, expected) => {
   expect(form.find(ListHeader).text()).toEqual(expected);
 };
 
+const finalEntryWithId = id => ({
+  questionId: id,
+  questionText: "Done!",
+  type: "FINAL",
+  options: [outcome]
+});
+
 const oneQuestionForm = {
   title: "One question form",
   formId: 1,
@@ -66,18 +73,7 @@ const oneQuestionForm = {
         }
       ]
     },
-    {
-      questionId: 2,
-      questionText: "Done!",
-      type: "FINAL",
-      options: [
-        outcome,
-        {
-          label: "Stay at home",
-          value: 1
-        }
-      ]
-    }
+    finalEntryWithId(2)
   ]
 };
 
@@ -122,18 +118,7 @@ describe("Form", () => {
           type: "INPUT",
           options: []
         },
-        {
-          questionId: 2,
-          questionText: "Done!",
-          type: "FINAL",
-          options: [
-            outcome,
-            {
-              label: "Stay at home",
-              value: 1
-            }
-          ]
-        }
+        finalEntryWithId(2)
       ]
     };
 
@@ -190,18 +175,7 @@ describe("Form", () => {
             }
           ]
         },
-        {
-          questionId: 2,
-          questionText: "Done!",
-          type: "FINAL",
-          options: [
-            outcome,
-            {
-              label: "Stay at home",
-              value: 1
-            }
-          ]
-        }
+        finalEntryWithId(2)
       ]
     };
 
@@ -250,12 +224,7 @@ describe("Form", () => {
           questionText: "La ce data si ora ai iesit afara?",
           type: "DATE_TIME_PICKER"
         },
-        {
-          questionId: 3,
-          type: "FINAL",
-          questionText: "Done!",
-          options: [outcome]
-        }
+        finalEntryWithId(3)
       ]
     };
 
@@ -297,6 +266,49 @@ describe("Form", () => {
     ]);
   });
 
+  it("Uses the default next question on the question itself", () => {
+    const formWithDefaultNextQuestion = {
+      title: "Form with default next question",
+      formId: 1,
+      firstNodeId: 1,
+      form: [
+        {
+          questionId: 1,
+          nextQuestionId: 10,
+          questionText: "Ai peste 60 de ani?",
+          type: "SINGLE_CHOICE",
+          options: [
+            {
+              label: "Da",
+              value: 1
+            },
+            {
+              label: "Nu",
+              value: 0
+            }
+          ]
+        },
+        finalEntryWithId(10)
+      ]
+    };
+    const mockFinishingForm = jest.fn();
+
+    const form = mount(
+      <Form
+        data={formWithDefaultNextQuestion}
+        evaluateForm={() => {
+          return outcome;
+        }}
+        onFinishingForm={mockFinishingForm}
+      />
+    );
+
+    clickOnSingleChoice(form, "Da");
+    clickOnNext(form);
+
+    expectHeaderText(form, "Done!");
+  });
+
   it("Shows blurb at the beginning if it exists", () => {
     const formWithStartingBlurb = {
       title: "Form with starting blurb",
@@ -313,18 +325,7 @@ describe("Form", () => {
           type: "INPUT",
           options: []
         },
-        {
-          questionId: 2,
-          questionText: "Done!",
-          type: "FINAL",
-          options: [
-            outcome,
-            {
-              label: "Stay at home",
-              value: 1
-            }
-          ]
-        }
+        finalEntryWithId(2)
       ]
     };
     const form = mount(

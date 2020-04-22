@@ -167,7 +167,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     const currentElement = formAsMap[currentNode];
     if (formState[currentElement.questionId] !== undefined) {
       const optionValue = formState[currentElement.questionId];
-      const defaultNext = currentNode + 1;
+      const defaultNext = currentElement.nextQuestionId || currentNode + 1;
 
       const nextNode =
         getNextQuestionForOptionValue(currentElement, optionValue) ||
