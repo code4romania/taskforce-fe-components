@@ -75,12 +75,12 @@ export const Input = ({
           name={name}
           disabled={disabled}
           defaultValue={defaultValue}
-          placeholder={usePlaceholder && label}
+          placeholder={usePlaceholder ? label : ""}
           onChange={onChange}
           required={required}
-          min={type === "number" && min}
-          max={type === "number" && max}
-          step={type === "number" && step}
+          min={type === "number" && min ? min : void 0}
+          max={type === "number" && max ? max : void 0}
+          step={type === "number" && step ? step : void 0}
           minLength={minLength}
           maxLength={maxLength}
           ref={inputRef}
@@ -105,7 +105,7 @@ Input.propTypes = {
   loading: PropTypes.bool,
   rounded: PropTypes.bool,
   required: PropTypes.bool,
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   usePlaceholder: PropTypes.bool,
   children: PropTypes.node,
   color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"]),
