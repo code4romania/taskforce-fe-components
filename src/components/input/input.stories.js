@@ -17,8 +17,8 @@ export const types = () => (
     <Input
       type="tel"
       label="Telephone"
-      minLength="10"
-      maxLength="13"
+      minLength={10}
+      maxLength={13}
       pattern="(?:00|07)[0-9]*"
       title="07xxxxxxxx sau 00xxxxxxxxxx - doar cifre"
     />

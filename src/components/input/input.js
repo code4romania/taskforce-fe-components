@@ -83,8 +83,8 @@ Input.propTypes = {
   color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"]),
   min: PropTypes.number,
   max: PropTypes.number,
-  minLength: PropTypes.string,
-  maxLength: PropTypes.string,
+  minLength: PropTypes.number,
+  maxLength: PropTypes.number,
   pattern: PropTypes.string,
   title: PropTypes.string,
   step: PropTypes.number
