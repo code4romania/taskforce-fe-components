@@ -21,6 +21,10 @@ export const Input = ({
   onChange,
   min,
   max,
+  minLength,
+  maxLength,
+  pattern,
+  title,
   step
 }) => {
   const inputClassNames = ["input"];
@@ -50,6 +54,10 @@ export const Input = ({
           min={type === "number" && min}
           max={type === "number" && max}
           step={type === "number" && step}
+          minLength={minLength}
+          maxLength={maxLength}
+          pattern={pattern}
+          title={title}
         />
       </div>
       {children}
@@ -75,6 +83,10 @@ Input.propTypes = {
   color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"]),
   min: PropTypes.number,
   max: PropTypes.number,
+  minLength: PropTypes.number,
+  maxLength: PropTypes.number,
+  pattern: PropTypes.string,
+  title: PropTypes.string,
   step: PropTypes.number
 };
 

@@ -14,7 +14,14 @@ export const types = () => (
   >
     <Input type="text" label="Text" />
     <Input type="email" label="Email" />
-    <Input type="tel" label="Telephone" />
+    <Input
+      type="tel"
+      label="Telephone"
+      minLength={10}
+      maxLength={13}
+      pattern="(?:00|07)[0-9]*"
+      title="07xxxxxxxx sau 00xxxxxxxxxx - doar cifre"
+    />
     <Input type="password" label="Password" />
     <Input type="number" label="Free-range number" />
     <Input type="number" min="1" max="3" label="Restricted number" />
