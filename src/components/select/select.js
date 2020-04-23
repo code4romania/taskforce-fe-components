@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import deprecated from "deprecated-prop-type";
+import warning from "warning";
 
 /**
  *
@@ -18,6 +20,21 @@ export const Select = ({
   selectProps,
   defaultValue
 }) => {
+  const selectEl = useRef(null);
+
+  useEffect(() => {
+    const selectedOptions = options.filter(opt => opt.selected);
+
+    if (selectedOptions.length) {
+      const [option] = selectedOptions;
+      selectEl.current.value = option.value;
+
+      if (selectedOptions.length > 1) {
+        warning(false, "Only one 'selected' property of 'Select' can be true");
+      }
+    }
+  }, []);
+
   return (
     <div className="field">
       <label className="label">{label}</label>
@@ -53,7 +70,8 @@ Select.propTypes = {
     PropTypes.shape({
       text: PropTypes.string,
       value: PropTypes.string,
-      disabled: PropTypes.bool
+      disabled: PropTypes.bool,
+      selected: deprecated(PropTypes.bool, "Use `defaultValue` prop instead.")
     })
   )
 };
