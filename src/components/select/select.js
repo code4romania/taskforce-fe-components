@@ -69,7 +69,7 @@ Select.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
-      value: PropTypes.string,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       disabled: PropTypes.bool,
       selected: deprecated(PropTypes.bool, "Use `defaultValue` prop instead.")
     })
