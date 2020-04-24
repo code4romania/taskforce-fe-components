@@ -78,7 +78,7 @@ const telephoneMessage = {
 };
 
 const numberMessages = {
-  rangeOverflow: "Valoarea trebuie sa fie mai mica sau egala cu 3",
+  rangeOverflow: "Valoarea trebuie sa fie mai mica sau egala cu 7",
   rangeUnderflow: "Valoarea trebuie sa fie mai mare sau egala cu 1",
   valueMissing: "Te rog completeaza acest camp",
   stepMismatch: "Valoarea trebuie sa fie impara"

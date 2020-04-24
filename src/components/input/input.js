@@ -116,7 +116,7 @@ Input.propTypes = {
   pattern: PropTypes.string,
   title: PropTypes.string,
   step: PropTypes.number,
-  validationMessages: PropTypes.shape
+  validationMessages: PropTypes.object
 };
 
 Input.defaultProps = {
