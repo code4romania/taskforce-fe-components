@@ -60,7 +60,7 @@ export const Input = ({
         e.target.setCustomValidity("");
       };
     }
-  });
+  }, [validationMessages]);
 
   const inputClasses = inputClassNames.join(" ");
 
