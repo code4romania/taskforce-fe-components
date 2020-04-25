@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import "../../styles.scss";
 import { Label } from "../label/label";
@@ -18,6 +18,7 @@ export const Input = ({
   children,
   hasAddons,
   required,
+  validationMessages,
   onChange,
   min,
   max,
@@ -35,6 +36,32 @@ export const Input = ({
   if (color) inputClassNames.push(`is-${color}`);
   if (rounded) inputClassNames.push("is-rounded");
   if (loading) controlClassNames.push("is-loading");
+  const inputRef = useRef();
+
+  const setCustomValidity = current => {
+    current.oninvalid = e => {
+      let errorText = "";
+
+      if (!e.target.validity.valid) {
+        const invalidKey = Object.keys(validationMessages).find(
+          key => e.target.validity[key]
+        );
+        errorText = invalidKey ? validationMessages[invalidKey] : "";
+      }
+
+      e.target.setCustomValidity(errorText);
+    };
+  };
+
+  useEffect(() => {
+    if (validationMessages) {
+      setCustomValidity(inputRef.current);
+      inputRef.current.oninput = e => {
+        e.target.setCustomValidity("");
+      };
+    }
+  }, [validationMessages]);
+
   const inputClasses = inputClassNames.join(" ");
 
   return (
@@ -56,6 +83,7 @@ export const Input = ({
           step={type === "number" && step}
           minLength={minLength}
           maxLength={maxLength}
+          ref={inputRef}
           pattern={pattern}
           title={title}
         />
@@ -87,7 +115,8 @@ Input.propTypes = {
   maxLength: PropTypes.number,
   pattern: PropTypes.string,
   title: PropTypes.string,
-  step: PropTypes.number
+  step: PropTypes.number,
+  validationMessages: PropTypes.object
 };
 
 Input.defaultProps = {
