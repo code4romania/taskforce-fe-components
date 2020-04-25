@@ -10,11 +10,23 @@ export default {
     },
     {
       questionId: 2,
+      questionText: "De la ce data re-incepi lucrul?",
+      type: "DATE_PICKER",
+      allowFuture: true
+    },
+    {
+      questionId: 3,
       questionText: "La ce data si ora ai iesit afara?",
       type: "DATE_TIME_PICKER"
     },
     {
-      questionId: 3,
+      questionId: 4,
+      questionText: "La ce data si ora esti programat la medic?",
+      type: "DATE_TIME_PICKER",
+      allowFuture: true
+    },
+    {
+      questionId: 5,
       type: "FINAL",
       questionText: "Ce trebuie sa faci?",
       options: [
