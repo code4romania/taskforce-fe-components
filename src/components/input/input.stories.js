@@ -105,9 +105,9 @@ export const validation = () => (
       <Input
         type="number"
         validationMessages={numberMessages}
-        min="1"
-        max="7"
-        step="2"
+        min={1}
+        max={7}
+        step={2}
         required
         label="Restircted number validation (required, min(3), max(7), step(2))"
       />

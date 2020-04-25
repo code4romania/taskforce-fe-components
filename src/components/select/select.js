@@ -20,7 +20,7 @@ export const Select = ({
   selectProps,
   defaultValue
 }) => {
-  const [currentValue, setCurrentValue] = useState("");
+  const [currentValue, setCurrentValue] = useState();
 
   useEffect(() => {
     const selectedOptions = options.filter(opt => opt.selected);
@@ -92,6 +92,5 @@ Select.defaultProps = {
   label: "",
   description: "",
   selectProps: {},
-  defaultValue: "",
   options: []
 };

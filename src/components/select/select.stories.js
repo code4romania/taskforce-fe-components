@@ -10,7 +10,7 @@ export const SelectWithChangeEvent = () => {
     { text: "Option 2", value: "value2" },
     { text: "Option 3", value: "value3" }
   ];
-  const [textValue, setTextValue] = useState("Option 3");
+  const [textValue, setTextValue] = useState("value3");
   const props = {
     onChange: function(el) {
       setTextValue(el.target.value);
@@ -46,7 +46,7 @@ export const DependentSelects = () => {
     }
     return generatedOptions;
   };
-  const [childOptions, setChildOptions] = useState(generateOptions("Value 1"));
+  const [childOptions, setChildOptions] = useState(generateOptions("value1"));
 
   const props = {
     onChange: function(el) {
