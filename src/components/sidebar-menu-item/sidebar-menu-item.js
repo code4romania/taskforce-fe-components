@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./sidebar-menu-item.scss";
 import classNames from "classnames";
+import { onEnterOrSpace } from "../../a11y";
 
-export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
+export const SidebarMenuItem = ({ active, isTitle, children, onClick , onKeyPress}) => {
   const onClickCb = () => {
     if (onClick) {
       onClick();
