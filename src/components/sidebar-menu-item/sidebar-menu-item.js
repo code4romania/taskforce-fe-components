@@ -9,14 +9,17 @@ export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
       onClick();
     }
   };
-
+  
   return (
     <li
+      role="menuitem"
+      tabIndex="0"
       className={classNames("__sidebar-menu-item", {
         isTitle,
         active
       })}
       onClick={onClickCb}
+      onKeyPress={onEnterOrSpace(() => onClick && onClick(value))}      
     >
       {children}
     </li>
