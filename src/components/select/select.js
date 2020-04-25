@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import deprecated from "deprecated-prop-type";
 import warning from "warning";
@@ -11,7 +11,7 @@ import warning from "warning";
  * List of select options with key, value and disabled properties
  * @param {object} selectProps Contains HTML input attributes:
  * type, value, name, id, etc. https://www.w3schools.com/tags/tag_select.asp
- * @param {string | number} defaultValue
+ * @param { string | number } defaultValue
  */
 export const Select = ({
   label,
@@ -20,20 +20,32 @@ export const Select = ({
   selectProps,
   defaultValue
 }) => {
-  const selectEl = useRef(null);
+  const [currentValue, setCurrentValue] = useState("");
 
   useEffect(() => {
     const selectedOptions = options.filter(opt => opt.selected);
 
     if (selectedOptions.length) {
       const [option] = selectedOptions;
-      selectEl.current.value = option.value;
+      setCurrentValue(option.value);
 
       if (selectedOptions.length > 1) {
         warning(false, "Only one 'selected' property of 'Select' can be true");
       }
     }
-  }, []);
+
+    if (defaultValue) {
+      setCurrentValue(defaultValue);
+    }
+  }, [defaultValue]);
+
+  const onChange = e => {
+    if (selectProps.onChange && typeof selectProps.onChange === "function") {
+      selectProps.onChange(e);
+    }
+
+    setCurrentValue(e.target.value);
+  };
 
   return (
     <div className="field">
@@ -41,7 +53,7 @@ export const Select = ({
       <p className="subtitle is-2">{description}</p>
       <div className="control">
         <div className="select">
-          <select ref={selectEl} {...selectProps} defaultValue={defaultValue}>
+          <select {...selectProps} onChange={onChange} value={currentValue}>
             {options &&
               options.map((option, index) => {
                 return (
@@ -80,6 +92,6 @@ Select.defaultProps = {
   label: "",
   description: "",
   selectProps: {},
-  defaultValue: null,
+  defaultValue: "",
   options: []
 };
