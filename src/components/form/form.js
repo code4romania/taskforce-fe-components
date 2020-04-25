@@ -231,11 +231,11 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       <div>
         {questionView()}
         <div className="level action-buttons">
-          <div className="level-left">
+          <div className="level-left">{data.form && restartButton()}</div>
+          <div className="level-right">
             {currentNode > FIRST_NODE && goBackButton()}
             {areThereQuestionsLeft() && goForwardButton()}
           </div>
-          <div className="level-right">{data.form && restartButton()}</div>
         </div>
       </div>
     );
