@@ -4,7 +4,7 @@ import "./sidebar-menu-item.scss";
 import classNames from "classnames";
 import { onEnterOrSpace } from "../../a11y";
 
-export const SidebarMenuItem = ({ active, isTitle, children, onClick , onKeyPress}) => {
+export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
   const onClickCb = () => {
     if (onClick) {
       onClick();
