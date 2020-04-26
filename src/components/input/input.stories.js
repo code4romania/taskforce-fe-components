@@ -24,8 +24,8 @@ export const types = () => (
     />
     <Input type="password" label="Password" />
     <Input type="number" label="Free-range number" />
-    <Input type="number" min="1" max="3" label="Restricted number" />
-    <Input type="number" min="0" max="10" step="2" label="Number with step" />
+    <Input type="number" min={1} max={3} label="Restricted number" />
+    <Input type="number" min={0} max={10} step={2} label="Number with step" />
 
     <input type="submit" value="Validate inputs" />
     {/* Please see
@@ -105,9 +105,9 @@ export const validation = () => (
       <Input
         type="number"
         validationMessages={numberMessages}
-        min="1"
-        max="7"
-        step="2"
+        min={1}
+        max={7}
+        step={2}
         required
         label="Restircted number validation (required, min(3), max(7), step(2))"
       />
@@ -126,7 +126,7 @@ export const events = () => {
     <div style={style}>
       <Input
         label="Type something..."
-        usePlaceholder="true"
+        usePlaceholder={true}
         onChange={e => setInputValue(e.target.value)}
       />
       <label>{inputValue}</label>

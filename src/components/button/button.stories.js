@@ -47,3 +47,11 @@ export const danger = () => {
     </Button>
   );
 };
+
+export const warning = () => {
+  return (
+    <Button type="warning" onClick={sayMyName}>
+      Hello Friend
+    </Button>
+  );
+};

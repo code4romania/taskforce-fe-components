@@ -29,6 +29,18 @@ export const DropdownSearch = ({
     onSelect(option);
   };
 
+  const onDropdownKeyPress = event => {
+    if (event.key === "Enter") {
+      toggleDropdownOptions();
+    }
+  };
+
+  const onItemKeyPress = (event, option) => {
+    if (event.key === "Enter") {
+      selectDropdownOption(option);
+    }
+  };
+
   const toggleDropdownOptions = () => {
     setShowDropdownOptions(!showDropdownOptions);
   };
@@ -49,7 +61,12 @@ export const DropdownSearch = ({
 
   return (
     <div>
-      <div className="dropdown-search-filter" onClick={toggleDropdownOptions}>
+      <div
+        tabIndex={0}
+        className="dropdown-search-filter"
+        onKeyPress={onDropdownKeyPress}
+        onClick={toggleDropdownOptions}
+      >
         <div className="dropdown-search-filter__name">{dropdownTitle}</div>
         <span className="icon is-small is-right dropdown-search-filter__icon">
           <ArrowDown />
@@ -72,9 +89,11 @@ export const DropdownSearch = ({
               {dropdownOptions.map(option => {
                 return (
                   <div
+                    tabIndex={0}
                     className="dropdown-search-options__value"
                     key={option.value}
                     id={option.value}
+                    onKeyPress={e => onItemKeyPress(e, option)}
                     onClick={() => {
                       selectDropdownOption(option);
                     }}
