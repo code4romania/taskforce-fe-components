@@ -9,13 +9,14 @@ export const Accordion = ({ title, content, children }) => {
   const [showContent, setShowContent] = useState(false);
 
   return (
-    <div className="message __accordion" tabIndex="0">
+    <div className="message __accordion">
       <div
+        tabIndex={0}
         className={classNames("message-header __accordion-header", {
           "__accordion-header--expanded": showContent
         })}
         onClick={() => setShowContent(!showContent)}
-        onKeyPress={onEnterOrSpace(setShowContent(!showContent))}
+        onKeyPress={onEnterOrSpace(() => setShowContent(!showContent))}
       >
         <span className="__accordion-title">{title}</span>
         <div className="__accordion-arrow">
