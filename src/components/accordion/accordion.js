@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import ArrowDown from "../../images/icons/arrow-down.svg";
 import "./accordion.scss";
+import { onEnterOrSpace } from "../../a11y";
 
 export const Accordion = ({ title, content, children }) => {
   const [showContent, setShowContent] = useState(false);
@@ -10,10 +11,12 @@ export const Accordion = ({ title, content, children }) => {
   return (
     <div className="message __accordion">
       <div
+        tabIndex={0}
         className={classNames("message-header __accordion-header", {
           "__accordion-header--expanded": showContent
         })}
         onClick={() => setShowContent(!showContent)}
+        onKeyPress={onEnterOrSpace(() => setShowContent(!showContent))}
       >
         <span className="__accordion-title">{title}</span>
         <div className="__accordion-arrow">

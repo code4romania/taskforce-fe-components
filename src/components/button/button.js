@@ -39,8 +39,8 @@ export const Button = ({
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(["primary", "danger"]),
+  onClick: PropTypes.func,
+  type: PropTypes.oneOf(["primary", "danger", "warning"]),
   size: PropTypes.oneOf(["small", "medium", "large"]),
   disabled: PropTypes.bool,
   inverted: PropTypes.bool,

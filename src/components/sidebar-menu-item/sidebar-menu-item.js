@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./sidebar-menu-item.scss";
 import classNames from "classnames";
+import { onEnterOrSpace } from "../../a11y";
 
 export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
   const onClickCb = () => {
@@ -12,11 +13,14 @@ export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
 
   return (
     <li
+      role="menuitem"
+      tabIndex={0}
       className={classNames("__sidebar-menu-item", {
         isTitle,
         active
       })}
       onClick={onClickCb}
+      onKeyPress={onEnterOrSpace(() => onClickCb)}
     >
       {children}
     </li>

@@ -55,4 +55,5 @@ export * from "./components/data-table-item/data-table-item";
 export * from "./components/data-table-row/data-table-row";
 
 export * from "./components/filter-modal/filter-modal";
+export * from "./components/dropdown-search/dropdown-search";
 export * from "./components/header-filter/header-filter";

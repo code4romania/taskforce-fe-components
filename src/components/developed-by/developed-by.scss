@@ -16,6 +16,10 @@
       display: flex;
     }
 
+    .logo + .logo {
+      margin-left: 0.5rem;
+    }
+
     &:not(:first-child) {
       padding-left: 1rem;
     }
@@ -25,7 +29,8 @@
     }
 
     img {
-      height: 2.5rem;
+      max-height: 2.5rem;
+      height: auto;
     }
   }
 }
@@ -45,7 +50,6 @@
       }
 
       .logo {
-        flex-shrink: 0;
         padding: 0;
       }
     }

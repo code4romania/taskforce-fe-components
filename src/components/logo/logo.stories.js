@@ -11,6 +11,11 @@ export const regular = () => (
     <Code4Logo />
   </Logo>
 );
+export const openUrlInSameTab = () => (
+  <Logo url="https://code4.ro" target="_self">
+    <Code4Logo />
+  </Logo>
+);
 export const withUrl = () => (
   <Logo url="https://code4.ro">
     <Code4Logo />

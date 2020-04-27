@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { groupBy, mapObject } from "underscore";
 import SingleChoice from "./singleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
 import StaticText from "./staticText";
-import { groupBy, mapObject } from "underscore";
-import FreeText from "./freeText";
+import InputQuestion from "./inputQuestion";
 import MultipleChoice from "./multipleChoice";
+import { DatePicker } from "./datePicker";
+import format from "date-fns/format";
 
 const FIRST_NODE = 1;
 
@@ -43,10 +45,26 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         return {};
       }
 
+      const rawAnswer = formState[id];
+
+      let answer = rawAnswer;
+      if (question.type === "SINGLE_CHOICE") {
+        answer = String(rawAnswer);
+      }
+
+      if (
+        question.type === "DATE_PICKER" ||
+        question.type === "DATE_TIME_PICKER"
+      ) {
+        answer = rawAnswer
+          ? format(rawAnswer, "yyyy-MM-dd'T'HH:mm")
+          : rawAnswer;
+      }
+
       return {
         id: question.questionId,
         questionText: question.questionText,
-        answer: String(formState[id])
+        answer: answer
       };
     });
     return {
@@ -60,9 +78,42 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     const currentQuestion = formAsMap[currentNode];
     // TODO: add components for other question types
     switch (currentQuestion.type) {
+      case "DATE_PICKER": {
+        return (
+          <DatePicker
+            key={currentQuestion.questionId}
+            withTime={false}
+            question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
+            onAnswer={answerCurrentQuestion}
+          />
+        );
+      }
+      case "DATE_TIME_PICKER": {
+        return (
+          <DatePicker
+            key={currentQuestion.questionId}
+            withTime={true}
+            question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
+            onAnswer={answerCurrentQuestion}
+          />
+        );
+      }
+      case "CUSTOM": {
+        return (
+          <currentQuestion.children
+            key={currentQuestion.questionId}
+            question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
+            onAnswer={answerCurrentQuestion}
+          />
+        );
+      }
       case "SINGLE_CHOICE": {
         return (
           <SingleChoice
+            key={currentQuestion.questionId}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
@@ -72,22 +123,24 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       case "MULTIPLE_CHOICE": {
         return (
           <MultipleChoice
+            key={currentQuestion.questionId}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
           />
         );
       }
-      case "FREE_TEXT": {
+      case "INPUT": {
         return (
-          <FreeText
+          <InputQuestion
+            key={currentQuestion.questionId}
             question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
           />
         );
       }
       case "FINAL": {
-        onFinishingForm(createFormWithAnswers());
         return (
           <StaticText
             title={currentQuestion.questionText}
@@ -101,7 +154,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
   };
 
   const getNextQuestionForOptionValue = (question, optionValue) => {
-    if (question.type === "FREE_TEXT" || question.type === "MULTIPLE_CHOICE") {
+    if (question.type !== "SINGLE_CHOICE") {
       return;
     }
     const selectedOption = question.options.find(
@@ -109,11 +162,12 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     );
     return selectedOption.nextQuestionId;
   };
+
   const goToNextQuestion = () => {
     const currentElement = formAsMap[currentNode];
     if (formState[currentElement.questionId] !== undefined) {
       const optionValue = formState[currentElement.questionId];
-      const defaultNext = currentNode + 1;
+      const defaultNext = currentElement.nextQuestionId || currentNode + 1;
 
       const nextNode =
         getNextQuestionForOptionValue(currentElement, optionValue) ||
@@ -121,6 +175,11 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
 
       historyOfSteps.push(currentNode);
       setHistoryOfSteps(historyOfSteps);
+
+      if (formAsMap[nextNode].type === "FINAL") {
+        onFinishingForm(createFormWithAnswers());
+      }
+
       setCurrentNode(nextNode);
     }
   };
@@ -172,11 +231,11 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       <div>
         {questionView()}
         <div className="level action-buttons">
-          <div className="level-left">
+          <div className="level-left">{data.form && restartButton()}</div>
+          <div className="level-right">
             {currentNode > FIRST_NODE && goBackButton()}
             {areThereQuestionsLeft() && goForwardButton()}
           </div>
-          <div className="level-right">{data.form && restartButton()}</div>
         </div>
       </div>
     );
@@ -236,7 +295,10 @@ Form.propTypes = {
           "FINAL",
           "SINGLE_CHOICE",
           "MULTIPLE_CHOICE",
-          "FREE_TEXT"
+          "INPUT",
+          "DATE_PICKER",
+          "DATE_TIME_PICKER",
+          "CUSTOM"
         ]),
         options: PropTypes.arrayOf(
           PropTypes.shape({

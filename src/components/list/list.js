@@ -4,7 +4,9 @@ import "./list.styles.scss";
 
 export const List = ({ columns, children }) => {
   return (
-    <div className={`__list-wrapper __list-grid-${columns}`}>{children}</div>
+    <div role="list" className={`__list-wrapper __list-grid-${columns}`}>
+      {children}
+    </div>
   );
 };
 

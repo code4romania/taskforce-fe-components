@@ -24,6 +24,11 @@ export default {
     },
     {
       questionId: 2,
+      questionText: "De cand ai inceput sa ai simptome?",
+      type: "DATE_PICKER"
+    },
+    {
+      questionId: 3,
       questionText: "Ce temperatura ai avut?",
       type: "SINGLE_CHOICE",
       options: [
@@ -38,7 +43,7 @@ export default {
       ]
     },
     {
-      questionId: 3,
+      questionId: 4,
       questionText: "Ești fumător/fumătoare? (inclusiv țigări electronice)",
       type: "SINGLE_CHOICE",
       options: [
@@ -53,7 +58,7 @@ export default {
       ]
     },
     {
-      questionId: 4,
+      questionId: 5,
       questionText: "Care este sexul tău?",
       type: "SINGLE_CHOICE",
       options: [
@@ -68,13 +73,14 @@ export default {
       ]
     },
     {
-      questionId: 5,
+      questionId: 6,
       questionText: "Care este numele tau?",
-      type: "FREE_TEXT",
+      type: "INPUT",
       options: []
     },
     {
-      questionId: 6,
+      questionId: 7,
+      nextQuestionId: 100,
       questionText: "Ce simptome ai?",
       type: "MULTIPLE_CHOICE",
       options: [
@@ -83,6 +89,7 @@ export default {
           value: 0
         },
         {
+          type: "OTHER",
           label: "Febra",
           value: 1
         },
@@ -94,7 +101,7 @@ export default {
       ]
     },
     {
-      questionId: 7,
+      questionId: 100,
       type: "FINAL",
       questionText: "Ce trebuie sa faci?",
       options: [
