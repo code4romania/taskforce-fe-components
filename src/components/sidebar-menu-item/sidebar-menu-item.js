@@ -10,7 +10,7 @@ export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
       onClick();
     }
   };
-  
+
   return (
     <li
       role="menuitem"
@@ -20,7 +20,7 @@ export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
         active
       })}
       onClick={onClickCb}
-      onKeyPress={onEnterOrSpace(() => onClick && onClick(value))}      
+      onKeyPress={onEnterOrSpace(onClickCb)}
     >
       {children}
     </li>
