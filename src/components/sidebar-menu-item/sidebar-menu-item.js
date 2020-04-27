@@ -20,7 +20,7 @@ export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
         active
       })}
       onClick={onClickCb}
-      onKeyPress={onEnterOrSpace(() => onClickCb)}
+      onKeyPress={onEnterOrSpace(onClickCb)}
     >
       {children}
     </li>
