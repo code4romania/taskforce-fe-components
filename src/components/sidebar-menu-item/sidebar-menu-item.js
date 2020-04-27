@@ -14,13 +14,13 @@ export const SidebarMenuItem = ({ active, isTitle, children, onClick }) => {
   return (
     <li
       role="menuitem"
-      tabIndex="0"
+      tabIndex={0}
       className={classNames("__sidebar-menu-item", {
         isTitle,
         active
       })}
       onClick={onClickCb}
-      onKeyPress={onEnterOrSpace(onClickCb)}
+      onKeyPress={onEnterOrSpace(() => onClickCb)}
     >
       {children}
     </li>
