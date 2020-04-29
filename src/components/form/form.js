@@ -201,7 +201,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     return (
       <div className="level-item">
         <Button inverted={true} onClick={goToPreviousQuestion}>
-          Inapoi
+          Înapoi
         </Button>
       </div>
     );
@@ -214,7 +214,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
           onClick={goToNextQuestion}
           disabled={isWaitingForChoice()}
         >
-          Inainte
+          Înainte
         </Button>
       </div>
     );
@@ -253,7 +253,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         <div className="level action-buttons">
           <div className="level-left">
             <Button inverted={true} onClick={startForm} className={"start"}>
-              Incepe testul
+              Începe testul
             </Button>
           </div>
         </div>
