@@ -66,6 +66,19 @@
   p {
     margin-top: 10px;
   }
+
+  .flag-blue::selection {
+    background-color: #002B7F;
+  }
+
+  .flag-yellow::selection {
+    background-color: #FCD116;
+    color: #000;
+  }
+
+  .flag-red::selection {
+    background-color: #CE1126;
+  }
 }
 
 @media (max-width: 1024px) {
