@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { groupBy, mapObject } from "underscore";
+import { mapObject } from "underscore";
 import SingleChoice from "./singleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
@@ -32,12 +32,15 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
   };
 
   const toMap = form => {
-    const groupedById = groupBy(form, question => question.questionId);
-    return mapObject(groupedById, listOfQuestions => listOfQuestions[0]);
+    return form.reduce((obj, item) => {
+      return {
+        ...obj,
+        [item["questionId"]]: item
+      };
+    }, {});
   };
 
   const formAsMap = toMap(data.form);
-
   const createFormWithAnswers = () => {
     const answersById = mapObject(formAsMap, (question, id) => {
       //a bit a of hack to get rid of the final entry - needs restructuring of the data model

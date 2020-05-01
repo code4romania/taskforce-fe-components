@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./search-result-list-item.styles.scss";
+import "./search-result-list-item.scss";
 
 export const SearchResultListItem = ({
   date,

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./personal-data-table.styles.scss";
+import "./personal-data-table.scss";
 
 export const PersonalDataTable = ({ personalData }) => {
   return (
