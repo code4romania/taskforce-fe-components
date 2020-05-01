@@ -12,7 +12,8 @@
     [
       "@babel/env",
       {
-        "modules": false
+        "modules": false,
+        "useBuiltIns": false
       }
     ],
     "@babel/preset-react"
