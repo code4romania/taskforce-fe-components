@@ -5,46 +5,16 @@ import { TemperatureChart } from "./temperature-chart";
 export default { title: "Temperature Chart" };
 
 const results = [
-  {
-    id: "134",
-    date: "1585409321",
-    temperature: 36.6
-  },
-  {
-    id: "136",
-    date: "1585409421",
-    temperature: 36
-  },
-  {
-    id: "139",
-    date: "1585409521",
-    temperature: 38.6
-  },
-  {
-    id: "140",
-    date: "1585409621",
-    temperature: 38.6
-  },
-  {
-    id: "134",
-    date: "1585409321",
-    temperature: 36.6
-  },
-  {
-    id: "136",
-    date: "1585409421",
-    temperature: 36
-  },
-  {
-    id: "139",
-    date: "1585409521",
-    temperature: 38.6
-  },
-  {
-    id: "140",
-    date: "1585409621",
-    temperature: 38.6
-  }
+  { date: 1588710285, temperature: 35 },
+  { date: 1588710285, temperature: 36 },
+  { date: 1588710285, temperature: 38 },
+  { date: 1588710285, temperature: 39 },
+  { date: 1588710285, temperature: 36.6 },
+  { date: 1588709754, temperature: 38.2 },
+  { date: 1588708675, temperature: 38 },
+  { date: 1588277085, temperature: 37 },
+  { date: 1588276813, temperature: 36 },
+  { date: 1588017389, temperature: 38 }
 ];
 
 export const temperatureChart = () => <TemperatureChart results={results} />;
