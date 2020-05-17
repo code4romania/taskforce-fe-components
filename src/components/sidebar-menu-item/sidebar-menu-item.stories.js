@@ -23,6 +23,35 @@ export const activeSubSection = () => (
   <SidebarMenuItem active>Transmitere și simptome</SidebarMenuItem>
 );
 
+export const withTheme = () => (
+  <>
+    <SidebarMenuItem
+      isTitle
+      theme={{ highlightColor: "#F6DD62", backgroundColor: "#F6F9FC" }}
+    >
+      Transmitere și simptome
+    </SidebarMenuItem>
+    <SidebarMenuItem
+      isTitle
+      active
+      theme={{ highlightColor: "#F6DD62", backgroundColor: "#F6F9FC" }}
+    >
+      Transmitere și simptome
+    </SidebarMenuItem>
+    <SidebarMenuItem
+      theme={{ highlightColor: "#F6DD62", backgroundColor: "#F6F9FC" }}
+    >
+      Transmitere și simptome
+    </SidebarMenuItem>
+    <SidebarMenuItem
+      active
+      theme={{ highlightColor: "#F6DD62", backgroundColor: "#F6F9FC" }}
+    >
+      Transmitere și simptome
+    </SidebarMenuItem>
+  </>
+);
+
 export const sectionTitleWithCallback = () => {
   const [data, setData] = useState({});
   const documentExample = {
