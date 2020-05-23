@@ -6,18 +6,24 @@ import format from "date-fns/format";
 import fromUnixTime from "date-fns/fromUnixTime";
 
 export const TemperatureChart = ({ results = [], title }) => {
-  const xAxisData = results.map(item =>
+  // NOTE: Because of the way the Axes are displayed, we need
+  // to reverse the items order to show the original order
+  const itemsListReversed = results.reverse();
+  const yAxisData = itemsListReversed.map(item =>
     format(fromUnixTime(item.date), "dd.MM.yyyy / HH:mm")
   );
-  const yAxisData = results.map(item => ({
+  const xAxisData = itemsListReversed.map(item => ({
     value: item.temperature,
     itemStyle: { color: item.temperature > 37 ? "red" : "blue" }
   }));
 
   const option = {
-    xAxis: {
+    grid: {
+      containLabel: true
+    },
+    yAxis: {
       type: "category",
-      data: xAxisData,
+      data: yAxisData,
       axisLine: { show: false, lineStyle: { color: "#fff" } },
       axisLabel: {
         textStyle: { color: "#000" }
@@ -26,7 +32,7 @@ export const TemperatureChart = ({ results = [], title }) => {
         show: false
       }
     },
-    yAxis: {
+    xAxis: {
       type: "value",
       axisLine: { show: true, lineStyle: { color: "#B0BEC5" } },
       axisLabel: { show: false },
@@ -36,12 +42,12 @@ export const TemperatureChart = ({ results = [], title }) => {
     },
     series: [
       {
-        data: yAxisData,
+        data: xAxisData,
         type: "bar",
         barWidth: "10",
         markLine: {
           lineStyle: { width: 0.5, color: "#8CA0B3", style: "dashed" },
-          data: [{ name: "hightemp", yAxis: 37 }],
+          data: [{ name: "hightemp", xAxis: 37 }],
           symbol: ["none", "none"]
         }
       }

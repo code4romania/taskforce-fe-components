@@ -1,14 +1,17 @@
 .__sidebar-menu-item {
+  --highlightColor: #b6cadb;
+  --backgroundColor: #f5f5f5;
+
   list-style-type: none;
-  border-left: 40px solid #b6cadb;
-  background: #f5f5f5;
+  border-left: 40px solid var(--highlightColor);
+  background: var(--backgroundColor);
   margin: 5px 0;
   padding: 5px 10px;
 }
 
 .__sidebar-menu-item:hover,
 .__sidebar-menu-item.active {
-  background: #b6cadb;
+  background: var(--highlightColor);
   cursor: pointer;
 }
 
