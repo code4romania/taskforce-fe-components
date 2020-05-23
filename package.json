@@ -1,7 +1,8 @@
 {
   "name": "@code4ro/taskforce-fe-components",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "private": false,
+  "sideEffects": false,
   "dependencies": {
     "bulma": "^0.8.0",
     "date-fns": "^2.11.1",
@@ -46,24 +47,9 @@
       "\\.(scss|png|css)$": "<rootDir>/src/__mocks__/styleMock.js"
     }
   },
-  "babel": {
-    "plugins": [
-      "inline-react-svg",
-      [
-        "@babel/plugin-proposal-class-properties",
-        {
-          "loose": true
-        }
-      ]
-    ],
-    "presets": [
-      "@babel/env",
-      "@babel/preset-react"
-    ]
-  },
   "browserslist": {
     "production": [
-      ">0.2%",
+      ">0.5%",
       "not dead",
       "not op_mini all"
     ],
@@ -86,7 +72,6 @@
     "babel-jest": "^25.2.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-inline-react-svg": "1.0.1",
-    "classnames": "^2.2.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
@@ -106,8 +91,7 @@
     "style-loader": "^1.1.3"
   },
   "description": "Component library for code4ro Taskforce",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.js",
   "style": "dist/index.css",
   "repository": "https://github.com/code4romania/taskforce-fe-components.git",
   "author": "",

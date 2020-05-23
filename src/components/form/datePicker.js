@@ -1,13 +1,12 @@
 import React, { forwardRef, useState } from "react";
 import PropTypes from "prop-types";
-import { ListHeader } from "../list-header/list-header";
 import ReactDatePicker from "react-datepicker";
+import { ListHeader } from "../list-header/list-header";
 
 import ro from "date-fns/locale/ro";
 import { setHours, setMinutes, isSameDay } from "date-fns";
 
-import "react-datepicker/dist/react-datepicker.css";
-import "./datePicker.css";
+import "./datePicker.scss";
 
 export const DatePicker = ({
   withTime,

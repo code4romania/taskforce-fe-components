@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import "../../styles.scss";
 import { Label } from "../label/label";
 
 export const Input = ({
