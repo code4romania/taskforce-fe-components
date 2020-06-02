@@ -1,56 +1,31 @@
 import React from "react";
 import { Button } from "./button";
+import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
 
-export default { title: "Button" };
+export default {
+  title: "Button",
+  decorators: [withKnobs]
+};
 
 function sayMyName() {
   alert("Hello Friend");
 }
 
+const typeOptions = {
+  Primary: "primary",
+  Danger: "danger",
+  Warning: "warning"
+};
+
 export const primary = () => {
   return (
-    <Button color="primary" onClick={sayMyName}>
-      Hello Friend
-    </Button>
-  );
-};
-
-export const inverted = () => {
-  return (
-    <Button inverted={true} onClick={sayMyName}>
-      Hello Friend
-    </Button>
-  );
-};
-
-export const disabled = () => {
-  return (
-    <Button disabled={true} onClick={sayMyName}>
-      Hello Friend
-    </Button>
-  );
-};
-
-export const disabledAndInverted = () => {
-  return (
-    <Button disabled={true} inverted={true} onClick={sayMyName}>
-      Hello Friend
-    </Button>
-  );
-};
-
-export const danger = () => {
-  return (
-    <Button color="danger" onClick={sayMyName}>
-      Hello Friend
-    </Button>
-  );
-};
-
-export const warning = () => {
-  return (
-    <Button color="warning" onClick={sayMyName}>
-      Hello Friend
+    <Button
+      inverted={boolean("Inverted", false)}
+      disabled={boolean("Disabled", false)}
+      type={select("Type", typeOptions, "primary")}
+      onClick={sayMyName}
+    >
+      {text("Text", "Hello Friend")}
     </Button>
   );
 };
