@@ -26,7 +26,10 @@ export const ListItem = ({
       onKeyPress={onEnterOrSpace(() => onClick && onClick(value))}
     >
       <div className="__list-item__left-side">{!nonOption && <Tick />}</div>
-      <div className="__list-item__content">{title}</div>
+      <div
+        className="__list-item__content"
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
       {hasNext && (
         <div className="__list-item__right-side">
           <ArrowRight />
