@@ -53,7 +53,7 @@ export default {
       questionText: "Ce trebuie sa faci?",
       options: [
         {
-          label: 'Esti bine! Stai acasa! <a href="#">Link example</a>',
+          label: "Esti bine! Stai acasa! <a href='#'>Link example</a>",
           value: 0
         },
         {
