@@ -104,6 +104,7 @@ export default {
       questionId: 100,
       type: "FINAL",
       questionText: "Ce trebuie sa faci?",
+      showBackButton: false,
       options: [
         {
           label: "Esti bine! Stai acasa!",

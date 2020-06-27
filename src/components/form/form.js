@@ -186,6 +186,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       setCurrentNode(nextNode);
     }
   };
+
   const goToPreviousQuestion = () => {
     const newNode = historyOfSteps.pop();
     setHistoryOfSteps(historyOfSteps);
@@ -209,6 +210,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       </div>
     );
   };
+
   const goForwardButton = () => {
     return (
       <div className="level-item">
@@ -222,6 +224,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       </div>
     );
   };
+
   const restartButton = () => {
     return (
       <Button inverted={true} onClick={resetForm}>
@@ -229,14 +232,18 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       </Button>
     );
   };
+
   const showQuestion = () => {
+    const currentQuestion = formAsMap[currentNode];
     return (
       <div>
         {questionView()}
         <div className="level action-buttons">
           <div className="level-left">{data.form && restartButton()}</div>
           <div className="level-right">
-            {currentNode > FIRST_NODE && goBackButton()}
+            {currentNode > FIRST_NODE &&
+              currentQuestion.showBackButton !== false &&
+              goBackButton()}
             {areThereQuestionsLeft() && goForwardButton()}
           </div>
         </div>
