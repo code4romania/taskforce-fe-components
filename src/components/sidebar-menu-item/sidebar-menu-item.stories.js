@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./../../styles.scss";
 import { SidebarMenuItem } from "./sidebar-menu-item";
 import { withKnobs } from "@storybook/addon-knobs";
 
@@ -65,9 +64,9 @@ export const sectionTitleWithCallback = () => {
     buttons: [
       {
         title: "Vezi toate legile",
-        link: "https://test.com"
-      }
-    ]
+        link: "https://test.com",
+      },
+    ],
   };
 
   return (

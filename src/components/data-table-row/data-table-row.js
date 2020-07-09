@@ -7,5 +7,5 @@ export const DataTableRow = ({ children }) => {
 };
 
 DataTableRow.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };

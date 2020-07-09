@@ -47,10 +47,10 @@ export const SubscribeForm = ({ compact, wording, mailChimpInputName }) => {
 SubscribeForm.propTypes = {
   wording: PropTypes.shape(wordingPropTypes).isRequired,
   compact: PropTypes.bool,
-  mailChimpInputName: PropTypes.string
+  mailChimpInputName: PropTypes.string,
 };
 
 SubscribeForm.defaultProps = {
   compact: false,
-  mailChimpInputName: "EMAIL"
+  mailChimpInputName: "EMAIL",
 };

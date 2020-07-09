@@ -1,5 +1,4 @@
 import React from "react";
-import "./../../styles.scss";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 import { SearchInput } from "./search-input";
 
@@ -17,7 +16,7 @@ export const placeholder = () => (
 
 export const onValueChanged = () => (
   <SearchInput
-    onValueChange={value => {
+    onValueChange={(value) => {
       alert(value);
     }}
   ></SearchInput>
@@ -29,7 +28,7 @@ export const value = () => (
 
 export const onClick = () => (
   <SearchInput
-    onClick={searchValue => {
+    onClick={(searchValue) => {
       alert("Search value: " + searchValue);
     }}
   ></SearchInput>
@@ -37,7 +36,7 @@ export const onClick = () => (
 
 export const onEnter = () => (
   <SearchInput
-    onEnter={searchValue => {
+    onEnter={(searchValue) => {
       alert("Search value: " + searchValue);
     }}
   ></SearchInput>

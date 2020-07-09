@@ -13,11 +13,12 @@ export const CompletedFormTable = ({ title, headers, dataRows = [] }) => {
       <table className="table result-history-table">
         <thead>
           <tr>
-            {headers.length && headers.map(item => <th key={item}>{item}</th>)}
+            {headers.length &&
+              headers.map((item) => <th key={item}>{item}</th>)}
           </tr>
         </thead>
         <tbody>
-          {dataRows.map(item => (
+          {dataRows.map((item) => (
             <tr key={item.id}>
               <td>{format(fromUnixTime(item.date), "dd.MM.yyyy / HH:mm")}</td>
               <td>{item.temperature > 37 ? "Da" : "Nu"}</td>
@@ -38,5 +39,5 @@ export const CompletedFormTable = ({ title, headers, dataRows = [] }) => {
 CompletedFormTable.propTypes = {
   title: PropTypes.string,
   headers: PropTypes.array.isRequired,
-  dataRows: PropTypes.array.isRequired
+  dataRows: PropTypes.array.isRequired,
 };

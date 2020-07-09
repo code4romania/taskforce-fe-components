@@ -1,6 +1,5 @@
 import React from "react";
 import { withKnobs, select } from "@storybook/addon-knobs";
-import "./../../styles.scss";
 import { SearchResultListItem } from "./search-result-list-item";
 
 export default { title: "SearchResultListItem", decorators: [withKnobs] };
@@ -9,7 +8,7 @@ const label = "Colors";
 const options = {
   Blue: "blue",
   Cyan: "cyan",
-  None: null
+  None: null,
 };
 const defaultValue = "null";
 

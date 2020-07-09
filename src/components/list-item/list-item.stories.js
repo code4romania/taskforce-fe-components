@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./../../styles.scss";
 import { ListItem } from "./list-item";
 
 export default { title: "ListItem" };
@@ -43,9 +42,9 @@ export const onClickWithValue = () => {
     buttons: [
       {
         title: "Vezi toate legile",
-        link: "https://test.com"
-      }
-    ]
+        link: "https://test.com",
+      },
+    ],
   };
 
   return (

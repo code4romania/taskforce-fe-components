@@ -9,7 +9,7 @@ export const SearchInput = ({
   placeholder = "cauta",
   value,
   onClick,
-  onEnter
+  onEnter,
 }) => {
   const [currentValue, setCurrentValue] = useState("");
 
@@ -19,13 +19,13 @@ export const SearchInput = ({
     }
   }, []);
 
-  const onKeyPress = event => {
+  const onKeyPress = (event) => {
     if (onEnter && event.key === "Enter") {
       onEnter(currentValue);
     }
   };
 
-  const onChange = event => {
+  const onChange = (event) => {
     if (onValueChange) {
       onValueChange(event.target.value);
     }
@@ -61,5 +61,5 @@ SearchInput.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
   onClick: PropTypes.func,
-  onEnter: PropTypes.func
+  onEnter: PropTypes.func,
 };

@@ -19,9 +19,9 @@ export const Banner = ({ color, title, link }) => {
 Banner.propTypes = {
   color: PropTypes.oneOf(["red", "pink", "green", "yellow"]),
   title: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired
+  link: PropTypes.string.isRequired,
 };
 
 Banner.defaultProps = {
-  color: "yellow"
+  color: "yellow",
 };

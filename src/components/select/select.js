@@ -18,12 +18,12 @@ export const Select = ({
   description,
   options,
   selectProps,
-  defaultValue
+  defaultValue,
 }) => {
   const [currentValue, setCurrentValue] = useState();
 
   useEffect(() => {
-    const selectedOptions = options.filter(opt => opt.selected);
+    const selectedOptions = options.filter((opt) => opt.selected);
 
     if (selectedOptions.length) {
       const [option] = selectedOptions;
@@ -39,7 +39,7 @@ export const Select = ({
     }
   }, [defaultValue]);
 
-  const onChange = e => {
+  const onChange = (e) => {
     if (selectProps.onChange && typeof selectProps.onChange === "function") {
       selectProps.onChange(e);
     }
@@ -83,14 +83,14 @@ Select.propTypes = {
       text: PropTypes.string,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       disabled: PropTypes.bool,
-      selected: deprecated(PropTypes.bool, "Use `defaultValue` prop instead.")
+      selected: deprecated(PropTypes.bool, "Use `defaultValue` prop instead."),
     })
-  )
+  ),
 };
 
 Select.defaultProps = {
   label: "",
   description: "",
   selectProps: {},
-  options: []
+  options: [],
 };

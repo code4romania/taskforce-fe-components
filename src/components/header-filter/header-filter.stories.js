@@ -1,6 +1,4 @@
 import React from "react";
-import "./../../styles.scss";
-
 import { HeaderFilter } from "./header-filter";
 import { FilterModal } from "../filter-modal/filter-modal";
 
@@ -22,7 +20,7 @@ export const withFilterModal = () => {
       <FilterModal
         placeholder="nume judet"
         isOpen
-        selectValue={value => alert("Select value " + value)}
+        selectValue={(value) => alert("Select value " + value)}
         values={[
           "Alba",
           "Arad",
@@ -34,7 +32,7 @@ export const withFilterModal = () => {
           "Brașov",
           "Brăila",
           "București",
-          "etc"
+          "etc",
         ]}
       />
     </div>

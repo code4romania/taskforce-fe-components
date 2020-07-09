@@ -3,8 +3,6 @@ import { IncubatedBy } from "./incubated-by";
 import { Logo } from "../..";
 import patriaBank from "../../images/patria-bank.png";
 
-import "./../../styles.scss";
-
 const customPartnerLogos = (
   <Logo url="https://www.patriabank.ro/" key="patria-bank">
     <img src={patriaBank} alt="Patria Bank" />
@@ -23,7 +21,7 @@ const customMultiplePartnersLogos = [
       src="http://www.bigdreammovement.com/wp-content/uploads/girls-who-code.png"
       alt="Custom Partner"
     />
-  </Logo>
+  </Logo>,
 ];
 
 export default { title: "Incubated By" };

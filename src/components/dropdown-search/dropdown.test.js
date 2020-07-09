@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DropdownSearch } from "./dropdown-search";
 import { mount } from "enzyme";
 
-const clickOnDropdownSearchTitle = dropdown => {
+const clickOnDropdownSearchTitle = (dropdown) => {
   findDropdownSearchTitle(dropdown).simulate("click");
 };
 
@@ -11,7 +11,7 @@ const selectOptionFromDropdown = (dropdownSearch, optionToSelect) => {
   result.simulate("click");
 };
 
-const findDropdownSearchTitle = dropdown => {
+const findDropdownSearchTitle = (dropdown) => {
   return dropdown.find(".dropdown-search-filter");
 };
 
@@ -21,13 +21,13 @@ const findDropdownOption = (dropdownSearch, optionToFind) => {
   );
 };
 
-const findSearchInput = dropdown => {
+const findSearchInput = (dropdown) => {
   return dropdown.find("input");
 };
 
 const typeTextInSearchInput = (dropdownSearch, input) => {
   findSearchInput(dropdownSearch).simulate("change", {
-    target: { value: input }
+    target: { value: input },
   });
 };
 
@@ -35,7 +35,7 @@ describe("Dropdown Search", () => {
   const title = "Judet";
   const options = [
     { value: 1, label: "Alba" },
-    { value: 2, label: "Bucuresti" }
+    { value: 2, label: "Bucuresti" },
   ];
 
   it("should call onSelect when an item in the dropdown has been selected", () => {

@@ -5,10 +5,10 @@ import { ListHeader } from "../list-header/list-header";
 import { Input } from "../input/input";
 
 function InputQuestion({ question, onAnswer, currentResponse }) {
-  const onChange = event => {
+  const onChange = (event) => {
     const answer = {
       questionId: question.questionId,
-      value: event.target.value
+      value: event.target.value,
     };
     onAnswer(answer);
   };
@@ -34,12 +34,12 @@ InputQuestion.propTypes = {
     options: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string.isRequired,
-        value: PropTypes.number.isRequired
+        value: PropTypes.number.isRequired,
       })
-    )
+    ),
   }),
   onAnswer: PropTypes.func,
-  currentResponse: PropTypes.string
+  currentResponse: PropTypes.string,
 };
 
 export default InputQuestion;

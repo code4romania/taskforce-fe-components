@@ -7,7 +7,7 @@ export const Hero = ({
   title,
   subtitle,
   children,
-  useFallbackIcon = false
+  useFallbackIcon = false,
 }) => {
   return (
     <header className="hero">
@@ -32,5 +32,5 @@ Hero.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   children: PropTypes.node,
-  useFallbackIcon: PropTypes.bool
+  useFallbackIcon: PropTypes.bool,
 };

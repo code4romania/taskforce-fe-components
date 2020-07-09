@@ -1,5 +1,4 @@
 import React from "react";
-import "./../../styles.scss";
 import { Footer } from "./footer";
 import { FooterLinkHeader, FooterLinks, FooterLinkItem } from "./footer-links";
 

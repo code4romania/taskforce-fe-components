@@ -16,9 +16,9 @@ export const DataTableItem = ({ children, align, extraStyles }) => {
 DataTableItem.propTypes = {
   children: PropTypes.node.isRequired,
   align: PropTypes.oneOf(["right", "left", "center"]),
-  extraStyles: PropTypes.any
+  extraStyles: PropTypes.any,
 };
 
 DataTableItem.defaultProps = {
-  align: "left"
+  align: "left",
 };

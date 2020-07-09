@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../styles.scss";
 import { LoginForm } from "./login-form";
 import { Hero } from "../hero/hero";
 
@@ -32,7 +31,7 @@ export const usageWithInitialState = () => {
   const initialState = {
     email: "anon@code4.ro",
     password: "",
-    remember: true
+    remember: true,
   };
   const [loginData, setState] = useState(initialState);
 

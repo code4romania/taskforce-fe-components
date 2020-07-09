@@ -12,7 +12,7 @@ export const ListItem = ({
   hasNext,
   value,
   onClick,
-  nonOption
+  nonOption,
 }) => {
   return (
     <div
@@ -20,7 +20,7 @@ export const ListItem = ({
       tabIndex={0}
       className={classNames("__list-item", {
         "__list-item--active": active && !nonOption,
-        "__list-item--non-option": nonOption
+        "__list-item--non-option": nonOption,
       })}
       onClick={() => onClick && onClick(value)}
       onKeyPress={onEnterOrSpace(() => onClick && onClick(value))}
@@ -42,7 +42,7 @@ export const ListItem = ({
 ListItem.defaultProps = {
   active: false,
   nonOption: false,
-  hasNext: false
+  hasNext: false,
 };
 
 ListItem.propTypes = {
@@ -51,5 +51,5 @@ ListItem.propTypes = {
   active: PropTypes.bool,
   hasNext: PropTypes.bool,
   nonOption: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };

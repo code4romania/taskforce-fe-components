@@ -17,5 +17,5 @@ export const HeaderFilter = ({ name, onFilterIconClick }) => {
 
 HeaderFilter.propTypes = {
   name: PropTypes.string,
-  onFilterIconClick: PropTypes.func.isRequired
+  onFilterIconClick: PropTypes.func.isRequired,
 };

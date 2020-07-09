@@ -9,13 +9,13 @@ export default {
       options: [
         {
           label: "Da",
-          value: 1
+          value: 1,
         },
         {
           label: "Nu",
-          value: 0
-        }
-      ]
+          value: 0,
+        },
+      ],
     },
     {
       questionId: 2,
@@ -24,13 +24,13 @@ export default {
       options: [
         {
           label: "Masculin",
-          value: 1
+          value: 1,
         },
         {
           label: "Feminin",
-          value: 2
-        }
-      ]
+          value: 2,
+        },
+      ],
     },
     {
       questionId: 3,
@@ -39,13 +39,13 @@ export default {
       options: [
         {
           label: "Da",
-          value: 1
+          value: 1,
         },
         {
           label: "Nu",
-          value: 0
-        }
-      ]
+          value: 0,
+        },
+      ],
     },
     {
       questionId: 4,
@@ -54,13 +54,13 @@ export default {
       options: [
         {
           label: "Esti bine! Stai acasa! <a href='#'>Link example</a>",
-          value: 0
+          value: 0,
         },
         {
           label: "Suna medicul de familie! Dar stai acasa!",
-          value: 1
-        }
-      ]
-    }
-  ]
+          value: 1,
+        },
+      ],
+    },
+  ],
 };

@@ -8,7 +8,7 @@ export const SearchResultListItem = ({
   readMoreText,
   readMoreLink,
   children,
-  color
+  color,
 }) => {
   return (
     <div className={`searchResult ${color}`}>
@@ -37,5 +37,5 @@ SearchResultListItem.propTypes = {
   children: PropTypes.node.isRequired,
   readMoreText: PropTypes.string,
   readMoreLink: PropTypes.string,
-  color: PropTypes.oneOf(["cyan", "blue"])
+  color: PropTypes.oneOf(["cyan", "blue"]),
 };

@@ -2,8 +2,6 @@ import React from "react";
 import { Logo } from "./logo";
 import Code4Logo from "../../images/code4romania-color.svg";
 
-import "./../../styles.scss";
-
 export default { title: "Logo" };
 
 export const regular = () => (

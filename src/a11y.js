@@ -7,7 +7,7 @@
  * @returns {React.KeyboardEventHandler}
  */
 export function onEnterOrSpace(callback) {
-  return event => {
+  return (event) => {
     if (event.key === "Enter" || event.key === " ") {
       if (typeof callback === "function") {
         callback();

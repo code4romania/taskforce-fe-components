@@ -10,17 +10,17 @@ export const LoginForm = ({
   header,
   initialState,
   onSubmit,
-  rightContent
+  rightContent,
 }) => {
   const [login, setState] = useState(initialState);
 
-  const handleOnChange = e => {
+  const handleOnChange = (e) => {
     const target = e.target;
     const name = target.name;
     const value = target.type === "checkbox" ? target.checked : target.value;
-    setState(prevLogin => ({
+    setState((prevLogin) => ({
       ...prevLogin,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -84,8 +84,8 @@ LoginForm.propTypes = {
   initialState: PropTypes.shape({
     email: PropTypes.string,
     password: PropTypes.string,
-    remember: PropTypes.bool
-  })
+    remember: PropTypes.bool,
+  }),
 };
 
 LoginForm.defaultProps = {
@@ -93,6 +93,6 @@ LoginForm.defaultProps = {
   initialState: {
     email: "",
     password: "",
-    remember: false
-  }
+    remember: false,
+  },
 };

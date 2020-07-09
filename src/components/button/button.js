@@ -9,7 +9,7 @@ export const Button = ({
   size,
   disabled,
   inverted,
-  inputType
+  inputType,
 }) => {
   const classNames = ["button"];
 
@@ -44,12 +44,12 @@ Button.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"]),
   disabled: PropTypes.bool,
   inverted: PropTypes.bool,
-  inputType: PropTypes.oneOf(["button", "submit", "reset"])
+  inputType: PropTypes.oneOf(["button", "submit", "reset"]),
 };
 
 Button.defaultProps = {
   type: "primary",
   disabled: false,
   inverted: false,
-  inputType: "button"
+  inputType: "button",
 };

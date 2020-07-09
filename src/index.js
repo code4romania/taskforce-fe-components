@@ -11,7 +11,7 @@ export { DevelopedBy } from "./components/developed-by/developed-by";
 export {
   FooterLinks,
   FooterLinkHeader,
-  FooterLinkItem
+  FooterLinkItem,
 } from "./components/footer/footer-links";
 export { Footer } from "./components/footer/footer";
 

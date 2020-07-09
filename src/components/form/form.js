@@ -24,18 +24,18 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     setHistoryOfSteps([]);
   };
 
-  const answerCurrentQuestion = answer => {
+  const answerCurrentQuestion = (answer) => {
     setFormState({
       ...formState,
-      [answer.questionId]: answer.value
+      [answer.questionId]: answer.value,
     });
   };
 
-  const toMap = form => {
+  const toMap = (form) => {
     return form.reduce((obj, item) => {
       return {
         ...obj,
-        [item["questionId"]]: item
+        [item["questionId"]]: item,
       };
     }, {});
   };
@@ -67,13 +67,13 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       return {
         id: question.questionId,
         questionText: question.questionText,
-        answer: answer
+        answer: answer,
       };
     });
     return {
       formId: data.formId,
       timestamp: Date.now(),
-      answers: Object.values(answersById).filter(answer => answer.id)
+      answers: Object.values(answersById).filter((answer) => answer.id),
     };
   };
 
@@ -161,7 +161,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       return;
     }
     const selectedOption = question.options.find(
-      option => option.value === optionValue
+      (option) => option.value === optionValue
     );
     return selectedOption.nextQuestionId;
   };
@@ -288,14 +288,14 @@ Form.propTypes = {
     content: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
-        page: PropTypes.string.isRequired
+        page: PropTypes.string.isRequired,
       })
     ),
     firstNodeId: PropTypes.number.isRequired,
     formId: PropTypes.number,
     intro: PropTypes.shape({
       title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired
+      description: PropTypes.string.isRequired,
     }),
     form: PropTypes.arrayOf(
       PropTypes.shape({
@@ -308,18 +308,18 @@ Form.propTypes = {
           "INPUT",
           "DATE_PICKER",
           "DATE_TIME_PICKER",
-          "CUSTOM"
+          "CUSTOM",
         ]),
         options: PropTypes.arrayOf(
           PropTypes.shape({
             label: PropTypes.string.isRequired,
             value: PropTypes.number.isRequired,
-            nextQuestionId: PropTypes.number
+            nextQuestionId: PropTypes.number,
           })
-        )
+        ),
       })
-    )
+    ),
   }),
   evaluateForm: PropTypes.func,
-  onFinishingForm: PropTypes.func
+  onFinishingForm: PropTypes.func,
 };

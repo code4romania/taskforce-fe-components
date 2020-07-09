@@ -10,7 +10,7 @@ export const DropdownSearch = ({
   onSelect,
   isAlwaysOpen,
   showSearchInput,
-  searchPlaceholder
+  searchPlaceholder,
 }) => {
   const [showDropdownOptions, setShowDropdownOptions] = useState(false);
   const [dropdownTitle, setDropdownTitle] = useState(title);
@@ -21,7 +21,7 @@ export const DropdownSearch = ({
     setDropdownOptions(options);
   }, [options]);
 
-  const selectDropdownOption = option => {
+  const selectDropdownOption = (option) => {
     setDropdownTitle(option.label);
     setShowDropdownOptions(!showDropdownOptions);
     setSearchInput("");
@@ -29,7 +29,7 @@ export const DropdownSearch = ({
     onSelect(option);
   };
 
-  const onDropdownKeyPress = event => {
+  const onDropdownKeyPress = (event) => {
     if (event.key === "Enter") {
       toggleDropdownOptions();
     }
@@ -45,16 +45,16 @@ export const DropdownSearch = ({
     setShowDropdownOptions(!showDropdownOptions);
   };
 
-  const filterCaseInsensitiveElementsContaining = text => {
+  const filterCaseInsensitiveElementsContaining = (text) => {
     if (text && text.trim() === "") {
       return options;
     }
-    return options.filter(element =>
+    return options.filter((element) =>
       element.label.toLowerCase().includes(text.toLowerCase())
     );
   };
 
-  const filterValues = searchText => {
+  const filterValues = (searchText) => {
     setSearchInput(searchText);
     setDropdownOptions(filterCaseInsensitiveElementsContaining(searchText));
   };
@@ -86,14 +86,14 @@ export const DropdownSearch = ({
           )}
           <div className="dropdown-search-options__scrollable-wrapper">
             <div className="dropdown-search-options__list">
-              {dropdownOptions.map(option => {
+              {dropdownOptions.map((option) => {
                 return (
                   <div
                     tabIndex={0}
                     className="dropdown-search-options__value"
                     key={option.value}
                     id={option.value}
-                    onKeyPress={e => onItemKeyPress(e, option)}
+                    onKeyPress={(e) => onItemKeyPress(e, option)}
                     onClick={() => {
                       selectDropdownOption(option);
                     }}
@@ -116,7 +116,7 @@ DropdownSearch.defaultProps = {
   onSelect: () => {},
   isAlwaysOpen: false,
   showSearchInput: true,
-  searchPlaceholder: ""
+  searchPlaceholder: "",
 };
 
 DropdownSearch.propTypes = {
@@ -124,11 +124,11 @@ DropdownSearch.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      label: PropTypes.string
+      label: PropTypes.string,
     })
   ).isRequired,
   onSelect: PropTypes.func.isRequired,
   isAlwaysOpen: PropTypes.bool,
   showSearchInput: PropTypes.bool,
-  searchPlaceholder: PropTypes.string
+  searchPlaceholder: PropTypes.string,
 };

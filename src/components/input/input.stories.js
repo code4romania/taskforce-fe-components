@@ -8,7 +8,7 @@ const style = { width: 500 };
 export const types = () => (
   <form
     style={style}
-    onSubmit={e => {
+    onSubmit={(e) => {
       e.preventDefault();
     }}
   >
@@ -70,24 +70,24 @@ export const other = () => (
 );
 
 const emailMessage = {
-  typeMismatch: "Un email valid trebuie sa contina @"
+  typeMismatch: "Un email valid trebuie sa contina @",
 };
 
 const telephoneMessage = {
-  patternMismatch: "Va rog introduceti un numar de telefon valid"
+  patternMismatch: "Va rog introduceti un numar de telefon valid",
 };
 
 const numberMessages = {
   rangeOverflow: "Valoarea trebuie sa fie mai mica sau egala cu 7",
   rangeUnderflow: "Valoarea trebuie sa fie mai mare sau egala cu 1",
   valueMissing: "Te rog completeaza acest camp",
-  stepMismatch: "Valoarea trebuie sa fie impara"
+  stepMismatch: "Valoarea trebuie sa fie impara",
 };
 
 export const validation = () => (
   <form
     style={style}
-    onSubmit={e => {
+    onSubmit={(e) => {
       e.preventDefault();
     }}
   >
@@ -127,7 +127,7 @@ export const events = () => {
       <Input
         label="Type something..."
         usePlaceholder={true}
-        onChange={e => setInputValue(e.target.value)}
+        onChange={(e) => setInputValue(e.target.value)}
       />
       <label>{inputValue}</label>
     </div>

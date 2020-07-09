@@ -12,7 +12,7 @@ export const DatePicker = ({
   withTime,
   question,
   onAnswer,
-  currentResponse
+  currentResponse,
 }) => {
   const [startDate, setStartDate] = useState(
     currentResponse ? currentResponse : null
@@ -20,11 +20,11 @@ export const DatePicker = ({
 
   const maxDate = !question.allowFuture ? new Date() : null;
 
-  const onChange = date => {
+  const onChange = (date) => {
     setStartDate(date);
     const answer = {
       questionId: question.questionId,
-      value: date
+      value: date,
     };
     onAnswer(answer);
   };
@@ -72,7 +72,7 @@ const DateOnlyPicker = ({ startDate, maxDate, onChange }) => {
 };
 
 const DateTimePicker = ({ startDate, maxDate, onChange }) => {
-  const computeMinTime = date => {
+  const computeMinTime = (date) => {
     if (!maxDate) {
       return;
     }
@@ -82,7 +82,7 @@ const DateTimePicker = ({ startDate, maxDate, onChange }) => {
     }
   };
 
-  const computeMaxTime = date => {
+  const computeMaxTime = (date) => {
     if (!maxDate) {
       return;
     }
@@ -99,7 +99,7 @@ const DateTimePicker = ({ startDate, maxDate, onChange }) => {
     computeMaxTime(startDate || new Date())
   );
 
-  const handleDatetimeChange = date => {
+  const handleDatetimeChange = (date) => {
     setMinTime(computeMinTime(date));
     setMaxTime(computeMaxTime(date));
     onChange(date);
@@ -149,20 +149,20 @@ DatePicker.propTypes = {
   question: PropTypes.shape({
     questionId: PropTypes.number.isRequired,
     questionText: PropTypes.string.isRequired,
-    allowFuture: PropTypes.bool
+    allowFuture: PropTypes.bool,
   }),
   onAnswer: PropTypes.func,
-  currentResponse: PropTypes.object
+  currentResponse: PropTypes.object,
 };
 
 DateTimePicker.propTypes = {
   startDate: PropTypes.object,
   maxDate: PropTypes.instanceOf(Date),
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 DateOnlyPicker.propTypes = {
   startDate: PropTypes.object,
   maxDate: PropTypes.instanceOf(Date),
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };

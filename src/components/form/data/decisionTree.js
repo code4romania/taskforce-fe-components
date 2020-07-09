@@ -3,7 +3,7 @@ export default {
   firstNodeId: 1,
   intro: {
     title: "Welcome",
-    description: "Please answer next questions"
+    description: "Please answer next questions",
   },
   form: [
     {
@@ -13,19 +13,19 @@ export default {
       options: [
         {
           label: "Da",
-          value: 1
+          value: 1,
         },
         {
           label: "Nu",
           value: 0,
-          nextQuestionId: 4
-        }
-      ]
+          nextQuestionId: 4,
+        },
+      ],
     },
     {
       questionId: 2,
       questionText: "De cand ai inceput sa ai simptome?",
-      type: "DATE_PICKER"
+      type: "DATE_PICKER",
     },
     {
       questionId: 3,
@@ -34,13 +34,13 @@ export default {
       options: [
         {
           label: "37",
-          value: 1
+          value: 1,
         },
         {
           label: "38",
-          value: 2
-        }
-      ]
+          value: 2,
+        },
+      ],
     },
     {
       questionId: 4,
@@ -49,13 +49,13 @@ export default {
       options: [
         {
           label: "Da",
-          value: 1
+          value: 1,
         },
         {
           label: "Nu",
-          value: 0
-        }
-      ]
+          value: 0,
+        },
+      ],
     },
     {
       questionId: 5,
@@ -64,19 +64,19 @@ export default {
       options: [
         {
           label: "Masculin",
-          value: 1
+          value: 1,
         },
         {
           label: "Feminin",
-          value: 2
-        }
-      ]
+          value: 2,
+        },
+      ],
     },
     {
       questionId: 6,
       questionText: "Care este numele tau?",
       type: "INPUT",
-      options: []
+      options: [],
     },
     {
       questionId: 7,
@@ -86,19 +86,19 @@ export default {
       options: [
         {
           label: "Tuse",
-          value: 0
+          value: 0,
         },
         {
           type: "OTHER",
           label: "Febra",
-          value: 1
+          value: 1,
         },
         {
           type: "OTHER",
           label: "Altele",
-          value: 2
-        }
-      ]
+          value: 2,
+        },
+      ],
     },
     {
       questionId: 100,
@@ -108,13 +108,13 @@ export default {
       options: [
         {
           label: "Esti bine! Stai acasa!",
-          value: 0
+          value: 0,
         },
         {
           label: "Suna medicul de familie! Dar stai acasa!",
-          value: 1
-        }
-      ]
-    }
-  ]
+          value: 1,
+        },
+      ],
+    },
+  ],
 };

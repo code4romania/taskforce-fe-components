@@ -8,11 +8,11 @@ import "./multipleChoice.scss";
 
 function MultipleChoice({ question, onAnswer, currentResponse = {} }) {
   const [answers, setAnswers] = useState(currentResponse);
-  const isSelected = option => {
+  const isSelected = (option) => {
     return answers[option.value];
   };
 
-  const handleClick = option => {
+  const handleClick = (option) => {
     if (answers[option.value]) {
       delete answers[option.value];
     } else {
@@ -21,7 +21,7 @@ function MultipleChoice({ question, onAnswer, currentResponse = {} }) {
     setAnswers(answers);
     onAnswer({
       questionId: question.questionId,
-      value: answers
+      value: answers,
     });
   };
 
@@ -35,11 +35,11 @@ function MultipleChoice({ question, onAnswer, currentResponse = {} }) {
     setAnswers(answers);
     onAnswer({
       questionId: question.questionId,
-      value: answers
+      value: answers,
     });
   };
 
-  const choiceFor = option => {
+  const choiceFor = (option) => {
     if (option.type === "OTHER") {
       const value = answers[option.value];
       return (
@@ -49,7 +49,7 @@ function MultipleChoice({ question, onAnswer, currentResponse = {} }) {
         >
           <Input
             usePlaceholder={false}
-            onChange={event => {
+            onChange={(event) => {
               onInputForOther(String(option.value), event.target.value);
             }}
             defaultValue={value ? value : ""}
@@ -72,7 +72,7 @@ function MultipleChoice({ question, onAnswer, currentResponse = {} }) {
     <div>
       <ListHeader title={question.questionText} />
       <div>
-        <List>{question.options.map(option => choiceFor(option))}</List>
+        <List>{question.options.map((option) => choiceFor(option))}</List>
       </div>
     </div>
   );
@@ -85,16 +85,16 @@ MultipleChoice.propTypes = {
       "FINAL",
       "SINGLE_CHOICE",
       "MULTIPLE_CHOICE",
-      "INPUT"
+      "INPUT",
     ]),
     options: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string.isRequired,
-        value: PropTypes.number.isRequired
+        value: PropTypes.number.isRequired,
       })
-    )
+    ),
   }),
   onAnswer: PropTypes.func,
-  currentResponse: PropTypes.object
+  currentResponse: PropTypes.object,
 };
 export default MultipleChoice;

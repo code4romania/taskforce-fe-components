@@ -1,6 +1,4 @@
 import React from "react";
-import "./../../styles.scss";
-
 import { FilterModal } from "./filter-modal";
 
 export default { title: "Filter Modal" };
@@ -21,7 +19,7 @@ export const usage = () => {
         "Brașov",
         "Brăila",
         "București",
-        "etc"
+        "etc",
       ]}
     />
   );
