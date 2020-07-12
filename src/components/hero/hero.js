@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CovidSvg from "../../images/covid-all.svg";
+import { ReactComponent as CovidSvg } from "../../images/covid-all.svg";
 import "./hero.scss";
 
 export const Hero = ({

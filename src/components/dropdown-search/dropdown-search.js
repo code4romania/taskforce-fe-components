@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./dropdown-search.scss";
-import ArrowDown from "../../images/icons/arrow-down.svg";
+import { ReactComponent as ArrowDown } from "../../images/icons/arrow-down.svg";
 import { SearchInput } from "../search-input/search-input";
 
 export const DropdownSearch = ({

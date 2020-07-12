@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React from "react";
 import { Accordion } from "./accordion";
+import Cemafac from "../../images/cemafac.svg";
 
 export default { title: "Accordion" };
 
@@ -12,7 +13,7 @@ export const WithChildren = () => {
 
   return (
     <Accordion title={accordionData.title}>
-      <img src="//code4.ro/images/logo-full.svg" />
+      <img src={Cemafac} />
       <p>
         Momentan nu există un vaccin preventiv pentru coronavirusul care
         cauzează COVID-19. Cea mai sigură metodă de evitare a infecției este să

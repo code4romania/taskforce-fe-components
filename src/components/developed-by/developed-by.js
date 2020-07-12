@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import DeveloperLogo from "../../images/code4romania.svg";
+import { ReactComponent as DeveloperLogo } from "../../images/code4romania.svg";
 import partnerLogo from "./assets/partener.png";
 import dsuLogo from "./assets/dsu.png";
 import "./developed-by.scss";

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./header-filter.scss";
 
-import FilterIcon from "../../images/icons/filter.svg";
+import { ReactComponent as FilterIcon } from "../../images/icons/filter.svg";
 
 export const HeaderFilter = ({ name, onFilterIconClick }) => {
   return (

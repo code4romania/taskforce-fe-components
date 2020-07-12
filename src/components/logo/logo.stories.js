@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo } from "./logo";
-import Code4Logo from "../../images/code4romania-color.svg";
+import { ReactComponent as Code4Logo } from "../../images/code4romania-color.svg";
 
 export default { title: "Logo" };
 

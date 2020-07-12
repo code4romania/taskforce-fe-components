@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import Tick from "../../images/icons/tick.svg";
-import ArrowRight from "../../images/icons/arrow-right.svg";
+import { ReactComponent as Tick } from "../../images/icons/tick.svg";
+import { ReactComponent as ArrowRight } from "../../images/icons/arrow-right.svg";
 import "./list-item.scss";
 import { onEnterOrSpace } from "../../a11y";
 

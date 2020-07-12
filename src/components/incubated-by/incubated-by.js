@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Logo } from "../logo/logo";
-import TaskforceLogo from "../../images/code4romania-color.svg";
+import { ReactComponent as TaskforceLogo } from "../../images/code4romania-color.svg";
 import "./incubated-by.scss";
 
 export const IncubatedBy = ({ partnerLogos }) => {

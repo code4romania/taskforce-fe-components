@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CaretSvg from "../../images/icons/caret-down.svg";
+import { ReactComponent as CaretSvg } from "../../images/icons/caret-down.svg";
 import "./completed-form-table.scss";
 import { Label } from "../label/label";
 import format from "date-fns/format";
