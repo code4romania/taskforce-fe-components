@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import deprecated from "deprecated-prop-type";
-import warning from "warning";
 
 /**
  *
@@ -30,7 +28,7 @@ export const Select = ({
       setCurrentValue(option.value);
 
       if (selectedOptions.length > 1) {
-        warning(false, "Only one 'selected' property of 'Select' can be true");
+        console.warn("Only one 'selected' property of 'Select' can be true");
       }
     }
 
@@ -83,7 +81,6 @@ Select.propTypes = {
       text: PropTypes.string,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       disabled: PropTypes.bool,
-      selected: deprecated(PropTypes.bool, "Use `defaultValue` prop instead."),
     })
   ),
 };

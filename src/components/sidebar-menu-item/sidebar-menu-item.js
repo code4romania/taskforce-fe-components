@@ -3,16 +3,13 @@ import PropTypes from "prop-types";
 import "./sidebar-menu-item.scss";
 import classNames from "classnames";
 import { onEnterOrSpace } from "../../a11y";
-import { useCssVars } from "../../hooks/useCssVars";
-
 export const SidebarMenuItem = ({
   active,
   isTitle,
   children,
   onClick,
-  theme,
+  style,
 }) => {
-  const style = useCssVars(theme);
   const onClickCb = () => {
     if (onClick) {
       onClick();
@@ -41,11 +38,11 @@ SidebarMenuItem.propTypes = {
   isTitle: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.node.isRequired,
-  theme: PropTypes.object,
+  style: PropTypes.object,
 };
 
 SidebarMenuItem.SidebarMenuItem = {
   active: false,
   isTitle: false,
-  theme: false,
+  style: false,
 };

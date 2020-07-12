@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { mapObject } from "underscore";
 import SingleChoice from "./singleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
@@ -42,7 +41,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
 
   const formAsMap = toMap(data.form);
   const createFormWithAnswers = () => {
-    const answersById = mapObject(formAsMap, (question, id) => {
+    const answersById = Object.entries(formAsMap).map(([id, question]) => {
       //a bit a of hack to get rid of the final entry - needs restructuring of the data model
       if (question.type === "FINAL") {
         return {};
@@ -73,7 +72,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     return {
       formId: data.formId,
       timestamp: Date.now(),
-      answers: Object.values(answersById).filter((answer) => answer.id),
+      answers: answersById.filter((answer) => answer.id),
     };
   };
 
