@@ -1,6 +1,7 @@
 dist
-.babelrc
+.babelrc.json
 .storybook
 .gitignore
 .prettierrc
+.eslintrc
 rollup.config.js
