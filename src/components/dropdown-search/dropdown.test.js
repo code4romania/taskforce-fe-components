@@ -27,7 +27,7 @@ const findSearchInput = (dropdown) => {
 
 const typeTextInSearchInput = (dropdownSearch, input) => {
   findSearchInput(dropdownSearch).simulate("change", {
-    target: { value: input },
+    target: { value: input }
   });
 };
 
@@ -35,7 +35,7 @@ describe("Dropdown Search", () => {
   const title = "Judet";
   const options = [
     { value: 1, label: "Alba" },
-    { value: 2, label: "Bucuresti" },
+    { value: 2, label: "Bucuresti" }
   ];
 
   it("should call onSelect when an item in the dropdown has been selected", () => {

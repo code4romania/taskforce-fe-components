@@ -21,7 +21,7 @@ function MultipleChoice({ question, onAnswer, currentResponse = {} }) {
     setAnswers(answers);
     onAnswer({
       questionId: question.questionId,
-      value: answers,
+      value: answers
     });
   };
 
@@ -35,7 +35,7 @@ function MultipleChoice({ question, onAnswer, currentResponse = {} }) {
     setAnswers(answers);
     onAnswer({
       questionId: question.questionId,
-      value: answers,
+      value: answers
     });
   };
 
@@ -85,16 +85,16 @@ MultipleChoice.propTypes = {
       "FINAL",
       "SINGLE_CHOICE",
       "MULTIPLE_CHOICE",
-      "INPUT",
+      "INPUT"
     ]),
     options: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string.isRequired,
-        value: PropTypes.number.isRequired,
+        value: PropTypes.number.isRequired
       })
-    ),
+    )
   }),
   onAnswer: PropTypes.func,
-  currentResponse: PropTypes.object,
+  currentResponse: PropTypes.object
 };
 export default MultipleChoice;

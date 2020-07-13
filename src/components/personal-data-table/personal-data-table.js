@@ -40,5 +40,5 @@ export const PersonalDataTable = ({ personalData }) => {
 };
 
 PersonalDataTable.propTypes = {
-  personalData: PropTypes.object.isRequired,
+  personalData: PropTypes.object.isRequired
 };

@@ -23,7 +23,7 @@ function SingleChoice({ question, onAnswer, currentResponse }) {
               onClick={() =>
                 onAnswer({
                   questionId: question.questionId,
-                  value: option.value,
+                  value: option.value
                 })
               }
             />
@@ -42,12 +42,12 @@ SingleChoice.propTypes = {
     options: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string.isRequired,
-        value: PropTypes.number.isRequired,
+        value: PropTypes.number.isRequired
       })
-    ),
+    )
   }),
   onAnswer: PropTypes.func,
-  currentResponse: PropTypes.number,
+  currentResponse: PropTypes.number
 };
 
 export default SingleChoice;

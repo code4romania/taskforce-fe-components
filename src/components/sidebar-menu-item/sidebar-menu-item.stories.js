@@ -64,9 +64,9 @@ export const sectionTitleWithCallback = () => {
     buttons: [
       {
         title: "Vezi toate legile",
-        link: "https://test.com",
-      },
-    ],
+        link: "https://test.com"
+      }
+    ]
   };
 
   return (

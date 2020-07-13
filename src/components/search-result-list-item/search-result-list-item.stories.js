@@ -8,7 +8,7 @@ const label = "Colors";
 const options = {
   Blue: "blue",
   Cyan: "cyan",
-  None: null,
+  None: null
 };
 const defaultValue = "null";
 

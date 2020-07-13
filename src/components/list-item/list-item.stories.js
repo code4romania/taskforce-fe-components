@@ -42,9 +42,9 @@ export const onClickWithValue = () => {
     buttons: [
       {
         title: "Vezi toate legile",
-        link: "https://test.com",
-      },
-    ],
+        link: "https://test.com"
+      }
+    ]
   };
 
   return (

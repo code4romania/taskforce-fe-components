@@ -16,7 +16,7 @@ export const Select = ({
   description,
   options,
   selectProps,
-  defaultValue,
+  defaultValue
 }) => {
   const [currentValue, setCurrentValue] = useState();
 
@@ -80,14 +80,14 @@ Select.propTypes = {
     PropTypes.shape({
       text: PropTypes.string,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      disabled: PropTypes.bool,
+      disabled: PropTypes.bool
     })
-  ),
+  )
 };
 
 Select.defaultProps = {
   label: "",
   description: "",
   selectProps: {},
-  options: [],
+  options: []
 };

@@ -19,7 +19,7 @@ export const usage = () => {
         "Brașov",
         "Brăila",
         "București",
-        "etc",
+        "etc"
       ]}
     />
   );

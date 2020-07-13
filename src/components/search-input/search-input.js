@@ -9,7 +9,7 @@ export const SearchInput = ({
   placeholder = "cauta",
   value,
   onClick,
-  onEnter,
+  onEnter
 }) => {
   const [currentValue, setCurrentValue] = useState("");
 
@@ -61,5 +61,5 @@ SearchInput.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
   onClick: PropTypes.func,
-  onEnter: PropTypes.func,
+  onEnter: PropTypes.func
 };

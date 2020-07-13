@@ -10,7 +10,7 @@ const customSubscribeWording = {
   title: "Custom title",
   subTitle: "My totally awesome custom subtitle",
   placeholder: "Custom placeholder",
-  button: "Do custom thingy",
+  button: "Do custom thingy"
 };
 
 const Wrapper = ({ compact, classes, customWording }) => {
@@ -38,7 +38,7 @@ const Wrapper = ({ compact, classes, customWording }) => {
 Wrapper.propTypes = {
   compact: PropTypes.bool,
   classes: PropTypes.string,
-  customWording: PropTypes.bool,
+  customWording: PropTypes.bool
 };
 
 export const mailchimpSubscribe = () => {

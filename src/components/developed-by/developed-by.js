@@ -11,7 +11,7 @@ export const DevelopedBy = ({
   showPartners,
   partnerLogos,
   secondLineCaption,
-  secondLineLogos,
+  secondLineLogos
 }) => {
   const partnersStr = "Un proiect în parteneriat cu ";
   const developedByStr = "dezvoltat de ";
@@ -20,14 +20,14 @@ export const DevelopedBy = ({
   const defaultPartners = [
     <Logo url={"https://www.gov.ro"} key="gov">
       <img src={partnerLogo} alt="Guvernul Romaniei" />
-    </Logo>,
+    </Logo>
   ];
 
   const defaultSecondLineCaption = "Conținut avizat de";
   const defaultSecondLineLogos = [
     <Logo url={"http://www.dsu.mai.gov.ro/"} key="DSU">
       <img src={dsuLogo} alt="Directia pentru Situatii de Urgenta" />
-    </Logo>,
+    </Logo>
   ];
 
   const renderPartnersList = (partners) => (
@@ -90,9 +90,9 @@ DevelopedBy.propTypes = {
   showPartners: PropTypes.bool,
   partnerLogos: PropTypes.arrayOf(PropTypes.node),
   secondLineCaption: PropTypes.string,
-  secondLineLogos: PropTypes.arrayOf(PropTypes.node),
+  secondLineLogos: PropTypes.arrayOf(PropTypes.node)
 };
 
 DevelopedBy.defaultProps = {
-  showPartners: true,
+  showPartners: true
 };

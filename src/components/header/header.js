@@ -30,5 +30,5 @@ Header.propTypes = {
   name: PropTypes.string,
   Logo: PropTypes.node.isRequired,
   MenuItems: PropTypes.node.isRequired,
-  ProfileItems: PropTypes.node,
+  ProfileItems: PropTypes.node
 };

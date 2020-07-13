@@ -10,7 +10,7 @@ const results = [
     temperature: 36.6,
     soreThroat: true,
     cough: true,
-    shortnessBreath: true,
+    shortnessBreath: true
   },
   {
     id: "136",
@@ -18,7 +18,7 @@ const results = [
     temperature: 36,
     soreThroat: true,
     cough: true,
-    shortnessBreath: true,
+    shortnessBreath: true
   },
   {
     id: "139",
@@ -26,7 +26,7 @@ const results = [
     temperature: 38.6,
     soreThroat: true,
     cough: true,
-    shortnessBreath: true,
+    shortnessBreath: true
   },
   {
     id: "140",
@@ -34,8 +34,8 @@ const results = [
     temperature: 38.6,
     soreThroat: true,
     cough: true,
-    shortnessBreath: true,
-  },
+    shortnessBreath: true
+  }
 ];
 
 const headers = [
@@ -44,7 +44,7 @@ const headers = [
   "Durere in gat si/sau dificultate in a inghiti?",
   "Tuse intensa",
   "Dificultate in a respira",
-  "",
+  ""
 ];
 
 export const completedForms = () => (

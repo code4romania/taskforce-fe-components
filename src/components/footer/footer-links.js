@@ -15,13 +15,13 @@ export const FooterLinkItem = ({ children }) => {
 };
 
 FooterLinks.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 FooterLinkHeader.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 FooterLinkItem.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };

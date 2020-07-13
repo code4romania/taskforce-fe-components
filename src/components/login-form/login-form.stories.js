@@ -31,7 +31,7 @@ export const usageWithInitialState = () => {
   const initialState = {
     email: "anon@code4.ro",
     password: "",
-    remember: true,
+    remember: true
   };
   const [loginData, setState] = useState(initialState);
 

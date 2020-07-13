@@ -7,7 +7,7 @@ export const Checkbox = ({
   disabled,
   defaultValue,
   children,
-  onChange,
+  onChange
 }) => (
   <label className="__checkbox-label">
     <input
@@ -27,10 +27,10 @@ Checkbox.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   defaultValue: PropTypes.bool,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 Checkbox.defaultProps = {
   defaultValue: false,
-  disabled: false,
+  disabled: false
 };

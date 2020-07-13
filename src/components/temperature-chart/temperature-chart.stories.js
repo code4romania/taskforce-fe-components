@@ -13,7 +13,7 @@ const results = [
   { date: 1588708675, temperature: 38 },
   { date: 1588277085, temperature: 37 },
   { date: 1588276813, temperature: 36 },
-  { date: 1588017389, temperature: 38 },
+  { date: 1588017389, temperature: 38 }
 ];
 
 export const temperatureChart = () => <TemperatureChart results={results} />;

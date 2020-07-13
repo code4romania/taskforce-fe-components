@@ -14,31 +14,31 @@ export const TemperatureChart = ({ results = [], title }) => {
   );
   const xAxisData = itemsListReversed.map((item) => ({
     value: item.temperature,
-    itemStyle: { color: item.temperature > 37 ? "red" : "blue" },
+    itemStyle: { color: item.temperature > 37 ? "red" : "blue" }
   }));
 
   const option = {
     grid: {
-      containLabel: true,
+      containLabel: true
     },
     yAxis: {
       type: "category",
       data: yAxisData,
       axisLine: { show: false, lineStyle: { color: "#fff" } },
       axisLabel: {
-        textStyle: { color: "#000" },
+        textStyle: { color: "#000" }
       },
       splitLine: {
-        show: false,
-      },
+        show: false
+      }
     },
     xAxis: {
       type: "value",
       axisLine: { show: true, lineStyle: { color: "#B0BEC5" } },
       axisLabel: { show: false },
       splitLine: {
-        show: false,
-      },
+        show: false
+      }
     },
     series: [
       {
@@ -48,10 +48,10 @@ export const TemperatureChart = ({ results = [], title }) => {
         markLine: {
           lineStyle: { width: 0.5, color: "#8CA0B3", style: "dashed" },
           data: [{ name: "hightemp", xAxis: 37 }],
-          symbol: ["none", "none"],
-        },
-      },
-    ],
+          symbol: ["none", "none"]
+        }
+      }
+    ]
   };
 
   return (
@@ -64,5 +64,5 @@ export const TemperatureChart = ({ results = [], title }) => {
 
 TemperatureChart.propTypes = {
   title: PropTypes.string,
-  results: PropTypes.array.isRequired,
+  results: PropTypes.array.isRequired
 };

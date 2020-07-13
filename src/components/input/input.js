@@ -25,7 +25,7 @@ export const Input = ({
   maxLength,
   pattern,
   title,
-  step,
+  step
 }) => {
   const inputClassNames = ["input"];
   const fieldClassNames = ["field"];
@@ -115,7 +115,7 @@ Input.propTypes = {
   pattern: PropTypes.string,
   title: PropTypes.string,
   step: PropTypes.number,
-  validationMessages: PropTypes.object,
+  validationMessages: PropTypes.object
 };
 
 Input.defaultProps = {
@@ -125,5 +125,5 @@ Input.defaultProps = {
   loading: false,
   rounded: false,
   usePlaceholder: false,
-  required: false,
+  required: false
 };

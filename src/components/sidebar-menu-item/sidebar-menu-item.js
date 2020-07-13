@@ -8,7 +8,7 @@ export const SidebarMenuItem = ({
   isTitle,
   children,
   onClick,
-  style,
+  style
 }) => {
   const onClickCb = () => {
     if (onClick) {
@@ -22,7 +22,7 @@ export const SidebarMenuItem = ({
       tabIndex={0}
       className={classNames("__sidebar-menu-item", {
         isTitle,
-        active,
+        active
       })}
       onClick={onClickCb}
       onKeyPress={onEnterOrSpace(onClickCb)}
@@ -38,11 +38,11 @@ SidebarMenuItem.propTypes = {
   isTitle: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.node.isRequired,
-  style: PropTypes.object,
+  style: PropTypes.object
 };
 
 SidebarMenuItem.SidebarMenuItem = {
   active: false,
   isTitle: false,
-  style: false,
+  style: false
 };

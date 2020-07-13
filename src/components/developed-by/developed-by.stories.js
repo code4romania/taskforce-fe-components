@@ -19,7 +19,7 @@ const customPartnerLogos = [
   </Logo>,
   <Logo url="http://www.dsu.mai.gov.ro" key="dsu">
     <img src={dsuLogo} alt="Departamentul pentru Situații de Urgență" />
-  </Logo>,
+  </Logo>
 ];
 
 const customSecondLineLogos = [
@@ -34,7 +34,7 @@ const customSecondLineLogos = [
       src="http://www.bigdreammovement.com/wp-content/uploads/girls-who-code.png"
       alt="Custom Partner"
     />
-  </Logo>,
+  </Logo>
 ];
 
 export const oneLineCustom = () => (

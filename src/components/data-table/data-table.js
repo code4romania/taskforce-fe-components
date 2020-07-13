@@ -11,5 +11,5 @@ export const DataTable = ({ children }) => {
 };
 
 DataTable.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };

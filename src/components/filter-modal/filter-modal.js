@@ -60,12 +60,12 @@ export const FilterModal = ({ placeholder, values, isOpen, selectValue }) => {
 FilterModal.defaultProps = {
   isOpen: false,
   values: [],
-  placeholder: "cauta",
+  placeholder: "cauta"
 };
 
 FilterModal.propTypes = {
   isOpen: PropTypes.bool,
   placeholder: PropTypes.string,
   values: PropTypes.array,
-  selectValue: PropTypes.func,
+  selectValue: PropTypes.func
 };

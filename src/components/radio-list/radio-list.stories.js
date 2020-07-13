@@ -7,7 +7,7 @@ export const HorizontalRadioListWithChangeEvent = () => {
   let options = [
     { key: "Key1", value: "Option 1" },
     { key: "Key2", value: "Option 2" },
-    { key: "Key3", value: "Option 3" },
+    { key: "Key3", value: "Option 3" }
   ];
   const [textValue, setTextValue] = useState();
   const onChange = (el) => {
@@ -32,7 +32,7 @@ export const VerticalRadioListWithChangeEvent = () => {
   let options = [
     { key: "Key1", value: "Option 1", disabled: true },
     { key: "Key2", value: "Option 2" },
-    { key: "Key3", value: "Option 3" },
+    { key: "Key3", value: "Option 3" }
   ];
   const [textValue, setTextValue] = useState();
   const onChange = (el) => {

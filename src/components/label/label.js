@@ -8,5 +8,5 @@ export const Label = ({ text, isSecondary }) => (
 
 Label.propTypes = {
   text: PropTypes.string.isRequired,
-  isSecondary: PropTypes.bool,
+  isSecondary: PropTypes.bool
 };

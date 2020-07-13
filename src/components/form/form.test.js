@@ -39,7 +39,7 @@ function startForm(form) {
 
 const outcome = {
   label: "Everything okay!",
-  value: 0,
+  value: 0
 };
 
 const expectHeaderText = (form, expected) => {
@@ -50,7 +50,7 @@ const finalEntryWithId = (id) => ({
   questionId: id,
   questionText: "Done!",
   type: "FINAL",
-  options: [outcome],
+  options: [outcome]
 });
 
 const oneQuestionForm = {
@@ -65,16 +65,16 @@ const oneQuestionForm = {
       options: [
         {
           label: "Da",
-          value: 1,
+          value: 1
         },
         {
           label: "Nu",
-          value: 0,
-        },
-      ],
+          value: 0
+        }
+      ]
     },
-    finalEntryWithId(2),
-  ],
+    finalEntryWithId(2)
+  ]
 };
 
 describe("Form", () => {
@@ -101,8 +101,8 @@ describe("Form", () => {
       {
         id: 1,
         questionText: "Ai peste 60 de ani?",
-        answer: "1",
-      },
+        answer: "1"
+      }
     ]);
   });
 
@@ -116,10 +116,10 @@ describe("Form", () => {
           questionId: 1,
           questionText: "Care este numele tau?",
           type: "INPUT",
-          options: [],
+          options: []
         },
-        finalEntryWithId(2),
-      ],
+        finalEntryWithId(2)
+      ]
     };
 
     const mockFinishingForm = jest.fn();
@@ -143,8 +143,8 @@ describe("Form", () => {
       {
         id: 1,
         questionText: "Care este numele tau?",
-        answer: "Jane Doe",
-      },
+        answer: "Jane Doe"
+      }
     ]);
   });
 
@@ -161,22 +161,22 @@ describe("Form", () => {
           options: [
             {
               label: "Tuse",
-              value: 0,
+              value: 0
             },
             {
               type: "OTHER",
               label: "Febra",
-              value: 1,
+              value: 1
             },
             {
               type: "OTHER",
               label: "Altceva",
-              value: 2,
-            },
-          ],
+              value: 2
+            }
+          ]
         },
-        finalEntryWithId(2),
-      ],
+        finalEntryWithId(2)
+      ]
     };
 
     const mockFinishingForm = jest.fn();
@@ -203,8 +203,8 @@ describe("Form", () => {
       {
         id: 1,
         questionText: "Ce simptome ai?",
-        answer: { 0: true, 2: "tuse" },
-      },
+        answer: { 0: true, 2: "tuse" }
+      }
     ]);
   });
 
@@ -217,15 +217,15 @@ describe("Form", () => {
         {
           questionId: 1,
           questionText: "De la ce data ai inceput sa ai simptome?",
-          type: "DATE_PICKER",
+          type: "DATE_PICKER"
         },
         {
           questionId: 2,
           questionText: "La ce data si ora ai iesit afara?",
-          type: "DATE_TIME_PICKER",
+          type: "DATE_TIME_PICKER"
         },
-        finalEntryWithId(3),
-      ],
+        finalEntryWithId(3)
+      ]
     };
 
     const mockFinishingForm = jest.fn();
@@ -256,13 +256,13 @@ describe("Form", () => {
       {
         id: 1,
         questionText: "De la ce data ai inceput sa ai simptome?",
-        answer: "2020-05-20T00:00",
+        answer: "2020-05-20T00:00"
       },
       {
         id: 2,
         questionText: "La ce data si ora ai iesit afara?",
-        answer: "2020-05-20T11:10",
-      },
+        answer: "2020-05-20T11:10"
+      }
     ]);
   });
 
@@ -280,16 +280,16 @@ describe("Form", () => {
           options: [
             {
               label: "Da",
-              value: 1,
+              value: 1
             },
             {
               label: "Nu",
-              value: 0,
-            },
-          ],
+              value: 0
+            }
+          ]
         },
-        finalEntryWithId(10),
-      ],
+        finalEntryWithId(10)
+      ]
     };
     const mockFinishingForm = jest.fn();
 
@@ -316,17 +316,17 @@ describe("Form", () => {
       firstNodeId: 1,
       intro: {
         title: "Intro",
-        description: "Formular pentru starea ta",
+        description: "Formular pentru starea ta"
       },
       form: [
         {
           questionId: 1,
           questionText: "Care este numele tau?",
           type: "INPUT",
-          options: [],
+          options: []
         },
-        finalEntryWithId(2),
-      ],
+        finalEntryWithId(2)
+      ]
     };
     const form = mount(
       <Form

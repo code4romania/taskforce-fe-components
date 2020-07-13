@@ -12,7 +12,7 @@ export const DatePicker = ({
   withTime,
   question,
   onAnswer,
-  currentResponse,
+  currentResponse
 }) => {
   const [startDate, setStartDate] = useState(
     currentResponse ? currentResponse : null
@@ -24,7 +24,7 @@ export const DatePicker = ({
     setStartDate(date);
     const answer = {
       questionId: question.questionId,
-      value: date,
+      value: date
     };
     onAnswer(answer);
   };
@@ -149,20 +149,20 @@ DatePicker.propTypes = {
   question: PropTypes.shape({
     questionId: PropTypes.number.isRequired,
     questionText: PropTypes.string.isRequired,
-    allowFuture: PropTypes.bool,
+    allowFuture: PropTypes.bool
   }),
   onAnswer: PropTypes.func,
-  currentResponse: PropTypes.object,
+  currentResponse: PropTypes.object
 };
 
 DateTimePicker.propTypes = {
   startDate: PropTypes.object,
   maxDate: PropTypes.instanceOf(Date),
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 DateOnlyPicker.propTypes = {
   startDate: PropTypes.object,
   maxDate: PropTypes.instanceOf(Date),
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
 };

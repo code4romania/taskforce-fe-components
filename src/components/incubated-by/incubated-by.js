@@ -26,5 +26,5 @@ export const IncubatedBy = ({ partnerLogos }) => {
 };
 
 IncubatedBy.propTypes = {
-  partnerLogos: PropTypes.arrayOf(PropTypes.node),
+  partnerLogos: PropTypes.arrayOf(PropTypes.node)
 };

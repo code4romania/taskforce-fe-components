@@ -14,9 +14,9 @@ export const MailchimpSubscribe = ({ url, wording, compact }) => {
 MailchimpSubscribe.propTypes = {
   url: PropTypes.string.isRequired,
   wording: PropTypes.shape(wordingPropTypes),
-  compact: PropTypes.bool,
+  compact: PropTypes.bool
 };
 
 MailchimpSubscribe.defaultProps = {
-  wording: defaultWordingProps,
+  wording: defaultWordingProps
 };

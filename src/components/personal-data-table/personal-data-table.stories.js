@@ -6,20 +6,20 @@ export default { title: "Personal Data" };
 const personalData = {
   age: {
     label: "Vârsta",
-    value: 23,
+    value: 23
   },
   gender: {
     label: "Sexul",
-    value: "feminin",
+    value: "feminin"
   },
   name: { label: "Nume", value: "name" },
   smoking: { label: "Fumator/fumatoare", value: true },
   comorbidities: {
     label: "Alte afectiuni",
-    value: ["diabet", "hipertensiune"],
+    value: ["diabet", "hipertensiune"]
   },
   inIsolation: { label: "In izolare", value: true },
-  othersInHousehold: { label: "Alte persoane in casă", value: true },
+  othersInHousehold: { label: "Alte persoane in casă", value: true }
 };
 
 export const personalDataTable = () => (

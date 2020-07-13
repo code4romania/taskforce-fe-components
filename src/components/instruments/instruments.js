@@ -8,9 +8,9 @@ export const Instruments = ({ layout, children }) => {
 
 Instruments.propTypes = {
   layout: PropTypes.oneOf(["column", "grid"]),
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 Instruments.defaultProps = {
-  layout: "column",
+  layout: "column"
 };

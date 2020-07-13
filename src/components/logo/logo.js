@@ -20,9 +20,9 @@ Logo.propTypes = {
   children: PropTypes.node.isRequired,
   url: PropTypes.string,
   imgClass: PropTypes.string,
-  target: PropTypes.oneOf(["_blank", "_self", "_parent", "_top"]),
+  target: PropTypes.oneOf(["_blank", "_self", "_parent", "_top"])
 };
 
 Logo.defaultProps = {
-  target: "_blank",
+  target: "_blank"
 };

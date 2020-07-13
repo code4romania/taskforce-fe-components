@@ -6,7 +6,7 @@ import {
   LinkedinShareButton,
   TwitterShareButton,
   LinkedinIcon,
-  TwitterIcon,
+  TwitterIcon
 } from "react-share";
 import "./social-share.scss";
 
@@ -29,5 +29,5 @@ export const SocialsShare = ({ currentPage }) => {
 };
 
 SocialsShare.propTypes = {
-  currentPage: PropTypes.string.isRequired,
+  currentPage: PropTypes.string.isRequired
 };

@@ -11,17 +11,17 @@ describe("Multiple choice", () => {
       options: [
         {
           label: "Tuse",
-          value: 0,
+          value: 0
         },
         {
           label: "Febra",
-          value: 1,
+          value: 1
         },
         {
           label: "Dureri de cap",
-          value: 2,
-        },
-      ],
+          value: 2
+        }
+      ]
     };
     const onAnswerMock = jest.fn();
     const multipleChoice = mount(
@@ -37,7 +37,7 @@ describe("Multiple choice", () => {
 
     expect(onAnswerMock).toHaveBeenCalledWith({
       questionId: 1,
-      value: { "0": true, "2": true },
+      value: { "0": true, "2": true }
     });
   });
 
@@ -49,18 +49,18 @@ describe("Multiple choice", () => {
       options: [
         {
           label: "Tuse",
-          value: 0,
+          value: 0
         },
         {
           label: "Febra",
-          value: 1,
+          value: 1
         },
         {
           type: "OTHER",
           label: "Altceva",
-          value: 2,
-        },
-      ],
+          value: 2
+        }
+      ]
     };
 
     const questionWithMultipleFreeText = {
@@ -70,19 +70,19 @@ describe("Multiple choice", () => {
       options: [
         {
           label: "Tuse",
-          value: 0,
+          value: 0
         },
         {
           type: "OTHER",
           label: "Febra",
-          value: 1,
+          value: 1
         },
         {
           type: "OTHER",
           label: "Altceva",
-          value: 2,
-        },
-      ],
+          value: 2
+        }
+      ]
     };
 
     it("returns the content", () => {
@@ -102,7 +102,7 @@ describe("Multiple choice", () => {
 
       expect(onAnswerMock).toHaveBeenLastCalledWith({
         questionId: 1,
-        value: { "0": true, "2": "Stranutat" },
+        value: { "0": true, "2": "Stranutat" }
       });
     });
 
@@ -126,7 +126,7 @@ describe("Multiple choice", () => {
 
       expect(onAnswerMock).toHaveBeenLastCalledWith({
         questionId: 1,
-        value: { "2": "Curge nasul" },
+        value: { "2": "Curge nasul" }
       });
     });
 
@@ -152,7 +152,7 @@ describe("Multiple choice", () => {
 
       expect(onAnswerMock).toHaveBeenLastCalledWith({
         questionId: 1,
-        value: { "1": "Stranutat", "2": "Curge nasul" },
+        value: { "1": "Stranutat", "2": "Curge nasul" }
       });
     });
 
@@ -178,7 +178,7 @@ describe("Multiple choice", () => {
 
       expect(onAnswerMock).toHaveBeenLastCalledWith({
         questionId: 1,
-        value: { "0": true },
+        value: { "0": true }
       });
     });
 
@@ -212,7 +212,7 @@ describe("Multiple choice", () => {
 
       expect(onAnswerMock).toHaveBeenLastCalledWith({
         questionId: 1,
-        value: { "1": "38", "2": "Stranutat" },
+        value: { "1": "38", "2": "Stranutat" }
       });
     });
   });

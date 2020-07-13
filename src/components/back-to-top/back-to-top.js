@@ -11,7 +11,7 @@ export const BackToTop = ({ width, height }) => {
         window.scrollTo({
           top: 0,
           left: 0,
-          behavior: "smooth",
+          behavior: "smooth"
         })
       }
     >
@@ -22,9 +22,9 @@ export const BackToTop = ({ width, height }) => {
 
 BackToTop.propTypes = {
   width: PropTypes.number,
-  height: PropTypes.number,
+  height: PropTypes.number
 };
 BackToTop.defaultProps = {
   width: 40,
-  height: 40,
+  height: 40
 };

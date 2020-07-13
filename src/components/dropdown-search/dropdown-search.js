@@ -10,7 +10,7 @@ export const DropdownSearch = ({
   onSelect,
   isAlwaysOpen,
   showSearchInput,
-  searchPlaceholder,
+  searchPlaceholder
 }) => {
   const [showDropdownOptions, setShowDropdownOptions] = useState(false);
   const [dropdownTitle, setDropdownTitle] = useState(title);
@@ -116,7 +116,7 @@ DropdownSearch.defaultProps = {
   onSelect: () => {},
   isAlwaysOpen: false,
   showSearchInput: true,
-  searchPlaceholder: "",
+  searchPlaceholder: ""
 };
 
 DropdownSearch.propTypes = {
@@ -124,11 +124,11 @@ DropdownSearch.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      label: PropTypes.string,
+      label: PropTypes.string
     })
   ).isRequired,
   onSelect: PropTypes.func.isRequired,
   isAlwaysOpen: PropTypes.bool,
   showSearchInput: PropTypes.bool,
-  searchPlaceholder: PropTypes.string,
+  searchPlaceholder: PropTypes.string
 };

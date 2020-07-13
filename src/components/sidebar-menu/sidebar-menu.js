@@ -14,9 +14,9 @@ export const SidebarMenu = ({ title, children }) => {
 
 SidebarMenu.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 SidebarMenu.defaultProps = {
-  title: "Navigare rapidă",
+  title: "Navigare rapidă"
 };

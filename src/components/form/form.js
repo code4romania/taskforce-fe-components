@@ -26,7 +26,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
   const answerCurrentQuestion = (answer) => {
     setFormState({
       ...formState,
-      [answer.questionId]: answer.value,
+      [answer.questionId]: answer.value
     });
   };
 
@@ -34,7 +34,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     return form.reduce((obj, item) => {
       return {
         ...obj,
-        [item["questionId"]]: item,
+        [item["questionId"]]: item
       };
     }, {});
   };
@@ -66,13 +66,13 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       return {
         id: question.questionId,
         questionText: question.questionText,
-        answer: answer,
+        answer: answer
       };
     });
     return {
       formId: data.formId,
       timestamp: Date.now(),
-      answers: answersById.filter((answer) => answer.id),
+      answers: answersById.filter((answer) => answer.id)
     };
   };
 
@@ -287,14 +287,14 @@ Form.propTypes = {
     content: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
-        page: PropTypes.string.isRequired,
+        page: PropTypes.string.isRequired
       })
     ),
     firstNodeId: PropTypes.number.isRequired,
     formId: PropTypes.number,
     intro: PropTypes.shape({
       title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired
     }),
     form: PropTypes.arrayOf(
       PropTypes.shape({
@@ -307,18 +307,18 @@ Form.propTypes = {
           "INPUT",
           "DATE_PICKER",
           "DATE_TIME_PICKER",
-          "CUSTOM",
+          "CUSTOM"
         ]),
         options: PropTypes.arrayOf(
           PropTypes.shape({
             label: PropTypes.string.isRequired,
             value: PropTypes.number.isRequired,
-            nextQuestionId: PropTypes.number,
+            nextQuestionId: PropTypes.number
           })
-        ),
+        )
       })
-    ),
+    )
   }),
   evaluateForm: PropTypes.func,
-  onFinishingForm: PropTypes.func,
+  onFinishingForm: PropTypes.func
 };

@@ -7,7 +7,7 @@ export const InstrumentsItem = ({
   title,
   content,
   ctaText,
-  ctaLink,
+  ctaLink
 }) => {
   const showContent = content != null || ctaText != null;
 
@@ -38,9 +38,9 @@ InstrumentsItem.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   ctaText: PropTypes.string,
-  ctaLink: PropTypes.string,
+  ctaLink: PropTypes.string
 };
 
 InstrumentsItem.defaultProps = {
-  color: "green",
+  color: "green"
 };

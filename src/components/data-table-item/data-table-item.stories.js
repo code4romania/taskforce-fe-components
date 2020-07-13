@@ -4,7 +4,7 @@ import { DataTableItem } from "./data-table-item";
 export default { title: "Data Table Item" };
 
 const extraStyles = {
-  minWidth: "250px",
+  minWidth: "250px"
 };
 
 export const withDefaultAlignment = () => {

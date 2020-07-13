@@ -39,5 +39,5 @@ export const CompletedFormTable = ({ title, headers, dataRows = [] }) => {
 CompletedFormTable.propTypes = {
   title: PropTypes.string,
   headers: PropTypes.array.isRequired,
-  dataRows: PropTypes.array.isRequired,
+  dataRows: PropTypes.array.isRequired
 };

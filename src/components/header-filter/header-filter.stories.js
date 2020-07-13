@@ -32,7 +32,7 @@ export const withFilterModal = () => {
           "Brașov",
           "Brăila",
           "București",
-          "etc",
+          "etc"
         ]}
       />
     </div>

@@ -8,7 +8,7 @@ export default { title: "Accordion" };
 export const WithChildren = () => {
   const accordionData = {
     title:
-      "De ce ar dori cineva să dea vina pe/ sau să evite anumiți indivizi și anumite grupuri din cauza epidemiei?",
+      "De ce ar dori cineva să dea vina pe/ sau să evite anumiți indivizi și anumite grupuri din cauza epidemiei?"
   };
 
   return (
@@ -180,7 +180,7 @@ Cea mai sigură metodă de evitare a infecției este să evitați expunerea la v
                 <li>Consultați medicul de familie pentru mai multe detalii despre cum să vă monitorizați starea de sănătate pentru simptome.</li>
                 <li>Țineți contactul cu prieteni sau membri familiei prin telefon sau internet - e posibil să aveți nevoie de ajutor cu cumpărături sau asistență medicală, mai ales dacă sunteți în grupele de risc ridicat.</li>
             </ul>
-        `,
+        `
   };
 
   return (

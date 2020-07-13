@@ -59,14 +59,14 @@ RadioList.propTypes = {
       key: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
       checked: PropTypes.bool,
-      disabled: PropTypes.bool,
+      disabled: PropTypes.bool
     })
   ),
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 RadioList.defaultProps = {
   label: "",
   description: "",
-  options: [],
+  options: []
 };

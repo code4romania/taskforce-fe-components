@@ -11,10 +11,10 @@ export const List = ({ columns, children }) => {
 };
 
 List.defaultProps = {
-  columns: 1,
+  columns: 1
 };
 
 List.propTypes = {
   columns: PropTypes.number,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };

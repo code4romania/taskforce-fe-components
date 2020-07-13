@@ -21,7 +21,7 @@ const customMultiplePartnersLogos = [
       src="http://www.bigdreammovement.com/wp-content/uploads/girls-who-code.png"
       alt="Custom Partner"
     />
-  </Logo>,
+  </Logo>
 ];
 
 export default { title: "Incubated By" };
