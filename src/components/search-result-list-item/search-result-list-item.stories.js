@@ -31,3 +31,20 @@ export const SimpleSearchResultListItem = () => {
     </SearchResultListItem>
   );
 };
+
+export const SearchResultListItemWithoutLink = () => {
+  return (
+    <SearchResultListItem
+      color={select(label, options, defaultValue)}
+      date="12 martie 2020 12:45"
+      title="Apel de la Guvernul României. Ce trebuie să facă cetățenii
+       când primesc mesaje pe Facebook și WhatsApp despre coronavirus"
+    >
+      <p>
+        Guvernul României face apel la cetățenii români, prin intermediul unui
+        clip video postat pe rețelele de socializare, să se informeze despre
+        coronavirus doar din su.....
+      </p>
+    </SearchResultListItem>
+  );
+};

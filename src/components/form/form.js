@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { groupBy, mapObject } from "underscore";
+import { mapObject } from "underscore";
 import SingleChoice from "./singleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
 import StaticText from "./staticText";
-import FreeText from "./freeText";
+import InputQuestion from "./inputQuestion";
 import MultipleChoice from "./multipleChoice";
+import { DatePicker } from "./datePicker";
+import format from "date-fns/format";
 
 const FIRST_NODE = 1;
 
@@ -30,12 +32,15 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
   };
 
   const toMap = form => {
-    const groupedById = groupBy(form, question => question.questionId);
-    return mapObject(groupedById, listOfQuestions => listOfQuestions[0]);
+    return form.reduce((obj, item) => {
+      return {
+        ...obj,
+        [item["questionId"]]: item
+      };
+    }, {});
   };
 
   const formAsMap = toMap(data.form);
-
   const createFormWithAnswers = () => {
     const answersById = mapObject(formAsMap, (question, id) => {
       //a bit a of hack to get rid of the final entry - needs restructuring of the data model
@@ -43,10 +48,20 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         return {};
       }
 
-      let answer = formState[id];
+      const rawAnswer = formState[id];
 
+      let answer = rawAnswer;
       if (question.type === "SINGLE_CHOICE") {
-        answer = String(answer);
+        answer = String(rawAnswer);
+      }
+
+      if (
+        question.type === "DATE_PICKER" ||
+        question.type === "DATE_TIME_PICKER"
+      ) {
+        answer = rawAnswer
+          ? format(rawAnswer, "yyyy-MM-dd'T'HH:mm")
+          : rawAnswer;
       }
 
       return {
@@ -66,18 +81,42 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     const currentQuestion = formAsMap[currentNode];
     // TODO: add components for other question types
     switch (currentQuestion.type) {
-      case "CUSTOM": {
+      case "DATE_PICKER": {
         return (
-          <currentQuestion.children
+          <DatePicker
+            key={currentQuestion.questionId}
+            withTime={false}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
-          ></currentQuestion.children>
+          />
+        );
+      }
+      case "DATE_TIME_PICKER": {
+        return (
+          <DatePicker
+            key={currentQuestion.questionId}
+            withTime={true}
+            question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
+            onAnswer={answerCurrentQuestion}
+          />
+        );
+      }
+      case "CUSTOM": {
+        return (
+          <currentQuestion.children
+            key={currentQuestion.questionId}
+            question={currentQuestion}
+            currentResponse={formState[currentQuestion.questionId]}
+            onAnswer={answerCurrentQuestion}
+          />
         );
       }
       case "SINGLE_CHOICE": {
         return (
           <SingleChoice
+            key={currentQuestion.questionId}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
@@ -87,15 +126,17 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       case "MULTIPLE_CHOICE": {
         return (
           <MultipleChoice
+            key={currentQuestion.questionId}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
           />
         );
       }
-      case "FREE_TEXT": {
+      case "INPUT": {
         return (
-          <FreeText
+          <InputQuestion
+            key={currentQuestion.questionId}
             question={currentQuestion}
             currentResponse={formState[currentQuestion.questionId]}
             onAnswer={answerCurrentQuestion}
@@ -116,11 +157,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
   };
 
   const getNextQuestionForOptionValue = (question, optionValue) => {
-    if (
-      question.type === "FREE_TEXT" ||
-      question.type === "MULTIPLE_CHOICE" ||
-      question.type === "CUSTOM"
-    ) {
+    if (question.type !== "SINGLE_CHOICE") {
       return;
     }
     const selectedOption = question.options.find(
@@ -128,11 +165,12 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     );
     return selectedOption.nextQuestionId;
   };
+
   const goToNextQuestion = () => {
     const currentElement = formAsMap[currentNode];
     if (formState[currentElement.questionId] !== undefined) {
       const optionValue = formState[currentElement.questionId];
-      const defaultNext = currentNode + 1;
+      const defaultNext = currentElement.nextQuestionId || currentNode + 1;
 
       const nextNode =
         getNextQuestionForOptionValue(currentElement, optionValue) ||
@@ -148,6 +186,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       setCurrentNode(nextNode);
     }
   };
+
   const goToPreviousQuestion = () => {
     const newNode = historyOfSteps.pop();
     setHistoryOfSteps(historyOfSteps);
@@ -166,11 +205,12 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     return (
       <div className="level-item">
         <Button inverted={true} onClick={goToPreviousQuestion}>
-          Inapoi
+          Înapoi
         </Button>
       </div>
     );
   };
+
   const goForwardButton = () => {
     return (
       <div className="level-item">
@@ -179,11 +219,12 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
           onClick={goToNextQuestion}
           disabled={isWaitingForChoice()}
         >
-          Inainte
+          Înainte
         </Button>
       </div>
     );
   };
+
   const restartButton = () => {
     return (
       <Button inverted={true} onClick={resetForm}>
@@ -191,16 +232,20 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       </Button>
     );
   };
+
   const showQuestion = () => {
+    const currentQuestion = formAsMap[currentNode];
     return (
       <div>
         {questionView()}
         <div className="level action-buttons">
-          <div className="level-left">
-            {currentNode > FIRST_NODE && goBackButton()}
+          <div className="level-left">{data.form && restartButton()}</div>
+          <div className="level-right">
+            {currentNode > FIRST_NODE &&
+              currentQuestion.showBackButton !== false &&
+              goBackButton()}
             {areThereQuestionsLeft() && goForwardButton()}
           </div>
-          <div className="level-right">{data.form && restartButton()}</div>
         </div>
       </div>
     );
@@ -218,7 +263,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
         <div className="level action-buttons">
           <div className="level-left">
             <Button inverted={true} onClick={startForm} className={"start"}>
-              Incepe testul
+              Începe testul
             </Button>
           </div>
         </div>
@@ -260,7 +305,9 @@ Form.propTypes = {
           "FINAL",
           "SINGLE_CHOICE",
           "MULTIPLE_CHOICE",
-          "FREE_TEXT",
+          "INPUT",
+          "DATE_PICKER",
+          "DATE_TIME_PICKER",
           "CUSTOM"
         ]),
         options: PropTypes.arrayOf(

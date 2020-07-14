@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Input } from "../input/input";
 import { Checkbox } from "../checkbox/checkbox";
 import { Button } from "../button/button";
-import "../../styles.scss";
 import "./login-form.scss";
 
 export const LoginForm = ({

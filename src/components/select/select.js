@@ -1,30 +1,65 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import deprecated from "deprecated-prop-type";
+import warning from "warning";
 
 /**
  *
  * @param {string} label
  * @param {string} description
- * @param {[{ text: string, value: string, selected?:boolean }]}
- * options List of select options with key, value and selected properties
+ * @param {[{ text: string, value: string | number, disabled?: boolean }]} options
+ * List of select options with key, value and disabled properties
  * @param {object} selectProps Contains HTML input attributes:
  * type, value, name, id, etc. https://www.w3schools.com/tags/tag_select.asp
+ * @param { string | number } defaultValue
  */
-export const Select = ({ label, description, options, selectProps }) => {
+export const Select = ({
+  label,
+  description,
+  options,
+  selectProps,
+  defaultValue
+}) => {
+  const [currentValue, setCurrentValue] = useState();
+
+  useEffect(() => {
+    const selectedOptions = options.filter(opt => opt.selected);
+
+    if (selectedOptions.length) {
+      const [option] = selectedOptions;
+      setCurrentValue(option.value);
+
+      if (selectedOptions.length > 1) {
+        warning(false, "Only one 'selected' property of 'Select' can be true");
+      }
+    }
+
+    if (defaultValue) {
+      setCurrentValue(defaultValue);
+    }
+  }, [defaultValue]);
+
+  const onChange = e => {
+    if (selectProps.onChange && typeof selectProps.onChange === "function") {
+      selectProps.onChange(e);
+    }
+
+    setCurrentValue(e.target.value);
+  };
+
   return (
     <div className="field">
       <label className="label">{label}</label>
       <p className="subtitle is-2">{description}</p>
       <div className="control">
         <div className="select">
-          <select {...selectProps}>
+          <select {...selectProps} onChange={onChange} value={currentValue}>
             {options &&
               options.map((option, index) => {
                 return (
                   <option
                     key={`key_${option.value}_${index}`}
                     value={option.value}
-                    selected={option.selected === true}
                     disabled={option.disabled === true}
                   >
                     {option.text}
@@ -41,12 +76,14 @@ export const Select = ({ label, description, options, selectProps }) => {
 Select.propTypes = {
   label: PropTypes.node.isRequired,
   description: PropTypes.node.isRequired,
-  selectProps: PropTypes.node.IsOptional,
+  selectProps: PropTypes.object,
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   options: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
-      value: PropTypes.string,
-      selected: PropTypes.bool
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      disabled: PropTypes.bool,
+      selected: deprecated(PropTypes.bool, "Use `defaultValue` prop instead.")
     })
   )
 };

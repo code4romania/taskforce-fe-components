@@ -5,7 +5,7 @@ import "./sidebar-menu.scss";
 
 export const SidebarMenu = ({ title, children }) => {
   return (
-    <div className="__sidebar-menu-container">
+    <div className="__sidebar-menu-container" role="navigation">
       <Hero title={title} useFallbackIcon={true} />
       <ul className="menu-list">{children}</ul>
     </div>

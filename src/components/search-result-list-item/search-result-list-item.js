@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./search-result-list-item.styles.scss";
+import "./search-result-list-item.scss";
 
 export const SearchResultListItem = ({
   date,
@@ -12,10 +12,14 @@ export const SearchResultListItem = ({
 }) => {
   return (
     <div className={`searchResult ${color}`}>
-      <time className="searchResult__date" dateTime={date}>
-        {date}
-      </time>
-      <h2 className="searchResult__title">{title}</h2>
+      {date && (
+        <time className="searchResult__date" dateTime={date}>
+          {date}
+        </time>
+      )}
+      <h2 className="searchResult__title">
+        {readMoreLink ? <a href={readMoreLink}>{title}</a> : title}
+      </h2>
       {children}
 
       {readMoreText && (

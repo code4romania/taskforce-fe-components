@@ -1,0 +1,9 @@
+@import "~react-datepicker/dist/react-datepicker.css";
+
+.date-picker > div:nth-child(2) {
+  width: 100%;
+}
+
+.react-datepicker__day--outside-month {
+  color: #bbbbbb;
+}

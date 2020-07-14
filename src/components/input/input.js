@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import "../../styles.scss";
 import { Label } from "../label/label";
 
 export const Input = ({
@@ -18,9 +17,14 @@ export const Input = ({
   children,
   hasAddons,
   required,
+  validationMessages,
   onChange,
   min,
   max,
+  minLength,
+  maxLength,
+  pattern,
+  title,
   step
 }) => {
   const inputClassNames = ["input"];
@@ -31,6 +35,32 @@ export const Input = ({
   if (color) inputClassNames.push(`is-${color}`);
   if (rounded) inputClassNames.push("is-rounded");
   if (loading) controlClassNames.push("is-loading");
+  const inputRef = useRef();
+
+  const setCustomValidity = current => {
+    current.oninvalid = e => {
+      let errorText = "";
+
+      if (!e.target.validity.valid) {
+        const invalidKey = Object.keys(validationMessages).find(
+          key => e.target.validity[key]
+        );
+        errorText = invalidKey ? validationMessages[invalidKey] : "";
+      }
+
+      e.target.setCustomValidity(errorText);
+    };
+  };
+
+  useEffect(() => {
+    if (validationMessages) {
+      setCustomValidity(inputRef.current);
+      inputRef.current.oninput = e => {
+        e.target.setCustomValidity("");
+      };
+    }
+  }, [validationMessages]);
+
   const inputClasses = inputClassNames.join(" ");
 
   return (
@@ -44,12 +74,17 @@ export const Input = ({
           name={name}
           disabled={disabled}
           defaultValue={defaultValue}
-          placeholder={usePlaceholder && label}
+          placeholder={usePlaceholder ? label : ""}
           onChange={onChange}
           required={required}
-          min={type === "number" && min}
-          max={type === "number" && max}
-          step={type === "number" && step}
+          min={type === "number" && min ? min : void 0}
+          max={type === "number" && max ? max : void 0}
+          step={type === "number" && step ? step : void 0}
+          minLength={minLength}
+          maxLength={maxLength}
+          ref={inputRef}
+          pattern={pattern}
+          title={title}
         />
       </div>
       {children}
@@ -69,13 +104,18 @@ Input.propTypes = {
   loading: PropTypes.bool,
   rounded: PropTypes.bool,
   required: PropTypes.bool,
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   usePlaceholder: PropTypes.bool,
   children: PropTypes.node,
   color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"]),
   min: PropTypes.number,
   max: PropTypes.number,
-  step: PropTypes.number
+  minLength: PropTypes.number,
+  maxLength: PropTypes.number,
+  pattern: PropTypes.string,
+  title: PropTypes.string,
+  step: PropTypes.number,
+  validationMessages: PropTypes.object
 };
 
 Input.defaultProps = {

@@ -2,16 +2,13 @@ import React from "react";
 
 import ceMaFacData from "./data/ceMaFac";
 import decisionTree from "./data/decisionTree";
+import datePickers from "./data/datePickers";
 import { Form } from "./form";
 
 export default { title: "Form" };
 
 let evaluate = function(formData, options) {
-  if (formData[1]) {
-    return options[1];
-  } else {
-    return options[0];
-  }
+  return options[0];
 };
 export const withCeMaFacData = () => (
   <Form
@@ -24,6 +21,14 @@ export const withCeMaFacData = () => (
 export const withDecisionAndIntro = () => (
   <Form
     data={decisionTree}
+    evaluateForm={evaluate}
+    onFinishingForm={results => console.log(results)}
+  />
+);
+
+export const withDatePickers = () => (
+  <Form
+    data={datePickers}
     evaluateForm={evaluate}
     onFinishingForm={results => console.log(results)}
   />

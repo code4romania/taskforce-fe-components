@@ -4,8 +4,14 @@ import { ListHeader } from "../list-header/list-header";
 import { ListItem } from "../list-item/list-item";
 import { Form } from "./form";
 import SingleChoice from "./singleChoice";
-import FreeText from "./freeText";
+import InputQuestion from "./inputQuestion";
 import MultipleChoice from "./multipleChoice";
+
+jest.mock("react-datepicker", () => ({ onChange }) => (
+  <div id="picker" onChange={({ target: { value } }) => onChange(value)}>
+    something
+  </div>
+));
 
 const clickOnNext = form => {
   const forwardButton = form.find(".forward");
@@ -13,7 +19,7 @@ const clickOnNext = form => {
 };
 
 const writeInFreeText = (form, text) => {
-  const inputText = form.find(FreeText).find("input");
+  const inputText = form.find(InputQuestion).find("input");
   inputText.simulate("change", { target: { value: text } });
 };
 
@@ -40,6 +46,13 @@ const expectHeaderText = (form, expected) => {
   expect(form.find(ListHeader).text()).toEqual(expected);
 };
 
+const finalEntryWithId = id => ({
+  questionId: id,
+  questionText: "Done!",
+  type: "FINAL",
+  options: [outcome]
+});
+
 const oneQuestionForm = {
   title: "One question form",
   formId: 1,
@@ -60,18 +73,7 @@ const oneQuestionForm = {
         }
       ]
     },
-    {
-      questionId: 2,
-      questionText: "Done!",
-      type: "FINAL",
-      options: [
-        outcome,
-        {
-          label: "Stay at home",
-          value: 1
-        }
-      ]
-    }
+    finalEntryWithId(2)
   ]
 };
 
@@ -113,21 +115,10 @@ describe("Form", () => {
         {
           questionId: 1,
           questionText: "Care este numele tau?",
-          type: "FREE_TEXT",
+          type: "INPUT",
           options: []
         },
-        {
-          questionId: 2,
-          questionText: "Done!",
-          type: "FINAL",
-          options: [
-            outcome,
-            {
-              label: "Stay at home",
-              value: 1
-            }
-          ]
-        }
+        finalEntryWithId(2)
       ]
     };
 
@@ -184,18 +175,7 @@ describe("Form", () => {
             }
           ]
         },
-        {
-          questionId: 2,
-          questionText: "Done!",
-          type: "FINAL",
-          options: [
-            outcome,
-            {
-              label: "Stay at home",
-              value: 1
-            }
-          ]
-        }
+        finalEntryWithId(2)
       ]
     };
 
@@ -228,6 +208,107 @@ describe("Form", () => {
     ]);
   });
 
+  it("Finalised the form with correct output when using date picker", () => {
+    const formWithDatePickers = {
+      formId: 1,
+      firstNodeId: 1,
+      title: "Date pickers example",
+      form: [
+        {
+          questionId: 1,
+          questionText: "De la ce data ai inceput sa ai simptome?",
+          type: "DATE_PICKER"
+        },
+        {
+          questionId: 2,
+          questionText: "La ce data si ora ai iesit afara?",
+          type: "DATE_TIME_PICKER"
+        },
+        finalEntryWithId(3)
+      ]
+    };
+
+    const mockFinishingForm = jest.fn();
+    const form = mount(
+      <Form
+        data={formWithDatePickers}
+        evaluateForm={() => {
+          return outcome;
+        }}
+        onFinishingForm={mockFinishingForm}
+      />
+    );
+
+    form
+      .find("#picker")
+      .simulate("change", { target: { value: new Date(2020, 4, 20) } });
+    clickOnNext(form);
+
+    form
+      .find("#picker")
+      .simulate("change", { target: { value: new Date(2020, 4, 20, 11, 10) } });
+    clickOnNext(form);
+
+    expectHeaderText(form, "Done!");
+
+    const actualAnswers = mockFinishingForm.mock.calls[0][0].answers;
+    expect(actualAnswers).toEqual([
+      {
+        id: 1,
+        questionText: "De la ce data ai inceput sa ai simptome?",
+        answer: "2020-05-20T00:00"
+      },
+      {
+        id: 2,
+        questionText: "La ce data si ora ai iesit afara?",
+        answer: "2020-05-20T11:10"
+      }
+    ]);
+  });
+
+  it("Uses the default next question on the question itself", () => {
+    const formWithDefaultNextQuestion = {
+      title: "Form with default next question",
+      formId: 1,
+      firstNodeId: 1,
+      form: [
+        {
+          questionId: 1,
+          nextQuestionId: 10,
+          questionText: "Ai peste 60 de ani?",
+          type: "SINGLE_CHOICE",
+          options: [
+            {
+              label: "Da",
+              value: 1
+            },
+            {
+              label: "Nu",
+              value: 0
+            }
+          ]
+        },
+        finalEntryWithId(10)
+      ]
+    };
+    const mockFinishingForm = jest.fn();
+
+    const form = mount(
+      <Form
+        data={formWithDefaultNextQuestion}
+        evaluateForm={() => {
+          return outcome;
+        }}
+        onFinishingForm={mockFinishingForm}
+      />
+    );
+
+    clickOnSingleChoice(form, "Da");
+    clickOnNext(form);
+
+    expectHeaderText(form, "Done!");
+  });
+
   it("Shows blurb at the beginning if it exists", () => {
     const formWithStartingBlurb = {
       title: "Form with starting blurb",
@@ -241,21 +322,10 @@ describe("Form", () => {
         {
           questionId: 1,
           questionText: "Care este numele tau?",
-          type: "FREE_TEXT",
+          type: "INPUT",
           options: []
         },
-        {
-          questionId: 2,
-          questionText: "Done!",
-          type: "FINAL",
-          options: [
-            outcome,
-            {
-              label: "Stay at home",
-              value: 1
-            }
-          ]
-        }
+        finalEntryWithId(2)
       ]
     };
     const form = mount(

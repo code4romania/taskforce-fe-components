@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { ListHeader } from "../list-header/list-header";
 import { Input } from "../input/input";
 
-function FreeText({ question, onAnswer, currentResponse }) {
+function InputQuestion({ question, onAnswer, currentResponse }) {
   const onChange = event => {
     const answer = {
       questionId: question.questionId,
@@ -26,11 +26,11 @@ function FreeText({ question, onAnswer, currentResponse }) {
   );
 }
 
-FreeText.propTypes = {
+InputQuestion.propTypes = {
   question: PropTypes.shape({
     questionId: PropTypes.number.isRequired,
     questionText: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(["FINAL", "SINGLE_CHOICE", "FREE_TEXT"]),
+    type: PropTypes.oneOf(["FINAL", "SINGLE_CHOICE", "INPUT"]),
     options: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string.isRequired,
@@ -42,4 +42,4 @@ FreeText.propTypes = {
   currentResponse: PropTypes.string
 };
 
-export default FreeText;
+export default InputQuestion;

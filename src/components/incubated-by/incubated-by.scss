@@ -13,11 +13,24 @@
   align-items: center;
   min-height: 60px;
 
+  .row {
+    display: flex;
+    align-items: center;
+  }
+
+  .row + .row {
+    margin-left: 1.5rem;
+  }
+
   .caption {
     font-size: 14px;
     line-height: 21px;
     color: #000;
     margin-right: 1.5rem;
+  }
+
+  .logos {
+    display: flex;
   }
 
   a {
@@ -31,6 +44,19 @@
 
 @media (max-width: 768px) {
   .incubated-by {
-    justify-content: space-between;
+    flex-direction: column;
+
+    .row {
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .row + .row {
+      margin-left: 0;
+    }
+
+    .caption {
+      margin-right: 0.5rem;
+    }
   }
 }
