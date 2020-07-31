@@ -1,5 +1,4 @@
 import React from "react";
-import "../../styles.scss";
 import { CompletedFormTable } from "./completed-form-table";
 
 export default { title: "Completed Forms" };

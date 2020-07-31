@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { mapObject } from "underscore";
 import SingleChoice from "./singleChoice";
 import "./form.scss";
 import { Button } from "../button/button";
@@ -24,14 +23,14 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     setHistoryOfSteps([]);
   };
 
-  const answerCurrentQuestion = answer => {
+  const answerCurrentQuestion = (answer) => {
     setFormState({
       ...formState,
       [answer.questionId]: answer.value
     });
   };
 
-  const toMap = form => {
+  const toMap = (form) => {
     return form.reduce((obj, item) => {
       return {
         ...obj,
@@ -42,7 +41,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
 
   const formAsMap = toMap(data.form);
   const createFormWithAnswers = () => {
-    const answersById = mapObject(formAsMap, (question, id) => {
+    const answersById = Object.entries(formAsMap).map(([id, question]) => {
       //a bit a of hack to get rid of the final entry - needs restructuring of the data model
       if (question.type === "FINAL") {
         return {};
@@ -73,7 +72,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
     return {
       formId: data.formId,
       timestamp: Date.now(),
-      answers: Object.values(answersById).filter(answer => answer.id)
+      answers: answersById.filter((answer) => answer.id)
     };
   };
 
@@ -161,7 +160,7 @@ export const Form = ({ data, evaluateForm, onFinishingForm }) => {
       return;
     }
     const selectedOption = question.options.find(
-      option => option.value === optionValue
+      (option) => option.value === optionValue
     );
     return selectedOption.nextQuestionId;
   };

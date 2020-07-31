@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./../../styles.scss";
 import { Select } from "./select";
 
 export default { title: "Select" };
@@ -12,7 +11,7 @@ export const SelectWithChangeEvent = () => {
   ];
   const [textValue, setTextValue] = useState("value3");
   const props = {
-    onChange: function(el) {
+    onChange: function (el) {
       setTextValue(el.target.value);
     }
   };
@@ -36,7 +35,7 @@ export const DependentSelects = () => {
     { text: "Option 2", value: "value2" },
     { text: "Option 3", value: "value3" }
   ];
-  const generateOptions = seed => {
+  const generateOptions = (seed) => {
     let generatedOptions = [];
     for (let index = 0; index < 3; index++) {
       generatedOptions.push({
@@ -49,7 +48,7 @@ export const DependentSelects = () => {
   const [childOptions, setChildOptions] = useState(generateOptions("value1"));
 
   const props = {
-    onChange: function(el) {
+    onChange: function (el) {
       setChildOptions(generateOptions(el.target.value));
     }
   };

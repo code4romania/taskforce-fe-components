@@ -5,7 +5,7 @@ import { ListHeader } from "../list-header/list-header";
 import { Input } from "../input/input";
 
 function InputQuestion({ question, onAnswer, currentResponse }) {
-  const onChange = event => {
+  const onChange = (event) => {
     const answer = {
       questionId: question.questionId,
       value: event.target.value

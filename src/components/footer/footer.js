@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Code4RomaniaGrayLogo from "../../images/code4romania-gray.svg";
+import { ReactComponent as Code4RomaniaGrayLogo } from "../../images/code4romania-gray.svg";
 import "./footer.scss";
 
 export const Footer = ({ children }) => {
@@ -14,7 +14,7 @@ export const Footer = ({ children }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Code4RomaniaGrayLogo style={{ height: 40 }} />
+            <Code4RomaniaGrayLogo height="40" />
           </a>
           <p>
             © {new Date().getFullYear()}

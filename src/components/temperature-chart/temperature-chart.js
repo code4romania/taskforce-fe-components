@@ -9,10 +9,10 @@ export const TemperatureChart = ({ results = [], title }) => {
   // NOTE: Because of the way the Axes are displayed, we need
   // to reverse the items order to show the original order
   const itemsListReversed = results.reverse();
-  const yAxisData = itemsListReversed.map(item =>
+  const yAxisData = itemsListReversed.map((item) =>
     format(fromUnixTime(item.date), "dd.MM.yyyy / HH:mm")
   );
-  const xAxisData = itemsListReversed.map(item => ({
+  const xAxisData = itemsListReversed.map((item) => ({
     value: item.temperature,
     itemStyle: { color: item.temperature > 37 ? "red" : "blue" }
   }));

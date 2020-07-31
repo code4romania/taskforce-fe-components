@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DropdownSearch } from "./dropdown-search";
 import { mount } from "enzyme";
 
-const clickOnDropdownSearchTitle = dropdown => {
+const clickOnDropdownSearchTitle = (dropdown) => {
   findDropdownSearchTitle(dropdown).simulate("click");
 };
 
@@ -11,7 +11,7 @@ const selectOptionFromDropdown = (dropdownSearch, optionToSelect) => {
   result.simulate("click");
 };
 
-const findDropdownSearchTitle = dropdown => {
+const findDropdownSearchTitle = (dropdown) => {
   return dropdown.find(".dropdown-search-filter");
 };
 
@@ -21,7 +21,7 @@ const findDropdownOption = (dropdownSearch, optionToFind) => {
   );
 };
 
-const findSearchInput = dropdown => {
+const findSearchInput = (dropdown) => {
   return dropdown.find("input");
 };
 

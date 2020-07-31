@@ -14,11 +14,11 @@ export const LoginForm = ({
 }) => {
   const [login, setState] = useState(initialState);
 
-  const handleOnChange = e => {
+  const handleOnChange = (e) => {
     const target = e.target;
     const name = target.name;
     const value = target.type === "checkbox" ? target.checked : target.value;
-    setState(prevLogin => ({
+    setState((prevLogin) => ({
       ...prevLogin,
       [name]: value
     }));

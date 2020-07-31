@@ -1,5 +1,4 @@
 import React from "react";
-import "../../styles.scss";
 import { PersonalDataTable } from "./personal-data-table";
 
 export default { title: "Personal Data" };

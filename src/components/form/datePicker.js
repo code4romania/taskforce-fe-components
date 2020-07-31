@@ -20,7 +20,7 @@ export const DatePicker = ({
 
   const maxDate = !question.allowFuture ? new Date() : null;
 
-  const onChange = date => {
+  const onChange = (date) => {
     setStartDate(date);
     const answer = {
       questionId: question.questionId,
@@ -72,7 +72,7 @@ const DateOnlyPicker = ({ startDate, maxDate, onChange }) => {
 };
 
 const DateTimePicker = ({ startDate, maxDate, onChange }) => {
-  const computeMinTime = date => {
+  const computeMinTime = (date) => {
     if (!maxDate) {
       return;
     }
@@ -82,7 +82,7 @@ const DateTimePicker = ({ startDate, maxDate, onChange }) => {
     }
   };
 
-  const computeMaxTime = date => {
+  const computeMaxTime = (date) => {
     if (!maxDate) {
       return;
     }
@@ -99,7 +99,7 @@ const DateTimePicker = ({ startDate, maxDate, onChange }) => {
     computeMaxTime(startDate || new Date())
   );
 
-  const handleDatetimeChange = date => {
+  const handleDatetimeChange = (date) => {
     setMinTime(computeMinTime(date));
     setMaxTime(computeMaxTime(date));
     onChange(date);

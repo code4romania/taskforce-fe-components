@@ -37,7 +37,7 @@ export const DropdownSearchWithAlert = () => {
     <DropdownSearch
       title={title}
       options={options}
-      onSelect={selected => {
+      onSelect={(selected) => {
         alert(JSON.stringify(selected));
       }}
     />
@@ -75,21 +75,21 @@ const countiesWithCities = {
 export const DropdownsDependingOnEachOther = () => {
   const [selectedCounty, setSelectedCounty] = useState(null);
 
-  const counties = Object.keys(countiesWithCities).map(county => ({
+  const counties = Object.keys(countiesWithCities).map((county) => ({
     label: county,
     value: county
   }));
 
-  const citiesIn = county =>
+  const citiesIn = (county) =>
     county
-      ? countiesWithCities[county].map(city => ({ label: city, value: city }))
+      ? countiesWithCities[county].map((city) => ({ label: city, value: city }))
       : [];
   return (
     <div>
       <DropdownSearch
         title={"Counties"}
         options={counties}
-        onSelect={option => setSelectedCounty(option.value)}
+        onSelect={(option) => setSelectedCounty(option.value)}
         showSearchInput={true}
       />
       <DropdownSearch

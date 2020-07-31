@@ -66,5 +66,5 @@ export default {
       exclude: "node_modules/**",
     }),
   ],
-  external: ["react", "react-dom", "prop-types", "debug", "assert"],
+  external: ["react", "react-dom", "prop-types"],
 };

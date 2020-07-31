@@ -1,5 +1,4 @@
 import React from "react";
-import "../../styles.scss";
 import { TemperatureChart } from "./temperature-chart";
 
 export default { title: "Temperature Chart" };

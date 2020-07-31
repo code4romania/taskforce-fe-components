@@ -8,7 +8,7 @@ const style = { width: 500 };
 export const types = () => (
   <form
     style={style}
-    onSubmit={e => {
+    onSubmit={(e) => {
       e.preventDefault();
     }}
   >
@@ -87,7 +87,7 @@ const numberMessages = {
 export const validation = () => (
   <form
     style={style}
-    onSubmit={e => {
+    onSubmit={(e) => {
       e.preventDefault();
     }}
   >
@@ -127,7 +127,7 @@ export const events = () => {
       <Input
         label="Type something..."
         usePlaceholder={true}
-        onChange={e => setInputValue(e.target.value)}
+        onChange={(e) => setInputValue(e.target.value)}
       />
       <label>{inputValue}</label>
     </div>

@@ -1,8 +1,6 @@
 import React from "react";
 import { Banner } from "./banner";
 
-import "./../../styles.scss";
-
 export default { title: "Banner" };
 
 export const defaultColor = () => (

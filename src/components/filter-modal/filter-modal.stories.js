@@ -1,6 +1,4 @@
 import React from "react";
-import "./../../styles.scss";
-
 import { FilterModal } from "./filter-modal";
 
 export default { title: "Filter Modal" };

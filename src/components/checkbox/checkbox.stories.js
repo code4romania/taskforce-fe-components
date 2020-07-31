@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../styles.scss";
 import { Checkbox } from "./checkbox";
 import { Label } from "../label/label";
 import "./checkbox.scss";
@@ -15,7 +14,7 @@ export const usage = () => {
         text={`Checkbox is ${state.rememberMe ? "checked" : "unchecked"}`}
       />
       <Checkbox
-        onChange={e => setState({ rememberMe: e.target.checked })}
+        onChange={(e) => setState({ rememberMe: e.target.checked })}
         defaultValue={state.rememberMe}
       >
         Remember Me

@@ -1,5 +1,4 @@
 import React from "react";
-import "./../../styles.scss";
 import { Instruments } from "./instruments";
 import { InstrumentsItem } from "../instruments-item/instruments-item";
 

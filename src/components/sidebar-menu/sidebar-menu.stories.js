@@ -1,5 +1,4 @@
 import React from "react";
-import "./../../styles.scss";
 import { SidebarMenu } from "./sidebar-menu";
 import { withKnobs } from "@storybook/addon-knobs";
 import { SidebarMenuItem } from "../sidebar-menu-item/sidebar-menu-item";

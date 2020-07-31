@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CaretSvg from "../../images/icons/caret-down.svg";
+import { ReactComponent as CaretSvg } from "../../images/icons/caret-down.svg";
 import "./completed-form-table.scss";
 import { Label } from "../label/label";
 import format from "date-fns/format";
@@ -13,11 +13,12 @@ export const CompletedFormTable = ({ title, headers, dataRows = [] }) => {
       <table className="table result-history-table">
         <thead>
           <tr>
-            {headers.length && headers.map(item => <th key={item}>{item}</th>)}
+            {headers.length &&
+              headers.map((item) => <th key={item}>{item}</th>)}
           </tr>
         </thead>
         <tbody>
-          {dataRows.map(item => (
+          {dataRows.map((item) => (
             <tr key={item.id}>
               <td>{format(fromUnixTime(item.date), "dd.MM.yyyy / HH:mm")}</td>
               <td>{item.temperature > 37 ? "Da" : "Nu"}</td>

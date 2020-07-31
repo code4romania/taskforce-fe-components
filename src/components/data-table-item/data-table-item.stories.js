@@ -1,5 +1,4 @@
 import React from "react";
-import "./../../styles.scss";
 import { DataTableItem } from "./data-table-item";
 
 export default { title: "Data Table Item" };

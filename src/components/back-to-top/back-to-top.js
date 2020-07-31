@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ArrowUp from "../../images/icons/circle-up.svg";
+import { ReactComponent as ArrowUp } from "../../images/icons/circle-up.svg";
 import "./back-to-top.scss";
 
 export const BackToTop = ({ width, height }) => {

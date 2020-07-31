@@ -37,13 +37,13 @@ export const Input = ({
   if (loading) controlClassNames.push("is-loading");
   const inputRef = useRef();
 
-  const setCustomValidity = current => {
-    current.oninvalid = e => {
+  const setCustomValidity = (current) => {
+    current.oninvalid = (e) => {
       let errorText = "";
 
       if (!e.target.validity.valid) {
         const invalidKey = Object.keys(validationMessages).find(
-          key => e.target.validity[key]
+          (key) => e.target.validity[key]
         );
         errorText = invalidKey ? validationMessages[invalidKey] : "";
       }
@@ -55,7 +55,7 @@ export const Input = ({
   useEffect(() => {
     if (validationMessages) {
       setCustomValidity(inputRef.current);
-      inputRef.current.oninput = e => {
+      inputRef.current.oninput = (e) => {
         e.target.setCustomValidity("");
       };
     }

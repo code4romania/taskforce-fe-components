@@ -7,11 +7,11 @@ import { SearchInput } from "../search-input/search-input";
 export const FilterModal = ({ placeholder, values, isOpen, selectValue }) => {
   const [selectedValue, setSelectedValue] = useState("");
 
-  const onValueChangedHandler = value => {
+  const onValueChangedHandler = (value) => {
     setSelectedValue(value);
   };
 
-  const onValueSelectedHandler = value => {
+  const onValueSelectedHandler = (value) => {
     if (selectValue) {
       selectValue(value);
     }
@@ -36,11 +36,11 @@ export const FilterModal = ({ placeholder, values, isOpen, selectValue }) => {
             <>
               {values
                 .filter(
-                  value =>
+                  (value) =>
                     !selectedValue ||
                     value.toLowerCase().includes(selectedValue.toLowerCase())
                 )
-                .map(value => (
+                .map((value) => (
                   <div
                     key={`FilterModalValue${value}`}
                     className="filter-modal__value"

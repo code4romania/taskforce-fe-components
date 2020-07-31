@@ -1,5 +1,4 @@
 import React from "react";
-import "./../../styles.scss";
 import { List } from "./list";
 import { ListItem } from "../list-item/list-item";
 

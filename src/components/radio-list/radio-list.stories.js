@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./../../styles.scss";
 import { RadioList } from "./radio-list";
 
 export default { title: "RadioList" };
@@ -11,7 +10,7 @@ export const HorizontalRadioListWithChangeEvent = () => {
     { key: "Key3", value: "Option 3" }
   ];
   const [textValue, setTextValue] = useState();
-  const onChange = el => {
+  const onChange = (el) => {
     setTextValue(el);
   };
 
@@ -36,7 +35,7 @@ export const VerticalRadioListWithChangeEvent = () => {
     { key: "Key3", value: "Option 3" }
   ];
   const [textValue, setTextValue] = useState();
-  const onChange = el => {
+  const onChange = (el) => {
     setTextValue(el);
   };
 

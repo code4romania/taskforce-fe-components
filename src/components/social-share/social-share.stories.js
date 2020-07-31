@@ -1,5 +1,4 @@
 import React from "react";
-import "./../../styles.scss";
 import { SocialsShare } from "./social-share";
 import { withKnobs, text } from "@storybook/addon-knobs";
 

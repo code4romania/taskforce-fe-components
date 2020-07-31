@@ -6,7 +6,7 @@ import { List } from "../list/list";
 import { ListItem } from "../list-item/list-item";
 
 function SingleChoice({ question, onAnswer, currentResponse }) {
-  const isSelected = option => {
+  const isSelected = (option) => {
     return currentResponse === option.value;
   };
 
@@ -15,7 +15,7 @@ function SingleChoice({ question, onAnswer, currentResponse }) {
       <ListHeader title={question.questionText} />
       <div>
         <List>
-          {question.options.map(option => (
+          {question.options.map((option) => (
             <ListItem
               key={`answer_${question.questionId}_${option.value}`}
               title={option.label}

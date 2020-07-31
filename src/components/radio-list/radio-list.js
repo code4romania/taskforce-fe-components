@@ -24,7 +24,7 @@ export const RadioList = ({ label, description, options, onChange, type }) => {
       <p className="subtitle is-2">{description}</p>
       <div className="control">
         {options &&
-          options.map(option => {
+          options.map((option) => {
             return (
               <label
                 className="radio"
@@ -35,7 +35,7 @@ export const RadioList = ({ label, description, options, onChange, type }) => {
                   key={`input_${option.value}_${option.key}`}
                   type="radio"
                   name={label}
-                  onChange={args =>
+                  onChange={(args) =>
                     onChange && onChange(args.currentTarget.value)
                   }
                   value={option.value}

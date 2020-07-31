@@ -13,7 +13,7 @@ jest.mock("react-datepicker", () => ({ onChange }) => (
   </div>
 ));
 
-const clickOnNext = form => {
+const clickOnNext = (form) => {
   const forwardButton = form.find(".forward");
   forwardButton.simulate("click");
 };
@@ -46,7 +46,7 @@ const expectHeaderText = (form, expected) => {
   expect(form.find(ListHeader).text()).toEqual(expected);
 };
 
-const finalEntryWithId = id => ({
+const finalEntryWithId = (id) => ({
   questionId: id,
   questionText: "Done!",
   type: "FINAL",

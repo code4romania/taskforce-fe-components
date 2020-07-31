@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./../../styles.scss";
 import { SidebarMenuItem } from "./sidebar-menu-item";
 import { withKnobs } from "@storybook/addon-knobs";
 
@@ -27,25 +26,25 @@ export const withTheme = () => (
   <>
     <SidebarMenuItem
       isTitle
-      theme={{ highlightColor: "#F6DD62", backgroundColor: "#F6F9FC" }}
+      style={{ "--highlightColor": "#F6DD62", "--backgroundColor": "#F6F9FC" }}
     >
       Transmitere și simptome
     </SidebarMenuItem>
     <SidebarMenuItem
       isTitle
       active
-      theme={{ highlightColor: "#F6DD62", backgroundColor: "#F6F9FC" }}
+      style={{ "--highlightColor": "#F6DD62", "--backgroundColor": "#F6F9FC" }}
     >
       Transmitere și simptome
     </SidebarMenuItem>
     <SidebarMenuItem
-      theme={{ highlightColor: "#F6DD62", backgroundColor: "#F6F9FC" }}
+      style={{ "--highlightColor": "#F6DD62", "--backgroundColor": "#F6F9FC" }}
     >
       Transmitere și simptome
     </SidebarMenuItem>
     <SidebarMenuItem
       active
-      theme={{ highlightColor: "#F6DD62", backgroundColor: "#F6F9FC" }}
+      style={{ "--highlightColor": "#F6DD62", "--backgroundColor": "#F6F9FC" }}
     >
       Transmitere și simptome
     </SidebarMenuItem>

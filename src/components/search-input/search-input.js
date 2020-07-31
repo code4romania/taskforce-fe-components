@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./search-input.scss";
-import SearchIcon from "../../images/icons/search.svg";
+import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
 
 export const SearchInput = ({
   hasIcon = true,
@@ -19,13 +19,13 @@ export const SearchInput = ({
     }
   }, []);
 
-  const onKeyPress = event => {
+  const onKeyPress = (event) => {
     if (onEnter && event.key === "Enter") {
       onEnter(currentValue);
     }
   };
 
-  const onChange = event => {
+  const onChange = (event) => {
     if (onValueChange) {
       onValueChange(event.target.value);
     }

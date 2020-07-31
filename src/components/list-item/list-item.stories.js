@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./../../styles.scss";
 import { ListItem } from "./list-item";
 
 export default { title: "ListItem" };

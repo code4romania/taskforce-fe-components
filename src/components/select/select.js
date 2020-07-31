@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import deprecated from "deprecated-prop-type";
-import warning from "warning";
 
 /**
  *
@@ -23,14 +21,14 @@ export const Select = ({
   const [currentValue, setCurrentValue] = useState();
 
   useEffect(() => {
-    const selectedOptions = options.filter(opt => opt.selected);
+    const selectedOptions = options.filter((opt) => opt.selected);
 
     if (selectedOptions.length) {
       const [option] = selectedOptions;
       setCurrentValue(option.value);
 
       if (selectedOptions.length > 1) {
-        warning(false, "Only one 'selected' property of 'Select' can be true");
+        console.warn("Only one 'selected' property of 'Select' can be true");
       }
     }
 
@@ -39,7 +37,7 @@ export const Select = ({
     }
   }, [defaultValue]);
 
-  const onChange = e => {
+  const onChange = (e) => {
     if (selectProps.onChange && typeof selectProps.onChange === "function") {
       selectProps.onChange(e);
     }
@@ -82,8 +80,7 @@ Select.propTypes = {
     PropTypes.shape({
       text: PropTypes.string,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      disabled: PropTypes.bool,
-      selected: deprecated(PropTypes.bool, "Use `defaultValue` prop instead.")
+      disabled: PropTypes.bool
     })
   )
 };

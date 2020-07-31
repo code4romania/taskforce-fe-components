@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "./header";
-import LogoSvg from "../../images/cemafac.svg";
+import { ReactComponent as LogoSvg } from "../../images/cemafac.svg";
 
 export default { title: "Header" };
 

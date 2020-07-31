@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../styles.scss";
 import { LoginForm } from "./login-form";
 import { Hero } from "../hero/hero";
 

@@ -1,5 +1,4 @@
 import React from "react";
-import "./../../styles.scss";
 import { DataTable } from "./data-table";
 import { DataTableItem } from "../data-table-item/data-table-item";
 import { DataTableRow } from "../data-table-row/data-table-row";
