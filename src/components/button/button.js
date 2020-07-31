@@ -5,16 +5,16 @@ import "./button.scss";
 export const Button = ({
   children,
   onClick,
-  type,
+  color,
   size,
   disabled,
   inverted,
-  inputType
+  type
 }) => {
   const classNames = ["button"];
 
-  if (type) {
-    classNames.push(`is-${type}`);
+  if (color) {
+    classNames.push(`is-${color}`);
   }
 
   if (size) {
@@ -27,7 +27,7 @@ export const Button = ({
 
   return (
     <button
-      type={inputType}
+      type={type}
       disabled={disabled}
       onClick={onClick}
       className={classNames.join(" ")}
@@ -40,16 +40,16 @@ export const Button = ({
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
-  type: PropTypes.oneOf(["primary", "danger", "warning"]),
+  color: PropTypes.oneOf(["primary", "danger", "warning"]),
   size: PropTypes.oneOf(["small", "medium", "large"]),
   disabled: PropTypes.bool,
   inverted: PropTypes.bool,
-  inputType: PropTypes.oneOf(["button", "submit", "reset"])
+  type: PropTypes.oneOf(["button", "submit", "reset"])
 };
 
 Button.defaultProps = {
-  type: "primary",
+  color: "primary",
   disabled: false,
   inverted: false,
-  inputType: "button"
+  type: "button"
 };
