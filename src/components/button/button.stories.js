@@ -49,7 +49,7 @@ export const danger = () => {
 
 export const warning = () => {
   return (
-    <Button type="warning" onClick={sayMyName}>
+    <Button color="warning" onClick={sayMyName}>
       Hello Friend
     </Button>
   );
