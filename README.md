@@ -44,6 +44,8 @@ npm install
 npm start
 ```
 
+Preview environments available automatically on each PR powered by [Vercel](https://vercel.com/). Preview environment for `master` branch: https://taskforce-fe-components.now.sh/?path=/story/*
+
 ## Feedback
 
 - Request a new feature on GitHub.
