@@ -12,7 +12,8 @@ export const DatePicker = ({
   withTime,
   question,
   onAnswer,
-  currentResponse
+  currentResponse,
+  onlyFutureTime
 }) => {
   const [startDate, setStartDate] = useState(
     currentResponse ? currentResponse : null
@@ -36,6 +37,7 @@ export const DatePicker = ({
           startDate={startDate}
           maxDate={maxDate}
           onChange={onChange}
+          onlyFutureTime={onlyFutureTime}
         />
       );
     } else {
@@ -44,6 +46,7 @@ export const DatePicker = ({
           startDate={startDate}
           maxDate={maxDate}
           onChange={onChange}
+          onlyFutureTime={onlyFutureTime}
         />
       );
     }
@@ -57,7 +60,7 @@ export const DatePicker = ({
   );
 };
 
-const DateOnlyPicker = ({ startDate, maxDate, onChange }) => {
+const DateOnlyPicker = ({ startDate, maxDate, onChange, onlyFutureTime }) => {
   return (
     <ReactDatePicker
       customInput={<CustomInput />}
@@ -67,11 +70,12 @@ const DateOnlyPicker = ({ startDate, maxDate, onChange }) => {
       locale={ro}
       dateFormat={"d MMMM yyyy"}
       maxDate={maxDate}
+      minDate={onlyFutureTime ? new Date() : null}
     />
   );
 };
 
-const DateTimePicker = ({ startDate, maxDate, onChange }) => {
+const DateTimePicker = ({ startDate, maxDate, onChange, onlyFutureTime }) => {
   const computeMinTime = (date) => {
     if (!maxDate) {
       return;
@@ -120,6 +124,7 @@ const DateTimePicker = ({ startDate, maxDate, onChange }) => {
       maxDate={maxDate}
       minTime={minTime}
       maxTime={maxTime}
+      minDate={onlyFutureTime ? new Date() : null}
     />
   );
 };
@@ -152,17 +157,20 @@ DatePicker.propTypes = {
     allowFuture: PropTypes.bool
   }),
   onAnswer: PropTypes.func,
-  currentResponse: PropTypes.object
+  currentResponse: PropTypes.object,
+  onlyFutureTime: PropTypes.bool
 };
 
 DateTimePicker.propTypes = {
   startDate: PropTypes.object,
   maxDate: PropTypes.instanceOf(Date),
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  onlyFutureTime: PropTypes.bool
 };
 
 DateOnlyPicker.propTypes = {
   startDate: PropTypes.object,
   maxDate: PropTypes.instanceOf(Date),
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  onlyFutureTime: PropTypes.bool
 };
