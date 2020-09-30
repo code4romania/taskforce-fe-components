@@ -1,6 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { ReactComponent as EyeSolid } from "../../images/icons/eye-solid.svg";
 import { Label } from "../label/label";
+import "./input.scss";
 
 export const Input = ({
   disabled,
@@ -25,7 +27,7 @@ export const Input = ({
   maxLength,
   pattern,
   title,
-  step
+  step,
 }) => {
   const inputClassNames = ["input"];
   const fieldClassNames = ["field"];
@@ -36,6 +38,12 @@ export const Input = ({
   if (rounded) inputClassNames.push("is-rounded");
   if (loading) controlClassNames.push("is-loading");
   const inputRef = useRef();
+
+  const [typeState, setTypeState] = useState(type);
+
+  const togglePassword = (event) => {
+    setTypeState(typeState === "password" ? "text" : "password");
+  };
 
   const setCustomValidity = (current) => {
     current.oninvalid = (e) => {
@@ -70,22 +78,25 @@ export const Input = ({
       <div className={controlClassNames.join(" ")}>
         <input
           className={inputClasses}
-          type={type}
+          type={typeState}
           name={name}
           disabled={disabled}
           defaultValue={defaultValue}
           placeholder={usePlaceholder ? label : ""}
           onChange={onChange}
           required={required}
-          min={type === "number" && min ? min : void 0}
-          max={type === "number" && max ? max : void 0}
-          step={type === "number" && step ? step : void 0}
+          min={typeState === "number" && min ? min : void 0}
+          max={typeState === "number" && max ? max : void 0}
+          step={typeState === "number" && step ? step : void 0}
           minLength={minLength}
           maxLength={maxLength}
           ref={inputRef}
           pattern={pattern}
           title={title}
         />
+        {type === "password" && (
+          <EyeSolid className="__show-password-icon" onClick={togglePassword} />
+        )}
       </div>
       {children}
     </div>
@@ -115,7 +126,7 @@ Input.propTypes = {
   pattern: PropTypes.string,
   title: PropTypes.string,
   step: PropTypes.number,
-  validationMessages: PropTypes.object
+  validationMessages: PropTypes.object,
 };
 
 Input.defaultProps = {
@@ -125,5 +136,5 @@ Input.defaultProps = {
   loading: false,
   rounded: false,
   usePlaceholder: false,
-  required: false
+  required: false,
 };
