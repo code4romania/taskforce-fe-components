@@ -27,7 +27,7 @@ export const Input = ({
   maxLength,
   pattern,
   title,
-  step,
+  step
 }) => {
   const inputClassNames = ["input"];
   const fieldClassNames = ["field"];
@@ -41,7 +41,7 @@ export const Input = ({
 
   const [typeState, setTypeState] = useState(type);
 
-  const togglePassword = (event) => {
+  const togglePassword = () => {
     setTypeState(typeState === "password" ? "text" : "password");
   };
 
@@ -126,7 +126,7 @@ Input.propTypes = {
   pattern: PropTypes.string,
   title: PropTypes.string,
   step: PropTypes.number,
-  validationMessages: PropTypes.object,
+  validationMessages: PropTypes.object
 };
 
 Input.defaultProps = {
@@ -136,5 +136,5 @@ Input.defaultProps = {
   loading: false,
   rounded: false,
   usePlaceholder: false,
-  required: false,
+  required: false
 };
