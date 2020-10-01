@@ -85,9 +85,9 @@ export const Input = ({
           placeholder={usePlaceholder ? label : ""}
           onChange={onChange}
           required={required}
-          min={typeState === "number" && min ? min : void 0}
-          max={typeState === "number" && max ? max : void 0}
-          step={typeState === "number" && step ? step : void 0}
+          min={type === "number" && min ? min : void 0}
+          max={type === "number" && max ? max : void 0}
+          step={type === "number" && step ? step : void 0}
           minLength={minLength}
           maxLength={maxLength}
           ref={inputRef}
