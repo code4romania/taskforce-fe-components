@@ -15,7 +15,7 @@ export const ListItem = ({
   nonOption
 }) => {
   return (
-    <div
+    <li
       role="listitem"
       tabIndex={0}
       className={classNames("__list-item", {
@@ -35,7 +35,7 @@ export const ListItem = ({
           <ArrowRight />
         </div>
       )}
-    </div>
+    </li>
   );
 };
 
