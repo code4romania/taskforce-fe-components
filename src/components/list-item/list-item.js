@@ -16,7 +16,6 @@ export const ListItem = ({
 }) => {
   return (
     <li
-      role="listitem"
       tabIndex={0}
       className={classNames("__list-item", {
         "__list-item--active": active && !nonOption,
