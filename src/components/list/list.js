@@ -4,9 +4,9 @@ import "./list.scss";
 
 export const List = ({ columns, children }) => {
   return (
-    <div role="list" className={`__list-wrapper __list-grid-${columns}`}>
+    <ul className={`__list-wrapper __list-grid-${columns}`}>
       {children}
-    </div>
+    </ul>
   );
 };
 

@@ -15,8 +15,7 @@ export const ListItem = ({
   nonOption
 }) => {
   return (
-    <div
-      role="listitem"
+    <li
       tabIndex={0}
       className={classNames("__list-item", {
         "__list-item--active": active && !nonOption,
@@ -35,7 +34,7 @@ export const ListItem = ({
           <ArrowRight />
         </div>
       )}
-    </div>
+    </li>
   );
 };
 
