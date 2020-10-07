@@ -61,3 +61,4 @@ export { DataTableRow } from "./components/data-table-row/data-table-row";
 export { FilterModal } from "./components/filter-modal/filter-modal";
 export { DropdownSearch } from "./components/dropdown-search/dropdown-search";
 export { HeaderFilter } from "./components/header-filter/header-filter";
+export { LabelValueList } from "./components/label-value-list/label-value-list";
