@@ -1,11 +1,15 @@
 import React from "react";
 import { Label } from "./label";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
-export default { title: "Label" };
+export default {
+  title: "Label",
+  decorators: [withKnobs]
+};
 
 export const types = () => (
-  <>
-    <Label text="Some Label" />
-    <Label text="Some Secondary Label" isSecondary={true} />
-  </>
+  <Label
+    text={text("Text", "Some Label")}
+    isSecondary={boolean("Is Secondary")}
+  />
 );

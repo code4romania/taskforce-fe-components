@@ -11,18 +11,18 @@ function sayMyName() {
   alert("Hello Friend");
 }
 
-const typeOptions = {
-  Primary: "primary",
-  Danger: "danger",
-  Warning: "warning"
-};
+const colorOptions = [
+  "primary",
+  "danger",
+  "warning"
+];
 
-export const primary = () => {
+export const button = () => {
   return (
     <Button
       inverted={boolean("Inverted", false)}
       disabled={boolean("Disabled", false)}
-      type={select("Type", typeOptions, "primary")}
+      color={select("Color", colorOptions, "primary")}
       onClick={sayMyName}
     >
       {text("Text", "Hello Friend")}

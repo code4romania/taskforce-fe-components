@@ -1,17 +1,11 @@
 import React from "react";
 import { DevelopedBy } from "./developed-by";
-import { withKnobs } from "@storybook/addon-knobs";
 import { Logo } from "../..";
 import partnerLogo from "./assets/partener.png";
 import dsuLogo from "./assets/dsu.png";
+import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 
 export default { title: "Developed By", decorators: [withKnobs] };
-
-export const oneLine = () => <DevelopedBy />;
-
-export const twoLines = () => <DevelopedBy showSecondLine />;
-
-export const oneLineNoPartners = () => <DevelopedBy showPartners={false} />;
 
 const customPartnerLogos = [
   <Logo url="https://www.gov.ro" key="gov">
@@ -37,16 +31,18 @@ const customSecondLineLogos = [
   </Logo>
 ];
 
-export const oneLineCustom = () => (
-  <DevelopedBy showPartners partnerLogos={customPartnerLogos} />
-);
+export const developedBy = () => {
+  const showSecondLine = boolean("Show Secondary Line", false);
 
-export const twoLineCustom = () => (
-  <DevelopedBy
-    showPartners
-    partnerLogos={customPartnerLogos}
-    showSecondLine
-    secondLineCaption="Much appreciation goes to"
-    secondLineLogos={customSecondLineLogos}
-  />
-);
+  return (
+    <DevelopedBy
+      showPartners={boolean("Show Prtners", false)}
+      partnerLogos={boolean("Use Custom Partners Logos", false) && customPartnerLogos}
+      showSecondLine={showSecondLine}
+      secondLineCaption={showSecondLine && text("Second Line Caption", "Much appreciation goes to")}
+      secondLineLogos={showSecondLine && boolean("Use Second Line Custom Logos", false) && customSecondLineLogos
+      }
+    />
+  );
+};
+

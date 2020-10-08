@@ -1,23 +1,26 @@
 import React from "react";
 import { Hero } from "./hero";
 import { ReactComponent as ArrowSvg } from "../../images/icons/arrow-right.svg";
+import { withKnobs, boolean, text } from "@storybook/addon-knobs";
+
 const title = "Ce pasi ai de urmat";
 const subtitle = "Pentru a te putea ajuta ...";
 
-export default { title: "Hero" };
+export default {
+  title: "Hero",
+  decorators: [withKnobs]
+};
 
-export const withTitle = () => <Hero title={title} />;
+export const hero = () => {
+  const useFallbackIcon = boolean("Use Fallback Icon", false);
 
-export const withTitleSubtitle = () => (
-  <Hero title={title} subtitle={subtitle} />
-);
-
-export const withTitleSubtitleIcon = () => (
-  <Hero title={title} subtitle={subtitle}>
-    <ArrowSvg />
-  </Hero>
-);
-
-export const withDefaultIcon = () => (
-  <Hero title={title} subtitle={subtitle} useFallbackIcon={true} />
-);
+  return (
+    <Hero
+      title={text("Title", title)}
+      subtitle={boolean("With Subtitle", false) && text("Subtitle", subtitle)}
+      useFallbackIcon={useFallbackIcon}
+    >
+      { !useFallbackIcon && boolean("Use Custom Icon", false) && <ArrowSvg />}
+    </Hero>
+  )
+};
