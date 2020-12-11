@@ -1,6 +1,7 @@
 import React from "react";
 import { Instruments } from "./instruments";
 import { InstrumentsItem } from "../instruments-item/instruments-item";
+import { BannerImage } from "../banner-image/banner-image";
 
 export default { title: "Instruments" };
 
@@ -9,6 +10,15 @@ const showMessage = () => alert("Hello, friend.");
 export const grid = () => (
   <Instruments layout="grid">
     <section>
+      <BannerImage
+        link="https://vaccinare-covid.gov.ro/"
+        image={{
+          src:
+            "https://stirioficiale.ro/storage/imagine principala_ROVACCINARE.png",
+          alt: "#ROVACCINARE",
+          title: "#ROVACCINARE"
+        }}
+      />
       <InstrumentsItem
         color="yellow"
         title="Instalează-ți add-on-ul de depistat știrile false"
@@ -17,6 +27,8 @@ export const grid = () => (
         color="blue"
         title="Instalează-ți add-on-ul de depistat știrile false"
       />
+    </section>
+    <section>
       <InstrumentsItem
         color="green"
         title="Stiri oficiale si informații la zi"
@@ -24,8 +36,6 @@ export const grid = () => (
         ctaText="Cele mai noi informații oficiale"
         onClick={showMessage}
       />
-    </section>
-    <section>
       <InstrumentsItem
         color="red"
         title="Vrei să ajuți. Intră aici"
@@ -55,6 +65,15 @@ export const grid = () => (
 
 export const oneColumn = () => (
   <Instruments layout="column">
+    <BannerImage
+      link="https://vaccinare-covid.gov.ro/"
+      image={{
+        src:
+            "https://stirioficiale.ro/storage/imagine principala_ROVACCINARE.png",
+        alt: "#ROVACCINARE",
+        title: "#ROVACCINARE"
+      }}
+    />
     <InstrumentsItem
       color="green"
       title="Instalează-ți add-on-ul de depistat știrile false"
