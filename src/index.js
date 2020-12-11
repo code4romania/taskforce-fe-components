@@ -22,6 +22,7 @@ export { Hero } from "./components/hero/hero";
 export { IncubatedBy } from "./components/incubated-by/incubated-by";
 
 export { Banner } from "./components/banner/banner";
+export { BannerImage } from "./components/banner-image/banner-image";
 
 export { Instruments } from "./components/instruments/instruments";
 export { InstrumentsItem } from "./components/instruments-item/instruments-item";
