@@ -5,9 +5,10 @@ export default { title: "Banner Image" };
 
 export const Default = () => (
   <BannerImage
-    link="https://code4.ro"
-    image={
-      {src: "https://stirioficiale.ro/storage/imagine principala_ROVACCINARE.png"}
-    }
+    link={{ path: "https://code4.ro", shouldOpenLinkOnNewPage: false }}
+    image={{
+      src:
+        "https://stirioficiale.ro/storage/imagine principala_ROVACCINARE.png"
+    }}
   />
 );
