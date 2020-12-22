@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./search-result-list-item.scss";
 
@@ -18,13 +19,13 @@ export const SearchResultListItem = ({
         </time>
       )}
       <h2 className="searchResult__title">
-        {readMoreLink ? <a href={readMoreLink}>{title}</a> : title}
+        {readMoreLink ? <Link to={readMoreLink}>{title}</Link> : title}
       </h2>
       {children}
 
       {readMoreText && (
         <div className="has-text-right searchResult__moreLink">
-          <a href={readMoreLink}>{readMoreText}</a>
+          <Link to={readMoreLink}>{readMoreText}</Link>
         </div>
       )}
     </div>
