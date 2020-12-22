@@ -1,31 +1,44 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const BannerImage = ({ image: {src, alt, title}, link }) => {
-  return (
-    <div>
-      {link ?
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          <img src={src} alt={alt} title={title}/>
-        </a>
-        :
-        <img src={src} alt={alt} title={title}/>
-      }
-    </div>
+const handleClick = ({ path, shouldOpenLinkOnNewPage }) => {
+  const windowInstance = window.open(
+    path,
+    shouldOpenLinkOnNewPage ? "_blank" : "_self"
   );
+  windowInstance.focus();
 };
+
+export const BannerImage = ({
+  image: { src, alt, title, width, height },
+  link
+}) => (
+  <div>
+    <img
+      src={src}
+      alt={alt}
+      title={title}
+      width={width}
+      height={height}
+      {...(!!link && { onClick: () => handleClick(link) })}
+    />
+  </div>
+);
 
 BannerImage.propTypes = {
   image: PropTypes.shape({
     src: PropTypes.string.isRequired,
     alt: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.string,
+    width: PropTypes.number,
+    height: PropTypes.number
   }).isRequired,
-  link: PropTypes.string
+  link: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+    shouldOpenLinkOnNewPage: PropTypes.bool
+  })
 };
 
 BannerImage.defaultProps = {
   link: null
-}
-
-
+};
