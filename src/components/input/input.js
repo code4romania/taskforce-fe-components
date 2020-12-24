@@ -1,6 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { ReactComponent as EyeSolid } from "../../images/icons/eye-solid.svg";
 import { Label } from "../label/label";
+import "./input.scss";
 
 export const Input = ({
   disabled,
@@ -37,6 +39,12 @@ export const Input = ({
   if (loading) controlClassNames.push("is-loading");
   const inputRef = useRef();
 
+  const [typeState, setTypeState] = useState(type);
+
+  const togglePassword = () => {
+    setTypeState(typeState === "password" ? "text" : "password");
+  };
+
   const setCustomValidity = (current) => {
     current.oninvalid = (e) => {
       let errorText = "";
@@ -70,7 +78,7 @@ export const Input = ({
       <div className={controlClassNames.join(" ")}>
         <input
           className={inputClasses}
-          type={type}
+          type={typeState}
           name={name}
           disabled={disabled}
           defaultValue={defaultValue}
@@ -86,6 +94,9 @@ export const Input = ({
           pattern={pattern}
           title={title}
         />
+        {type === "password" && (
+          <EyeSolid className="__show-password-icon" onClick={togglePassword} />
+        )}
       </div>
       {children}
     </div>
