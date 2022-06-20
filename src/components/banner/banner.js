@@ -6,7 +6,7 @@ export const Banner = ({ color, title, link }) => {
   return (
     <div className={`banner-wrapper is-${color}`}>
       <div className="banner">
-        <div className="title">
+        <div className="title container">
           <a href={link} target="_blank" rel="noopener noreferrer">
             {title || ""}
           </a>
