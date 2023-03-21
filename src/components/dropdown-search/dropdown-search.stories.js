@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { DropdownSearch } from "./dropdown-search";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
-export default { title: "Dropdown Search" };
-
-const title = "Judet";
+export default {
+  title: "Dropdown Search",
+  decorators: [withKnobs]
+};
 
 const options = [
   { value: 1, label: "Alba" },
@@ -15,53 +17,19 @@ const options = [
   { value: 7, label: "Constanta" }
 ];
 
-export const DropdownSearchClosed = () => {
-  return (
-    <DropdownSearch title={"Judet"} options={options} onSelect={() => {}} />
-  );
-};
+export const dropdownSearch = () => {
+  const showSearchInput = boolean("Show Search Input", false);
 
-export const DropdownSearchAlwaysOpen = () => {
   return (
     <DropdownSearch
-      title={title}
       options={options}
-      onSelect={() => {}}
-      isAlwaysOpen={true}
-    />
-  );
-};
-
-export const DropdownSearchWithAlert = () => {
-  return (
-    <DropdownSearch
-      title={title}
-      options={options}
+      title={text("Title", "Județ")}
+      isAlwaysOpen={boolean("Always Open", false)}
+      showSearchInput={showSearchInput}
+      searchPlaceholder={showSearchInput && text("Search Placeholder", "Type to search in the list below")}
       onSelect={(selected) => {
         alert(JSON.stringify(selected));
       }}
-    />
-  );
-};
-
-export const DropdownWithSearchPlaceholder = () => {
-  return (
-    <DropdownSearch
-      title={title}
-      options={options}
-      onSelect={() => {}}
-      searchPlaceholder={"Type to search in the list below"}
-    />
-  );
-};
-
-export const DropdownWithoutSearchInput = () => {
-  return (
-    <DropdownSearch
-      title={title}
-      options={options}
-      onSelect={() => {}}
-      showSearchInput={false}
     />
   );
 };

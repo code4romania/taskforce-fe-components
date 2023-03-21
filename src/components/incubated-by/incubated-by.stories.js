@@ -2,6 +2,12 @@ import React from "react";
 import { IncubatedBy } from "./incubated-by";
 import { Logo } from "../..";
 import patriaBank from "../../images/patria-bank.png";
+import { withKnobs, select } from "@storybook/addon-knobs";
+
+export default {
+  title: "Incubated By",
+  decorators: [withKnobs]
+};
 
 const customPartnerLogos = (
   <Logo url="https://www.patriabank.ro/" key="patria-bank">
@@ -24,14 +30,30 @@ const customMultiplePartnersLogos = [
   </Logo>
 ];
 
-export default { title: "Incubated By" };
+const noPartner = 0;
+const singlePartner = 1;
+const multiPartner = 2;
 
-export const normal = () => <IncubatedBy />;
+const options = {
+  "No Partner": noPartner,
+  "Single Partner": singlePartner,
+  "Multiple Partner": multiPartner
+};
 
-export const withPartner = () => (
-  <IncubatedBy partnerLogos={customPartnerLogos} />
-);
 
-export const withMultiplePartners = () => (
-  <IncubatedBy partnerLogos={customMultiplePartnersLogos} />
-);
+export const incubatedBy = () => {
+  let logos;
+  const option = select("Partners", options, noPartner)
+
+  if (option === singlePartner) {
+    logos = customPartnerLogos;
+  }
+
+  if (option === multiPartner) {
+    logos = customMultiplePartnersLogos;
+  }
+
+  return (
+    <IncubatedBy partnerLogos={logos} />
+  )
+};

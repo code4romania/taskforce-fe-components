@@ -1,8 +1,12 @@
 import React from "react";
 import { Header } from "./header";
 import { ReactComponent as LogoSvg } from "../../images/cemafac.svg";
+import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 
-export default { title: "Header" };
+export default {
+  title: "Header",
+  decorators: [withKnobs]
+};
 
 const Logo = () => (
   <a href="/">
@@ -25,19 +29,11 @@ const ProfileItems = () => (
   </>
 );
 
-export const withMenuItems = () => (
-  <Header Logo={<Logo />} MenuItems={<MenuItems />} />
-);
-
-export const withName = () => (
-  <Header name="Ce ma fac" Logo={<Logo />} MenuItems={<MenuItems />} />
-);
-
-export const withProfileItems = () => (
+export const header = () => (
   <Header
-    name="Ce ma fac"
     Logo={<Logo />}
-    MenuItems={<MenuItems />}
-    ProfileItems={<ProfileItems />}
+    MenuItems={boolean("With Menu Items", true) && <MenuItems />}
+    name={boolean("With Name", false) && text("Name", "Ce ma fac")}
+    ProfileItems={boolean("With Profile Items", false) && <ProfileItems />}
   />
 );

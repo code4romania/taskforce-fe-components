@@ -4,40 +4,19 @@ import { SearchInput } from "./search-input";
 
 export default { title: "Search Input", decorators: [withKnobs] };
 
-export const searchInput = () => <SearchInput></SearchInput>;
-export const icon = () => (
-  <SearchInput hasIcon={boolean("Has search", false)}></SearchInput>
-);
-export const placeholder = () => (
+export const searchInput = () => (
   <SearchInput
-    placeholder={text("Placeholder", "caută informații aici")}
-  ></SearchInput>
-);
-
-export const onValueChanged = () => (
-  <SearchInput
+    hasIcon={boolean("Show Search Icon", false)}
+    placeholder={text("Placeholder", "Caută informații aici")}
+    value=""
     onValueChange={(value) => {
-      alert(value);
+      alert("Value:", value);
     }}
-  ></SearchInput>
-);
-
-export const value = () => (
-  <SearchInput value={text("Value", "Code4Romania")}></SearchInput>
-);
-
-export const onClick = () => (
-  <SearchInput
     onClick={(searchValue) => {
-      alert("Search value: " + searchValue);
+      alert("Search clicked: " + searchValue);
     }}
-  ></SearchInput>
-);
-
-export const onEnter = () => (
-  <SearchInput
     onEnter={(searchValue) => {
       alert("Search value: " + searchValue);
     }}
-  ></SearchInput>
+  />
 );

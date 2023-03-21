@@ -1,32 +1,19 @@
 import React, { useState } from "react";
 import { ListItem } from "./list-item";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
-export default { title: "ListItem" };
-
-export const withInactiveState = () => (
-  <ListItem title={"Simptome și tratament"} />
-);
-
-export const withActiveState = () => (
-  <ListItem active={true} title={"Simptome și tratament"} />
-);
-
-export const withNonOptionState = () => {
-  return (
-    <div style={{ minWidth: 300, maxWidth: 750 }}>
-      <ListItem
-        nonOption={true}
-        title={`Nu manifești niciun simptom de infecție. Te rugăm să rămâi în siguranță la
-          domiciliu și să limitezi la maximum orice ieșire nerelevantă dacă ai posibilitatea.
-          Dacă nu poți lucra de acasă și trebuie să ieși din casă atunci consultă secțiunea de
-          sfaturi și bune practici pentru cei care nu pot sta în auto-izolare de pe acest website.`}
-      />
-    </div>
-  );
+export default {
+  title: "ListItem",
+  decorators: [withKnobs]
 };
 
-export const withActiveStateAndArrow = () => (
-  <ListItem active={true} hasNext={true} title={"Simptome și tratament"} />
+export const listItem = () => (
+  <ListItem
+    title={text("Title", "Simptome și tratament")}
+    active={boolean("Active")}
+    nonOption={boolean("Non-option")}
+    hasNext={boolean("Has Next")}
+  />
 );
 
 export const onClickWithValue = () => {
